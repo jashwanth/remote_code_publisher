@@ -1,0 +1,205 @@
+<html>
+<head>
+   <link rel = "stylesheet" href ="..\stylesheet.css">
+   <script src="..\javascript.js"></script>
+</head>
+<body>
+<pre><hr /><div class="indent" >
+<h4>Dependencies:</h4>
+<a href=AbstrSynTree.cpp.htm>AbstrSynTree.cpp</a>
+</div>
+  <hr />
+ <pre>
+#pragma once
+/////////////////////////////////////////////////////////////////////
+//  AbstrSynTree.h - Represents an Abstract Syntax Tree            //
+//  ver 1.4                                                        //
+//  Language:      Visual C++ 2015                                 //
+//  Platform:      Dell XPS 8900, Windows 10                       //
+//  Application:   Used to support parsing source code             //
+//  Author:        Jim Fawcett, CST 4-187, Syracuse University     //
+//                 (315) 443-3948, jfawcett@twcny.rr.com           //
+/////////////////////////////////////////////////////////////////////
+/*
+  Package Operations:
+  ==================
+  This package defines an AbstrSynTree class and an ASTNode struct.  
+  Those provides support for building Abstract Syntax Trees during 
+  static source code analysis.
+
+  Public Interface:
+  =================
+  AbstrSynTree ast(scopeStack);       // create instance, passing in ScopeStack
+  ASTNode* pNode = ast.root();        // get or set root of AST
+  ast.add(pNode);                     // add ASTNode to tree, linked to current scope
+  ASTNode* pNode = ast.find(myType);  // retrieve ptr to ASTNode representing myType
+  ast.pop();                          // close current scope by poping top of scopeStack
+
+  Build Process:
+  ==============
+  Required files
+  - AbstrSynTree.h, AbstrSynTree.cpp, Utilities.h, Utilities.cpp
+
+  Build commands (either one)
+  - devenv CodeAnalysis.sln
+  - cl /EHsc /DTEST_ABSTRSYNTREE AbstrSynTree.cpp Utilities.cpp /link setargv.obj
+
+  Maintenance History:
+  ====================
+  ver 1.4 : 26 Feb 2017
+  - added parentType_ member to support better grammar analysis
+  ver 1.3 : 29 Oct 2016
+  - added throw in ScopeStack if pop or peek empty stack
+  ver 1.2 : 28 Oct 2016
+  - added test for interface in show() and Add(ASTNode*)
+  ver 1.1 : 22 Aug 2016
+  - added access type and declaration type enumerations
+  - added processing to store access level in AST
+  - added more prologue comments
+  ver 1.0 : 05 Aug 2016
+  - first release
+
+*/
+
+#include &lt;string&gt;
+#include &lt;vector&gt;
+#include &lt;sstream&gt;
+#include &lt;unordered_map&gt;
+#include &lt;functional&gt;
+#include "../SemiExp/itokcollection.h"
+#include "../ScopeStack/ScopeStack.h"
+
+namespace CodeAnalysis
+{
+<input onclick="expand_collapse(simplediv702.id, this.id)" type="button" value=" ^ " id="myButton702" /><div id="simplediv702" style="display:block; ">
+  enum Access 
+  {
+<input onclick="expand_collapse(simplediv703.id, this.id)" type="button" value=" ^ " id="myButton703" /><div id="simplediv703" style="display:block; "> 
+    publ, prot, priv 
+  }</div>;
+
+  enum DeclType 
+  {
+<input onclick="expand_collapse(simplediv704.id, this.id)" type="button" value=" ^ " id="myButton704" /><div id="simplediv704" style="display:block; "> 
+    dataDecl, functionDecl, lambdaDecl, usingDecl 
+  }</div>;
+
+  struct DeclarationNode
+  {
+<input onclick="expand_collapse(simplediv705.id, this.id)" type="button" value=" ^ " id="myButton705" /><div id="simplediv705" style="display:block; ">
+    Scanner::ITokCollection* pTc = nullptr;
+    Access access_;
+    DeclType declType_;
+    std::string package_;
+    size_t line_;
+  }</div>;
+
+  struct ASTNode
+  {
+<input onclick="expand_collapse(simplediv706.id, this.id)" type="button" value=" ^ " id="myButton706" /><div id="simplediv706" style="display:block; ">
+    using Type = std::string;
+    using Name = std::string;
+    using Package = std::string;
+    using Path = std::string;
+
+    ASTNode();
+    ASTNode(const Type& type, const Name& name);
+    ~ASTNode();
+    Type type_;
+    Type parentType_;
+    Name name_;
+    Package package_;
+    Path path_;
+    size_t startLineCount_;
+    size_t endLineCount_;
+    size_t complexity_;
+    std::vector&lt;ASTNode*&gt; children_;
+    std::vector&lt;DeclarationNode&gt; decl_;
+    std::vector&lt;Scanner::ITokCollection*&gt; statements_;
+    std::string show(bool details = false);
+  }</div>;
+
+  class AbstrSynTree
+  {
+<input onclick="expand_collapse(simplediv707.id, this.id)" type="button" value=" ^ " id="myButton707" /><div id="simplediv707" style="display:block; ">
+  public:
+    using ClassName = std::string;
+    using TypeMap = std::unordered_map&lt;ClassName, ASTNode*&gt;;
+
+    AbstrSynTree(ScopeStack&lt;ASTNode*&gt;& stack);
+    ~AbstrSynTree();
+    ASTNode*& root();
+    void add(ASTNode* pNode);
+    ASTNode* find(const ClassName& type);
+    ASTNode* pop();
+    TypeMap& typeMap();
+  private:
+    TypeMap typeMap_;
+    ScopeStack&lt;ASTNode*&gt;& stack_;
+    ASTNode* pGlobalNamespace_;
+  }</div>;
+  //----&lt; traverse AST and execute callobj on every node &gt;-------------
+
+  template &lt;typename CallObj&gt;
+  void ASTWalk(ASTNode* pItem, CallObj co)
+  {
+<input onclick="expand_collapse(simplediv708.id, this.id)" type="button" value=" ^ " id="myButton708" /><div id="simplediv708" style="display:block; ">
+    static size_t indentLevel = 0;
+    co(pItem, indentLevel);
+    auto iter = pItem-&gt;children_.begin();
+    ++indentLevel;
+    while (iter != pItem-&gt;children_.end())
+    {
+<input onclick="expand_collapse(simplediv709.id, this.id)" type="button" value=" ^ " id="myButton709" /><div id="simplediv709" style="display:block; ">
+      ASTWalk(*iter, co);
+      ++iter;
+    }</div>
+    --indentLevel;
+  }</div>
+  //----&lt; traverse AST and execute callobj on every node &gt;-------------
+
+  template &lt;typename CallObj&gt;
+  void ASTWalkNoIndent(ASTNode* pItem, CallObj co)
+  {
+<input onclick="expand_collapse(simplediv710.id, this.id)" type="button" value=" ^ " id="myButton710" /><div id="simplediv710" style="display:block; ">
+    co(pItem);
+    auto iter = pItem-&gt;children_.begin();
+    while (iter != pItem-&gt;children_.end())
+    {
+<input onclick="expand_collapse(simplediv711.id, this.id)" type="button" value=" ^ " id="myButton711" /><div id="simplediv711" style="display:block; ">
+      ASTWalkNoIndent(*iter, co);
+      ++iter;
+    }</div>
+  }</div>
+  //----&lt; compute complexities for each ASTNode &gt;--------------------
+
+  inline void complexityWalk(ASTNode* pItem, size_t& count)
+  {
+<input onclick="expand_collapse(simplediv712.id, this.id)" type="button" value=" ^ " id="myButton712" /><div id="simplediv712" style="display:block; ">
+    size_t inCount = ++count;
+    auto iter = pItem-&gt;children_.begin();
+    while (iter != pItem-&gt;children_.end())
+    {
+<input onclick="expand_collapse(simplediv713.id, this.id)" type="button" value=" ^ " id="myButton713" /><div id="simplediv713" style="display:block; ">
+      complexityWalk(*iter, count);
+      ++iter;
+    }</div>
+    pItem-&gt;complexity_ = count - inCount + 1;
+  }</div>
+  //----&lt; compute complexities for each ASTNode &gt;--------------------
+
+  inline void complexityEval(ASTNode* pNode)
+  {
+<input onclick="expand_collapse(simplediv714.id, this.id)" type="button" value=" ^ " id="myButton714" /><div id="simplediv714" style="display:block; ">
+    size_t initialCount = 0;
+    complexityWalk(pNode, initialCount);
+  }</div>
+}</div>
+
+struct foobar {
+<input onclick="expand_collapse(simplediv715.id, this.id)" type="button" value=" ^ " id="myButton715" /><div id="simplediv715" style="display:block; ">
+
+}</div>;
+</pre>
+</body>
+</html>

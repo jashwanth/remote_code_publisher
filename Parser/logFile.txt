@@ -1,0 +1,24 @@
+
+                                      CodeAnalysis - Version 1.4
+    ==============================================================================================
+     Wed Mar  1 11:02:20 2017
+     Path: "\\vboxsvr\Downloads\OOD\project2_testbreakpoints\CodeAnalyzerEx\Parser"
+     Args: *.h, *.cpp, /f, /r
+                                                                               
+                          Functions Exceeding Metric Limits and Public Data
+    ==============================================================================================
+                 file name        type                               name    line    size    cplx
+    -----------------------  ----------  ---------------------------------  ------  ------  ------
+         ActionsAndRules.h    function                           doAction     599      85       6
+         ActionsAndRules.h    function                             doTest     903      74      10
+       ConfigureParser.cpp    function                              Build      89      98       3
+                Parser.cpp    function                               main      89      55       8
+
+              public data: Parser.h : 107 - class IRule
+                static const bool Continue = true ; 
+              public data: Parser.h : 108 - class IRule
+                static const bool Stop = false ; 
+
+
+    searched     5 dirs
+   processed     6 files

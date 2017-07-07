@@ -1,0 +1,18 @@
+
+                                      CodeAnalysis - Version 1.4
+    ==============================================================================================
+     Wed Mar  1 10:53:25 2017
+     Path: "\\vboxsvr\Downloads\OOD\project2_testbreakpoints\CodeAnalyzerEx\Utilities"
+     Args: *.h, *.cpp, /f, /r
+                                                                               
+                          Functions Exceeding Metric Limits and Public Data
+    ==============================================================================================
+                 file name        type                               name    line    size    cplx
+    -----------------------  ----------  ---------------------------------  ------  ------  ------
+
+              public data: Utilities.h : 56 - class test
+                std :: vector < std :: string > publicVector ; 
+
+
+    searched     6 dirs
+   processed     2 files

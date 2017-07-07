@@ -1,0 +1,144 @@
+<html>
+<head>
+   <link rel = "stylesheet" href ="..\stylesheet.css">
+   <script src="..\javascript.js"></script>
+</head>
+<body>
+<pre><hr /><div class="indent" >
+<h4>Dependencies:</h4>
+<a href=AbstrSynTree.h.htm>AbstrSynTree.h</a>
+</div>
+  <hr />
+ <pre>
+#pragma once
+///////////////////////////////////////////////////////////////
+// TypeAnalysis.h -                                          //
+// Ver 1.6                                                   //
+// Language:     Visual C++ 2015                             //
+// Platform:     Mac Machine , Windows 7  Virtual Machine    //
+// Application:  for CSE687 - OOD, Pr#2, Spring 2017         //
+// Author:       Jashwanth Reddy Gangula, Syracuse University//
+//               (315) 949-8857, jgangula@syr.edu            //
+///////////////////////////////////////////////////////////////
+//*Operations:
+//*This packages is used to build the Type table which gives information
+//*about the various Interfaces, Structs, Classes and Enums present in the whole package
+//*The Type table consists of the type ,name and the file name.
+//*Required files
+//*ActionsAndRules.h and ActionsAndRules.cpp
+
+#include "../Parser/ActionsAndRules.h"
+#include &lt;iostream&gt;
+#include &lt;functional&gt;
+#include "../Utilities/Utilities.h"
+using namespace Utilities;
+
+#pragma warning (disable : 4101)  // disable warning re unused variable x, below
+
+namespace CodeAnalysis
+{
+<input onclick="expand_collapse(simplediv776.id, this.id)" type="button" value=" ^ " id="myButton776" /><div id="simplediv776" style="display:block; ">
+	class TypeAnal
+	{
+<input onclick="expand_collapse(simplediv777.id, this.id)" type="button" value=" ^ " id="myButton777" /><div id="simplediv777" style="display:block; ">
+	public:
+		using SPtr = std::shared_ptr&lt;ASTNode*&gt;;
+		//----&lt; Performs the Type Analysis &gt;--------------
+		TypeAnal();
+		void doTypeAnal();
+		//----&lt; Returns the type table which is constructed &gt;--------------
+		TypeTable& getTypeTable() {
+<input onclick="expand_collapse(simplediv778.id, this.id)" type="button" value=" ^ " id="myButton778" /><div id="simplediv778" style="display:block; "> return typeTable_; }</div>
+		//----&lt; Displays the Typetable &gt;--------------
+		void displayTypeTable() {
+<input onclick="expand_collapse(simplediv779.id, this.id)" type="button" value=" ^ " id="myButton779" /><div id="simplediv779" style="display:block; "> typeTable_.displayTypeTable(); }</div>
+	private:
+		//----&lt; Provides a DFS on the graph, a walk &gt;--------------
+		void DFS(ASTNode* pNode);
+		AbstrSynTree& ASTref_;
+		ScopeStack&lt;ASTNode*&gt; scopeStack_;
+		Scanner::Toker& toker_;
+		TypeTable &typeTable_;
+		//TypeTable &Functable;
+	}</div>;
+
+	inline TypeAnal::TypeAnal() :
+		ASTref_(Repository::getInstance()-&gt;AST()),
+		scopeStack_(Repository::getInstance()-&gt;scopeStack()),
+		toker_(*(Repository::getInstance()-&gt;Toker())),
+		typeTable_(Repository::getInstance()-&gt;typeTable())
+	{
+<input onclick="expand_collapse(simplediv780.id, this.id)" type="button" value=" ^ " id="myButton780" /><div id="simplediv780" style="display:block; ">
+		 
+		std::function&lt;void()&gt; test = [] {
+<input onclick="expand_collapse(simplediv781.id, this.id)" type="button" value=" ^ " id="myButton781" /><div id="simplediv781" style="display:block; "> int x; }</div>;  // This is here to test detection of lambdas.
+													 // It doesn't do anything useful for dep anal.
+		//	  typeTable_.getTypeTable.clear();            // clear the typetable initially
+
+	}</div>
+
+
+	inline bool doDisplay(ASTNode* pNode)
+	{
+<input onclick="expand_collapse(simplediv782.id, this.id)" type="button" value=" ^ " id="myButton782" /><div id="simplediv782" style="display:block; ">
+		static std::string toDisplay[] = {
+<input onclick="expand_collapse(simplediv783.id, this.id)" type="button" value=" ^ " id="myButton783" /><div id="simplediv783" style="display:block; ">
+			"function", "lambda", "class", "struct", "enum", "alias", "typedef"
+		}</div>;
+		for (std::string type : toDisplay)
+		{
+<input onclick="expand_collapse(simplediv784.id, this.id)" type="button" value=" ^ " id="myButton784" /><div id="simplediv784" style="display:block; ">
+			if (pNode-&gt;type_ == type)
+				return true;
+		}</div>
+		return false;
+	}</div>
+	inline void TypeAnal::DFS(ASTNode* pNode)
+	{
+<input onclick="expand_collapse(simplediv785.id, this.id)" type="button" value=" ^ " id="myButton785" /><div id="simplediv785" style="display:block; ">
+		static std::string path = "";
+		if (pNode-&gt;path_ != path)
+		{
+<input onclick="expand_collapse(simplediv786.id, this.id)" type="button" value=" ^ " id="myButton786" /><div id="simplediv786" style="display:block; ">
+			path = pNode-&gt;path_ + "\\" + pNode-&gt;package_;
+			//std::cout &lt;&lt; "\n    -- " &lt;&lt; pNode-&gt;path_ &lt;&lt; "\\" &lt;&lt; pNode-&gt;package_;
+			//path = pNode-&gt;path_;
+		}</div>
+		//if (doDisplay(pNode))
+		//{
+<input onclick="expand_collapse(simplediv787.id, this.id)" type="button" value=" ^ " id="myButton787" /><div id="simplediv787" style="display:block; ">
+		//	//std::cout &lt;&lt; "\n  " &lt;&lt; pNode-&gt;name_;
+		//	std::cout &lt;&lt; ", " &lt;&lt; pNode-&gt;type_;
+		//}</div>
+
+		if ((pNode-&gt;type_ == "class") || (pNode-&gt;type_ == "struct") || (pNode-&gt;type_ == "interface") || (pNode-&gt;type_ == "enum") /*|| (pNode-&gt;type_ == "function")*/ )
+		{
+<input onclick="expand_collapse(simplediv788.id, this.id)" type="button" value=" ^ " id="myButton788" /><div id="simplediv788" style="display:block; ">
+		//	typeTable_.InsertIntoTT(pNode-&gt;name_, pNode-&gt;package_);
+
+			StoreData s1;
+			s1.name = pNode-&gt;name_;
+			s1.type = pNode-&gt;type_;
+			s1.filename = pNode-&gt;path_;
+			typeTable_.InsertIntoTT(pNode-&gt;name_,s1);
+		}</div>
+		for (auto pChild : pNode-&gt;children_)
+			DFS(pChild);
+	}</div>
+
+	inline void TypeAnal::doTypeAnal()
+	{
+<input onclick="expand_collapse(simplediv789.id, this.id)" type="button" value=" ^ " id="myButton789" /><div id="simplediv789" style="display:block; ">
+	/*	std::cout &lt;&lt; "\n  starting type analysis:\n";
+		std::cout &lt;&lt; "\n  scanning AST and displaying important things:";
+		std::cout &lt;&lt; "\n -----------------------------------------------";*/
+		StringHelper::Title("Pushing all the classes, structures, enums definitions to type table");
+		StringHelper::Title("Start of Depth First Search on ABST");
+		ASTNode* pRoot = ASTref_.root();
+		DFS(pRoot);
+		//std::cout &lt;&lt; "\n\n  the rest is for you to complete\n";
+	}</div>
+}</div>
+</pre>
+</body>
+</html>

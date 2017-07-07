@@ -1,0 +1,18 @@
+body {
+      margin: 20px;
+      color: black;
+      background-color: #eee;
+      font-family: Consolas;
+      font-weight: 600;
+      font-size: 110%;
+    }
+
+    .indent {
+      margin-left: 20px;
+      margin-right: 20px;
+    }
+
+    h4 {
+      margin-bottom: 3px;
+      margin-top: 3px;
+    }

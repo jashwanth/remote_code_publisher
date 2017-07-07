@@ -1,0 +1,937 @@
+
+
+  opening file "Executive.h"
+  Test begin scope                : # pragma once 
+  Test end scope                  : # pragma once 
+  Test preproc statement:         : # pragma once 
+  Handle preproc statement:       : # pragma once 
+  Test begin scope                : # include < string > 
+  Test end scope                  : # include < string > 
+  Test preproc statement:         : # include < string > 
+  Handle preproc statement:       : # include < string > 
+  Test begin scope                : # include < vector > 
+  Test end scope                  : # include < vector > 
+  Test preproc statement:         : # include < vector > 
+  Handle preproc statement:       : # include < vector > 
+  Test begin scope                : # include < unordered_map > 
+  Test end scope                  : # include < unordered_map > 
+  Test preproc statement:         : # include < unordered_map > 
+  Handle preproc statement:       : # include < unordered_map > 
+  Test begin scope                : # include < iosfwd > 
+  Test end scope                  : # include < iosfwd > 
+  Test preproc statement:         : # include < iosfwd > 
+  Handle preproc statement:       : # include < iosfwd > 
+  Test begin scope                : # include "../Parser/Parser.h" 
+  Test end scope                  : # include "../Parser/Parser.h" 
+  Test preproc statement:         : # include "../Parser/Parser.h" 
+  Handle preproc statement:       : # include "../Parser/Parser.h" 
+  Test begin scope                : # include "../FileMgr/FileMgr.h" 
+  Test end scope                  : # include "../FileMgr/FileMgr.h" 
+  Test preproc statement:         : # include "../FileMgr/FileMgr.h" 
+  Handle preproc statement:       : # include "../FileMgr/FileMgr.h" 
+  Test begin scope                : # include "../Parser/ConfigureParser.h" 
+  Test end scope                  : # include "../Parser/ConfigureParser.h" 
+  Test preproc statement:         : # include "../Parser/ConfigureParser.h" 
+  Handle preproc statement:       : # include "../Parser/ConfigureParser.h" 
+  Test begin scope                : # include "../Utilities/Utilities.h" 
+  Test end scope                  : # include "../Utilities/Utilities.h" 
+  Test preproc statement:         : # include "../Utilities/Utilities.h" 
+  Handle preproc statement:       : # include "../Utilities/Utilities.h" 
+  Test begin scope                : namespace CodeAnalysis { 
+  handle begin scope              : namespace CodeAnalysis { 
+  Test end scope                  : namespace CodeAnalysis { 
+  Test preproc statement:         : namespace CodeAnalysis { 
+  Test namespace definition:      : namespace CodeAnalysis { 
+  Handle namespace definition:    : namespace CodeAnalysis { 
+  Test begin scope                : using Utils = Utilities :: StringHelper ; 
+  Test end scope                  : using Utils = Utilities :: StringHelper ; 
+  Test preproc statement:         : using Utils = Utilities :: StringHelper ; 
+  Test namespace definition:      : using Utils = Utilities :: StringHelper ; 
+  Test class definition:          : using Utils = Utilities :: StringHelper ; 
+  Test struct definition:         : using Utils = Utilities :: StringHelper ; 
+  Test C++ function definition:   : using Utils = Utilities :: StringHelper ; 
+  Test control definition:        : using Utils = Utilities :: StringHelper ; 
+  Test C++ declaration:           : using Utils = Utilities :: StringHelper ; 
+  Handle C++ declaration:         : using Utils = Utilities :: StringHelper ; 
+  Test begin scope                : class AnalFileMgr : public FileManager :: FileMgr { 
+  handle begin scope              : class AnalFileMgr : public FileManager :: FileMgr { 
+  Test end scope                  : class AnalFileMgr : public FileManager :: FileMgr { 
+  Test preproc statement:         : class AnalFileMgr : public FileManager :: FileMgr { 
+  Test namespace definition:      : class AnalFileMgr : public FileManager :: FileMgr { 
+  Test class definition:          : class AnalFileMgr : public FileManager :: FileMgr { 
+  Handle class definition:        : class AnalFileMgr : public FileManager :: FileMgr { 
+  Test begin scope                : public : 
+  Test end scope                  : public : 
+  Test preproc statement:         : public : 
+  Test namespace definition:      : public : 
+  Test class definition:          : public : 
+  Test struct definition:         : public : 
+  Test C++ function definition:   : public : 
+  Test control definition:        : public : 
+  Test C++ declaration:           : public : 
+  Test C++ executable:            : public : 
+  Test default:                   : public : 
+  Handle default:                 : public : 
+  Test begin scope                : using Path = std :: string ; 
+  Test end scope                  : using Path = std :: string ; 
+  Test preproc statement:         : using Path = std :: string ; 
+  Test namespace definition:      : using Path = std :: string ; 
+  Test class definition:          : using Path = std :: string ; 
+  Test struct definition:         : using Path = std :: string ; 
+  Test C++ function definition:   : using Path = std :: string ; 
+  Test control definition:        : using Path = std :: string ; 
+  Test C++ declaration:           : using Path = std :: string ; 
+  Handle C++ declaration:         : using Path = std :: string ; 
+  Test begin scope                : using File = std :: string ; 
+  Test end scope                  : using File = std :: string ; 
+  Test preproc statement:         : using File = std :: string ; 
+  Test namespace definition:      : using File = std :: string ; 
+  Test class definition:          : using File = std :: string ; 
+  Test struct definition:         : using File = std :: string ; 
+  Test C++ function definition:   : using File = std :: string ; 
+  Test control definition:        : using File = std :: string ; 
+  Test C++ declaration:           : using File = std :: string ; 
+  Handle C++ declaration:         : using File = std :: string ; 
+  Test begin scope                : using Files = std :: vector < File > ; 
+  Test end scope                  : using Files = std :: vector < File > ; 
+  Test preproc statement:         : using Files = std :: vector < File > ; 
+  Test namespace definition:      : using Files = std :: vector < File > ; 
+  Test class definition:          : using Files = std :: vector < File > ; 
+  Test struct definition:         : using Files = std :: vector < File > ; 
+  Test C++ function definition:   : using Files = std :: vector < File > ; 
+  Test control definition:        : using Files = std :: vector < File > ; 
+  Test C++ declaration:           : using Files = std :: vector < File > ; 
+  Handle C++ declaration:         : using Files = std :: vector < File > ; 
+  Test begin scope                : using Pattern = std :: string ; 
+  Test end scope                  : using Pattern = std :: string ; 
+  Test preproc statement:         : using Pattern = std :: string ; 
+  Test namespace definition:      : using Pattern = std :: string ; 
+  Test class definition:          : using Pattern = std :: string ; 
+  Test struct definition:         : using Pattern = std :: string ; 
+  Test C++ function definition:   : using Pattern = std :: string ; 
+  Test control definition:        : using Pattern = std :: string ; 
+  Test C++ declaration:           : using Pattern = std :: string ; 
+  Handle C++ declaration:         : using Pattern = std :: string ; 
+  Test begin scope                : using Ext = std :: string ; 
+  Test end scope                  : using Ext = std :: string ; 
+  Test preproc statement:         : using Ext = std :: string ; 
+  Test namespace definition:      : using Ext = std :: string ; 
+  Test class definition:          : using Ext = std :: string ; 
+  Test struct definition:         : using Ext = std :: string ; 
+  Test C++ function definition:   : using Ext = std :: string ; 
+  Test control definition:        : using Ext = std :: string ; 
+  Test C++ declaration:           : using Ext = std :: string ; 
+  Handle C++ declaration:         : using Ext = std :: string ; 
+  Test begin scope                : using FileMap = std :: unordered_map < Pattern , Files > ; 
+  Test end scope                  : using FileMap = std :: unordered_map < Pattern , Files > ; 
+  Test preproc statement:         : using FileMap = std :: unordered_map < Pattern , Files > ; 
+  Test namespace definition:      : using FileMap = std :: unordered_map < Pattern , Files > ; 
+  Test class definition:          : using FileMap = std :: unordered_map < Pattern , Files > ; 
+  Test struct definition:         : using FileMap = std :: unordered_map < Pattern , Files > ; 
+  Test C++ function definition:   : using FileMap = std :: unordered_map < Pattern , Files > ; 
+  Test control definition:        : using FileMap = std :: unordered_map < Pattern , Files > ; 
+  Test C++ declaration:           : using FileMap = std :: unordered_map < Pattern , Files > ; 
+  Handle C++ declaration:         : using FileMap = std :: unordered_map < Pattern , Files > ; 
+  Test begin scope                : AnalFileMgr ( const Path & path , FileMap & fileMap ) ; 
+  Test end scope                  : AnalFileMgr ( const Path & path , FileMap & fileMap ) ; 
+  Test preproc statement:         : AnalFileMgr ( const Path & path , FileMap & fileMap ) ; 
+  Test namespace definition:      : AnalFileMgr ( const Path & path , FileMap & fileMap ) ; 
+  Test class definition:          : AnalFileMgr ( const Path & path , FileMap & fileMap ) ; 
+  Test struct definition:         : AnalFileMgr ( const Path & path , FileMap & fileMap ) ; 
+  Test C++ function definition:   : AnalFileMgr ( const Path & path , FileMap & fileMap ) ; 
+  Test control definition:        : AnalFileMgr ( const Path & path , FileMap & fileMap ) ; 
+  Test C++ declaration:           : AnalFileMgr ( const Path & path , FileMap & fileMap ) ; 
+  Handle C++ declaration:         : AnalFileMgr ( const Path & path , FileMap & fileMap ) ; 
+  Test begin scope                : virtual void file ( const File & f ) ; 
+  Test end scope                  : virtual void file ( const File & f ) ; 
+  Test preproc statement:         : virtual void file ( const File & f ) ; 
+  Test namespace definition:      : virtual void file ( const File & f ) ; 
+  Test class definition:          : virtual void file ( const File & f ) ; 
+  Test struct definition:         : virtual void file ( const File & f ) ; 
+  Test C++ function definition:   : virtual void file ( const File & f ) ; 
+  Test control definition:        : virtual void file ( const File & f ) ; 
+  Test C++ declaration:           : virtual void file ( const File & f ) ; 
+  Handle C++ declaration:         : virtual void file ( const File & f ) ; 
+  Test begin scope                : virtual void dir ( const Dir & d ) ; 
+  Test end scope                  : virtual void dir ( const Dir & d ) ; 
+  Test preproc statement:         : virtual void dir ( const Dir & d ) ; 
+  Test namespace definition:      : virtual void dir ( const Dir & d ) ; 
+  Test class definition:          : virtual void dir ( const Dir & d ) ; 
+  Test struct definition:         : virtual void dir ( const Dir & d ) ; 
+  Test C++ function definition:   : virtual void dir ( const Dir & d ) ; 
+  Test control definition:        : virtual void dir ( const Dir & d ) ; 
+  Test C++ declaration:           : virtual void dir ( const Dir & d ) ; 
+  Handle C++ declaration:         : virtual void dir ( const Dir & d ) ; 
+  Test begin scope                : virtual void done ( ) ; 
+  Test end scope                  : virtual void done ( ) ; 
+  Test preproc statement:         : virtual void done ( ) ; 
+  Test namespace definition:      : virtual void done ( ) ; 
+  Test class definition:          : virtual void done ( ) ; 
+  Test struct definition:         : virtual void done ( ) ; 
+  Test C++ function definition:   : virtual void done ( ) ; 
+  Test control definition:        : virtual void done ( ) ; 
+  Test C++ declaration:           : virtual void done ( ) ; 
+  Handle C++ declaration:         : virtual void done ( ) ; 
+  Test begin scope                : size_t numFiles ( ) ; 
+  Test end scope                  : size_t numFiles ( ) ; 
+  Test preproc statement:         : size_t numFiles ( ) ; 
+  Test namespace definition:      : size_t numFiles ( ) ; 
+  Test class definition:          : size_t numFiles ( ) ; 
+  Test struct definition:         : size_t numFiles ( ) ; 
+  Test C++ function definition:   : size_t numFiles ( ) ; 
+  Test control definition:        : size_t numFiles ( ) ; 
+  Test C++ declaration:           : size_t numFiles ( ) ; 
+  Handle C++ declaration:         : size_t numFiles ( ) ; 
+  Test begin scope                : size_t numDirs ( ) ; 
+  Test end scope                  : size_t numDirs ( ) ; 
+  Test preproc statement:         : size_t numDirs ( ) ; 
+  Test namespace definition:      : size_t numDirs ( ) ; 
+  Test class definition:          : size_t numDirs ( ) ; 
+  Test struct definition:         : size_t numDirs ( ) ; 
+  Test C++ function definition:   : size_t numDirs ( ) ; 
+  Test control definition:        : size_t numDirs ( ) ; 
+  Test C++ declaration:           : size_t numDirs ( ) ; 
+  Handle C++ declaration:         : size_t numDirs ( ) ; 
+  Test begin scope                : private : 
+  Test end scope                  : private : 
+  Test preproc statement:         : private : 
+  Test namespace definition:      : private : 
+  Test class definition:          : private : 
+  Test struct definition:         : private : 
+  Test C++ function definition:   : private : 
+  Test control definition:        : private : 
+  Test C++ declaration:           : private : 
+  Test C++ executable:            : private : 
+  Test default:                   : private : 
+  Handle default:                 : private : 
+  Test begin scope                : Path d_ ; 
+  Test end scope                  : Path d_ ; 
+  Test preproc statement:         : Path d_ ; 
+  Test namespace definition:      : Path d_ ; 
+  Test class definition:          : Path d_ ; 
+  Test struct definition:         : Path d_ ; 
+  Test C++ function definition:   : Path d_ ; 
+  Test control definition:        : Path d_ ; 
+  Test C++ declaration:           : Path d_ ; 
+  Handle C++ declaration:         : Path d_ ; 
+  Test begin scope                : FileMap & fileMap_ ; 
+  Test end scope                  : FileMap & fileMap_ ; 
+  Test preproc statement:         : FileMap & fileMap_ ; 
+  Test namespace definition:      : FileMap & fileMap_ ; 
+  Test class definition:          : FileMap & fileMap_ ; 
+  Test struct definition:         : FileMap & fileMap_ ; 
+  Test C++ function definition:   : FileMap & fileMap_ ; 
+  Test control definition:        : FileMap & fileMap_ ; 
+  Test C++ declaration:           : FileMap & fileMap_ ; 
+  Handle C++ declaration:         : FileMap & fileMap_ ; 
+  Test begin scope                : bool display_ ; 
+  Test end scope                  : bool display_ ; 
+  Test preproc statement:         : bool display_ ; 
+  Test namespace definition:      : bool display_ ; 
+  Test class definition:          : bool display_ ; 
+  Test struct definition:         : bool display_ ; 
+  Test C++ function definition:   : bool display_ ; 
+  Test control definition:        : bool display_ ; 
+  Test C++ declaration:           : bool display_ ; 
+  Handle C++ declaration:         : bool display_ ; 
+  Test begin scope                : size_t numFiles_ ; 
+  Test end scope                  : size_t numFiles_ ; 
+  Test preproc statement:         : size_t numFiles_ ; 
+  Test namespace definition:      : size_t numFiles_ ; 
+  Test class definition:          : size_t numFiles_ ; 
+  Test struct definition:         : size_t numFiles_ ; 
+  Test C++ function definition:   : size_t numFiles_ ; 
+  Test control definition:        : size_t numFiles_ ; 
+  Test C++ declaration:           : size_t numFiles_ ; 
+  Handle C++ declaration:         : size_t numFiles_ ; 
+  Test begin scope                : size_t numDirs_ ; 
+  Test end scope                  : size_t numDirs_ ; 
+  Test preproc statement:         : size_t numDirs_ ; 
+  Test namespace definition:      : size_t numDirs_ ; 
+  Test class definition:          : size_t numDirs_ ; 
+  Test struct definition:         : size_t numDirs_ ; 
+  Test C++ function definition:   : size_t numDirs_ ; 
+  Test control definition:        : size_t numDirs_ ; 
+  Test C++ declaration:           : size_t numDirs_ ; 
+  Handle C++ declaration:         : size_t numDirs_ ; 
+  Test begin scope                : } 
+  Test end scope                  : } 
+  Handle end scope                : } 
+  Test begin scope                : ; 
+  Test begin scope                : class CodeAnalysisExecutive { 
+  handle begin scope              : class CodeAnalysisExecutive { 
+  Test end scope                  : class CodeAnalysisExecutive { 
+  Test preproc statement:         : class CodeAnalysisExecutive { 
+  Test namespace definition:      : class CodeAnalysisExecutive { 
+  Test class definition:          : class CodeAnalysisExecutive { 
+  Handle class definition:        : class CodeAnalysisExecutive { 
+  Test begin scope                : public : 
+  Test end scope                  : public : 
+  Test preproc statement:         : public : 
+  Test namespace definition:      : public : 
+  Test class definition:          : public : 
+  Test struct definition:         : public : 
+  Test C++ function definition:   : public : 
+  Test control definition:        : public : 
+  Test C++ declaration:           : public : 
+  Test C++ executable:            : public : 
+  Test default:                   : public : 
+  Handle default:                 : public : 
+  Test begin scope                : using Path = std :: string ; 
+  Test end scope                  : using Path = std :: string ; 
+  Test preproc statement:         : using Path = std :: string ; 
+  Test namespace definition:      : using Path = std :: string ; 
+  Test class definition:          : using Path = std :: string ; 
+  Test struct definition:         : using Path = std :: string ; 
+  Test C++ function definition:   : using Path = std :: string ; 
+  Test control definition:        : using Path = std :: string ; 
+  Test C++ declaration:           : using Path = std :: string ; 
+  Handle C++ declaration:         : using Path = std :: string ; 
+  Test begin scope                : using Pattern = std :: string ; 
+  Test end scope                  : using Pattern = std :: string ; 
+  Test preproc statement:         : using Pattern = std :: string ; 
+  Test namespace definition:      : using Pattern = std :: string ; 
+  Test class definition:          : using Pattern = std :: string ; 
+  Test struct definition:         : using Pattern = std :: string ; 
+  Test C++ function definition:   : using Pattern = std :: string ; 
+  Test control definition:        : using Pattern = std :: string ; 
+  Test C++ declaration:           : using Pattern = std :: string ; 
+  Handle C++ declaration:         : using Pattern = std :: string ; 
+  Test begin scope                : using Patterns = std :: vector < Pattern > ; 
+  Test end scope                  : using Patterns = std :: vector < Pattern > ; 
+  Test preproc statement:         : using Patterns = std :: vector < Pattern > ; 
+  Test namespace definition:      : using Patterns = std :: vector < Pattern > ; 
+  Test class definition:          : using Patterns = std :: vector < Pattern > ; 
+  Test struct definition:         : using Patterns = std :: vector < Pattern > ; 
+  Test C++ function definition:   : using Patterns = std :: vector < Pattern > ; 
+  Test control definition:        : using Patterns = std :: vector < Pattern > ; 
+  Test C++ declaration:           : using Patterns = std :: vector < Pattern > ; 
+  Handle C++ declaration:         : using Patterns = std :: vector < Pattern > ; 
+  Test begin scope                : using File = std :: string ; 
+  Test end scope                  : using File = std :: string ; 
+  Test preproc statement:         : using File = std :: string ; 
+  Test namespace definition:      : using File = std :: string ; 
+  Test class definition:          : using File = std :: string ; 
+  Test struct definition:         : using File = std :: string ; 
+  Test C++ function definition:   : using File = std :: string ; 
+  Test control definition:        : using File = std :: string ; 
+  Test C++ declaration:           : using File = std :: string ; 
+  Handle C++ declaration:         : using File = std :: string ; 
+  Test begin scope                : using Files = std :: vector < File > ; 
+  Test end scope                  : using Files = std :: vector < File > ; 
+  Test preproc statement:         : using Files = std :: vector < File > ; 
+  Test namespace definition:      : using Files = std :: vector < File > ; 
+  Test class definition:          : using Files = std :: vector < File > ; 
+  Test struct definition:         : using Files = std :: vector < File > ; 
+  Test C++ function definition:   : using Files = std :: vector < File > ; 
+  Test control definition:        : using Files = std :: vector < File > ; 
+  Test C++ declaration:           : using Files = std :: vector < File > ; 
+  Handle C++ declaration:         : using Files = std :: vector < File > ; 
+  Test begin scope                : using Ext = std :: string ; 
+  Test end scope                  : using Ext = std :: string ; 
+  Test preproc statement:         : using Ext = std :: string ; 
+  Test namespace definition:      : using Ext = std :: string ; 
+  Test class definition:          : using Ext = std :: string ; 
+  Test struct definition:         : using Ext = std :: string ; 
+  Test C++ function definition:   : using Ext = std :: string ; 
+  Test control definition:        : using Ext = std :: string ; 
+  Test C++ declaration:           : using Ext = std :: string ; 
+  Handle C++ declaration:         : using Ext = std :: string ; 
+  Test begin scope                : using Options = std :: vector < char > ; 
+  Test end scope                  : using Options = std :: vector < char > ; 
+  Test preproc statement:         : using Options = std :: vector < char > ; 
+  Test namespace definition:      : using Options = std :: vector < char > ; 
+  Test class definition:          : using Options = std :: vector < char > ; 
+  Test struct definition:         : using Options = std :: vector < char > ; 
+  Test C++ function definition:   : using Options = std :: vector < char > ; 
+  Test control definition:        : using Options = std :: vector < char > ; 
+  Test C++ declaration:           : using Options = std :: vector < char > ; 
+  Handle C++ declaration:         : using Options = std :: vector < char > ; 
+  Test begin scope                : using FileMap = std :: unordered_map < Pattern , Files > ; 
+  Test end scope                  : using FileMap = std :: unordered_map < Pattern , Files > ; 
+  Test preproc statement:         : using FileMap = std :: unordered_map < Pattern , Files > ; 
+  Test namespace definition:      : using FileMap = std :: unordered_map < Pattern , Files > ; 
+  Test class definition:          : using FileMap = std :: unordered_map < Pattern , Files > ; 
+  Test struct definition:         : using FileMap = std :: unordered_map < Pattern , Files > ; 
+  Test C++ function definition:   : using FileMap = std :: unordered_map < Pattern , Files > ; 
+  Test control definition:        : using FileMap = std :: unordered_map < Pattern , Files > ; 
+  Test C++ declaration:           : using FileMap = std :: unordered_map < Pattern , Files > ; 
+  Handle C++ declaration:         : using FileMap = std :: unordered_map < Pattern , Files > ; 
+  Test begin scope                : using FileNodes = std :: vector < std :: pair < File , ASTNode * >> ; 
+  Test end scope                  : using FileNodes = std :: vector < std :: pair < File , ASTNode * >> ; 
+  Test preproc statement:         : using FileNodes = std :: vector < std :: pair < File , ASTNode * >> ; 
+  Test namespace definition:      : using FileNodes = std :: vector < std :: pair < File , ASTNode * >> ; 
+  Test class definition:          : using FileNodes = std :: vector < std :: pair < File , ASTNode * >> ; 
+  Test struct definition:         : using FileNodes = std :: vector < std :: pair < File , ASTNode * >> ; 
+  Test C++ function definition:   : using FileNodes = std :: vector < std :: pair < File , ASTNode * >> ; 
+  Test control definition:        : using FileNodes = std :: vector < std :: pair < File , ASTNode * >> ; 
+  Test C++ declaration:           : using FileNodes = std :: vector < std :: pair < File , ASTNode * >> ; 
+  Handle C++ declaration:         : using FileNodes = std :: vector < std :: pair < File , ASTNode * >> ; 
+  Test begin scope                : using Slocs = size_t ; 
+  Test end scope                  : using Slocs = size_t ; 
+  Test preproc statement:         : using Slocs = size_t ; 
+  Test namespace definition:      : using Slocs = size_t ; 
+  Test class definition:          : using Slocs = size_t ; 
+  Test struct definition:         : using Slocs = size_t ; 
+  Test C++ function definition:   : using Slocs = size_t ; 
+  Test control definition:        : using Slocs = size_t ; 
+  Test C++ declaration:           : using Slocs = size_t ; 
+  Handle C++ declaration:         : using Slocs = size_t ; 
+  Test begin scope                : using SlocMap = std :: unordered_map < File , Slocs > ; 
+  Test end scope                  : using SlocMap = std :: unordered_map < File , Slocs > ; 
+  Test preproc statement:         : using SlocMap = std :: unordered_map < File , Slocs > ; 
+  Test namespace definition:      : using SlocMap = std :: unordered_map < File , Slocs > ; 
+  Test class definition:          : using SlocMap = std :: unordered_map < File , Slocs > ; 
+  Test struct definition:         : using SlocMap = std :: unordered_map < File , Slocs > ; 
+  Test C++ function definition:   : using SlocMap = std :: unordered_map < File , Slocs > ; 
+  Test control definition:        : using SlocMap = std :: unordered_map < File , Slocs > ; 
+  Test C++ declaration:           : using SlocMap = std :: unordered_map < File , Slocs > ; 
+  Handle C++ declaration:         : using SlocMap = std :: unordered_map < File , Slocs > ; 
+  Test begin scope                : CodeAnalysisExecutive ( ) ; 
+  Test end scope                  : CodeAnalysisExecutive ( ) ; 
+  Test preproc statement:         : CodeAnalysisExecutive ( ) ; 
+  Test namespace definition:      : CodeAnalysisExecutive ( ) ; 
+  Test class definition:          : CodeAnalysisExecutive ( ) ; 
+  Test struct definition:         : CodeAnalysisExecutive ( ) ; 
+  Test C++ function definition:   : CodeAnalysisExecutive ( ) ; 
+  Test control definition:        : CodeAnalysisExecutive ( ) ; 
+  Test C++ declaration:           : CodeAnalysisExecutive ( ) ; 
+  Handle C++ declaration:         : CodeAnalysisExecutive ( ) ; 
+  Test begin scope                : virtual ~ CodeAnalysisExecutive ( ) ; 
+  Test end scope                  : virtual ~ CodeAnalysisExecutive ( ) ; 
+  Test preproc statement:         : virtual ~ CodeAnalysisExecutive ( ) ; 
+  Test namespace definition:      : virtual ~ CodeAnalysisExecutive ( ) ; 
+  Test class definition:          : virtual ~ CodeAnalysisExecutive ( ) ; 
+  Test struct definition:         : virtual ~ CodeAnalysisExecutive ( ) ; 
+  Test C++ function definition:   : virtual ~ CodeAnalysisExecutive ( ) ; 
+  Test control definition:        : virtual ~ CodeAnalysisExecutive ( ) ; 
+  Test C++ declaration:           : virtual ~ CodeAnalysisExecutive ( ) ; 
+  Handle C++ declaration:         : virtual ~ CodeAnalysisExecutive ( ) ; 
+  Test begin scope                : CodeAnalysisExecutive ( const CodeAnalysisExecutive & ) = delete ; 
+  Test end scope                  : CodeAnalysisExecutive ( const CodeAnalysisExecutive & ) = delete ; 
+  Test preproc statement:         : CodeAnalysisExecutive ( const CodeAnalysisExecutive & ) = delete ; 
+  Test namespace definition:      : CodeAnalysisExecutive ( const CodeAnalysisExecutive & ) = delete ; 
+  Test class definition:          : CodeAnalysisExecutive ( const CodeAnalysisExecutive & ) = delete ; 
+  Test struct definition:         : CodeAnalysisExecutive ( const CodeAnalysisExecutive & ) = delete ; 
+  Test C++ function definition:   : CodeAnalysisExecutive ( const CodeAnalysisExecutive & ) = delete ; 
+  Test control definition:        : CodeAnalysisExecutive ( const CodeAnalysisExecutive & ) = delete ; 
+  Test C++ declaration:           : CodeAnalysisExecutive ( const CodeAnalysisExecutive & ) = delete ; 
+  Handle C++ declaration:         : CodeAnalysisExecutive ( const CodeAnalysisExecutive & ) = delete ; 
+  Test begin scope                : CodeAnalysisExecutive & operator = ( const CodeAnalysisExecutive & ) = delete ; 
+  Test end scope                  : CodeAnalysisExecutive & operator = ( const CodeAnalysisExecutive & ) = delete ; 
+  Test preproc statement:         : CodeAnalysisExecutive & operator = ( const CodeAnalysisExecutive & ) = delete ; 
+  Test namespace definition:      : CodeAnalysisExecutive & operator = ( const CodeAnalysisExecutive & ) = delete ; 
+  Test class definition:          : CodeAnalysisExecutive & operator = ( const CodeAnalysisExecutive & ) = delete ; 
+  Test struct definition:         : CodeAnalysisExecutive & operator = ( const CodeAnalysisExecutive & ) = delete ; 
+  Test C++ function definition:   : CodeAnalysisExecutive & operator = ( const CodeAnalysisExecutive & ) = delete ; 
+  Test control definition:        : CodeAnalysisExecutive & operator = ( const CodeAnalysisExecutive & ) = delete ; 
+  Test C++ declaration:           : CodeAnalysisExecutive & operator = ( const CodeAnalysisExecutive & ) = delete ; 
+  Handle C++ declaration:         : CodeAnalysisExecutive & operator = ( const CodeAnalysisExecutive & ) = delete ; 
+  Test begin scope                : void showCommandLineArguments ( int argc , char * argv [ ] ) ; 
+  Test end scope                  : void showCommandLineArguments ( int argc , char * argv [ ] ) ; 
+  Test preproc statement:         : void showCommandLineArguments ( int argc , char * argv [ ] ) ; 
+  Test namespace definition:      : void showCommandLineArguments ( int argc , char * argv [ ] ) ; 
+  Test class definition:          : void showCommandLineArguments ( int argc , char * argv [ ] ) ; 
+  Test struct definition:         : void showCommandLineArguments ( int argc , char * argv [ ] ) ; 
+  Test C++ function definition:   : void showCommandLineArguments ( int argc , char * argv [ ] ) ; 
+  Test control definition:        : void showCommandLineArguments ( int argc , char * argv [ ] ) ; 
+  Test C++ declaration:           : void showCommandLineArguments ( int argc , char * argv [ ] ) ; 
+  Handle C++ declaration:         : void showCommandLineArguments ( int argc , char * argv [ ] ) ; 
+  Test begin scope                : bool ProcessCommandLine ( int argc , char * argv [ ] ) ; 
+  Test end scope                  : bool ProcessCommandLine ( int argc , char * argv [ ] ) ; 
+  Test preproc statement:         : bool ProcessCommandLine ( int argc , char * argv [ ] ) ; 
+  Test namespace definition:      : bool ProcessCommandLine ( int argc , char * argv [ ] ) ; 
+  Test class definition:          : bool ProcessCommandLine ( int argc , char * argv [ ] ) ; 
+  Test struct definition:         : bool ProcessCommandLine ( int argc , char * argv [ ] ) ; 
+  Test C++ function definition:   : bool ProcessCommandLine ( int argc , char * argv [ ] ) ; 
+  Test control definition:        : bool ProcessCommandLine ( int argc , char * argv [ ] ) ; 
+  Test C++ declaration:           : bool ProcessCommandLine ( int argc , char * argv [ ] ) ; 
+  Handle C++ declaration:         : bool ProcessCommandLine ( int argc , char * argv [ ] ) ; 
+  Test begin scope                : FileMap & getFileMap ( ) ; 
+  Test end scope                  : FileMap & getFileMap ( ) ; 
+  Test preproc statement:         : FileMap & getFileMap ( ) ; 
+  Test namespace definition:      : FileMap & getFileMap ( ) ; 
+  Test class definition:          : FileMap & getFileMap ( ) ; 
+  Test struct definition:         : FileMap & getFileMap ( ) ; 
+  Test C++ function definition:   : FileMap & getFileMap ( ) ; 
+  Test control definition:        : FileMap & getFileMap ( ) ; 
+  Test C++ declaration:           : FileMap & getFileMap ( ) ; 
+  Handle C++ declaration:         : FileMap & getFileMap ( ) ; 
+  Test begin scope                : std :: string getAnalysisPath ( ) ; 
+  Test end scope                  : std :: string getAnalysisPath ( ) ; 
+  Test preproc statement:         : std :: string getAnalysisPath ( ) ; 
+  Test namespace definition:      : std :: string getAnalysisPath ( ) ; 
+  Test class definition:          : std :: string getAnalysisPath ( ) ; 
+  Test struct definition:         : std :: string getAnalysisPath ( ) ; 
+  Test C++ function definition:   : std :: string getAnalysisPath ( ) ; 
+  Test control definition:        : std :: string getAnalysisPath ( ) ; 
+  Test C++ declaration:           : std :: string getAnalysisPath ( ) ; 
+  Handle C++ declaration:         : std :: string getAnalysisPath ( ) ; 
+  Test begin scope                : virtual void getSourceFiles ( ) ; 
+  Test end scope                  : virtual void getSourceFiles ( ) ; 
+  Test preproc statement:         : virtual void getSourceFiles ( ) ; 
+  Test namespace definition:      : virtual void getSourceFiles ( ) ; 
+  Test class definition:          : virtual void getSourceFiles ( ) ; 
+  Test struct definition:         : virtual void getSourceFiles ( ) ; 
+  Test C++ function definition:   : virtual void getSourceFiles ( ) ; 
+  Test control definition:        : virtual void getSourceFiles ( ) ; 
+  Test C++ declaration:           : virtual void getSourceFiles ( ) ; 
+  Handle C++ declaration:         : virtual void getSourceFiles ( ) ; 
+  Test begin scope                : virtual void processSourceCode ( bool showActivity ) ; 
+  Test end scope                  : virtual void processSourceCode ( bool showActivity ) ; 
+  Test preproc statement:         : virtual void processSourceCode ( bool showActivity ) ; 
+  Test namespace definition:      : virtual void processSourceCode ( bool showActivity ) ; 
+  Test class definition:          : virtual void processSourceCode ( bool showActivity ) ; 
+  Test struct definition:         : virtual void processSourceCode ( bool showActivity ) ; 
+  Test C++ function definition:   : virtual void processSourceCode ( bool showActivity ) ; 
+  Test control definition:        : virtual void processSourceCode ( bool showActivity ) ; 
+  Test C++ declaration:           : virtual void processSourceCode ( bool showActivity ) ; 
+  Handle C++ declaration:         : virtual void processSourceCode ( bool showActivity ) ; 
+  Test begin scope                : void complexityAnalysis ( ) ; 
+  Test end scope                  : void complexityAnalysis ( ) ; 
+  Test preproc statement:         : void complexityAnalysis ( ) ; 
+  Test namespace definition:      : void complexityAnalysis ( ) ; 
+  Test class definition:          : void complexityAnalysis ( ) ; 
+  Test struct definition:         : void complexityAnalysis ( ) ; 
+  Test C++ function definition:   : void complexityAnalysis ( ) ; 
+  Test control definition:        : void complexityAnalysis ( ) ; 
+  Test C++ declaration:           : void complexityAnalysis ( ) ; 
+  Handle C++ declaration:         : void complexityAnalysis ( ) ; 
+  Test begin scope                : std :: vector < File > & cppHeaderFiles ( ) ; 
+  Test end scope                  : std :: vector < File > & cppHeaderFiles ( ) ; 
+  Test preproc statement:         : std :: vector < File > & cppHeaderFiles ( ) ; 
+  Test namespace definition:      : std :: vector < File > & cppHeaderFiles ( ) ; 
+  Test class definition:          : std :: vector < File > & cppHeaderFiles ( ) ; 
+  Test struct definition:         : std :: vector < File > & cppHeaderFiles ( ) ; 
+  Test C++ function definition:   : std :: vector < File > & cppHeaderFiles ( ) ; 
+  Test control definition:        : std :: vector < File > & cppHeaderFiles ( ) ; 
+  Test C++ declaration:           : std :: vector < File > & cppHeaderFiles ( ) ; 
+  Handle C++ declaration:         : std :: vector < File > & cppHeaderFiles ( ) ; 
+  Test begin scope                : std :: vector < File > & cppImplemFiles ( ) ; 
+  Test end scope                  : std :: vector < File > & cppImplemFiles ( ) ; 
+  Test preproc statement:         : std :: vector < File > & cppImplemFiles ( ) ; 
+  Test namespace definition:      : std :: vector < File > & cppImplemFiles ( ) ; 
+  Test class definition:          : std :: vector < File > & cppImplemFiles ( ) ; 
+  Test struct definition:         : std :: vector < File > & cppImplemFiles ( ) ; 
+  Test C++ function definition:   : std :: vector < File > & cppImplemFiles ( ) ; 
+  Test control definition:        : std :: vector < File > & cppImplemFiles ( ) ; 
+  Test C++ declaration:           : std :: vector < File > & cppImplemFiles ( ) ; 
+  Handle C++ declaration:         : std :: vector < File > & cppImplemFiles ( ) ; 
+  Test begin scope                : std :: vector < File > & csharpFiles ( ) ; 
+  Test end scope                  : std :: vector < File > & csharpFiles ( ) ; 
+  Test preproc statement:         : std :: vector < File > & csharpFiles ( ) ; 
+  Test namespace definition:      : std :: vector < File > & csharpFiles ( ) ; 
+  Test class definition:          : std :: vector < File > & csharpFiles ( ) ; 
+  Test struct definition:         : std :: vector < File > & csharpFiles ( ) ; 
+  Test C++ function definition:   : std :: vector < File > & csharpFiles ( ) ; 
+  Test control definition:        : std :: vector < File > & csharpFiles ( ) ; 
+  Test C++ declaration:           : std :: vector < File > & csharpFiles ( ) ; 
+  Handle C++ declaration:         : std :: vector < File > & csharpFiles ( ) ; 
+  Test begin scope                : Slocs fileSLOCs ( const File & file ) ; 
+  Test end scope                  : Slocs fileSLOCs ( const File & file ) ; 
+  Test preproc statement:         : Slocs fileSLOCs ( const File & file ) ; 
+  Test namespace definition:      : Slocs fileSLOCs ( const File & file ) ; 
+  Test class definition:          : Slocs fileSLOCs ( const File & file ) ; 
+  Test struct definition:         : Slocs fileSLOCs ( const File & file ) ; 
+  Test C++ function definition:   : Slocs fileSLOCs ( const File & file ) ; 
+  Test control definition:        : Slocs fileSLOCs ( const File & file ) ; 
+  Test C++ declaration:           : Slocs fileSLOCs ( const File & file ) ; 
+  Handle C++ declaration:         : Slocs fileSLOCs ( const File & file ) ; 
+  Test begin scope                : size_t numFiles ( ) ; 
+  Test end scope                  : size_t numFiles ( ) ; 
+  Test preproc statement:         : size_t numFiles ( ) ; 
+  Test namespace definition:      : size_t numFiles ( ) ; 
+  Test class definition:          : size_t numFiles ( ) ; 
+  Test struct definition:         : size_t numFiles ( ) ; 
+  Test C++ function definition:   : size_t numFiles ( ) ; 
+  Test control definition:        : size_t numFiles ( ) ; 
+  Test C++ declaration:           : size_t numFiles ( ) ; 
+  Handle C++ declaration:         : size_t numFiles ( ) ; 
+  Test begin scope                : size_t numDirs ( ) ; 
+  Test end scope                  : size_t numDirs ( ) ; 
+  Test preproc statement:         : size_t numDirs ( ) ; 
+  Test namespace definition:      : size_t numDirs ( ) ; 
+  Test class definition:          : size_t numDirs ( ) ; 
+  Test struct definition:         : size_t numDirs ( ) ; 
+  Test C++ function definition:   : size_t numDirs ( ) ; 
+  Test control definition:        : size_t numDirs ( ) ; 
+  Test C++ declaration:           : size_t numDirs ( ) ; 
+  Handle C++ declaration:         : size_t numDirs ( ) ; 
+  Test begin scope                : std :: string systemTime ( ) ; 
+  Test end scope                  : std :: string systemTime ( ) ; 
+  Test preproc statement:         : std :: string systemTime ( ) ; 
+  Test namespace definition:      : std :: string systemTime ( ) ; 
+  Test class definition:          : std :: string systemTime ( ) ; 
+  Test struct definition:         : std :: string systemTime ( ) ; 
+  Test C++ function definition:   : std :: string systemTime ( ) ; 
+  Test control definition:        : std :: string systemTime ( ) ; 
+  Test C++ declaration:           : std :: string systemTime ( ) ; 
+  Handle C++ declaration:         : std :: string systemTime ( ) ; 
+  Test begin scope                : virtual void displayMetrics ( ASTNode * root ) ; 
+  Test end scope                  : virtual void displayMetrics ( ASTNode * root ) ; 
+  Test preproc statement:         : virtual void displayMetrics ( ASTNode * root ) ; 
+  Test namespace definition:      : virtual void displayMetrics ( ASTNode * root ) ; 
+  Test class definition:          : virtual void displayMetrics ( ASTNode * root ) ; 
+  Test struct definition:         : virtual void displayMetrics ( ASTNode * root ) ; 
+  Test C++ function definition:   : virtual void displayMetrics ( ASTNode * root ) ; 
+  Test control definition:        : virtual void displayMetrics ( ASTNode * root ) ; 
+  Test C++ declaration:           : virtual void displayMetrics ( ASTNode * root ) ; 
+  Handle C++ declaration:         : virtual void displayMetrics ( ASTNode * root ) ; 
+  Test begin scope                : virtual void displayMetrics ( ) ; 
+  Test end scope                  : virtual void displayMetrics ( ) ; 
+  Test preproc statement:         : virtual void displayMetrics ( ) ; 
+  Test namespace definition:      : virtual void displayMetrics ( ) ; 
+  Test class definition:          : virtual void displayMetrics ( ) ; 
+  Test struct definition:         : virtual void displayMetrics ( ) ; 
+  Test C++ function definition:   : virtual void displayMetrics ( ) ; 
+  Test control definition:        : virtual void displayMetrics ( ) ; 
+  Test C++ declaration:           : virtual void displayMetrics ( ) ; 
+  Handle C++ declaration:         : virtual void displayMetrics ( ) ; 
+  Test begin scope                : virtual void displayMetricSummary ( size_t sMax , size_t cMax ) ; 
+  Test end scope                  : virtual void displayMetricSummary ( size_t sMax , size_t cMax ) ; 
+  Test preproc statement:         : virtual void displayMetricSummary ( size_t sMax , size_t cMax ) ; 
+  Test namespace definition:      : virtual void displayMetricSummary ( size_t sMax , size_t cMax ) ; 
+  Test class definition:          : virtual void displayMetricSummary ( size_t sMax , size_t cMax ) ; 
+  Test struct definition:         : virtual void displayMetricSummary ( size_t sMax , size_t cMax ) ; 
+  Test C++ function definition:   : virtual void displayMetricSummary ( size_t sMax , size_t cMax ) ; 
+  Test control definition:        : virtual void displayMetricSummary ( size_t sMax , size_t cMax ) ; 
+  Test C++ declaration:           : virtual void displayMetricSummary ( size_t sMax , size_t cMax ) ; 
+  Handle C++ declaration:         : virtual void displayMetricSummary ( size_t sMax , size_t cMax ) ; 
+  Test begin scope                : virtual void displaySlocs ( ) ; 
+  Test end scope                  : virtual void displaySlocs ( ) ; 
+  Test preproc statement:         : virtual void displaySlocs ( ) ; 
+  Test namespace definition:      : virtual void displaySlocs ( ) ; 
+  Test class definition:          : virtual void displaySlocs ( ) ; 
+  Test struct definition:         : virtual void displaySlocs ( ) ; 
+  Test C++ function definition:   : virtual void displaySlocs ( ) ; 
+  Test control definition:        : virtual void displaySlocs ( ) ; 
+  Test C++ declaration:           : virtual void displaySlocs ( ) ; 
+  Handle C++ declaration:         : virtual void displaySlocs ( ) ; 
+  Test begin scope                : virtual void displayAST ( ) ; 
+  Test end scope                  : virtual void displayAST ( ) ; 
+  Test preproc statement:         : virtual void displayAST ( ) ; 
+  Test namespace definition:      : virtual void displayAST ( ) ; 
+  Test class definition:          : virtual void displayAST ( ) ; 
+  Test struct definition:         : virtual void displayAST ( ) ; 
+  Test C++ function definition:   : virtual void displayAST ( ) ; 
+  Test control definition:        : virtual void displayAST ( ) ; 
+  Test C++ declaration:           : virtual void displayAST ( ) ; 
+  Handle C++ declaration:         : virtual void displayAST ( ) ; 
+  Test begin scope                : virtual void dispatchOptionalDisplays ( ) ; 
+  Test end scope                  : virtual void dispatchOptionalDisplays ( ) ; 
+  Test preproc statement:         : virtual void dispatchOptionalDisplays ( ) ; 
+  Test namespace definition:      : virtual void dispatchOptionalDisplays ( ) ; 
+  Test class definition:          : virtual void dispatchOptionalDisplays ( ) ; 
+  Test struct definition:         : virtual void dispatchOptionalDisplays ( ) ; 
+  Test C++ function definition:   : virtual void dispatchOptionalDisplays ( ) ; 
+  Test control definition:        : virtual void dispatchOptionalDisplays ( ) ; 
+  Test C++ declaration:           : virtual void dispatchOptionalDisplays ( ) ; 
+  Handle C++ declaration:         : virtual void dispatchOptionalDisplays ( ) ; 
+  Test begin scope                : virtual void setDisplayModes ( ) ; 
+  Test end scope                  : virtual void setDisplayModes ( ) ; 
+  Test preproc statement:         : virtual void setDisplayModes ( ) ; 
+  Test namespace definition:      : virtual void setDisplayModes ( ) ; 
+  Test class definition:          : virtual void setDisplayModes ( ) ; 
+  Test struct definition:         : virtual void setDisplayModes ( ) ; 
+  Test C++ function definition:   : virtual void setDisplayModes ( ) ; 
+  Test control definition:        : virtual void setDisplayModes ( ) ; 
+  Test C++ declaration:           : virtual void setDisplayModes ( ) ; 
+  Handle C++ declaration:         : virtual void setDisplayModes ( ) ; 
+  Test begin scope                : void startLogger ( std :: ostream & out ) ; 
+  Test end scope                  : void startLogger ( std :: ostream & out ) ; 
+  Test preproc statement:         : void startLogger ( std :: ostream & out ) ; 
+  Test namespace definition:      : void startLogger ( std :: ostream & out ) ; 
+  Test class definition:          : void startLogger ( std :: ostream & out ) ; 
+  Test struct definition:         : void startLogger ( std :: ostream & out ) ; 
+  Test C++ function definition:   : void startLogger ( std :: ostream & out ) ; 
+  Test control definition:        : void startLogger ( std :: ostream & out ) ; 
+  Test C++ declaration:           : void startLogger ( std :: ostream & out ) ; 
+  Handle C++ declaration:         : void startLogger ( std :: ostream & out ) ; 
+  Test begin scope                : void flushLogger ( ) ; 
+  Test end scope                  : void flushLogger ( ) ; 
+  Test preproc statement:         : void flushLogger ( ) ; 
+  Test namespace definition:      : void flushLogger ( ) ; 
+  Test class definition:          : void flushLogger ( ) ; 
+  Test struct definition:         : void flushLogger ( ) ; 
+  Test C++ function definition:   : void flushLogger ( ) ; 
+  Test control definition:        : void flushLogger ( ) ; 
+  Test C++ declaration:           : void flushLogger ( ) ; 
+  Handle C++ declaration:         : void flushLogger ( ) ; 
+  Test begin scope                : void stopLogger ( ) ; 
+  Test end scope                  : void stopLogger ( ) ; 
+  Test preproc statement:         : void stopLogger ( ) ; 
+  Test namespace definition:      : void stopLogger ( ) ; 
+  Test class definition:          : void stopLogger ( ) ; 
+  Test struct definition:         : void stopLogger ( ) ; 
+  Test C++ function definition:   : void stopLogger ( ) ; 
+  Test control definition:        : void stopLogger ( ) ; 
+  Test C++ declaration:           : void stopLogger ( ) ; 
+  Handle C++ declaration:         : void stopLogger ( ) ; 
+  Test begin scope                : void setLogFile ( const File & file ) ; 
+  Test end scope                  : void setLogFile ( const File & file ) ; 
+  Test preproc statement:         : void setLogFile ( const File & file ) ; 
+  Test namespace definition:      : void setLogFile ( const File & file ) ; 
+  Test class definition:          : void setLogFile ( const File & file ) ; 
+  Test struct definition:         : void setLogFile ( const File & file ) ; 
+  Test C++ function definition:   : void setLogFile ( const File & file ) ; 
+  Test control definition:        : void setLogFile ( const File & file ) ; 
+  Test C++ declaration:           : void setLogFile ( const File & file ) ; 
+  Handle C++ declaration:         : void setLogFile ( const File & file ) ; 
+  Test begin scope                : private : 
+  Test end scope                  : private : 
+  Test preproc statement:         : private : 
+  Test namespace definition:      : private : 
+  Test class definition:          : private : 
+  Test struct definition:         : private : 
+  Test C++ function definition:   : private : 
+  Test control definition:        : private : 
+  Test C++ declaration:           : private : 
+  Test C++ executable:            : private : 
+  Test default:                   : private : 
+  Handle default:                 : private : 
+  Test begin scope                : void setLanguage ( const File & file ) ; 
+  Test end scope                  : void setLanguage ( const File & file ) ; 
+  Test preproc statement:         : void setLanguage ( const File & file ) ; 
+  Test namespace definition:      : void setLanguage ( const File & file ) ; 
+  Test class definition:          : void setLanguage ( const File & file ) ; 
+  Test struct definition:         : void setLanguage ( const File & file ) ; 
+  Test C++ function definition:   : void setLanguage ( const File & file ) ; 
+  Test control definition:        : void setLanguage ( const File & file ) ; 
+  Test C++ declaration:           : void setLanguage ( const File & file ) ; 
+  Handle C++ declaration:         : void setLanguage ( const File & file ) ; 
+  Test begin scope                : void showActivity ( const File & file ) ; 
+  Test end scope                  : void showActivity ( const File & file ) ; 
+  Test preproc statement:         : void showActivity ( const File & file ) ; 
+  Test namespace definition:      : void showActivity ( const File & file ) ; 
+  Test class definition:          : void showActivity ( const File & file ) ; 
+  Test struct definition:         : void showActivity ( const File & file ) ; 
+  Test C++ function definition:   : void showActivity ( const File & file ) ; 
+  Test control definition:        : void showActivity ( const File & file ) ; 
+  Test C++ declaration:           : void showActivity ( const File & file ) ; 
+  Handle C++ declaration:         : void showActivity ( const File & file ) ; 
+  Test begin scope                : void clearActivity ( ) ; 
+  Test end scope                  : void clearActivity ( ) ; 
+  Test preproc statement:         : void clearActivity ( ) ; 
+  Test namespace definition:      : void clearActivity ( ) ; 
+  Test class definition:          : void clearActivity ( ) ; 
+  Test struct definition:         : void clearActivity ( ) ; 
+  Test C++ function definition:   : void clearActivity ( ) ; 
+  Test control definition:        : void clearActivity ( ) ; 
+  Test C++ declaration:           : void clearActivity ( ) ; 
+  Handle C++ declaration:         : void clearActivity ( ) ; 
+  Test begin scope                : virtual void displayHeader ( ) ; 
+  Test end scope                  : virtual void displayHeader ( ) ; 
+  Test preproc statement:         : virtual void displayHeader ( ) ; 
+  Test namespace definition:      : virtual void displayHeader ( ) ; 
+  Test class definition:          : virtual void displayHeader ( ) ; 
+  Test struct definition:         : virtual void displayHeader ( ) ; 
+  Test C++ function definition:   : virtual void displayHeader ( ) ; 
+  Test control definition:        : virtual void displayHeader ( ) ; 
+  Test C++ declaration:           : virtual void displayHeader ( ) ; 
+  Handle C++ declaration:         : virtual void displayHeader ( ) ; 
+  Test begin scope                : virtual void displayMetricsLine ( const File & file , ASTNode * pNode ) ; 
+  Test end scope                  : virtual void displayMetricsLine ( const File & file , ASTNode * pNode ) ; 
+  Test preproc statement:         : virtual void displayMetricsLine ( const File & file , ASTNode * pNode ) ; 
+  Test namespace definition:      : virtual void displayMetricsLine ( const File & file , ASTNode * pNode ) ; 
+  Test class definition:          : virtual void displayMetricsLine ( const File & file , ASTNode * pNode ) ; 
+  Test struct definition:         : virtual void displayMetricsLine ( const File & file , ASTNode * pNode ) ; 
+  Test C++ function definition:   : virtual void displayMetricsLine ( const File & file , ASTNode * pNode ) ; 
+  Test control definition:        : virtual void displayMetricsLine ( const File & file , ASTNode * pNode ) ; 
+  Test C++ declaration:           : virtual void displayMetricsLine ( const File & file , ASTNode * pNode ) ; 
+  Handle C++ declaration:         : virtual void displayMetricsLine ( const File & file , ASTNode * pNode ) ; 
+  Test begin scope                : virtual void displayDataLines ( ASTNode * pNode , bool isSummary = false ) ; 
+  Test end scope                  : virtual void displayDataLines ( ASTNode * pNode , bool isSummary = false ) ; 
+  Test preproc statement:         : virtual void displayDataLines ( ASTNode * pNode , bool isSummary = false ) ; 
+  Test namespace definition:      : virtual void displayDataLines ( ASTNode * pNode , bool isSummary = false ) ; 
+  Test class definition:          : virtual void displayDataLines ( ASTNode * pNode , bool isSummary = false ) ; 
+  Test struct definition:         : virtual void displayDataLines ( ASTNode * pNode , bool isSummary = false ) ; 
+  Test C++ function definition:   : virtual void displayDataLines ( ASTNode * pNode , bool isSummary = false ) ; 
+  Test control definition:        : virtual void displayDataLines ( ASTNode * pNode , bool isSummary = false ) ; 
+  Test C++ declaration:           : virtual void displayDataLines ( ASTNode * pNode , bool isSummary = false ) ; 
+  Handle C++ declaration:         : virtual void displayDataLines ( ASTNode * pNode , bool isSummary = false ) ; 
+  Test begin scope                : std :: string showData ( const Scanner :: ITokCollection * ptc ) ; 
+  Test end scope                  : std :: string showData ( const Scanner :: ITokCollection * ptc ) ; 
+  Test preproc statement:         : std :: string showData ( const Scanner :: ITokCollection * ptc ) ; 
+  Test namespace definition:      : std :: string showData ( const Scanner :: ITokCollection * ptc ) ; 
+  Test class definition:          : std :: string showData ( const Scanner :: ITokCollection * ptc ) ; 
+  Test struct definition:         : std :: string showData ( const Scanner :: ITokCollection * ptc ) ; 
+  Test C++ function definition:   : std :: string showData ( const Scanner :: ITokCollection * ptc ) ; 
+  Test control definition:        : std :: string showData ( const Scanner :: ITokCollection * ptc ) ; 
+  Test C++ declaration:           : std :: string showData ( const Scanner :: ITokCollection * ptc ) ; 
+  Handle C++ declaration:         : std :: string showData ( const Scanner :: ITokCollection * ptc ) ; 
+  Test begin scope                : Parser * pParser_ ; 
+  Test end scope                  : Parser * pParser_ ; 
+  Test preproc statement:         : Parser * pParser_ ; 
+  Test namespace definition:      : Parser * pParser_ ; 
+  Test class definition:          : Parser * pParser_ ; 
+  Test struct definition:         : Parser * pParser_ ; 
+  Test C++ function definition:   : Parser * pParser_ ; 
+  Test control definition:        : Parser * pParser_ ; 
+  Test C++ declaration:           : Parser * pParser_ ; 
+  Handle C++ declaration:         : Parser * pParser_ ; 
+  Test begin scope                : ConfigParseForCodeAnal configure_ ; 
+  Test end scope                  : ConfigParseForCodeAnal configure_ ; 
+  Test preproc statement:         : ConfigParseForCodeAnal configure_ ; 
+  Test namespace definition:      : ConfigParseForCodeAnal configure_ ; 
+  Test class definition:          : ConfigParseForCodeAnal configure_ ; 
+  Test struct definition:         : ConfigParseForCodeAnal configure_ ; 
+  Test C++ function definition:   : ConfigParseForCodeAnal configure_ ; 
+  Test control definition:        : ConfigParseForCodeAnal configure_ ; 
+  Test C++ declaration:           : ConfigParseForCodeAnal configure_ ; 
+  Handle C++ declaration:         : ConfigParseForCodeAnal configure_ ; 
+  Test begin scope                : Repository * pRepo_ ; 
+  Test end scope                  : Repository * pRepo_ ; 
+  Test preproc statement:         : Repository * pRepo_ ; 
+  Test namespace definition:      : Repository * pRepo_ ; 
+  Test class definition:          : Repository * pRepo_ ; 
+  Test struct definition:         : Repository * pRepo_ ; 
+  Test C++ function definition:   : Repository * pRepo_ ; 
+  Test control definition:        : Repository * pRepo_ ; 
+  Test C++ declaration:           : Repository * pRepo_ ; 
+  Handle C++ declaration:         : Repository * pRepo_ ; 
+  Test begin scope                : Path path_ ; 
+  Test end scope                  : Path path_ ; 
+  Test preproc statement:         : Path path_ ; 
+  Test namespace definition:      : Path path_ ; 
+  Test class definition:          : Path path_ ; 
+  Test struct definition:         : Path path_ ; 
+  Test C++ function definition:   : Path path_ ; 
+  Test control definition:        : Path path_ ; 
+  Test C++ declaration:           : Path path_ ; 
+  Handle C++ declaration:         : Path path_ ; 
+  Test begin scope                : Patterns patterns_ ; 
+  Test end scope                  : Patterns patterns_ ; 
+  Test preproc statement:         : Patterns patterns_ ; 
+  Test namespace definition:      : Patterns patterns_ ; 
+  Test class definition:          : Patterns patterns_ ; 
+  Test struct definition:         : Patterns patterns_ ; 
+  Test C++ function definition:   : Patterns patterns_ ; 
+  Test control definition:        : Patterns patterns_ ; 
+  Test C++ declaration:           : Patterns patterns_ ; 
+  Handle C++ declaration:         : Patterns patterns_ ; 
+  Test begin scope                : Options options_ ; 
+  Test end scope                  : Options options_ ; 
+  Test preproc statement:         : Options options_ ; 
+  Test namespace definition:      : Options options_ ; 
+  Test class definition:          : Options options_ ; 
+  Test struct definition:         : Options options_ ; 
+  Test C++ function definition:   : Options options_ ; 
+  Test control definition:        : Options options_ ; 
+  Test C++ declaration:           : Options options_ ; 
+  Handle C++ declaration:         : Options options_ ; 
+  Test begin scope                : FileMap fileMap_ ; 
+  Test end scope                  : FileMap fileMap_ ; 
+  Test preproc statement:         : FileMap fileMap_ ; 
+  Test namespace definition:      : FileMap fileMap_ ; 
+  Test class definition:          : FileMap fileMap_ ; 
+  Test struct definition:         : FileMap fileMap_ ; 
+  Test C++ function definition:   : FileMap fileMap_ ; 
+  Test control definition:        : FileMap fileMap_ ; 
+  Test C++ declaration:           : FileMap fileMap_ ; 
+  Handle C++ declaration:         : FileMap fileMap_ ; 
+  Test begin scope                : FileNodes fileNodes_ ; 
+  Test end scope                  : FileNodes fileNodes_ ; 
+  Test preproc statement:         : FileNodes fileNodes_ ; 
+  Test namespace definition:      : FileNodes fileNodes_ ; 
+  Test class definition:          : FileNodes fileNodes_ ; 
+  Test struct definition:         : FileNodes fileNodes_ ; 
+  Test C++ function definition:   : FileNodes fileNodes_ ; 
+  Test control definition:        : FileNodes fileNodes_ ; 
+  Test C++ declaration:           : FileNodes fileNodes_ ; 
+  Handle C++ declaration:         : FileNodes fileNodes_ ; 
+  Test begin scope                : std :: vector < File > cppHeaderFiles_ ; 
+  Test end scope                  : std :: vector < File > cppHeaderFiles_ ; 
+  Test preproc statement:         : std :: vector < File > cppHeaderFiles_ ; 
+  Test namespace definition:      : std :: vector < File > cppHeaderFiles_ ; 
+  Test class definition:          : std :: vector < File > cppHeaderFiles_ ; 
+  Test struct definition:         : std :: vector < File > cppHeaderFiles_ ; 
+  Test C++ function definition:   : std :: vector < File > cppHeaderFiles_ ; 
+  Test control definition:        : std :: vector < File > cppHeaderFiles_ ; 
+  Test C++ declaration:           : std :: vector < File > cppHeaderFiles_ ; 
+  Handle C++ declaration:         : std :: vector < File > cppHeaderFiles_ ; 
+  Test begin scope                : std :: vector < File > cppImplemFiles_ ; 
+  Test end scope                  : std :: vector < File > cppImplemFiles_ ; 
+  Test preproc statement:         : std :: vector < File > cppImplemFiles_ ; 
+  Test namespace definition:      : std :: vector < File > cppImplemFiles_ ; 
+  Test class definition:          : std :: vector < File > cppImplemFiles_ ; 
+  Test struct definition:         : std :: vector < File > cppImplemFiles_ ; 
+  Test C++ function definition:   : std :: vector < File > cppImplemFiles_ ; 
+  Test control definition:        : std :: vector < File > cppImplemFiles_ ; 
+  Test C++ declaration:           : std :: vector < File > cppImplemFiles_ ; 
+  Handle C++ declaration:         : std :: vector < File > cppImplemFiles_ ; 
+  Test begin scope                : std :: vector < File > csharpFiles_ ; 
+  Test end scope                  : std :: vector < File > csharpFiles_ ; 
+  Test preproc statement:         : std :: vector < File > csharpFiles_ ; 
+  Test namespace definition:      : std :: vector < File > csharpFiles_ ; 
+  Test class definition:          : std :: vector < File > csharpFiles_ ; 
+  Test struct definition:         : std :: vector < File > csharpFiles_ ; 
+  Test C++ function definition:   : std :: vector < File > csharpFiles_ ; 
+  Test control definition:        : std :: vector < File > csharpFiles_ ; 
+  Test C++ declaration:           : std :: vector < File > csharpFiles_ ; 
+  Handle C++ declaration:         : std :: vector < File > csharpFiles_ ; 
+  Test begin scope                : size_t numFiles_ ; 
+  Test end scope                  : size_t numFiles_ ; 
+  Test preproc statement:         : size_t numFiles_ ; 
+  Test namespace definition:      : size_t numFiles_ ; 
+  Test class definition:          : size_t numFiles_ ; 
+  Test struct definition:         : size_t numFiles_ ; 
+  Test C++ function definition:   : size_t numFiles_ ; 
+  Test control definition:        : size_t numFiles_ ; 
+  Test C++ declaration:           : size_t numFiles_ ; 
+  Handle C++ declaration:         : size_t numFiles_ ; 
+  Test begin scope                : size_t numDirs_ ; 
+  Test end scope                  : size_t numDirs_ ; 
+  Test preproc statement:         : size_t numDirs_ ; 
+  Test namespace definition:      : size_t numDirs_ ; 
+  Test class definition:          : size_t numDirs_ ; 
+  Test struct definition:         : size_t numDirs_ ; 
+  Test C++ function definition:   : size_t numDirs_ ; 
+  Test control definition:        : size_t numDirs_ ; 
+  Test C++ declaration:           : size_t numDirs_ ; 
+  Handle C++ declaration:         : size_t numDirs_ ; 
+  Test begin scope                : SlocMap slocMap_ ; 
+  Test end scope                  : SlocMap slocMap_ ; 
+  Test preproc statement:         : SlocMap slocMap_ ; 
+  Test namespace definition:      : SlocMap slocMap_ ; 
+  Test class definition:          : SlocMap slocMap_ ; 
+  Test struct definition:         : SlocMap slocMap_ ; 
+  Test C++ function definition:   : SlocMap slocMap_ ; 
+  Test control definition:        : SlocMap slocMap_ ; 
+  Test C++ declaration:           : SlocMap slocMap_ ; 
+  Handle C++ declaration:         : SlocMap slocMap_ ; 
+  Test begin scope                : bool displayProc_ = false ; 
+  Test end scope                  : bool displayProc_ = false ; 
+  Test preproc statement:         : bool displayProc_ = false ; 
+  Test namespace definition:      : bool displayProc_ = false ; 
+  Test class definition:          : bool displayProc_ = false ; 
+  Test struct definition:         : bool displayProc_ = false ; 
+  Test C++ function definition:   : bool displayProc_ = false ; 
+  Test control definition:        : bool displayProc_ = false ; 
+  Test C++ declaration:           : bool displayProc_ = false ; 
+  Handle C++ declaration:         : bool displayProc_ = false ; 
+  Test begin scope                : std :: ofstream * pLogStrm_ = nullptr ; 
+  Test end scope                  : std :: ofstream * pLogStrm_ = nullptr ; 
+  Test preproc statement:         : std :: ofstream * pLogStrm_ = nullptr ; 
+  Test namespace definition:      : std :: ofstream * pLogStrm_ = nullptr ; 
+  Test class definition:          : std :: ofstream * pLogStrm_ = nullptr ; 
+  Test struct definition:         : std :: ofstream * pLogStrm_ = nullptr ; 
+  Test C++ function definition:   : std :: ofstream * pLogStrm_ = nullptr ; 
+  Test control definition:        : std :: ofstream * pLogStrm_ = nullptr ; 
+  Test C++ declaration:           : std :: ofstream * pLogStrm_ = nullptr ; 
+  Handle C++ declaration:         : std :: ofstream * pLogStrm_ = nullptr ; 
+  Test begin scope                : } 
+  Test end scope                  : } 
+  Handle end scope                : } 
+  Test begin scope                : ; 
+  Test begin scope                : } 
+  Test end scope                  : } 
+  Handle end scope                : } 
+                          Functions Exceeding Metric Limits and Public Data
+    ==============================================================================================
+                 file name        type                               name    line    size    cplx
+    -----------------------  ----------  ---------------------------------  ------  ------  ------
+
+
+
+    searched     5 dirs
+   processed     1 files

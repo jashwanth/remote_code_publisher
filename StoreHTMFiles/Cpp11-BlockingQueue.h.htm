@@ -1,0 +1,193 @@
+<html>
+<head>
+   <link rel = "stylesheet" href ="..\stylesheet.css">
+   <script src="..\javascript.js"></script>
+</head>
+<body>
+<pre><hr /><div class="indent" >
+<h4>Dependencies:</h4>
+<a href=Cpp11-BlockingQueue.cpp.htm>Cpp11-BlockingQueue.cpp</a>
+</div>
+  <hr />
+ <pre>
+#ifndef CPP11_BLOCKINGQUEUE_H
+#define CPP11_BLOCKINGQUEUE_H
+///////////////////////////////////////////////////////////////
+// Cpp11-BlockingQueue.h - Thread-safe Blocking Queue        //
+// ver 1.4                                                   //
+// Jim Fawcett, CSE687 - Object Oriented Design, Spring 2015 //
+///////////////////////////////////////////////////////////////
+/*
+ * Package Operations:
+ * -------------------
+ * This package contains one thread-safe class: BlockingQueue&lt;T&gt;.
+ * Its purpose is to support sending messages between threads.
+ * It is implemented using C++11 threading constructs including 
+ * std::condition_variable and std::mutex.  The underlying storage
+ * is provided by the non-thread-safe std::queue&lt;T&gt;.
+ *
+ * Required Files:
+ * ---------------
+ * Cpp11-BlockingQueue.h
+ *
+ * Build Process:
+ * --------------
+ * devenv Cpp11-BlockingQueue.sln /rebuild debug
+ *
+ * Maintenance History:
+ * --------------------
+ * ver 1.4 : 29 Jul 2016
+ * - wrapped with namespace Async
+ * ver 1.3 : 04 Mar 2016
+ * - changed behavior of front() to throw exception
+ *   on empty queue.
+ * - added comment about std::unique_lock in deQ()
+ * ver 1.2 : 27 Feb 2016
+ * - added front();
+ * - added move ctor and move assignment
+ * - deleted copy ctor and copy assignment
+ * ver 1.1 : 26 Jan 2015
+ * - added copy constructor and assignment operator
+ * ver 1.0 : 03 Mar 2014
+ * - first release
+ *
+ */
+
+#include &lt;condition_variable&gt;
+#include &lt;mutex&gt;
+#include &lt;thread&gt;
+#include &lt;queue&gt;
+#include &lt;string&gt;
+#include &lt;iostream&gt;
+#include &lt;sstream&gt;
+
+namespace Async
+{
+<input onclick="expand_collapse(simplediv738.id, this.id)" type="button" value=" ^ " id="myButton738" /><div id="simplediv738" style="display:block; ">
+  template &lt;typename T&gt;
+  class BlockingQueue {
+<input onclick="expand_collapse(simplediv739.id, this.id)" type="button" value=" ^ " id="myButton739" /><div id="simplediv739" style="display:block; ">
+  public:
+    BlockingQueue() {
+<input onclick="expand_collapse(simplediv740.id, this.id)" type="button" value=" ^ " id="myButton740" /><div id="simplediv740" style="display:block; ">}</div>
+    BlockingQueue(BlockingQueue&lt;T&gt;&& bq);
+    BlockingQueue&lt;T&gt;& operator=(BlockingQueue&lt;T&gt;&& bq);
+    BlockingQueue(const BlockingQueue&lt;T&gt;&) = delete;
+    BlockingQueue&lt;T&gt;& operator=(const BlockingQueue&lt;T&gt;&) = delete;
+    T deQ();
+    void enQ(const T& t);
+    T& front();
+    void clear();
+    size_t size();
+  private:
+    std::queue&lt;T&gt; q_;
+    std::mutex mtx_;
+    std::condition_variable cv_;
+  }</div>;
+  //----&lt; move constructor &gt;---------------------------------------------
+
+  template&lt;typename T&gt;
+  BlockingQueue&lt;T&gt;::BlockingQueue(BlockingQueue&lt;T&gt;&& bq) // need to lock so can't initialize
+  {
+<input onclick="expand_collapse(simplediv741.id, this.id)" type="button" value=" ^ " id="myButton741" /><div id="simplediv741" style="display:block; ">
+    std::lock_guard&lt;std::mutex&gt; l(mtx_);
+    q_ = bq.q_;
+    while (bq.q_.size() &gt; 0)  // clear bq
+      bq.q_.pop();
+    /* can't copy  or move mutex or condition variable, so use default members */
+  }</div>
+  //----&lt; move assignment &gt;----------------------------------------------
+
+  template&lt;typename T&gt;
+  BlockingQueue&lt;T&gt;& BlockingQueue&lt;T&gt;::operator=(BlockingQueue&lt;T&gt;&& bq)
+  {
+<input onclick="expand_collapse(simplediv742.id, this.id)" type="button" value=" ^ " id="myButton742" /><div id="simplediv742" style="display:block; ">
+    if (this == &bq) return *this;
+    std::lock_guard&lt;std::mutex&gt; l(mtx_);
+    q_ = bq.q_;
+    while (bq.q_.size() &gt; 0)  // clear bq
+      bq.q_.pop();
+    /* can't move assign mutex or condition variable so use target's */
+    return *this;
+  }</div>
+  //----&lt; remove element from front of queue &gt;---------------------------
+
+  template&lt;typename T&gt;
+  T BlockingQueue&lt;T&gt;::deQ()
+  {
+<input onclick="expand_collapse(simplediv743.id, this.id)" type="button" value=" ^ " id="myButton743" /><div id="simplediv743" style="display:block; ">
+    std::unique_lock&lt;std::mutex&gt; l(mtx_);
+    /*
+       This lock type is required for use with condition variables.
+       The operating system needs to lock and unlock the mutex:
+       - when wait is called, below, the OS suspends waiting thread
+         and releases lock.
+       - when notify is called in enQ() the OS relocks the mutex,
+         resumes the waiting thread and sets the condition variable to
+         signaled state.
+       std::lock_quard does not have public lock and unlock functions.
+     */
+    if (q_.size() &gt; 0)
+    {
+<input onclick="expand_collapse(simplediv744.id, this.id)" type="button" value=" ^ " id="myButton744" /><div id="simplediv744" style="display:block; ">
+      T temp = q_.front();
+      q_.pop();
+      return temp;
+    }</div>
+    // may have spurious returns so loop on !condition
+
+    while (q_.size() == 0)
+      cv_.wait(l, [this]() {
+<input onclick="expand_collapse(simplediv745.id, this.id)" type="button" value=" ^ " id="myButton745" /><div id="simplediv745" style="display:block; "> return q_.size() &gt; 0; }</div>);
+    T temp = q_.front();
+    q_.pop();
+    return temp;
+  }</div>
+  //----&lt; push element onto back of queue &gt;------------------------------
+
+  template&lt;typename T&gt;
+  void BlockingQueue&lt;T&gt;::enQ(const T& t)
+  {
+<input onclick="expand_collapse(simplediv746.id, this.id)" type="button" value=" ^ " id="myButton746" /><div id="simplediv746" style="display:block; ">
+    {
+<input onclick="expand_collapse(simplediv747.id, this.id)" type="button" value=" ^ " id="myButton747" /><div id="simplediv747" style="display:block; ">
+      std::unique_lock&lt;std::mutex&gt; l(mtx_);
+      q_.push(t);
+    }</div>
+    cv_.notify_one();
+  }</div>
+  //----&lt; peek at next item to be popped &gt;-------------------------------
+
+  template &lt;typename T&gt;
+  T& BlockingQueue&lt;T&gt;::front()
+  {
+<input onclick="expand_collapse(simplediv748.id, this.id)" type="button" value=" ^ " id="myButton748" /><div id="simplediv748" style="display:block; ">
+    std::lock_guard&lt;std::mutex&gt; l(mtx_);
+    if (q_.size() &gt; 0)
+      return q_.front();
+    throw std::exception("attempt to deQue empty queue");
+  }</div>
+  //----&lt; remove all elements from queue &gt;-------------------------------
+
+  template &lt;typename T&gt;
+  void BlockingQueue&lt;T&gt;::clear()
+  {
+<input onclick="expand_collapse(simplediv749.id, this.id)" type="button" value=" ^ " id="myButton749" /><div id="simplediv749" style="display:block; ">
+    std::lock_guard&lt;std::mutex&gt; l(mtx_);
+    while (q_.size() &gt; 0)
+      q_.pop();
+  }</div>
+  //----&lt; return number of elements in queue &gt;---------------------------
+
+  template&lt;typename T&gt;
+  size_t BlockingQueue&lt;T&gt;::size()
+  {
+<input onclick="expand_collapse(simplediv750.id, this.id)" type="button" value=" ^ " id="myButton750" /><div id="simplediv750" style="display:block; ">
+    std::lock_guard&lt;std::mutex&gt; l(mtx_);
+    return q_.size();
+  }</div>
+}</div>
+#endif
+</pre>
+</body>
+</html>

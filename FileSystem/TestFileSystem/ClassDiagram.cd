@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="FileSystem::Block">
+    <Position X="10.5" Y="1.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAAAAAAAAAAIEAAQAAAAEAAAgAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\su\coretechnologies\Cpp\Code\FileSystem-Windows\FileSystemDemo\FileSystem.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FileSystem::File">
+    <Position X="7.75" Y="0.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
+    <NestedTypes>
+      <Enum Name="FileSystem::File::direction">
+        <TypeIdentifier>
+          <NewMemberFileName>C:\su\coretechnologies\Cpp\Code\FileSystem-Windows\FileSystemDemo\FileSystem.h</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+      <Enum Name="FileSystem::File::type">
+        <TypeIdentifier>
+          <NewMemberFileName>C:\su\coretechnologies\Cpp\Code\FileSystem-Windows\FileSystemDemo\FileSystem.h</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AEACAAACAAIAAAAEACAAAEAAAAAFCAIAgYgAhAABJAA=</HashCode>
+      <FileName>C:\su\coretechnologies\Cpp\Code\FileSystem-Windows\FileSystemDemo\FileSystem.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FileSystem::FileInfo">
+    <Position X="4.75" Y="0.5" Width="1.75" />
+    <Compartments>
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
+    <NestedTypes>
+      <Enum Name="FileSystem::FileInfo::dateFormat">
+        <TypeIdentifier>
+          <NewMemberFileName>C:\su\coretechnologies\Cpp\Code\FileSystem-Windows\FileSystemDemo\FileSystem.h</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAASIUAAAAEAAAAAAKAAgRACAACEAAAQAEIwBQIAQBA=</HashCode>
+      <FileName>C:\su\coretechnologies\Cpp\Code\FileSystem-Windows\FileSystemDemo\FileSystem.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FileSystem::Path">
+    <Position X="1" Y="3.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAgAAAAAAAAAAAAIAIAAAAAAAAAAAAEgACAIAA=</HashCode>
+      <FileName>C:\su\coretechnologies\Cpp\Code\FileSystem-Windows\FileSystemDemo\FileSystem.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FileSystem::Directory">
+    <Position X="1" Y="0.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>CQAAAAAAAAAAAAAEAAAAAAAAAAAEQAAAAQBAAAAAAAA=</HashCode>
+      <FileName>C:\su\coretechnologies\Cpp\Code\FileSystem-Windows\FileSystemDemo\FileSystem.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Typedef Name="FileSystem::Byte" Collapsed="true">
+    <Position X="10.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\su\coretechnologies\Cpp\Code\FileSystem-Windows\FileSystemDemo\FileSystem.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

@@ -1,0 +1,95 @@
+<html>
+<head>
+   <link rel = "stylesheet" href ="..\stylesheet.css">
+   <script src="..\javascript.js"></script>
+</head>
+<body>
+<pre><hr /><div class="indent" >
+<h4>Dependencies:</h4>
+<a href=FileMgr.h.htm>FileMgr.h</a>
+</div>
+  <hr />
+ <pre>
+/////////////////////////////////////////////////////////////////////
+// FileMgr.cpp - find files matching specified patterns            //
+//               on a specified path                               //
+// ver 2.2                                                         //
+// Jim Fawcett, CSE687 - Object Oriented Design, Spring 2016       //
+/////////////////////////////////////////////////////////////////////
+
+#include "FileMgr.h"
+#include &lt;iostream&gt;
+
+using namespace FileManager;
+
+IFileMgr* FileMgr::pInstance_;
+
+IFileMgr* IFileMgr::getInstance()
+{
+<input onclick="expand_collapse(simplediv1382.id, this.id)" type="button" value=" ^ " id="myButton1382" /><div id="simplediv1382" style="display:block; ">
+  return FileMgr::getInstance();
+}</div>
+
+#ifdef TEST_FILEMGR
+
+using namespace FileManager;
+
+struct FileHandler : IFileEventHandler
+{
+<input onclick="expand_collapse(simplediv1383.id, this.id)" type="button" value=" ^ " id="myButton1383" /><div id="simplediv1383" style="display:block; ">
+  void execute(const std::string& fileSpec)
+  {
+<input onclick="expand_collapse(simplediv1384.id, this.id)" type="button" value=" ^ " id="myButton1384" /><div id="simplediv1384" style="display:block; ">
+    std::cout &lt;&lt; "\n  --   " &lt;&lt; fileSpec;
+  }</div>
+}</div>;
+
+struct DirHandler : IDirEventHandler
+{
+<input onclick="expand_collapse(simplediv1385.id, this.id)" type="button" value=" ^ " id="myButton1385" /><div id="simplediv1385" style="display:block; ">
+  void execute(const std::string& dirSpec)
+  {
+<input onclick="expand_collapse(simplediv1386.id, this.id)" type="button" value=" ^ " id="myButton1386" /><div id="simplediv1386" style="display:block; ">
+    std::cout &lt;&lt; "\n  ++ " &lt;&lt; dirSpec;
+  }</div>
+}</div>;
+
+struct DoneHandler : IDoneEventHandler
+{
+<input onclick="expand_collapse(simplediv1387.id, this.id)" type="button" value=" ^ " id="myButton1387" /><div id="simplediv1387" style="display:block; ">
+  void execute(size_t numFilesProcessed)
+  {
+<input onclick="expand_collapse(simplediv1388.id, this.id)" type="button" value=" ^ " id="myButton1388" /><div id="simplediv1388" style="display:block; ">
+    std::cout &lt;&lt; "\n\n  Processed " &lt;&lt; numFilesProcessed &lt;&lt; " files";
+  }</div>
+}</div>;
+int main()
+{
+<input onclick="expand_collapse(simplediv1389.id, this.id)" type="button" value=" ^ " id="myButton1389" /><div id="simplediv1389" style="display:block; ">
+  std::cout &lt;&lt; "\n  Testing FileMgr";
+  std::cout &lt;&lt; "\n =================";
+
+  std::string path = FileSystem::Path::getFullFileSpec("..");
+  IFileMgr* pFmgr = FileMgrFactory::create(path);
+
+  FileHandler fh;
+  DirHandler dh;
+  DoneHandler dnh;
+
+  pFmgr-&gt;regForFiles(&fh);
+  pFmgr-&gt;regForDirs(&dh);
+  pFmgr-&gt;regForDone(&dnh);
+
+  pFmgr-&gt;addPattern("*.h");
+  pFmgr-&gt;addPattern("*.cpp");
+  //pFmgr-&gt;addPattern("*.log");
+
+  pFmgr-&gt;search();
+
+  std::cout &lt;&lt; "\n\n";
+  return 0;
+}</div>
+#endif
+</pre>
+</body>
+</html>

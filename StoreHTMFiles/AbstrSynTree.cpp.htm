@@ -1,0 +1,216 @@
+<html>
+<head>
+   <link rel = "stylesheet" href ="..\stylesheet.css">
+   <script src="..\javascript.js"></script>
+</head>
+<body>
+<pre><hr /><div class="indent" >
+<h4>Dependencies:</h4>
+<a href=AbstrSynTree.h.htm>AbstrSynTree.h</a>
+</div>
+  <hr />
+ <pre>
+/////////////////////////////////////////////////////////////////////
+//  AbstrSynTree.cpp - Represents an Abstract Syntax Tree          //
+//  ver 1.4                                                        //
+//  Language:      Visual C++ 2015                                 //
+//  Platform:      Dell XPS 8900, Windows 10                       //
+//  Application:   Used to support parsing source code             //
+//  Author:        Jim Fawcett, CST 4-187, Syracuse University     //
+//                 (315) 443-3948, jfawcett@twcny.rr.com           //
+/////////////////////////////////////////////////////////////////////
+
+#include "AbstrSynTree.h"
+#include "../Utilities/Utilities.h"
+
+using namespace CodeAnalysis;
+
+//----&lt; default initialization for ASTNodes &gt;------------------------
+
+ASTNode::ASTNode() 
+  : type_("anonymous"), parentType_("namespace"), name_("none"), startLineCount_(0), endLineCount_(0), complexity_(0) {
+<input onclick="expand_collapse(simplediv868.id, this.id)" type="button" value=" ^ " id="myButton868" /><div id="simplediv868" style="display:block; ">}</div>
+
+//----&lt; initialization accepting type and name &gt;---------------------
+
+ASTNode::ASTNode(const Type& type, const Name& name) 
+  : type_(type), parentType_("namespace"), name_(name), startLineCount_(0), endLineCount_(0), complexity_(0) {
+<input onclick="expand_collapse(simplediv869.id, this.id)" type="button" value=" ^ " id="myButton869" /><div id="simplediv869" style="display:block; ">}</div>
+
+//----&lt; destructor deletes children, statements, declarations &gt;------
+
+ASTNode::~ASTNode()
+{
+<input onclick="expand_collapse(simplediv870.id, this.id)" type="button" value=" ^ " id="myButton870" /><div id="simplediv870" style="display:block; ">
+  for (auto pNode : children_)
+    delete pNode;
+  for (auto pNode : statements_)
+    delete pNode;
+  for (auto node : decl_)
+  {
+<input onclick="expand_collapse(simplediv871.id, this.id)" type="button" value=" ^ " id="myButton871" /><div id="simplediv871" style="display:block; ">
+    delete node.pTc;
+  }</div>
+}</div>
+//----&lt; returns string with ASTNode description &gt;--------------------
+
+std::string ASTNode::show(bool details)
+{
+<input onclick="expand_collapse(simplediv872.id, this.id)" type="button" value=" ^ " id="myButton872" /><div id="simplediv872" style="display:block; ">
+  std::ostringstream temp;
+  temp &lt;&lt; "(";
+  temp &lt;&lt; type_ &lt;&lt; ", ";
+  temp &lt;&lt; parentType_ &lt;&lt; ", ";
+  if(name_ != "none")
+    temp &lt;&lt; name_ &lt;&lt; ", ";
+  if(type_ == "namespace" || type_ == "class" || type_ == "interface" || type_ == "struct" || type_ == "function")
+    temp &lt;&lt; package_ &lt;&lt; ", ";
+  if (details)
+  {
+<input onclick="expand_collapse(simplediv873.id, this.id)" type="button" value=" ^ " id="myButton873" /><div id="simplediv873" style="display:block; ">
+    temp &lt;&lt; "num children: " &lt;&lt; children_.size() &lt;&lt; ", ";
+    temp &lt;&lt; "num statements: " &lt;&lt; statements_.size() &lt;&lt; ", ";
+  }</div>
+  temp &lt;&lt; "line: " &lt;&lt; startLineCount_ &lt;&lt; ", ";
+  temp &lt;&lt; "size: " &lt;&lt; endLineCount_ - startLineCount_ + 1 &lt;&lt; ", ";
+  temp &lt;&lt; "cplx: " &lt;&lt; complexity_;
+  //temp &lt;&lt; "path: " &lt;&lt; path_;
+  temp &lt;&lt; ")";
+  return temp.str();
+}</div>
+//----&lt; create instance and initialize first element &gt;---------------
+/*
+*  - Every AST holds an ASTNode representing the global namespace
+*  - Its children will be namespaces, classes, and global data
+*/
+AbstrSynTree::AbstrSynTree(ScopeStack&lt;ASTNode*&gt;& stack) : stack_(stack)
+{
+<input onclick="expand_collapse(simplediv874.id, this.id)" type="button" value=" ^ " id="myButton874" /><div id="simplediv874" style="display:block; ">
+  pGlobalNamespace_ = new ASTNode("namespace", "Global Namespace");
+  pGlobalNamespace_-&gt;startLineCount_ = 1;
+  pGlobalNamespace_-&gt;endLineCount_ = 1;
+  stack_.push(pGlobalNamespace_);
+}</div>
+//----&lt; destroy instance and all it's ASTNodes &gt;---------------------
+/*
+*  AST destructor only has to delete its root.  The root will then
+*  delete its children, causing the children to delete their children,
+*  yada, yada, yada
+*/
+AbstrSynTree::~AbstrSynTree()
+{
+<input onclick="expand_collapse(simplediv875.id, this.id)" type="button" value=" ^ " id="myButton875" /><div id="simplediv875" style="display:block; ">
+  delete pGlobalNamespace_;
+}</div>
+//----&lt; return or accept pointer to global namespace &gt;---------------
+
+ASTNode*& AbstrSynTree::root()
+{
+<input onclick="expand_collapse(simplediv876.id, this.id)" type="button" value=" ^ " id="myButton876" /><div id="simplediv876" style="display:block; ">
+  return pGlobalNamespace_;
+}</div>
+//----&lt; return AST typemap &gt;-----------------------------------------
+/*
+*  Type map holds ClassName keys linked to each class's ASTNode
+*/
+AbstrSynTree::TypeMap& AbstrSynTree::typeMap()
+{
+<input onclick="expand_collapse(simplediv877.id, this.id)" type="button" value=" ^ " id="myButton877" /><div id="simplediv877" style="display:block; ">
+  return typeMap_;
+}</div>
+//----&lt; add ASTNode ptr to stack top element's children and push &gt;---
+/*
+ * - Add new scope to ScopeStack after linking to its parent scope
+ * - If type is a class or struct, add to typeMap
+ */
+void AbstrSynTree::add(ASTNode* pNode)
+{
+<input onclick="expand_collapse(simplediv878.id, this.id)" type="button" value=" ^ " id="myButton878" /><div id="simplediv878" style="display:block; ">
+  pNode-&gt;parentType_ = stack_.top()-&gt;type_;
+  stack_.top()-&gt;children_.push_back(pNode);  // add as child of stack top
+  stack_.push(pNode);                        // push onto stack
+  if (pNode-&gt;type_ == "class" || pNode-&gt;type_ == "struct" || pNode-&gt;type_ == "interface")
+    typeMap_[pNode-&gt;name_] = pNode;
+}</div>
+//----&lt; pop stack's top element &gt;------------------------------------
+/*
+ *  - called at end of scope
+ *  - pop'd ASTNode is still linked to AST
+ */
+ASTNode* AbstrSynTree::pop()
+{
+<input onclick="expand_collapse(simplediv879.id, this.id)" type="button" value=" ^ " id="myButton879" /><div id="simplediv879" style="display:block; ">
+  return stack_.pop();
+}</div>
+//----&lt; find a type node using typeMap &gt;-----------------------------
+/*
+*  Retrieve ASTNode of class if it exists
+*/
+ASTNode* AbstrSynTree::find(const ClassName& className)
+{
+<input onclick="expand_collapse(simplediv880.id, this.id)" type="button" value=" ^ " id="myButton880" /><div id="simplediv880" style="display:block; ">
+  auto iter = typeMap_.find(className);
+  if (iter != typeMap_.end())
+  {
+<input onclick="expand_collapse(simplediv881.id, this.id)" type="button" value=" ^ " id="myButton881" /><div id="simplediv881" style="display:block; ">
+    return iter-&gt;second;
+  }</div>
+  return nullptr;
+}</div>
+
+//----&lt; Test Stub &gt;--------------------------------------------------
+/*
+*  Demonstrates that AbstrSynTree can build a simple Abstract
+*  Syntax Tree and display its contents.
+*/
+#ifdef TEST_ABSTRSYNTREE
+
+#include &lt;functional&gt;
+#include &lt;iostream&gt;
+
+using Utils = Utilities::StringHelper;
+
+int main()
+{
+<input onclick="expand_collapse(simplediv882.id, this.id)" type="button" value=" ^ " id="myButton882" /><div id="simplediv882" style="display:block; ">
+  Utils::Title("Testing AbstrSynTree and ASTNode");
+
+  ScopeStack&lt;ASTNode*&gt; stack;
+  AbstrSynTree ast(stack);
+  ASTNode* pX = new ASTNode("class", "X");
+  ast.add(pX);                                        // add X scope
+  ASTNode* pf1 = new ASTNode("function", "f1");
+  ast.add(pf1);                                       // add f1 scope
+  ASTNode* pc1 = new ASTNode("control", "if");
+  ast.add(pc1);                                       // add c1 scope
+  ast.pop();                                          // end c1 scope
+  ast.pop();                                          // end f1 scope
+  ASTNode* pf2 = new ASTNode("function", "f2");
+  ast.add(pf2);                                       // add f2 scope
+  ast.pop();                                          // end f2 scope
+  ast.pop();                                          // end X scope
+
+  std::function&lt;void(ASTNode*, size_t)&gt; co = [](ASTNode* pNode, size_t indentLevel) 
+  {
+<input onclick="expand_collapse(simplediv883.id, this.id)" type="button" value=" ^ " id="myButton883" /><div id="simplediv883" style="display:block; ">
+    std::cout &lt;&lt; "\n  " &lt;&lt; std::string(2 * indentLevel, ' ') &lt;&lt; pNode-&gt;show();
+  }</div>;
+
+  ASTWalk(ast.root(), co);
+  std::cout &lt;&lt; "\n";
+
+  Utils::title("testing AbstrSynTree::find");
+
+  ASTNode* pFind = ast.find("X");
+  if (pFind != nullptr)
+    std::cout &lt;&lt; "\n  " &lt;&lt; pFind-&gt;show();
+  else
+    std::cout &lt;&lt; "\n  could not find ASTNode for class X";
+
+  std::cout &lt;&lt; "\n\n";
+}</div>
+
+#endif
+</pre>
+</body>
+</html>

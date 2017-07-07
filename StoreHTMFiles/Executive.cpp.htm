@@ -1,0 +1,1791 @@
+<html>
+<head>
+   <link rel = "stylesheet" href ="..\stylesheet.css">
+   <script src="..\javascript.js"></script>
+</head>
+<body>
+<pre><hr /><div class="indent" >
+<h4>Dependencies:</h4>
+<a href=AbstrSynTree.h.htm>AbstrSynTree.h</a>
+<a href=Executive.h.htm>Executive.h</a>
+<a href=Cpp11-BlockingQueue.h.htm>Cpp11-BlockingQueue.h</a>
+<a href=DependAnal.h.htm>DependAnal.h</a>
+<a href=TypeAnalysis.h.htm>TypeAnalysis.h</a>
+<a href=FileMgr.h.htm>FileMgr.h</a>
+</div>
+  <hr />
+ <pre>
+/////////////////////////////////////////////////////////////////////
+// Executive.cpp - Demonstrate Project2 Requirements               //
+// ver 1.4                                                         //
+//-----------------------------------------------------------------//
+// Jim Fawcett (c) copyright 2016                                  //
+// All rights granted provided this copyright notice is retained   //
+//-----------------------------------------------------------------//
+// Language:    C++, Visual Studio 2015                            //
+// Platform:    Dell XPS 8900, Windows 10                          //
+// Application: Project #2, CSE687 - Object Oriented Design, S2015 //
+// Author:      Jashwanth Reddy, Syracuse University, CST 4-187    //
+//              jgangula@syr.edu                                   //
+/////////////////////////////////////////////////////////////////////
+
+#include "Executive.h"
+#include &lt;iostream&gt;
+#include &lt;sstream&gt;
+#include &lt;string&gt;
+#include &lt;vector&gt;
+#include &lt;map&gt;
+#include &lt;unordered_map&gt;
+#include &lt;functional&gt;
+#include &lt;algorithm&gt;
+#include &lt;exception&gt;
+#include &lt;iomanip&gt;
+#include &lt;chrono&gt;
+#include &lt;ctime&gt;
+#include &lt;windows.h&gt;
+#include &lt;shellapi.h&gt;
+#include "../Parser/Parser.h"
+#include "../FileSystem/FileSystem.h"
+#include "../FileMgr/FileMgr.h"
+#include "../Parser/ActionsAndRules.h"
+#include "../Parser/ConfigureParser.h"
+#include "../AbstractSyntaxTree/AbstrSynTree.h"
+#include "../Logger/Logger.h"
+#include "../Utilities/Utilities.h"
+#include "../DepthAnalysis/TypeAnalysis.h"
+#include "../DependencyAnalysis/DependAnal.h"
+#include "../Graph/Graph.h"
+#include "../PublishCode/PublishCode.h"
+using Rslt = Logging::StaticLogger&lt;0&gt;;  // use for application results
+using Demo = Logging::StaticLogger&lt;1&gt;;  // use for demonstrations of processing
+using Dbug = Logging::StaticLogger&lt;2&gt;;  // use for debug output
+using namespace Utilities;
+//using Rslt = Logging::StaticLogger&lt;1&gt;;
+using namespace Async;
+using namespace CodeAnalysis;
+using namespace std;
+
+/////////////////////////////////////////////////////////////////////
+// AnalFileMgr class
+// - Derives from FileMgr to make application specific file handler
+//   by overriding FileMgr::file(), FileMgr::dir(), and FileMgr::done()
+
+using Path = std::string;
+using File = std::string;
+using Files = std::vector&lt;File&gt;;
+using Pattern = std::string;
+using Ext = std::string;
+using FileMap = std::unordered_map&lt;Pattern, Files&gt;;
+
+
+
+class ClientHandler
+{
+<input onclick="expand_collapse(simplediv900.id, this.id)" type="button" value=" ^ " id="myButton900" /><div id="simplediv900" style="display:block; ">
+public:
+	using Path = std::string;
+	using Pattern = std::string;
+	using Patterns = std::vector&lt;Pattern&gt;;
+	using File = std::string;
+	using Files = std::vector&lt;File&gt;;
+	using Ext = std::string;
+	using Options = std::vector&lt;char&gt;;
+	using FileMap = std::unordered_map&lt;Pattern, Files&gt;;
+	using Slocs = size_t;
+	using SlocMap = std::unordered_map&lt;File, Slocs&gt;;
+public:
+	ClientHandler(BlockingQueue&lt;HttpMessage&gt;& msgQ) : msgQ_(msgQ) {
+<input onclick="expand_collapse(simplediv901.id, this.id)" type="button" value=" ^ " id="myButton901" /><div id="simplediv901" style="display:block; ">}</div>
+	void operator()(Socket socket);
+	bool ProcessCommandLine(int argc, char* argv[]);
+	HttpMessage readMessageForPost(HttpMessage& msg, Socket& socket);
+private:
+	bool connectionClosed_;
+	HttpMessage readMessage(Socket& socket);
+	bool readFile(const std::string& filename, size_t fileSize, const std::string& getDir, Socket& socket);
+	BlockingQueue&lt;HttpMessage&gt;& msgQ_;
+	Path path_;
+}</div>;
+
+/* This method is only used by runCodeAnalyzerOnServer to reduce the line count to 50 */
+void OpenBrowserPagesToDemonstarteReq11(int argc, char * argv[]) {
+<input onclick="expand_collapse(simplediv902.id, this.id)" type="button" value=" ^ " id="myButton902" /><div id="simplediv902" style="display:block; ">
+	Utilities::StringHelper::Title("Demonstarting Requirement 11 is met: ");
+	std::string path = argv[6];
+	path += "/dependencyTable.htm";
+	path = FileSystem::Path::getFullFileSpec(path);
+	std::wstring sPath(path.begin(), path.end());
+	Utilities::StringHelper::Title("Trying to open the dependency Files in the local folder");
+	ShellExecute(NULL, L"open", sPath.c_str(), NULL, NULL, SW_SHOWNORMAL);
+	std::string path1 = argv[8];
+	path1 += "/dependencyTable.htm";
+	std::wstring sPath1(path1.begin(), path1.end());
+	Utilities::StringHelper::Title("Trying to open the dependency Files on the IIS virtula Directory folder");
+	ShellExecute(NULL, L"open", sPath1.c_str(), NULL, NULL, SW_SHOWNORMAL);
+	Utilities::StringHelper::Title("End of Requirement 11 Demonstation");
+}</div>
+
+int runCodeAnalyzerOnServer(int argc, char* argv[]) {
+<input onclick="expand_collapse(simplediv903.id, this.id)" type="button" value=" ^ " id="myButton903" /><div id="simplediv903" style="display:block; ">
+	using namespace CodeAnalysis;
+	CodeAnalysisExecutive exec;
+	try {
+<input onclick="expand_collapse(simplediv904.id, this.id)" type="button" value=" ^ " id="myButton904" /><div id="simplediv904" style="display:block; ">
+		bool succeeded = exec.ProcessCommandLine(argc, argv);
+		exec.setDisplayModes();
+		exec.startLogger(std::cout);
+		std::ostringstream tOut("CodeAnalysis");
+		Utils::sTitle(tOut.str(), 3, 92, tOut, '=');
+		Rslt::write(tOut.str());
+		Rslt::write("\n     " + exec.getAnalysisPath());
+		Rslt::write("\n     " + exec.systemTime());
+		Rslt::flush();
+		exec.showCommandLineArguments(argc, argv);
+		Rslt::write("\n");
+		exec.getSourceFiles();
+		exec.processSourceCode(true);
+		std::ostringstream out;
+		out &lt;&lt; "\n  " &lt;&lt; std::setw(10) &lt;&lt; "searched" &lt;&lt; std::setw(6) &lt;&lt; exec.numDirs() &lt;&lt; " dirs";
+		out &lt;&lt; "\n  " &lt;&lt; std::setw(10) &lt;&lt; "processed" &lt;&lt; std::setw(6) &lt;&lt; exec.numFiles() &lt;&lt; " files";
+		Rslt::write(out.str());
+		exec.stopLogger();
+		putline();
+		TypeAnal ta;
+		ta.doTypeAnal();
+		ta.displayTypeTable();
+		DependAnal dan;
+		dan.ProcessCommandLine(argc, argv);
+		dan.getSourceFiles();
+		dan.processSourceCode();
+		CodeAnalysisExecutive::depmapforlazyloading = dan.getDependencyTable();
+		Utilities::StringHelper::Title("Demonstarting Requirement 4 is met: Start of Code Publisher of Project 3 ");
+		CodePublisher cp(dan.getDependencyTable());
+		cp.ProcessCommandLine(argc, argv);
+		cp.getSourceFiles();
+		cp.displayDependencies();
+		cp.demonstrateReq4();
+		cp.processSourceCode();
+		Utilities::StringHelper::Title("End of Requirement 4:  Code Publisher has published all the source code to HTML content and stylings included");
+		OpenBrowserPagesToDemonstarteReq11(argc, argv);
+	}</div>
+	catch (std::exception& except)
+	{
+<input onclick="expand_collapse(simplediv905.id, this.id)" type="button" value=" ^ " id="myButton905" /><div id="simplediv905" style="display:block; ">
+		exec.flushLogger();
+		std::cout &lt;&lt; "\n\n  caught exception in Executive::main: " + std::string(except.what()) + "\n\n";
+		exec.stopLogger();
+		return 1;
+	}</div>
+	return 0;
+}</div>
+
+//----&lt;this defines the processing of Get Requests and send the reply to the client &gt;----------
+
+bool sendFinalMessageToClient(HttpMessage &msg)
+{
+<input onclick="expand_collapse(simplediv906.id, this.id)" type="button" value=" ^ " id="myButton906" /><div id="simplediv906" style="display:block; ">
+	try
+	{
+<input onclick="expand_collapse(simplediv907.id, this.id)" type="button" value=" ^ " id="myButton907" /><div id="simplediv907" style="display:block; ">
+		SocketSystem ss;
+		SocketConnecter si;
+		while (!si.connect("localhost", 8081))
+		{
+<input onclick="expand_collapse(simplediv908.id, this.id)" type="button" value=" ^ " id="myButton908" /><div id="simplediv908" style="display:block; ">
+			Rslt::write("\n Server waiting to connect");
+			::Sleep(100);
+		}</div>
+	//	sendFile(filepath, si);
+		std::string sendString = msg.toString();
+		si.send(sendString.size(), (Socket::byte*)sendString.c_str());
+		Rslt::write("\n Server has sent the get reply to the client.");
+	}</div> 
+	catch (std::exception& exc)
+	{
+<input onclick="expand_collapse(simplediv909.id, this.id)" type="button" value=" ^ " id="myButton909" /><div id="simplediv909" style="display:block; ">
+		Rslt::write("\n  Exeception caught: ");
+		std::string exMsg = "\n  " + std::string(exc.what()) + "\n\n";
+		Rslt::write(exMsg);
+	}</div>
+	return true;
+}</div>
+
+
+bool sendFileToClient(string path,string FileName, int argc, char* argv[]) {
+<input onclick="expand_collapse(simplediv910.id, this.id)" type="button" value=" ^ " id="myButton910" /><div id="simplediv910" style="display:block; ">
+	try {
+<input onclick="expand_collapse(simplediv911.id, this.id)" type="button" value=" ^ " id="myButton911" /><div id="simplediv911" style="display:block; ">
+		HttpMessage sendMsg;
+		std::string SrvrEndPoint = "localhost::8080";
+		std::string ClientEndPoint = "localhost::8081";
+		sendMsg.addAttribute(HttpMessage::attribute("GET", "Message"));
+		sendMsg.addAttribute(HttpMessage::Attribute("mode", "oneWay"));
+		sendMsg.addAttribute(HttpMessage::parseAttribute("toAddr:" + ClientEndPoint));
+		sendMsg.addAttribute(HttpMessage::parseAttribute("fromAddr:" + SrvrEndPoint));
+		string FileHtmPath = path;
+		FileHtmPath += '/' + FileName;
+		Rslt::write("\n Html FilePath to be uploaded to client is :" + FileHtmPath);
+		FileSystem::File file(FileHtmPath);
+		file.open(FileSystem::File::in, FileSystem::File::binary);
+		if (!file.isGood())
+		{
+<input onclick="expand_collapse(simplediv912.id, this.id)" type="button" value=" ^ " id="myButton912" /><div id="simplediv912" style="display:block; ">	Rslt::write("\n\n  can't open file " + FileHtmPath);
+			return false;}</div>
+		FileSystem::FileInfo fi(FileHtmPath);
+		size_t fileSize = fi.size();
+		std::string sizeString = Converter&lt;size_t&gt;::toString(fileSize);
+		SocketSystem ss;SocketConnecter si;
+		while (!si.connect("localhost", 8081))
+		{
+<input onclick="expand_collapse(simplediv913.id, this.id)" type="button" value=" ^ " id="myButton913" /><div id="simplediv913" style="display:block; ">	Rslt::write("\n Server waiting to connect");
+			::Sleep(100);}</div>
+		sendMsg.addAttribute(HttpMessage::Attribute("messageType", "HtmFileContentReplyFromServer"));
+		sendMsg.addAttribute(HttpMessage::Attribute("fileName", FileName));
+		sendMsg.addAttribute(HttpMessage::Attribute("content-length", sizeString));
+		std::string sendString = sendMsg.toString();
+		si.send(sendString.size(), (Socket::byte*)sendString.c_str());
+		/* Now send the file content */
+		const size_t BlockSize = 2048;
+		Socket::byte buffer[BlockSize];
+		while (true)
+		{
+<input onclick="expand_collapse(simplediv914.id, this.id)" type="button" value=" ^ " id="myButton914" /><div id="simplediv914" style="display:block; ">	FileSystem::Block blk = file.getBlock(BlockSize);
+			if (blk.size() == 0)
+				break;
+			for (size_t i = 0; i &lt; blk.size(); ++i)
+				buffer[i] = blk[i];
+			si.send(blk.size(), buffer);
+			if (!file.isGood())
+				break;}</div>
+		file.close();
+		cout &lt;&lt; "Requirement 8 is met: Sent the file : " &lt;&lt; FileHtmPath &lt;&lt; " through stream of 2048 bytes each ";
+		Rslt::write("\n\n File : " + FileHtmPath + " content was sent to the client successfully");
+	}</div>
+	catch (std::exception& exc)
+	{
+<input onclick="expand_collapse(simplediv915.id, this.id)" type="button" value=" ^ " id="myButton915" /><div id="simplediv915" style="display:block; ">	Rslt::write("\n  Exeception caught: ");
+		std::string exMsg = "\n  " + std::string(exc.what()) + "\n\n";
+		Rslt::write(exMsg);}</div>
+	return true;}</div>
+
+bool SendDependencyFilesToClient(string FileName,int argc,char* argv[]) {
+<input onclick="expand_collapse(simplediv916.id, this.id)" type="button" value=" ^ " id="myButton916" /><div id="simplediv916" style="display:block; ">
+	Utilities::StringHelper::Title("Demonstrating Requirement :Lazy DownLoad Strategy");
+	try {
+<input onclick="expand_collapse(simplediv917.id, this.id)" type="button" value=" ^ " id="myButton917" /><div id="simplediv917" style="display:block; ">
+		if (CodeAnalysisExecutive::depmapforlazyloading.size() &lt;= 1) {
+<input onclick="expand_collapse(simplediv918.id, this.id)" type="button" value=" ^ " id="myButton918" /><div id="simplediv918" style="display:block; ">
+			runCodeAnalyzerOnServer(argc, argv);
+		}</div>
+		unordered_map&lt;std::string, std::set&lt;std::string&gt;&gt;::iterator it = CodeAnalysisExecutive::depmapforlazyloading.begin();
+		for (it; it != CodeAnalysisExecutive::depmapforlazyloading.end(); it++) {
+<input onclick="expand_collapse(simplediv919.id, this.id)" type="button" value=" ^ " id="myButton919" /><div id="simplediv919" style="display:block; ">
+			string fileStringFromItr = it-&gt;first;
+			std::string fileName_ = fileStringFromItr.substr(fileStringFromItr.find_last_of("\\") + 1);
+			if (fileName_.compare(FileName) == 0) {
+<input onclick="expand_collapse(simplediv920.id, this.id)" type="button" value=" ^ " id="myButton920" /><div id="simplediv920" style="display:block; ">
+				set&lt;string&gt; valueOfMap = it-&gt;second;
+
+				for (std::string str : it-&gt;second)
+				{
+<input onclick="expand_collapse(simplediv921.id, this.id)" type="button" value=" ^ " id="myButton921" /><div id="simplediv921" style="display:block; ">
+					cout &lt;&lt; "File :" &lt;&lt; FileName &lt;&lt; "depends on " &lt;&lt; str &lt;&lt; endl;
+					std::string dependFileNameOnly_ = str.substr(str.find_last_of("\\") + 1);
+					cout &lt;&lt; "Trying to send the dependency file " &lt;&lt; dependFileNameOnly_ + ".htm" &lt;&lt; "to the client " &lt;&lt; endl;
+					string FileHtmPath = argv[6];
+					sendFileToClient(FileHtmPath,dependFileNameOnly_ + ".htm", argc, argv);
+				}</div>
+			}</div>
+		}</div>
+		Utilities::StringHelper::Title("Requirement 10 is met: Sent the depedency files to the client for Lazy DownLoad Strategy");
+	}</div>
+	catch (std::exception& exc)
+	{
+<input onclick="expand_collapse(simplediv922.id, this.id)" type="button" value=" ^ " id="myButton922" /><div id="simplediv922" style="display:block; ">
+		Rslt::write("\n  Exeception caught: ");
+		std::string exMsg = "\n  " + std::string(exc.what()) + "\n\n";
+		Rslt::write(exMsg);
+	}</div>
+	return true;
+}</div>
+
+void createDefaultSendMessageWithAttributes(HttpMessage &msg) {
+<input onclick="expand_collapse(simplediv923.id, this.id)" type="button" value=" ^ " id="myButton923" /><div id="simplediv923" style="display:block; ">
+
+}</div>
+void processGetMessageforGetCategories(HttpMessage &msg, int argc, char* argv[]) {
+<input onclick="expand_collapse(simplediv924.id, this.id)" type="button" value=" ^ " id="myButton924" /><div id="simplediv924" style="display:block; ">
+
+	string sendResult = "";
+	HttpMessage sndMsg;
+	std::string SrvrEndPoint = "localhost::8080";
+	std::string ClientEndPoint = "localhost::8081";
+	sndMsg.addAttribute(HttpMessage::attribute("GET", "Message"));
+	sndMsg.addAttribute(HttpMessage::Attribute("mode", "oneWay"));
+	sndMsg.addAttribute(HttpMessage::parseAttribute("toAddr:" + ClientEndPoint));
+	sndMsg.addAttribute(HttpMessage::parseAttribute("fromAddr:" + SrvrEndPoint));
+	Rslt::write("\nServer needs to process the GetCategories message: \n");
+	vector&lt;std::string&gt; getAllCategoriesList = FileSystem::Directory::getDirectories(argv[1]);
+	//for (vector&lt;std::string&gt;::iterator it = getAllCategoriesList.begin(); it != getAllCategoriesList.end(); it++)
+	for (int i = 0; i &lt;getAllCategoriesList.size(); i++)
+	{
+<input onclick="expand_collapse(simplediv925.id, this.id)" type="button" value=" ^ " id="myButton925" /><div id="simplediv925" style="display:block; ">
+		//	cout &lt;&lt; "Directory found " &lt;&lt; *it &lt;&lt; " \n";
+		if ((getAllCategoriesList[i] != ".") && (getAllCategoriesList[i] != ".."))
+		{
+<input onclick="expand_collapse(simplediv926.id, this.id)" type="button" value=" ^ " id="myButton926" /><div id="simplediv926" style="display:block; ">
+			sendResult += getAllCategoriesList[i];
+			if (i != getAllCategoriesList.size() - 1)
+			{
+<input onclick="expand_collapse(simplediv927.id, this.id)" type="button" value=" ^ " id="myButton927" /><div id="simplediv927" style="display:block; ">
+				sendResult += ",";
+			}</div>
+		}</div>
+	}</div>
+	sndMsg.addAttribute(HttpMessage::Attribute("messageType", "getCategoriesReply"));
+	if (sendResult.size() &gt; 0)
+	{
+<input onclick="expand_collapse(simplediv928.id, this.id)" type="button" value=" ^ " id="myButton928" /><div id="simplediv928" style="display:block; ">
+		sndMsg.addAttribute(HttpMessage::attribute("content-length", Converter&lt;size_t&gt;::toString(sendResult.size())));
+		sndMsg.addBody(sendResult); /* We add message body after all atributes are added for client
+									to get the body based on content-length attribute */
+	}</div>
+	getAllCategoriesList.clear();
+	Utilities::StringHelper::Title("\n Requirement 8 is met: The HTTP response to be sent from the server end " + sndMsg.toString());
+	Rslt::write("\nMessage to be sent is " + sndMsg.toString());
+	sendFinalMessageToClient(sndMsg);
+}</div>
+
+
+void processGetMessageForGetFileNamesFromServer(HttpMessage &msg, int argc, char* argv[]) {
+<input onclick="expand_collapse(simplediv929.id, this.id)" type="button" value=" ^ " id="myButton929" /><div id="simplediv929" style="display:block; ">
+	string sendResult = "";
+	HttpMessage sndMsg;
+	std::string SrvrEndPoint = "localhost::8080";
+	std::string ClientEndPoint = "localhost::8081";
+	sndMsg.addAttribute(HttpMessage::attribute("GET", "Message"));
+	sndMsg.addAttribute(HttpMessage::Attribute("mode", "oneWay"));
+	sndMsg.addAttribute(HttpMessage::parseAttribute("toAddr:" + ClientEndPoint));
+	sndMsg.addAttribute(HttpMessage::parseAttribute("fromAddr:" + SrvrEndPoint));
+	Rslt::write("\nServer needs to process the GetFiles message: \n");
+	string searchCategoryPath = argv[1];
+	searchCategoryPath += "/" + msg.findValue("FileCategory");
+	std::cout &lt;&lt; "\n The argv[1] is: " &lt;&lt; argv[1] &lt;&lt; endl;
+	std::cout &lt;&lt; "\n The searchCategoryPath is: " &lt;&lt; searchCategoryPath &lt;&lt; endl;
+	vector&lt;std::string&gt; getAllFilesList = FileSystem::Directory::getFiles(searchCategoryPath, "*.*");
+	//	for (vector&lt;std::string&gt;::iterator it = getAllFilesList.begin();it != getAllFilesList.end(); it++)
+	for (int i = 0; i &lt; getAllFilesList.size(); i++)
+	{
+<input onclick="expand_collapse(simplediv930.id, this.id)" type="button" value=" ^ " id="myButton930" /><div id="simplediv930" style="display:block; ">
+		cout &lt;&lt; "File found " &lt;&lt; getAllFilesList[i] &lt;&lt; " \n";
+		/*if ((*it != ".") && (*it != ".."))
+		{
+<input onclick="expand_collapse(simplediv931.id, this.id)" type="button" value=" ^ " id="myButton931" /><div id="simplediv931" style="display:block; ">*/
+		sendResult += getAllFilesList[i];
+		if (i != getAllFilesList.size() - 1)
+		{
+<input onclick="expand_collapse(simplediv932.id, this.id)" type="button" value=" ^ " id="myButton932" /><div id="simplediv932" style="display:block; ">
+			sendResult += ",";
+		}</div>
+		//	}</div>
+	}</div>
+	sndMsg.addAttribute(HttpMessage::Attribute("messageType", "getFileNamesReply"));
+	if (sendResult.size() &gt; 0)
+	{
+<input onclick="expand_collapse(simplediv933.id, this.id)" type="button" value=" ^ " id="myButton933" /><div id="simplediv933" style="display:block; ">
+		sndMsg.addAttribute(HttpMessage::attribute("content-length", Converter&lt;size_t&gt;::toString(sendResult.size())));
+		sndMsg.addBody(sendResult); /* We add message body after all atributes are added for client
+									to get the body based on content-length attribute */
+	}</div>
+	getAllFilesList.clear();
+	Rslt::write("\nMessage to be sent is " + sndMsg.toString());
+	sendFinalMessageToClient(sndMsg);
+}</div>
+
+void processGetMessageFordownloadHtmFileFromServer(HttpMessage &msg, int argc, char* argv[]) {
+<input onclick="expand_collapse(simplediv934.id, this.id)" type="button" value=" ^ " id="myButton934" /><div id="simplediv934" style="display:block; ">
+
+	string sendResult = "";
+	HttpMessage sndMsg;
+	std::string SrvrEndPoint = "localhost::8080";
+	std::string ClientEndPoint = "localhost::8081";
+	sndMsg.addAttribute(HttpMessage::attribute("GET", "Message"));
+	sndMsg.addAttribute(HttpMessage::Attribute("mode", "oneWay"));
+	sndMsg.addAttribute(HttpMessage::parseAttribute("toAddr:" + ClientEndPoint));
+	sndMsg.addAttribute(HttpMessage::parseAttribute("fromAddr:" + SrvrEndPoint));
+	size_t contentSize;
+	try {
+<input onclick="expand_collapse(simplediv935.id, this.id)" type="button" value=" ^ " id="myButton935" /><div id="simplediv935" style="display:block; ">
+		std::string sizeString = msg.findValue("content-length");
+		if (sizeString != "")
+			contentSize = Converter&lt;size_t&gt;::toValue(sizeString);
+		if (contentSize &gt; 0) {
+<input onclick="expand_collapse(simplediv936.id, this.id)" type="button" value=" ^ " id="myButton936" /><div id="simplediv936" style="display:block; ">
+			Socket::byte* buffer = new Socket::byte[contentSize + 1];
+			msg.getBody(buffer, contentSize);
+			buffer[contentSize] = '\0';
+			string getMsgBody = buffer;
+			delete[] buffer;
+			if (getMsgBody.find('$') != std::string::npos) {
+<input onclick="expand_collapse(simplediv937.id, this.id)" type="button" value=" ^ " id="myButton937" /><div id="simplediv937" style="display:block; ">
+				string FirstDollarSplit = getMsgBody.substr(getMsgBody.find('$') + 1);
+				if (FirstDollarSplit.find('$') != std::string::npos) {
+<input onclick="expand_collapse(simplediv938.id, this.id)" type="button" value=" ^ " id="myButton938" /><div id="simplediv938" style="display:block; ">
+					string CategoryName = FirstDollarSplit.substr(0, FirstDollarSplit.find('$'));
+					string FileName = FirstDollarSplit.substr(FirstDollarSplit.find('$') + 1);
+					Rslt::write("\nServer needs to get File HTML content = " + FileName + " Category = " + CategoryName +
+						" message request from the client: \n");
+					//javascriptPath_ += "../javascript.js";
+					//sendFileToClient(javascriptPath_, sndMsg, argc, argv);
+					string FileHtmPath = argv[6];
+					sendFileToClient(FileHtmPath, FileName + ".htm", argc, argv);
+					SendDependencyFilesToClient(FileName, argc, argv);
+				}</div>
+			}</div>
+		}</div>
+	}</div>
+
+
+	catch (std::exception& exc)
+	{
+<input onclick="expand_collapse(simplediv939.id, this.id)" type="button" value=" ^ " id="myButton939" /><div id="simplediv939" style="display:block; ">
+		Rslt::write("\n  Exeception caught in the method deleteSingleFileOnServer: \n");
+		std::string exMsg = "\n  " + std::string(exc.what()) + "\n\n";
+		Rslt::write(exMsg);
+	}</div>
+}</div>
+
+
+bool processGetMessages(HttpMessage &msg, int argc, char* argv[])
+{
+<input onclick="expand_collapse(simplediv940.id, this.id)" type="button" value=" ^ " id="myButton940" /><div id="simplediv940" style="display:block; ">
+	string sendResult = "";
+	HttpMessage sndMsg;
+	std::string SrvrEndPoint = "localhost::8080";
+	std::string ClientEndPoint = "localhost::8081";
+	sndMsg.addAttribute(HttpMessage::attribute("GET", "Message"));
+	sndMsg.addAttribute(HttpMessage::Attribute("mode", "oneWay"));
+	sndMsg.addAttribute(HttpMessage::parseAttribute("toAddr:" + ClientEndPoint));
+	sndMsg.addAttribute(HttpMessage::parseAttribute("fromAddr:" + SrvrEndPoint));
+	if (msg.findValue("messageType") != "")
+	{
+<input onclick="expand_collapse(simplediv941.id, this.id)" type="button" value=" ^ " id="myButton941" /><div id="simplediv941" style="display:block; ">
+		if (msg.findValue("messageType").compare("getCategories") == 0)
+		{
+<input onclick="expand_collapse(simplediv942.id, this.id)" type="button" value=" ^ " id="myButton942" /><div id="simplediv942" style="display:block; ">
+			Utilities::StringHelper::Title("Demonstrating Requirement5: Sending the File Categories to the client");
+			processGetMessageforGetCategories(msg, argc, argv);
+		}</div>
+		else if (msg.findValue("messageType").compare("getFileNamesFromServer") == 0)
+		{
+<input onclick="expand_collapse(simplediv943.id, this.id)" type="button" value=" ^ " id="myButton943" /><div id="simplediv943" style="display:block; ">
+			Utilities::StringHelper::Title("Demonstrating Requirement5: Sending the File Names with in category to the client");
+			processGetMessageForGetFileNamesFromServer(msg,argc,argv);
+		}</div>
+		else if (msg.findValue("messageType").compare("downloadHtmFileFromServer") == 0) {
+<input onclick="expand_collapse(simplediv944.id, this.id)" type="button" value=" ^ " id="myButton944" /><div id="simplediv944" style="display:block; ">
+			Utilities::StringHelper::Title("Demonstrating Requirement5: Sending the Html and dependent files to the client");
+			processGetMessageFordownloadHtmFileFromServer(msg, argc, argv);
+		}</div>
+		else if (msg.findValue("messageType").compare("downloadJsAndCssFromServer") == 0) {
+<input onclick="expand_collapse(simplediv945.id, this.id)" type="button" value=" ^ " id="myButton945" /><div id="simplediv945" style="display:block; ">
+			cout &lt;&lt; "\n Repository::processGetMessages::Request for download js and css files came from Client" &lt;&lt; endl;
+			string FileHtmPath="../";
+			string JsFileName="javascript.js";
+			string CSSFileName = "stylesheet.css";
+			Utilities::StringHelper::Title("Demonstrating Requirement5: Sending the JSS and CSS files to Client");
+			sendFileToClient(FileHtmPath, JsFileName, argc, argv);
+			sendFileToClient(FileHtmPath, CSSFileName, argc, argv);
+			Utilities::StringHelper::Title("Requirement 5 is met: Sent the js and css files to the client");
+		}</div>
+	}</div>
+	return true;
+}</div>
+
+
+
+void deleteSingleFileOnServer(HttpMessage &msg, int argc, char* argv[]) {
+<input onclick="expand_collapse(simplediv946.id, this.id)" type="button" value=" ^ " id="myButton946" /><div id="simplediv946" style="display:block; ">
+	Rslt::write("\nServer needs to process the delete message request from the client: \n");
+	size_t contentSize = 0;
+	HttpMessage replyMsg;
+	std::string SrvrEndPoint = "localhost::8080";
+	std::string ClientEndPoint = "localhost::8081";
+	replyMsg.addAttribute(HttpMessage::attribute("GET", "Message"));
+	replyMsg.addAttribute(HttpMessage::Attribute("mode", "oneWay"));
+	replyMsg.addAttribute(HttpMessage::parseAttribute("toAddr:" + ClientEndPoint));
+	replyMsg.addAttribute(HttpMessage::parseAttribute("fromAddr:" + SrvrEndPoint));
+	try {
+<input onclick="expand_collapse(simplediv947.id, this.id)" type="button" value=" ^ " id="myButton947" /><div id="simplediv947" style="display:block; ">
+		std::string sizeString = msg.findValue("content-length");
+		if (sizeString != "")
+			contentSize = Converter&lt;size_t&gt;::toValue(sizeString);
+		if (contentSize &gt; 0) {
+<input onclick="expand_collapse(simplediv948.id, this.id)" type="button" value=" ^ " id="myButton948" /><div id="simplediv948" style="display:block; ">
+			Socket::byte* buffer = new Socket::byte[contentSize + 1];
+			msg.getBody(buffer, contentSize);
+			buffer[contentSize] = '\0';
+			string getMsgBody = buffer;
+			delete[] buffer;
+			if (getMsgBody.find('$') != std::string::npos) {
+<input onclick="expand_collapse(simplediv949.id, this.id)" type="button" value=" ^ " id="myButton949" /><div id="simplediv949" style="display:block; ">
+				string FirstDollarSplit = getMsgBody.substr(getMsgBody.find('$') + 1);
+				if (FirstDollarSplit.find('$') != std::string::npos) {
+<input onclick="expand_collapse(simplediv950.id, this.id)" type="button" value=" ^ " id="myButton950" /><div id="simplediv950" style="display:block; ">
+					string CategoryName = FirstDollarSplit.substr(0, FirstDollarSplit.find('$'));
+					string FileName = FirstDollarSplit.substr(FirstDollarSplit.find('$') + 1);
+					Rslt::write("\nServer needs to delete File = " + FileName + " Category = " + CategoryName +
+						" message request from the client: \n");
+					string FileDeletePath = argv[1];
+					FileDeletePath += '/' + CategoryName + '/' + FileName;
+					Rslt::write("\n FilePath to be deleted is :" + FileDeletePath);
+					if (FileSystem::File::exists(FileDeletePath)) {
+<input onclick="expand_collapse(simplediv951.id, this.id)" type="button" value=" ^ " id="myButton951" /><div id="simplediv951" style="display:block; ">
+						FileSystem::File::remove(FileDeletePath);
+					}</div>
+				}</div>
+			}</div>
+		}</div>
+	}</div>
+	catch (std::exception& exc)
+	{
+<input onclick="expand_collapse(simplediv952.id, this.id)" type="button" value=" ^ " id="myButton952" /><div id="simplediv952" style="display:block; ">
+		Rslt::write("\n  Exeception caught in the method deleteSingleFileOnServer: \n");
+		std::string exMsg = "\n  " + std::string(exc.what()) + "\n\n";
+		Rslt::write(exMsg);
+	}</div>
+}</div>
+
+bool processPostMessages(HttpMessage &msg, int argc, char* argv[]) {
+<input onclick="expand_collapse(simplediv953.id, this.id)" type="button" value=" ^ " id="myButton953" /><div id="simplediv953" style="display:block; ">
+	cout&lt;&lt;"\nServer needs to process the Post message request from the client: \n"&lt;&lt;endl;
+	if (msg.findValue("messageType") != "")
+	{
+<input onclick="expand_collapse(simplediv954.id, this.id)" type="button" value=" ^ " id="myButton954" /><div id="simplediv954" style="display:block; ">
+		if (msg.findValue("messageType").compare("runCodeAnalyzer") == 0) {
+<input onclick="expand_collapse(simplediv955.id, this.id)" type="button" value=" ^ " id="myButton955" /><div id="simplediv955" style="display:block; ">
+			cout &lt;&lt; "\nServer needs to process the runCodeAnalyzer message request from the client: \n";
+			runCodeAnalyzerOnServer(argc, argv);
+		}</div>
+		else if (msg.findValue("messageType").compare("deleteFileFromServer") == 0) {
+<input onclick="expand_collapse(simplediv956.id, this.id)" type="button" value=" ^ " id="myButton956" /><div id="simplediv956" style="display:block; ">
+			deleteSingleFileOnServer(msg, argc, argv);
+		}</div>
+	}</div>
+	return true;
+}</div>
+
+
+HttpMessage ClientHandler::readMessageForPost(HttpMessage& msg, Socket& socket) {
+<input onclick="expand_collapse(simplediv957.id, this.id)" type="button" value=" ^ " id="myButton957" /><div id="simplediv957" style="display:block; ">
+
+	std::string filename = msg.findValue("file");
+	if (filename != "")
+	{
+<input onclick="expand_collapse(simplediv958.id, this.id)" type="button" value=" ^ " id="myButton958" /><div id="simplediv958" style="display:block; ">
+		size_t contentSize;
+		std::string sizeString = msg.findValue("content-length");
+		if (sizeString != "")
+			contentSize = Converter&lt;size_t&gt;::toValue(sizeString);
+		else
+			return msg;
+
+		std::string getDir = msg.findValue("directory");
+
+		readFile(filename, contentSize, getDir, socket);
+	}</div>
+
+	if (filename != "")
+	{
+<input onclick="expand_collapse(simplediv959.id, this.id)" type="button" value=" ^ " id="myButton959" /><div id="simplediv959" style="display:block; ">
+		msg.removeAttribute("content-length");
+		std::string bodyString = "&lt;file&gt;" + filename + "&lt;/file&gt;";
+		std::string sizeString = Converter&lt;size_t&gt;::toString(bodyString.size());
+		msg.addAttribute(HttpMessage::Attribute("content-length", sizeString));
+		msg.addBody(bodyString);
+	}</div>
+	else
+	{
+<input onclick="expand_collapse(simplediv960.id, this.id)" type="button" value=" ^ " id="myButton960" /><div id="simplediv960" style="display:block; ">
+		size_t numBytes = 0;
+		size_t pos = msg.findAttribute("content-length");
+		if (pos &lt; msg.attributes().size())
+		{
+<input onclick="expand_collapse(simplediv961.id, this.id)" type="button" value=" ^ " id="myButton961" /><div id="simplediv961" style="display:block; ">
+			numBytes = Converter&lt;size_t&gt;::toValue(msg.attributes()[pos].second);
+			Socket::byte* buffer = new Socket::byte[numBytes + 1];
+			socket.recv(numBytes, buffer);
+			buffer[numBytes] = '\0';
+			std::string msgBody(buffer);
+			msg.addBody(msgBody);
+			delete[] buffer;
+		}</div>
+	}</div>
+
+	return msg;
+}</div>
+
+//----&lt; this defines processing to frame messages &gt;------------------
+
+HttpMessage ClientHandler::readMessage(Socket& socket)
+{
+<input onclick="expand_collapse(simplediv962.id, this.id)" type="button" value=" ^ " id="myButton962" /><div id="simplediv962" style="display:block; ">  connectionClosed_ = false;
+	HttpMessage msg;
+	while (true)
+	{
+<input onclick="expand_collapse(simplediv963.id, this.id)" type="button" value=" ^ " id="myButton963" /><div id="simplediv963" style="display:block; ">
+		std::string attribString = socket.recvString('\n');
+		if (attribString.size() &gt; 1)
+		{
+<input onclick="expand_collapse(simplediv964.id, this.id)" type="button" value=" ^ " id="myButton964" /><div id="simplediv964" style="display:block; ">
+			HttpMessage::Attribute attrib = HttpMessage::parseAttribute(attribString);
+			msg.addAttribute(attrib);
+		}</div>
+		else
+			break;
+	}</div>
+	if (msg.attributes().size() == 0)
+	{
+<input onclick="expand_collapse(simplediv965.id, this.id)" type="button" value=" ^ " id="myButton965" /><div id="simplediv965" style="display:block; ">
+		connectionClosed_ = true;
+		return msg;
+	}</div>
+	if (msg.attributes()[0].first == "POST")
+		msg = readMessageForPost(msg, socket);
+	else if (msg.attributes()[0].first == "GET") {
+<input onclick="expand_collapse(simplediv966.id, this.id)" type="button" value=" ^ " id="myButton966" /><div id="simplediv966" style="display:block; ">
+		std::string getMessageType = msg.findValue("messageType");
+			size_t numBytes = 0;
+			size_t pos = msg.findAttribute("content-length");
+			if (pos &lt; msg.attributes().size())
+			{
+<input onclick="expand_collapse(simplediv967.id, this.id)" type="button" value=" ^ " id="myButton967" /><div id="simplediv967" style="display:block; ">
+				numBytes = Converter&lt;size_t&gt;::toValue(msg.attributes()[pos].second);
+				Socket::byte* buffer = new Socket::byte[numBytes + 1];
+				socket.recv(numBytes, buffer);
+				buffer[numBytes] = '\0';
+				std::string msgBody(buffer);
+				msg.addBody(msgBody);
+				delete[] buffer;
+			}</div>
+	}</div>
+	return msg;
+}</div>
+//----&lt; read a binary file from socket and save &gt;--------------------
+/*
+* This function expects the sender to have already send a file message,
+* and when this function is running, continuosly send bytes until
+* fileSize bytes have been sent.
+*/
+bool ClientHandler::readFile(const std::string& filename, size_t fileSize, 
+	                         const std::string& getDir, Socket& socket)
+{
+<input onclick="expand_collapse(simplediv968.id, this.id)" type="button" value=" ^ " id="myButton968" /><div id="simplediv968" style="display:block; ">
+	//std::string fqname = "../TestFiles_Client_Server/" + filename + ".snt";
+  	std::string checkDirPath = path_+"/"+getDir; 
+	if (FileSystem::Directory::exists(checkDirPath) == false)
+	{
+<input onclick="expand_collapse(simplediv969.id, this.id)" type="button" value=" ^ " id="myButton969" /><div id="simplediv969" style="display:block; ">
+		FileSystem::Directory::create(checkDirPath);
+	}</div>
+	std::string fqname = path_ + "/" + getDir + "/" + filename;
+	Rslt::write(" Trying to readFile: " + fqname + " \n");
+	FileSystem::File file(fqname);
+	file.open(FileSystem::File::out, FileSystem::File::binary);
+	if (!file.isGood())
+	{
+<input onclick="expand_collapse(simplediv970.id, this.id)" type="button" value=" ^ " id="myButton970" /><div id="simplediv970" style="display:block; ">
+		Rslt::write("\n\n  can't open file " + fqname);
+		return false;
+	}</div>
+
+	const size_t BlockSize = 2048;
+	Socket::byte buffer[BlockSize];
+	size_t bytesToRead;
+	while (true)
+	{
+<input onclick="expand_collapse(simplediv971.id, this.id)" type="button" value=" ^ " id="myButton971" /><div id="simplediv971" style="display:block; ">
+		if (fileSize &gt; BlockSize)
+			bytesToRead = BlockSize;
+		else
+			bytesToRead = fileSize;
+
+		socket.recv(bytesToRead, buffer);
+
+		FileSystem::Block blk;
+		for (size_t i = 0; i &lt; bytesToRead; ++i)
+			blk.push_back(buffer[i]);
+
+		file.putBlock(blk);
+		if (fileSize &lt; BlockSize)
+			break;
+		fileSize -= BlockSize;
+	}</div>
+	file.close();
+	return true;
+}</div>
+//----&lt; receiver functionality is defined by this function &gt;---------
+
+void ClientHandler::operator()(Socket socket)
+{
+<input onclick="expand_collapse(simplediv972.id, this.id)" type="button" value=" ^ " id="myButton972" /><div id="simplediv972" style="display:block; ">
+	
+	while (true)
+	{
+<input onclick="expand_collapse(simplediv973.id, this.id)" type="button" value=" ^ " id="myButton973" /><div id="simplediv973" style="display:block; ">
+		HttpMessage msg = readMessage(socket);
+	
+		if (connectionClosed_ || msg.bodyString() == "quit")
+		{
+<input onclick="expand_collapse(simplediv974.id, this.id)" type="button" value=" ^ " id="myButton974" /><div id="simplediv974" style="display:block; ">
+			Rslt::write("\n\n  clienthandler thread is terminating \n");
+			break;
+		}</div>
+		//if (msg.toString().size() &gt; 5) {
+<input onclick="expand_collapse(simplediv975.id, this.id)" type="button" value=" ^ " id="myButton975" /><div id="simplediv975" style="display:block; ">
+		msgQ_.enQ(msg);
+		//}</div>
+	}</div>
+}</div>
+
+bool ClientHandler::ProcessCommandLine(int argc, char * argv[])
+{
+<input onclick="expand_collapse(simplediv976.id, this.id)" type="button" value=" ^ " id="myButton976" /><div id="simplediv976" style="display:block; ">
+	
+	try {
+<input onclick="expand_collapse(simplediv977.id, this.id)" type="button" value=" ^ " id="myButton977" /><div id="simplediv977" style="display:block; ">
+		path_ = FileSystem::Path::getFullFileSpec(argv[1]);
+		if (!FileSystem::Directory::exists(path_))
+		{
+<input onclick="expand_collapse(simplediv978.id, this.id)" type="button" value=" ^ " id="myButton978" /><div id="simplediv978" style="display:block; ">
+			std::cout &lt;&lt; "\n\n  path \"" &lt;&lt; path_ &lt;&lt; "\" does not exist\n\n";
+			return false;
+		}</div>
+
+	}</div>
+	catch (std::exception& ex)
+	{
+<input onclick="expand_collapse(simplediv979.id, this.id)" type="button" value=" ^ " id="myButton979" /><div id="simplediv979" style="display:block; ">
+		Utils::Title("\ncommand line argument parsing error:");
+		std::cout &lt;&lt; "\n  " &lt;&lt; ex.what() &lt;&lt; "\n\n";
+		return false;
+	}</div>
+	Rslt::write("\nInside ProcessCommandLine of ClientHandler");
+	return true;
+}</div>
+
+//----&lt; initialize application specific FileMgr &gt;--------------------
+/*
+ * - Accepts CodeAnalysisExecutive's path and fileMap by reference
+ */
+AnalFileMgr::AnalFileMgr(const Path& path, FileMap& fileMap)
+  : FileMgr(path), fileMap_(fileMap), numFiles_(0), numDirs_(0) {
+<input onclick="expand_collapse(simplediv980.id, this.id)" type="button" value=" ^ " id="myButton980" /><div id="simplediv980" style="display:block; ">}</div>
+
+//----&lt; override of FileMgr::file(...) to store found files &gt;------
+
+void AnalFileMgr::file(const File& f)
+{
+<input onclick="expand_collapse(simplediv981.id, this.id)" type="button" value=" ^ " id="myButton981" /><div id="simplediv981" style="display:block; ">
+  File fqf = d_ + "\\" + f;
+  Ext ext = FileSystem::Path::getExt(fqf);
+  Pattern p = "*." + ext;
+  fileMap_[p].push_back(fqf);
+  ++numFiles_;
+}</div>
+//----&lt; override of FileMgr::dir(...) to save current dir &gt;----------
+
+void AnalFileMgr::dir(const Dir& d)
+{
+<input onclick="expand_collapse(simplediv982.id, this.id)" type="button" value=" ^ " id="myButton982" /><div id="simplediv982" style="display:block; ">
+  d_ = d;
+  ++numDirs_;
+}</div>
+//----&lt; override of FileMgr::done(), not currently used &gt;------------
+
+void AnalFileMgr::done()
+{
+<input onclick="expand_collapse(simplediv983.id, this.id)" type="button" value=" ^ " id="myButton983" /><div id="simplediv983" style="display:block; ">
+}</div>
+//----&lt; returns number of matched files from search &gt;----------------
+
+size_t AnalFileMgr::numFiles()
+{
+<input onclick="expand_collapse(simplediv984.id, this.id)" type="button" value=" ^ " id="myButton984" /><div id="simplediv984" style="display:block; ">
+  return numFiles_;
+}</div>
+
+//----&lt; returns number of dirs searched &gt;----------------------------
+
+size_t AnalFileMgr::numDirs()
+{
+<input onclick="expand_collapse(simplediv985.id, this.id)" type="button" value=" ^ " id="myButton985" /><div id="simplediv985" style="display:block; ">
+  return numDirs_;
+}</div>
+
+/////////////////////////////////////////////////////////////////////
+// CodeAnalysisExecutive class
+// - 
+using Path = std::string;
+using Pattern = std::string;
+using Patterns = std::vector&lt;Pattern&gt;;
+using File = std::string;
+using Files = std::vector&lt;File&gt;;
+using Ext = std::string;
+using FileMap = std::unordered_map&lt;Pattern, Files&gt;;
+using ASTNodes = std::vector&lt;ASTNode*&gt;;
+using FileToNodeCollection = std::vector&lt;std::pair&lt;File, ASTNode*&gt;&gt;;
+
+std::unordered_map&lt;std::string, std::set&lt;std::string&gt;&gt; CodeAnalysisExecutive::depmapforlazyloading = {
+<input onclick="expand_collapse(simplediv986.id, this.id)" type="button" value=" ^ " id="myButton986" /><div id="simplediv986" style="display:block; "> {
+<input onclick="expand_collapse(simplediv987.id, this.id)" type="button" value=" ^ " id="myButton987" /><div id="simplediv987" style="display:block; ">}</div> }</div>;
+//----&lt; initialize parser, get access to repository &gt;----------------
+
+CodeAnalysisExecutive::CodeAnalysisExecutive()
+{
+<input onclick="expand_collapse(simplediv988.id, this.id)" type="button" value=" ^ " id="myButton988" /><div id="simplediv988" style="display:block; ">
+  pParser_ = configure_.Build();
+  if (pParser_ == nullptr)
+  {
+<input onclick="expand_collapse(simplediv989.id, this.id)" type="button" value=" ^ " id="myButton989" /><div id="simplediv989" style="display:block; ">
+    throw std::exception("couldn't create parser");
+  }</div>
+  pRepo_ = Repository::getInstance();
+}</div>
+
+//----&lt; cleanup &gt;----------------------------------------------------
+
+CodeAnalysisExecutive::~CodeAnalysisExecutive()
+{
+<input onclick="expand_collapse(simplediv990.id, this.id)" type="button" value=" ^ " id="myButton990" /><div id="simplediv990" style="display:block; ">
+  /*
+   *  Nothing to do:
+   *  - pParser_ and pRepo_ point to objects that the configure_
+   *    destructor will delete.
+   *  - The AbstractSynTree object will cleanup its contents when
+   *    it goes out of scope by deleting the root of the AST node
+   *    tree.  
+   *  - Each node deletes its children, so, again, nothing more 
+   *    to do.
+   *  - This is here to present these comments and to make this
+   *    base destructor virtual.
+   */
+}</div>
+//----&lt; usage message &gt;----------------------------------------------
+
+void showUsage()
+{
+<input onclick="expand_collapse(simplediv991.id, this.id)" type="button" value=" ^ " id="myButton991" /><div id="simplediv991" style="display:block; ">
+  std::ostringstream out;
+  out &lt;&lt; "\n  Usage:";
+  out &lt;&lt; "\n  Command Line Arguments are:";
+  out &lt;&lt; "\n  - 1st: path to subdirectory containing files to analyze";
+  out &lt;&lt; "\n  - remaining non-option arguments are file patterns, e.g., *.h and/or *.cpp, etc.";
+  out &lt;&lt; "\n  - must have at least one file pattern to specify what to process";
+  out &lt;&lt; "\n  - option arguments have the format \"\"/x\" , where x is one of the options:";
+  out &lt;&lt; "\n    - m : display function metrics";
+  out &lt;&lt; "\n    - s : display file sizes";
+  out &lt;&lt; "\n    - a : display Abstract Syntax Tree";
+  out &lt;&lt; "\n    - r : set logger to display results";
+  out &lt;&lt; "\n    - d : set logger to display demo outputs";
+  out &lt;&lt; "\n    - b : set logger to display debug outputs";
+  out &lt;&lt; "\n    - f : write all logs to logfile.txt";
+  out &lt;&lt; "\n  A metrics summary is always shown, independent of any options used or not used";
+  out &lt;&lt; "\n\n";
+  std::cout &lt;&lt; out.str();
+  //Rslt::write(out.str());
+  //Rslt::flush();
+}</div>
+//----&lt; show command line arguments &gt;--------------------------------
+
+void CodeAnalysisExecutive::showCommandLineArguments(int argc, char* argv[])
+{
+<input onclick="expand_collapse(simplediv992.id, this.id)" type="button" value=" ^ " id="myButton992" /><div id="simplediv992" style="display:block; ">
+  std::ostringstream out;
+  out &lt;&lt; "\n     Path: \"" &lt;&lt; FileSystem::Path::getFullFileSpec(argv[1]) &lt;&lt; "\"\n     Args: ";
+  for (int i = 2; i &lt; argc - 1; ++i)
+    out &lt;&lt; argv[i] &lt;&lt; ", ";
+  out &lt;&lt; argv[argc - 1];
+  Rslt::write(out.str());
+  Rslt::flush();
+}</div>
+//----&lt; handle command line arguments &gt;------------------------------
+/*
+* Arguments are:
+* - path: possibly relative path to folder containing all analyzed code,
+*   e.g., may be anywhere in the directory tree rooted at that path
+* - patterns: one or more file patterns of the form *.h, *.cpp, and *.cs
+* - options: /m (show metrics), /s (show file sizes), and /a (show AST)
+*/
+bool CodeAnalysisExecutive::ProcessCommandLine(int argc, char* argv[])
+{
+<input onclick="expand_collapse(simplediv993.id, this.id)" type="button" value=" ^ " id="myButton993" /><div id="simplediv993" style="display:block; ">
+  if (argc &lt; 2)
+  {
+<input onclick="expand_collapse(simplediv994.id, this.id)" type="button" value=" ^ " id="myButton994" /><div id="simplediv994" style="display:block; ">
+    showUsage();
+    return false;
+  }</div>
+  try {
+<input onclick="expand_collapse(simplediv995.id, this.id)" type="button" value=" ^ " id="myButton995" /><div id="simplediv995" style="display:block; ">
+    path_ = FileSystem::Path::getFullFileSpec(argv[1]);
+    if (!FileSystem::Directory::exists(path_))
+    {
+<input onclick="expand_collapse(simplediv996.id, this.id)" type="button" value=" ^ " id="myButton996" /><div id="simplediv996" style="display:block; ">
+      std::cout &lt;&lt; "\n\n  path \"" &lt;&lt; path_ &lt;&lt; "\" does not exist\n\n";
+      return false;
+    }</div>
+    for (int i = 2; i &lt; argc; ++i)
+    {
+<input onclick="expand_collapse(simplediv997.id, this.id)" type="button" value=" ^ " id="myButton997" /><div id="simplediv997" style="display:block; ">
+      if (argv[i][0] == '/')
+        options_.push_back(argv[i][1]);
+      else
+        patterns_.push_back(argv[i]);
+    }</div>
+    if (patterns_.size() == 0)
+    {
+<input onclick="expand_collapse(simplediv998.id, this.id)" type="button" value=" ^ " id="myButton998" /><div id="simplediv998" style="display:block; ">
+      showUsage();
+      return false;
+    }</div>
+  }</div>
+  catch (std::exception& ex)
+  {
+<input onclick="expand_collapse(simplediv999.id, this.id)" type="button" value=" ^ " id="myButton999" /><div id="simplediv999" style="display:block; ">
+	Utils::Title("\ncommand line argument parsing error:");
+    std::cout &lt;&lt; "\n  " &lt;&lt; ex.what() &lt;&lt; "\n\n";
+    return false;
+  }</div>
+  return true;
+}</div>
+//----&lt; returns path entered on command line &gt;-------------------
+
+std::string CodeAnalysisExecutive::getAnalysisPath()
+{
+<input onclick="expand_collapse(simplediv1000.id, this.id)" type="button" value=" ^ " id="myButton1000" /><div id="simplediv1000" style="display:block; ">
+  return path_;
+}</div>
+//----&lt; returns reference to FileMap &gt;---------------------------
+/*
+ * Supports quickly finding all the files found with a give pattern
+ */
+FileMap& CodeAnalysisExecutive::getFileMap()
+{
+<input onclick="expand_collapse(simplediv1001.id, this.id)" type="button" value=" ^ " id="myButton1001" /><div id="simplediv1001" style="display:block; ">
+  return fileMap_;
+}</div>
+//----&lt; searches path for files matching specified patterns &gt;----
+/*
+ * - Searches entire diretory tree rooted at path_, evaluated 
+ *   from a command line argument.
+ * - Saves found files in FileMap.
+ */
+void CodeAnalysisExecutive::getSourceFiles()
+{
+<input onclick="expand_collapse(simplediv1002.id, this.id)" type="button" value=" ^ " id="myButton1002" /><div id="simplediv1002" style="display:block; ">
+  AnalFileMgr fm(path_, fileMap_);
+  for (auto patt : patterns_)
+    fm.addPattern(patt);
+  fm.search();
+  numFiles_ = fm.numFiles();
+  numDirs_ = fm.numDirs();
+}</div>
+
+std::string CodeAnalysisExecutive::systemTime()
+{
+<input onclick="expand_collapse(simplediv1003.id, this.id)" type="button" value=" ^ " id="myButton1003" /><div id="simplediv1003" style="display:block; ">
+	time_t sysTime = time(&sysTime);
+	char buffer[27];
+	ctime_s(buffer, 27, &sysTime);
+	buffer[24] = '\0';
+	std::string temp(buffer);
+	return temp;
+}</div>
+
+//----&lt; helper: is text a substring of str? &gt;--------------------
+
+bool contains(const std::string& str, const std::string& text)
+{
+<input onclick="expand_collapse(simplediv1004.id, this.id)" type="button" value=" ^ " id="myButton1004" /><div id="simplediv1004" style="display:block; ">
+  if (str.find(text) &lt; str.length())
+    return true;
+  return false;
+}</div>
+//----&lt; retrieve from fileMap all files matching *.h &gt;-----------
+
+std::vector&lt;File&gt;& CodeAnalysisExecutive::cppHeaderFiles()
+{
+<input onclick="expand_collapse(simplediv1005.id, this.id)" type="button" value=" ^ " id="myButton1005" /><div id="simplediv1005" style="display:block; ">
+  cppHeaderFiles_.clear();
+  for (auto item : fileMap_)
+  {
+<input onclick="expand_collapse(simplediv1006.id, this.id)" type="button" value=" ^ " id="myButton1006" /><div id="simplediv1006" style="display:block; ">
+    if (contains(item.first, "*.h"))
+    {
+<input onclick="expand_collapse(simplediv1007.id, this.id)" type="button" value=" ^ " id="myButton1007" /><div id="simplediv1007" style="display:block; ">
+      for (auto file : item.second)
+        cppHeaderFiles_.push_back(file);
+    }</div>
+  }</div>
+  return cppHeaderFiles_;
+}</div>
+
+//----&lt; retrieve from fileMap all files matching *.cpp &gt;---------
+
+std::vector&lt;File&gt;& CodeAnalysisExecutive::cppImplemFiles()
+{
+<input onclick="expand_collapse(simplediv1008.id, this.id)" type="button" value=" ^ " id="myButton1008" /><div id="simplediv1008" style="display:block; ">
+  cppImplemFiles_.clear();
+  for (auto item : fileMap_)
+  {
+<input onclick="expand_collapse(simplediv1009.id, this.id)" type="button" value=" ^ " id="myButton1009" /><div id="simplediv1009" style="display:block; ">
+    if (contains(item.first, "*.cpp"))
+    {
+<input onclick="expand_collapse(simplediv1010.id, this.id)" type="button" value=" ^ " id="myButton1010" /><div id="simplediv1010" style="display:block; ">
+      for (auto file : item.second)
+        cppImplemFiles_.push_back(file);
+    }</div>
+  }</div>
+  return cppImplemFiles_;
+}</div>
+//----&lt; retrieve from fileMap all files matching *.cs &gt;----------
+
+std::vector&lt;File&gt;& CodeAnalysisExecutive::csharpFiles()
+{
+<input onclick="expand_collapse(simplediv1011.id, this.id)" type="button" value=" ^ " id="myButton1011" /><div id="simplediv1011" style="display:block; ">
+  csharpFiles_.clear();
+  for (auto item : fileMap_)
+  {
+<input onclick="expand_collapse(simplediv1012.id, this.id)" type="button" value=" ^ " id="myButton1012" /><div id="simplediv1012" style="display:block; ">
+    if (contains(item.first, "*.cs"))
+    {
+<input onclick="expand_collapse(simplediv1013.id, this.id)" type="button" value=" ^ " id="myButton1013" /><div id="simplediv1013" style="display:block; ">
+      for (auto file : item.second)
+        csharpFiles_.push_back(file);
+    }</div>
+  }</div>
+  return csharpFiles_;
+}</div>
+//----&lt; report number of Source Lines Of Code (SLOCs) &gt;----------
+
+CodeAnalysisExecutive::Slocs CodeAnalysisExecutive::fileSLOCs(const File& file) 
+{
+<input onclick="expand_collapse(simplediv1014.id, this.id)" type="button" value=" ^ " id="myButton1014" /><div id="simplediv1014" style="display:block; "> 
+  return slocMap_[file];
+}</div>
+//----&lt; report number of files processed &gt;-----------------------
+
+size_t CodeAnalysisExecutive::numFiles()
+{
+<input onclick="expand_collapse(simplediv1015.id, this.id)" type="button" value=" ^ " id="myButton1015" /><div id="simplediv1015" style="display:block; ">
+  return numFiles_;
+}</div>
+//----&lt; report number of directories searched &gt;------------------
+
+size_t CodeAnalysisExecutive::numDirs()
+{
+<input onclick="expand_collapse(simplediv1016.id, this.id)" type="button" value=" ^ " id="myButton1016" /><div id="simplediv1016" style="display:block; ">
+  return numDirs_;
+}</div>
+//----&lt; show processing activity &gt;-------------------------------
+
+void CodeAnalysisExecutive::showActivity(const File& file)
+{
+<input onclick="expand_collapse(simplediv1017.id, this.id)" type="button" value=" ^ " id="myButton1017" /><div id="simplediv1017" style="display:block; ">
+  std::function&lt;std::string(std::string, size_t)&gt; trunc = [](std::string in, size_t count)
+  {
+<input onclick="expand_collapse(simplediv1018.id, this.id)" type="button" value=" ^ " id="myButton1018" /><div id="simplediv1018" style="display:block; ">
+    return in.substr(0, count);
+  }</div>;
+
+  if (Rslt::running())
+  {
+<input onclick="expand_collapse(simplediv1019.id, this.id)" type="button" value=" ^ " id="myButton1019" /><div id="simplediv1019" style="display:block; ">
+    std::cout &lt;&lt; std::left &lt;&lt; "\r     Processing file: " &lt;&lt; std::setw(80) &lt;&lt; trunc(file, 80);
+  }</div>
+}</div>
+
+void CodeAnalysisExecutive::clearActivity()
+{
+<input onclick="expand_collapse(simplediv1020.id, this.id)" type="button" value=" ^ " id="myButton1020" /><div id="simplediv1020" style="display:block; ">
+  if (Rslt::running())
+  {
+<input onclick="expand_collapse(simplediv1021.id, this.id)" type="button" value=" ^ " id="myButton1021" /><div id="simplediv1021" style="display:block; ">
+    std::cout &lt;&lt; std::left &lt;&lt; "\r                      " &lt;&lt; std::setw(80) &lt;&lt; std::string(80,' ');
+  }</div>
+}</div>
+//----&lt; parses code and saves results in AbstrSynTree &gt;--------------
+/*
+* - Processes C++ header files first to build AST with nodes for
+*   all public classes and structs.
+* - Then processes C++ implementation files.  Each member function
+*   is relocated to its class scope node, not the local scope.
+* - Therefore, this ordering is important.
+* - C# code has all member functions inline, so we don't need to
+*   do any relocation of nodes in the AST.  Therefore, that analysis
+*   can be done at any time.
+* - If you bore down into the analysis code in ActionsAndRules.h you
+*   will find some gymnastics to handle template syntax.  That can
+*   get somewhat complicated, so there may be some latent bugs there.
+*   I don't know of any at this time.
+*/
+void CodeAnalysisExecutive::setLanguage(const File& file)
+{
+<input onclick="expand_collapse(simplediv1022.id, this.id)" type="button" value=" ^ " id="myButton1022" /><div id="simplediv1022" style="display:block; ">
+  std::string ext = FileSystem::Path::getExt(file);
+  if (ext == "h" || ext == "cpp")
+    pRepo_-&gt;language() = Language::Cpp;
+  else if (ext == "cs")
+    pRepo_-&gt;language() = Language::CSharp;
+}</div>
+
+void CodeAnalysisExecutive::processSourceCode(bool showProc)
+{
+<input onclick="expand_collapse(simplediv1023.id, this.id)" type="button" value=" ^ " id="myButton1023" /><div id="simplediv1023" style="display:block; ">
+  for (auto file : cppHeaderFiles())
+  {
+<input onclick="expand_collapse(simplediv1024.id, this.id)" type="button" value=" ^ " id="myButton1024" /><div id="simplediv1024" style="display:block; ">
+    if (showProc)
+      showActivity(file);
+    pRepo_-&gt;package() = FileSystem::Path::getName(file);
+
+    if (!configure_.Attach(file))
+    {
+<input onclick="expand_collapse(simplediv1025.id, this.id)" type="button" value=" ^ " id="myButton1025" /><div id="simplediv1025" style="display:block; ">
+      std::ostringstream out;
+      out &lt;&lt; "\n  could not open file " &lt;&lt; file &lt;&lt; "\n";
+      Rslt::write(out.str());
+      Rslt::flush();
+      continue;
+    }</div>
+    // parse file
+    Rslt::flush();
+    Demo::flush();
+    Dbug::flush();
+
+    if(!Rslt::running())
+      Demo::write("\n\n  opening file \"" + pRepo_-&gt;package() + "\"");
+    if(!Demo::running() && !Rslt::running())
+      Dbug::write("\n\n  opening file \"" + pRepo_-&gt;package() + "\"");
+    pRepo_-&gt;language() = Language::Cpp;
+    pRepo_-&gt;currentPath() = file;
+    while (pParser_-&gt;next())
+    {
+<input onclick="expand_collapse(simplediv1026.id, this.id)" type="button" value=" ^ " id="myButton1026" /><div id="simplediv1026" style="display:block; ">
+      pParser_-&gt;parse();
+    }</div>
+
+    Slocs slocs = pRepo_-&gt;Toker()-&gt;currentLineCount();
+    slocMap_[pRepo_-&gt;package()] = slocs;
+  }</div>
+  for (auto file : cppImplemFiles())
+  {
+<input onclick="expand_collapse(simplediv1027.id, this.id)" type="button" value=" ^ " id="myButton1027" /><div id="simplediv1027" style="display:block; ">
+    if (showProc)
+      showActivity(file);
+    pRepo_-&gt;package() = FileSystem::Path::getName(file);
+
+    if (!configure_.Attach(file))
+    {
+<input onclick="expand_collapse(simplediv1028.id, this.id)" type="button" value=" ^ " id="myButton1028" /><div id="simplediv1028" style="display:block; ">
+      std::ostringstream out;
+      out &lt;&lt; "\n  could not open file " &lt;&lt; file &lt;&lt; "\n";
+      Rslt::write(out.str());
+      Rslt::flush();
+      continue;
+    }</div>
+    // parse file
+
+    if (!Rslt::running())
+      Demo::write("\n\n  opening file \"" + pRepo_-&gt;package() + "\"");
+    if (!Demo::running() && !Rslt::running())
+      Dbug::write("\n\n  opening file \"" + pRepo_-&gt;package() + "\"");
+    pRepo_-&gt;language() = Language::Cpp;
+    pRepo_-&gt;currentPath() = file;
+    while (pParser_-&gt;next())
+      pParser_-&gt;parse();
+
+    Slocs slocs = pRepo_-&gt;Toker()-&gt;currentLineCount();
+    slocMap_[pRepo_-&gt;package()] = slocs;
+  }</div>
+  for (auto file : csharpFiles())
+  {
+<input onclick="expand_collapse(simplediv1029.id, this.id)" type="button" value=" ^ " id="myButton1029" /><div id="simplediv1029" style="display:block; ">
+    if (showProc)
+      showActivity(file);
+    pRepo_-&gt;package() = FileSystem::Path::getName(file);
+
+    if (!configure_.Attach(file))
+    {
+<input onclick="expand_collapse(simplediv1030.id, this.id)" type="button" value=" ^ " id="myButton1030" /><div id="simplediv1030" style="display:block; ">
+      std::ostringstream out;
+      out &lt;&lt; "\n  could not open file " &lt;&lt; file &lt;&lt; "\n";
+      Rslt::write(out.str());
+      continue;
+    }</div>
+    // parse file
+
+    if (!Rslt::running())
+      Demo::write("\n\n  opening file \"" + pRepo_-&gt;package() + "\"");
+    if (!Demo::running() && !Rslt::running())
+      Dbug::write("\n\n  opening file \"" + pRepo_-&gt;package() + "\"");
+    pRepo_-&gt;language() = Language::CSharp;
+    pRepo_-&gt;currentPath() = file;
+    while (pParser_-&gt;next())
+      pParser_-&gt;parse();
+
+    Slocs slocs = pRepo_-&gt;Toker()-&gt;currentLineCount();
+    slocMap_[pRepo_-&gt;package()] = slocs;
+  }</div>
+  if (showProc)
+    clearActivity();
+  std::ostringstream out;
+  out &lt;&lt; std::left &lt;&lt; "\r  " &lt;&lt; std::setw(77) &lt;&lt; " ";
+  Rslt::write(out.str());
+}</div>
+//----&lt; evaluate complexities of each AST node &gt;---------------------
+
+void CodeAnalysisExecutive::complexityAnalysis()
+{
+<input onclick="expand_collapse(simplediv1031.id, this.id)" type="button" value=" ^ " id="myButton1031" /><div id="simplediv1031" style="display:block; ">
+  ASTNode* pGlobalScope = pRepo_-&gt;getGlobalScope();
+  CodeAnalysis::complexityEval(pGlobalScope);
+}</div>
+//----&lt; comparison functor for sorting FileToNodeCollection &gt;----
+/*
+* - supports stable sort on extension values
+* - displayMetrics(...) uses to organize metrics display
+*/
+struct CompExts
+{
+<input onclick="expand_collapse(simplediv1032.id, this.id)" type="button" value=" ^ " id="myButton1032" /><div id="simplediv1032" style="display:block; ">
+  bool operator()(const std::pair&lt;File, ASTNode*&gt;& first, const std::pair&lt;File, ASTNode*&gt;& second)
+  {
+<input onclick="expand_collapse(simplediv1033.id, this.id)" type="button" value=" ^ " id="myButton1033" /><div id="simplediv1033" style="display:block; ">
+    return FileSystem::Path::getExt(first.first) &gt; FileSystem::Path::getExt(second.first);
+  }</div>
+}</div>;
+//----&lt; comparison functor for sorting FileToNodeCollection &gt;----
+/*
+* - supports stable sort on name values
+* - displayMetrics(...) uses these functions to organize metrics display
+*/
+static void removeExt(std::string& name)
+{
+<input onclick="expand_collapse(simplediv1034.id, this.id)" type="button" value=" ^ " id="myButton1034" /><div id="simplediv1034" style="display:block; ">
+  size_t extStartIndex = name.find_last_of('.');
+  name = name.substr(0, extStartIndex);
+}</div>
+
+struct CompNames
+{
+<input onclick="expand_collapse(simplediv1035.id, this.id)" type="button" value=" ^ " id="myButton1035" /><div id="simplediv1035" style="display:block; ">
+  bool operator()(const std::pair&lt;File, ASTNode*&gt;& first, const std::pair&lt;File, ASTNode*&gt;& second)
+  {
+<input onclick="expand_collapse(simplediv1036.id, this.id)" type="button" value=" ^ " id="myButton1036" /><div id="simplediv1036" style="display:block; ">
+    std::string fnm = FileSystem::Path::getName(first.first);
+    removeExt(fnm);
+    std::string snm = FileSystem::Path::getName(second.first);
+    removeExt(snm);
+    return fnm &lt; snm;
+  }</div>
+}</div>;
+//----&lt; display header line for displayMmetrics() &gt;------------------
+
+void CodeAnalysisExecutive::displayHeader()
+{
+<input onclick="expand_collapse(simplediv1037.id, this.id)" type="button" value=" ^ " id="myButton1037" /><div id="simplediv1037" style="display:block; ">
+  std::ostringstream out;
+  out &lt;&lt; std::right;
+  out &lt;&lt; "\n ";
+  out &lt;&lt; std::setw(25) &lt;&lt; "file name";
+  out &lt;&lt; std::setw(12) &lt;&lt; "type";
+  out &lt;&lt; std::setw(35) &lt;&lt; "name";
+  out &lt;&lt; std::setw(8) &lt;&lt; "line";
+  out &lt;&lt; std::setw(8) &lt;&lt; "size";
+  out &lt;&lt; std::setw(8) &lt;&lt; "cplx";
+  out &lt;&lt; std::right;
+  out &lt;&lt; "\n  ";
+  out &lt;&lt; std::setw(25) &lt;&lt; "-----------------------";
+  out &lt;&lt; std::setw(12) &lt;&lt; "----------";
+  out &lt;&lt; std::setw(35) &lt;&lt; "---------------------------------";
+  out &lt;&lt; std::setw(8) &lt;&lt; "------";
+  out &lt;&lt; std::setw(8) &lt;&lt; "------";
+  out &lt;&lt; std::setw(8) &lt;&lt; "------";
+  Rslt::write(out.str());
+}</div>
+//----&lt; display single line for displayMetrics() &gt;-------------------
+
+void CodeAnalysisExecutive::displayMetricsLine(const File& file, ASTNode* pNode)
+{
+<input onclick="expand_collapse(simplediv1038.id, this.id)" type="button" value=" ^ " id="myButton1038" /><div id="simplediv1038" style="display:block; ">
+  std::function&lt;std::string(std::string, size_t)&gt; trunc = [](std::string in, size_t count)
+  {
+<input onclick="expand_collapse(simplediv1039.id, this.id)" type="button" value=" ^ " id="myButton1039" /><div id="simplediv1039" style="display:block; ">
+    return in.substr(0, count);
+  }</div>;
+  std::ostringstream out;
+  out &lt;&lt; std::right;
+  out &lt;&lt; "\n ";
+  out &lt;&lt; std::setw(25) &lt;&lt; trunc(file, 23);
+  out &lt;&lt; std::setw(12) &lt;&lt; pNode-&gt;type_;
+  out &lt;&lt; std::setw(35) &lt;&lt; trunc(pNode-&gt;name_, 33);
+  out &lt;&lt; std::setw(8) &lt;&lt; pNode-&gt;startLineCount_;
+  out &lt;&lt; std::setw(8) &lt;&lt; pNode-&gt;endLineCount_ - pNode-&gt;startLineCount_ + 1;
+  size_t debug1 = pNode-&gt;startLineCount_;
+  size_t debug2 = pNode-&gt;endLineCount_;
+  out &lt;&lt; std::setw(8) &lt;&lt; pNode-&gt;complexity_;
+  Rslt::write(out.str());
+}</div>
+//----&lt; display lines containing public data declaration &gt;-----------
+
+std::string CodeAnalysisExecutive::showData(const Scanner::ITokCollection* pTc)
+{
+<input onclick="expand_collapse(simplediv1040.id, this.id)" type="button" value=" ^ " id="myButton1040" /><div id="simplediv1040" style="display:block; ">
+  std::string semiExpStr;
+  for (size_t i=0; i&lt;pTc-&gt;length(); ++i)
+    semiExpStr += (*pTc)[i] + " ";
+  return semiExpStr;
+}</div>
+
+void CodeAnalysisExecutive::displayDataLines(ASTNode* pNode, bool isSummary)
+{
+<input onclick="expand_collapse(simplediv1041.id, this.id)" type="button" value=" ^ " id="myButton1041" /><div id="simplediv1041" style="display:block; ">
+  for (auto datum : pNode-&gt;decl_)
+  {
+<input onclick="expand_collapse(simplediv1042.id, this.id)" type="button" value=" ^ " id="myButton1042" /><div id="simplediv1042" style="display:block; ">
+    if (pNode-&gt;parentType_ == "namespace" || pNode-&gt;parentType_ == "class" || pNode-&gt;parentType_ == "struct")
+    {
+<input onclick="expand_collapse(simplediv1043.id, this.id)" type="button" value=" ^ " id="myButton1043" /><div id="simplediv1043" style="display:block; ">
+      if (pNode-&gt;type_ == "function" || pNode-&gt;parentType_ == "function")
+        continue;
+      if (datum.access_ == Access::publ && datum.declType_ == DeclType::dataDecl)
+      {
+<input onclick="expand_collapse(simplediv1044.id, this.id)" type="button" value=" ^ " id="myButton1044" /><div id="simplediv1044" style="display:block; ">
+        std::ostringstream out;
+        out &lt;&lt; std::right;
+        out &lt;&lt; "\n ";
+        out &lt;&lt; std::setw(25) &lt;&lt; "public data:" &lt;&lt; " ";
+        if (isSummary)
+        {
+<input onclick="expand_collapse(simplediv1045.id, this.id)" type="button" value=" ^ " id="myButton1045" /><div id="simplediv1045" style="display:block; ">
+          out &lt;&lt; datum.package_ &lt;&lt; " : " &lt;&lt; datum.line_ &lt;&lt; " - "
+            &lt;&lt; pNode-&gt;type_ &lt;&lt; " " &lt;&lt; pNode-&gt;name_ &lt;&lt; "\n " &lt;&lt; std::setw(15) &lt;&lt; " ";
+        }</div>
+        out &lt;&lt; showData(datum.pTc);
+        Rslt::write(out.str());
+      }</div>
+    }</div>
+  }</div>
+}</div>
+//----&lt;  helper for displayMetrics() &gt;-------------------------------
+/*
+* - Breaking this out as a separate function allows application to
+*   display metrics for a subset of the Abstract Syntax Tree
+*/
+void CodeAnalysisExecutive::displayMetrics(ASTNode* root)
+{
+<input onclick="expand_collapse(simplediv1046.id, this.id)" type="button" value=" ^ " id="myButton1046" /><div id="simplediv1046" style="display:block; ">
+  flushLogger();
+  std::ostringstream out;
+  out &lt;&lt; "Code Metrics - Start Line, Size (lines/code), and Complexity (number of scopes)";
+  Utils::sTitle(out.str(), 3, 92, out, '=');
+  out &lt;&lt; "\n";
+  Rslt::write(out.str());
+
+  std::function&lt;void(ASTNode* pNode)&gt; co = [&](ASTNode* pNode) {
+<input onclick="expand_collapse(simplediv1047.id, this.id)" type="button" value=" ^ " id="myButton1047" /><div id="simplediv1047" style="display:block; ">
+    if (
+      pNode-&gt;type_ == "namespace" ||
+      pNode-&gt;type_ == "function" ||
+      pNode-&gt;type_ == "class" ||
+      pNode-&gt;type_ == "interface" ||
+      pNode-&gt;type_ == "struct" ||
+      pNode-&gt;type_ == "lambda"
+      )
+      fileNodes_.push_back(std::pair&lt;File, ASTNode*&gt;(pNode-&gt;package_, pNode));
+  }</div>;
+  ASTWalkNoIndent(root, co);
+  std::stable_sort(fileNodes_.begin(), fileNodes_.end(), CompExts());
+  std::stable_sort(fileNodes_.begin(), fileNodes_.end(), CompNames());
+
+  displayHeader();
+
+  std::string prevFile;
+  for (auto item : fileNodes_)
+  {
+<input onclick="expand_collapse(simplediv1048.id, this.id)" type="button" value=" ^ " id="myButton1048" /><div id="simplediv1048" style="display:block; ">
+    if (item.first != prevFile)
+    {
+<input onclick="expand_collapse(simplediv1049.id, this.id)" type="button" value=" ^ " id="myButton1049" /><div id="simplediv1049" style="display:block; ">
+      Rslt::write("\n");
+      displayHeader();
+    }</div>
+    displayMetricsLine(item.first, item.second);
+    displayDataLines(item.second);
+    prevFile = item.first;
+  }</div>
+  Rslt::write("\n");
+}</div>
+//----&lt; display metrics results of code analysis &gt;---------------
+
+void CodeAnalysisExecutive::displayMetrics()
+{
+<input onclick="expand_collapse(simplediv1050.id, this.id)" type="button" value=" ^ " id="myButton1050" /><div id="simplediv1050" style="display:block; ">
+  ASTNode* pGlobalScope = pRepo_-&gt;getGlobalScope();
+  displayMetrics(pGlobalScope);
+}</div>
+//----&lt; walk tree of element nodes &gt;---------------------------------
+
+template&lt;typename element&gt;
+void TreeWalk(element* pItem, bool details = false)
+{
+<input onclick="expand_collapse(simplediv1051.id, this.id)" type="button" value=" ^ " id="myButton1051" /><div id="simplediv1051" style="display:block; ">
+  static std::string path;
+  if (path != pItem-&gt;path_ && details == true)
+  {
+<input onclick="expand_collapse(simplediv1052.id, this.id)" type="button" value=" ^ " id="myButton1052" /><div id="simplediv1052" style="display:block; ">
+    path = pItem-&gt;path_;
+    Rslt::write("\n" + path);
+  }</div>
+  static size_t indentLevel = 0;
+  std::ostringstream out;
+  out &lt;&lt; "\n  " &lt;&lt; std::string(2 * indentLevel, ' ') &lt;&lt; pItem-&gt;show();
+  Rslt::write(out.str());
+  auto iter = pItem-&gt;children_.begin();
+  ++indentLevel;
+  while (iter != pItem-&gt;children_.end())
+  {
+<input onclick="expand_collapse(simplediv1053.id, this.id)" type="button" value=" ^ " id="myButton1053" /><div id="simplediv1053" style="display:block; ">
+    TreeWalk(*iter);
+    ++iter;
+  }</div>
+  --indentLevel;
+}</div>
+//----&lt; display the AbstrSynTree build in processSourceCode() &gt;------
+
+void CodeAnalysisExecutive::displayAST()
+{
+<input onclick="expand_collapse(simplediv1054.id, this.id)" type="button" value=" ^ " id="myButton1054" /><div id="simplediv1054" style="display:block; ">
+  flushLogger();
+  ASTNode* pGlobalScope = pRepo_-&gt;getGlobalScope();
+  Utils::title("Abstract Syntax Tree");
+  TreeWalk(pGlobalScope);
+  Rslt::write("\n");
+}</div>
+//----&lt; show functions with metrics exceeding specified limits &gt;-----
+
+void CodeAnalysisExecutive::displayMetricSummary(size_t sMax, size_t cMax)
+{
+<input onclick="expand_collapse(simplediv1055.id, this.id)" type="button" value=" ^ " id="myButton1055" /><div id="simplediv1055" style="display:block; ">
+  flushLogger();
+  std::ostringstream out;
+  Utils::sTitle("Functions Exceeding Metric Limits and Public Data", 3, 92, out, '=');
+  Rslt::write(out.str());
+  displayHeader();
+
+  if (fileNodes_.size() == 0)  // only build fileNodes_ if displayMetrics hasn't been called
+  {
+<input onclick="expand_collapse(simplediv1056.id, this.id)" type="button" value=" ^ " id="myButton1056" /><div id="simplediv1056" style="display:block; ">
+    std::function&lt;void(ASTNode* pNode)&gt; co = [&](ASTNode* pNode) {
+<input onclick="expand_collapse(simplediv1057.id, this.id)" type="button" value=" ^ " id="myButton1057" /><div id="simplediv1057" style="display:block; ">
+      fileNodes_.push_back(std::pair&lt;File, ASTNode*&gt;(pNode-&gt;package_, pNode));
+    }</div>;
+    ASTNode* pGlobalNamespace = pRepo_-&gt;getGlobalScope();
+    ASTWalkNoIndent(pGlobalNamespace, co);
+    std::stable_sort(fileNodes_.begin(), fileNodes_.end(), CompExts());
+    std::stable_sort(fileNodes_.begin(), fileNodes_.end(), CompNames());
+  }</div>
+  for (auto item : fileNodes_)
+  {
+<input onclick="expand_collapse(simplediv1058.id, this.id)" type="button" value=" ^ " id="myButton1058" /><div id="simplediv1058" style="display:block; ">
+    if (item.second-&gt;type_ == "function")
+    {
+<input onclick="expand_collapse(simplediv1059.id, this.id)" type="button" value=" ^ " id="myButton1059" /><div id="simplediv1059" style="display:block; ">
+      size_t size = item.second-&gt;endLineCount_ - item.second-&gt;startLineCount_ + 1;
+      size_t cmpl = item.second-&gt;complexity_;
+      if (size &gt; sMax || cmpl &gt; cMax)
+        displayMetricsLine(item.first, item.second);
+    }</div>
+  }</div>
+  Rslt::write("\n");
+  for (auto item : fileNodes_)
+  {
+<input onclick="expand_collapse(simplediv1060.id, this.id)" type="button" value=" ^ " id="myButton1060" /><div id="simplediv1060" style="display:block; ">
+    displayDataLines(item.second, true);
+  }</div>
+  Rslt::write("\n");
+}</div>
+//----&lt; comparison functor for sorting SLOC display &gt;----------------
+
+struct compFiles
+{
+<input onclick="expand_collapse(simplediv1061.id, this.id)" type="button" value=" ^ " id="myButton1061" /><div id="simplediv1061" style="display:block; ">
+private:
+  std::string ChangeFirstCharOfExt(const std::string& fileName) const
+  {
+<input onclick="expand_collapse(simplediv1062.id, this.id)" type="button" value=" ^ " id="myButton1062" /><div id="simplediv1062" style="display:block; ">
+    std::string temp = fileName;
+    size_t pos = temp.find_last_of('.');
+    if (pos &lt; temp.size() - 1)
+      if (temp[pos + 1] == 'h')
+        temp[pos + 1] = 'a';
+    return temp;
+  }</div>
+public:
+  bool operator()(const std::string& fileName1, const std::string& fileName2) const
+  {
+<input onclick="expand_collapse(simplediv1063.id, this.id)" type="button" value=" ^ " id="myButton1063" /><div id="simplediv1063" style="display:block; ">
+    return ChangeFirstCharOfExt(fileName1) &lt; ChangeFirstCharOfExt(fileName2);
+  }</div>
+}</div>;
+//----&lt; show sizes of all the files processed &gt;----------------------
+
+void CodeAnalysisExecutive::displaySlocs()
+{
+<input onclick="expand_collapse(simplediv1064.id, this.id)" type="button" value=" ^ " id="myButton1064" /><div id="simplediv1064" style="display:block; ">
+  flushLogger();
+  Utils::sTitle("File Size - Source Lines of Code", 3, 92);
+  size_t slocCount = 0;
+  std::map&lt;std::string, size_t, compFiles&gt; fileColl;
+  for (auto item : fileMap_)
+  {
+<input onclick="expand_collapse(simplediv1065.id, this.id)" type="button" value=" ^ " id="myButton1065" /><div id="simplediv1065" style="display:block; ">
+    for (auto file : item.second)
+    {
+<input onclick="expand_collapse(simplediv1066.id, this.id)" type="button" value=" ^ " id="myButton1066" /><div id="simplediv1066" style="display:block; ">
+      File fileName = FileSystem::Path::getName(file);
+      fileColl[file] = slocMap_[fileName];
+    }</div>
+  }</div>
+  for (auto fitem : fileColl)
+  {
+<input onclick="expand_collapse(simplediv1067.id, this.id)" type="button" value=" ^ " id="myButton1067" /><div id="simplediv1067" style="display:block; ">
+    std::ostringstream out;
+    out &lt;&lt; "\n  " &lt;&lt; std::setw(8) &lt;&lt; fitem.second &lt;&lt; " : " &lt;&lt; fitem.first;
+    Rslt::write(out.str());
+    slocCount += fitem.second;
+  }</div>
+  std::ostringstream out;
+  out &lt;&lt; "\n\n      Total line count = " &lt;&lt; slocCount &lt;&lt; "\n";
+  Rslt::write(out.str());
+  Rslt::write("\n");
+}</div>
+//----&lt; display analysis info based on command line options &gt;--------
+
+void CodeAnalysisExecutive::dispatchOptionalDisplays()
+{
+<input onclick="expand_collapse(simplediv1068.id, this.id)" type="button" value=" ^ " id="myButton1068" /><div id="simplediv1068" style="display:block; ">
+  for (auto opt : options_)
+  {
+<input onclick="expand_collapse(simplediv1069.id, this.id)" type="button" value=" ^ " id="myButton1069" /><div id="simplediv1069" style="display:block; ">
+    switch (opt)
+    {
+<input onclick="expand_collapse(simplediv1070.id, this.id)" type="button" value=" ^ " id="myButton1070" /><div id="simplediv1070" style="display:block; ">
+    case 'm':
+      displayMetrics();
+      Rslt::start();
+      break;
+    case 'a':
+      displayAST();
+      Rslt::start();
+      break;
+    case 's':
+      displaySlocs();
+      Rslt::start();
+      break;
+    default:
+      break;
+    }</div>
+  }</div>
+}</div>
+//----&lt; display analysis info based on command line options &gt;--------
+
+void CodeAnalysisExecutive::setDisplayModes()
+{
+<input onclick="expand_collapse(simplediv1071.id, this.id)" type="button" value=" ^ " id="myButton1071" /><div id="simplediv1071" style="display:block; ">
+  for (auto opt : options_)
+  {
+<input onclick="expand_collapse(simplediv1072.id, this.id)" type="button" value=" ^ " id="myButton1072" /><div id="simplediv1072" style="display:block; ">
+    switch (opt)
+    {
+<input onclick="expand_collapse(simplediv1073.id, this.id)" type="button" value=" ^ " id="myButton1073" /><div id="simplediv1073" style="display:block; ">
+    case 'r':
+      Rslt::start();
+      break;
+    case 'd':
+      Demo::start();
+      break;
+    case 'b':
+      Dbug::start();
+      break;
+    case 'f':
+      setLogFile("logFile.txt");
+      break;
+    default:
+      if (opt != 'a' && opt != 'b' && opt != 'd' && opt != 'f' && opt != 'm' && opt != 'r' && opt != 's')
+      {
+<input onclick="expand_collapse(simplediv1074.id, this.id)" type="button" value=" ^ " id="myButton1074" /><div id="simplediv1074" style="display:block; ">
+        std::cout &lt;&lt; "\n\n  unknown option " &lt;&lt; opt &lt;&lt; "\n\n";
+      }</div>
+    }</div>
+  }</div>
+}</div>
+//----&lt; helper functions for managing application's logging &gt;--------
+
+void CodeAnalysisExecutive::startLogger(std::ostream& out)
+{
+<input onclick="expand_collapse(simplediv1075.id, this.id)" type="button" value=" ^ " id="myButton1075" /><div id="simplediv1075" style="display:block; ">
+  Rslt::attach(&out);
+  Demo::attach(&out);
+  Dbug::attach(&out);
+
+  // will start Demo and Dbug if  have options /d and /b
+
+  setDisplayModes();
+}</div>
+
+void CodeAnalysisExecutive::flushLogger()
+{
+<input onclick="expand_collapse(simplediv1076.id, this.id)" type="button" value=" ^ " id="myButton1076" /><div id="simplediv1076" style="display:block; ">
+  Rslt::flush();
+  Demo::flush();
+  Dbug::flush();
+}</div>
+
+void CodeAnalysisExecutive::stopLogger()
+{
+<input onclick="expand_collapse(simplediv1077.id, this.id)" type="button" value=" ^ " id="myButton1077" /><div id="simplediv1077" style="display:block; ">
+  Rslt::flush();
+  Demo::flush();
+  Dbug::flush();
+  Rslt::stop();
+  Demo::stop();
+  Dbug::stop();
+}</div>
+//----&lt; open file stream for logging &gt;-------------------------------
+/*
+*  - must come after CodeAnalysisExecutive::processCommandLine()
+*  - must come before starting any of the loggers
+*/
+void CodeAnalysisExecutive::setLogFile(const File& file)
+{
+<input onclick="expand_collapse(simplediv1078.id, this.id)" type="button" value=" ^ " id="myButton1078" /><div id="simplediv1078" style="display:block; ">
+  std::string path = getAnalysisPath();
+  path += "\\" + file;
+  pLogStrm_ = new std::ofstream(path);
+  if (pLogStrm_-&gt;good())
+  {
+<input onclick="expand_collapse(simplediv1079.id, this.id)" type="button" value=" ^ " id="myButton1079" /><div id="simplediv1079" style="display:block; ">
+    Rslt::attach(pLogStrm_);
+    Demo::attach(pLogStrm_);
+    Dbug::attach(pLogStrm_);
+  }</div>
+  else
+    Rslt::write("\n  couldn't open logFile.txt for writing");
+}</div>
+
+#include &lt;fstream&gt;
+
+void startHttpServer(int argc, char* argv[]) {
+<input onclick="expand_collapse(simplediv1080.id, this.id)" type="button" value=" ^ " id="myButton1080" /><div id="simplediv1080" style="display:block; ">
+  Rslt::attach(&std::cout);
+  Rslt::start();
+  Rslt::title("\n  HttpMessage Server started");
+  BlockingQueue&lt;HttpMessage&gt; msgQ;
+  try
+  {
+<input onclick="expand_collapse(simplediv1081.id, this.id)" type="button" value=" ^ " id="myButton1081" /><div id="simplediv1081" style="display:block; ">
+	SocketSystem ss;
+	SocketListener sl(8080, Socket::IP6);
+	ClientHandler cp(msgQ);
+	cp.ProcessCommandLine(argc, argv);
+	sl.start(cp);
+	 while (true)
+	 {
+<input onclick="expand_collapse(simplediv1082.id, this.id)" type="button" value=" ^ " id="myButton1082" /><div id="simplediv1082" style="display:block; ">
+		HttpMessage msg = msgQ.deQ();
+		// if message type == "upload_files triggercodeAnalyzer.enq("upload success");
+		Rslt::write("\n\n  server recvd message contents:\n" + msg.toString());
+		if (msg.attributes().size() &gt; 0)
+		{
+<input onclick="expand_collapse(simplediv1083.id, this.id)" type="button" value=" ^ " id="myButton1083" /><div id="simplediv1083" style="display:block; ">
+			if (msg.attributes()[0].first == "GET")
+			{
+<input onclick="expand_collapse(simplediv1084.id, this.id)" type="button" value=" ^ " id="myButton1084" /><div id="simplediv1084" style="display:block; ">
+				processGetMessages(msg, argc, argv);
+			}</div>
+			else if (msg.attributes()[0].first == "POST")
+			{
+<input onclick="expand_collapse(simplediv1085.id, this.id)" type="button" value=" ^ " id="myButton1085" /><div id="simplediv1085" style="display:block; ">
+				processPostMessages(msg, argc, argv);
+			}</div>
+		}</div>
+		Rslt::flush();
+	 }</div>
+   }</div>
+   catch (std::exception& exc)
+   {
+<input onclick="expand_collapse(simplediv1086.id, this.id)" type="button" value=" ^ " id="myButton1086" /><div id="simplediv1086" style="display:block; ">
+	 Rslt::write("\n  Exeception caught: ");
+	 std::string exMsg = "\n  " + std::string(exc.what()) + "\n\n";
+	 Rslt::write(exMsg);
+   }</div>
+}</div>
+
+void receiver(int argc, char* argv[]) {
+<input onclick="expand_collapse(simplediv1087.id, this.id)" type="button" value=" ^ " id="myButton1087" /><div id="simplediv1087" style="display:block; ">
+	try {
+<input onclick="expand_collapse(simplediv1088.id, this.id)" type="button" value=" ^ " id="myButton1088" /><div id="simplediv1088" style="display:block; ">
+		startHttpServer(argc, argv);
+	}</div>
+	catch (std::exception& ex) {
+<input onclick="expand_collapse(simplediv1089.id, this.id)" type="button" value=" ^ " id="myButton1089" /><div id="simplediv1089" style="display:block; ">
+		cout &lt;&lt; "Exception caught in receiver thread" &lt;&lt; endl;
+		cout &lt;&lt; ex.what() &lt;&lt; endl;
+	}</div>
+}</div>
+void displayCommandLineArgumentsHelp(int argc, char* argv[])
+{
+<input onclick="expand_collapse(simplediv1090.id, this.id)" type="button" value=" ^ " id="myButton1090" /><div id="simplediv1090" style="display:block; ">
+	Utilities::StringHelper::Title("Display Arguments meaning : \n");
+	for (int i = 0; i &lt; argc; i++) {
+<input onclick="expand_collapse(simplediv1091.id, this.id)" type="button" value=" ^ " id="myButton1091" /><div id="simplediv1091" style="display:block; ">
+		if (i == 1) {
+<input onclick="expand_collapse(simplediv1092.id, this.id)" type="button" value=" ^ " id="myButton1092" /><div id="simplediv1092" style="display:block; ">
+			cout &lt;&lt; "\n Argument 1:" &lt;&lt; "To run CodeAnalyzer on the Repository folder : \n";
+			cout &lt;&lt; "        " &lt;&lt; argv[i] &lt;&lt; endl;
+		}</div>
+		if (i == 6) {
+<input onclick="expand_collapse(simplediv1093.id, this.id)" type="button" value=" ^ " id="myButton1093" /><div id="simplediv1093" style="display:block; ">
+			cout &lt;&lt; "\n Argument 6:" &lt;&lt; "To store the HTML files published by CodePublisher : \n";
+			cout &lt;&lt; "        " &lt;&lt; argv[i] &lt;&lt; endl;
+		}</div>
+		if (i == 7) {
+<input onclick="expand_collapse(simplediv1094.id, this.id)" type="button" value=" ^ " id="myButton1094" /><div id="simplediv1094" style="display:block; ">
+			cout &lt;&lt; "\n Argument 7:" &lt;&lt; "The physical path mapped to virtual Directory which also stores the HTML files in addition to local folder : \n";
+			cout &lt;&lt; "        " &lt;&lt; argv[i] &lt;&lt; endl;
+		}</div>
+		if (i == 8) {
+<input onclick="expand_collapse(simplediv1095.id, this.id)" type="button" value=" ^ " id="myButton1095" /><div id="simplediv1095" style="display:block; ">
+			cout &lt;&lt; "\n Argument 8" &lt;&lt; "The virtual Directory hosted by IIS is :  " &lt;&lt; argv[8] &lt;&lt; endl; 
+			cout &lt;&lt; " and maps to physical path : Argument 7 = " &lt;&lt; argv[7] &lt;&lt; endl;
+		}</div>
+	}</div>
+}</div>
+
+int main(int argc, char* argv[])
+{
+<input onclick="expand_collapse(simplediv1096.id, this.id)" type="button" value=" ^ " id="myButton1096" /><div id="simplediv1096" style="display:block; ">	
+  //startHttpServer(argc, argv);
+	Utilities::StringHelper::Title("Requirement 2 is met: \n");
+	Utilities::StringHelper::Title("Used C++ standard library's streams for all console I/O and new and delete for all heap-based memory management.");
+	Utilities::StringHelper::Title("Requirement 9 is met: Starting the Test Executive to demonstarte all the project 4 requirments");
+	displayCommandLineArgumentsHelp(argc, argv);
+	std::thread receieverthread(receiver, argc, argv); 
+  receieverthread.join();
+  return 0;
+}</div></pre>
+</body>
+</html>

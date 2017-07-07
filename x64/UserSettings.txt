@@ -1,0 +1,11 @@
+C:\SU\Repository\CodeAnalyzer\Parser
+true
+true
+false
+true
+false
+true
+true
+false
+false
+true

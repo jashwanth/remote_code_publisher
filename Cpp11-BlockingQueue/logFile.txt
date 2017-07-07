@@ -1,0 +1,42 @@
+
+                                             CodeAnalysis
+    ==============================================================================================
+     Wed Aug 24 08:01:58 2016
+     Path: C:\SU\Repository\CodeAnalyzer\Cpp11-BlockingQueue
+     Args: *.h, *.cpp, *.cs, /m, /r, /f
+                                                                               
+           Code Metrics - Start Line, Size (lines/code), and Complexity (number of scopes)
+    ==============================================================================================
+
+                 file name        type                               name    line    size    cplx
+    -----------------------  ----------  ---------------------------------  ------  ------  ------
+                             namespace                   Global Namespace       1       1      20
+
+                 file name        type                               name    line    size    cplx
+    -----------------------  ----------  ---------------------------------  ------  ------  ------
+     Cpp11-BlockingQueue.h   namespace                              Async      53     112      13
+     Cpp11-BlockingQueue.h       class                      BlockingQueue      55      17      12
+     Cpp11-BlockingQueue.h    function                      BlockingQueue      56       2       1
+     Cpp11-BlockingQueue.h    function                      BlockingQueue      76       7       1
+     Cpp11-BlockingQueue.h    function                         operator=(      87       9       1
+     Cpp11-BlockingQueue.h    function                                deQ     100      26       3
+     Cpp11-BlockingQueue.h    function                                enQ     130       7       2
+     Cpp11-BlockingQueue.h    function                              front     141       6       1
+     Cpp11-BlockingQueue.h    function                              clear     151       5       1
+     Cpp11-BlockingQueue.h    function                               size     160       4       1
+
+                 file name        type                               name    line    size    cplx
+    -----------------------  ----------  ---------------------------------  ------  ------  ------
+   Cpp11-BlockingQueue.cpp    function                               test      23      12       3
+   Cpp11-BlockingQueue.cpp    function                               main      37      52       3
+
+                          Functions Exceeding Metric Limits and Public Data
+    ==============================================================================================
+                 file name        type                               name    line    size    cplx
+    -----------------------  ----------  ---------------------------------  ------  ------  ------
+   Cpp11-BlockingQueue.cpp    function                               main      37      52       3
+
+
+
+    searched     9 dirs
+   processed     2 files

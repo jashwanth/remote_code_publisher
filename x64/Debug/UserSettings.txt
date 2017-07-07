@@ -1,0 +1,14 @@
+\\VBOXSVR\Downloads\OOD\project2_testbreakpoints\CodeAnalyzerEx\Parser
+true
+true
+true
+false
+FolderSelection
+true
+false
+false
+false
+true
+false
+false
+true

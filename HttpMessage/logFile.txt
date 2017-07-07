@@ -1,0 +1,2522 @@
+
+                                             CodeAnalysis
+    ==============================================================================================
+     Sat Apr 22 15:55:52 2017
+     Path: "\\vboxsvr\Downloads\OOD\project4\project3_646254141\Saved\project3_jashwanth\HttpMessage"
+     Args: *.h, *.cpp, /f, /r, ../StoreHTMFiles, ../StoreClientFiles
+
+  Test begin scope                : # pragma once 
+  Test end scope                  : # pragma once 
+  Test preproc statement:         : # pragma once 
+  Handle preproc statement:       : # pragma once 
+  Test begin scope                : # include < vector > 
+  Test end scope                  : # include < vector > 
+  Test preproc statement:         : # include < vector > 
+  Handle preproc statement:       : # include < vector > 
+  Test begin scope                : # include < string > 
+  Test end scope                  : # include < string > 
+  Test preproc statement:         : # include < string > 
+  Handle preproc statement:       : # include < string > 
+  Test begin scope                : # include < array > 
+  Test end scope                  : # include < array > 
+  Test preproc statement:         : # include < array > 
+  Handle preproc statement:       : # include < array > 
+  Test begin scope                : class HttpMessage { 
+  handle begin scope              : class HttpMessage { 
+  server accepted connection
+  server accepted connection
+
+  server recvd message contents:
+<msg>Message #1 from client #1</msg>
+
+  server recvd message contents:
+<msg>Message #2 from client #1</msg>
+  Test end scope                  : class HttpMessage { 
+  Test preproc statement:         : class HttpMessage { 
+  Test namespace definition:      : class HttpMessage { 
+  Test class definition:          : class HttpMessage { 
+  Handle class definition:        : class HttpMessage { 
+  Test begin scope                : public : 
+  Test end scope                  : public : 
+  Test preproc statement:         : public : 
+  Test namespace definition:      : public : 
+  Test class definition:          : public : 
+  Test struct definition:         : public : 
+  Test C++ function definition:   : public : 
+  Test control definition:        : public : 
+  Test C++ declaration:           : public : 
+  Test C++ executable:            : public : 
+  Test default:                   : public : 
+  Handle default:                 : public : 
+  Test begin scope                : using byte = char ; 
+  Test end scope                  : using byte = char ; 
+  Test preproc statement:         : using byte = char ; 
+  Test namespace definition:      : using byte = char ; 
+  Test class definition:          : using byte = char ; 
+  Test struct definition:         : using byte = char ; 
+  Test C++ function definition:   : using byte = char ; 
+  Test control definition:        : using byte = char ; 
+  Test C++ declaration:           : using byte = char ; 
+  Handle C++ declaration:         : using byte = char ; 
+  Test begin scope                : using Name = std :: string ; 
+  Test end scope                  : using Name = std :: string ; 
+  Test preproc statement:         : using Name = std :: string ; 
+  Test namespace definition:      : using Name = std :: string ; 
+  Test class definition:          : using Name = std :: string ; 
+  Test struct definition:         : using Name = std :: string ; 
+  Test C++ function definition:   : using Name = std :: string ; 
+  Test control definition:        : using Name = std :: string ; 
+  Test C++ declaration:           : using Name = std :: string ; 
+  Handle C++ declaration:         : using Name = std :: string ; 
+
+  server recvd message contents:
+<msg>Message #1 from client #2</msg>
+
+  server recvd message contents:
+<msg>Message #2 from client #2</msg>
+
+  server recvd message contents:
+<msg>Message #3 from client #2</msg>
+
+  server recvd message contents:
+<msg>Message #3 from client #1</msg>
+  Test begin scope                : using Value = std :: string ; 
+  Test end scope                  : using Value = std :: string ; 
+  Test preproc statement:         : using Value = std :: string ; 
+  Test namespace definition:      : using Value = std :: string ; 
+  Test class definition:          : using Value = std :: string ; 
+  Test struct definition:         : using Value = std :: string ; 
+  Test C++ function definition:   : using Value = std :: string ; 
+  Test control definition:        : using Value = std :: string ; 
+  Test C++ declaration:           : using Value = std :: string ; 
+  Handle C++ declaration:         : using Value = std :: string ; 
+  Test begin scope                : using Attribute = std :: pair < Name , Value > ; 
+  Test end scope                  : using Attribute = std :: pair < Name , Value > ; 
+  Test preproc statement:         : using Attribute = std :: pair < Name , Value > ; 
+  Test namespace definition:      : using Attribute = std :: pair < Name , Value > ; 
+  Test class definition:          : using Attribute = std :: pair < Name , Value > ; 
+  Test struct definition:         : using Attribute = std :: pair < Name , Value > ; 
+  Test C++ function definition:   : using Attribute = std :: pair < Name , Value > ; 
+  Test control definition:        : using Attribute = std :: pair < Name , Value > ; 
+  Test C++ declaration:           : using Attribute = std :: pair < Name , Value > ; 
+  Handle C++ declaration:         : using Attribute = std :: pair < Name , Value > ; 
+  Test begin scope                : using Attributes = std :: vector < Attribute > ; 
+  Test end scope                  : using Attributes = std :: vector < Attribute > ; 
+  Test preproc statement:         : using Attributes = std :: vector < Attribute > ; 
+  Test namespace definition:      : using Attributes = std :: vector < Attribute > ; 
+  Test class definition:          : using Attributes = std :: vector < Attribute > ; 
+  Test struct definition:         : using Attributes = std :: vector < Attribute > ; 
+  Test C++ function definition:   : using Attributes = std :: vector < Attribute > ; 
+  Test control definition:        : using Attributes = std :: vector < Attribute > ; 
+  Test C++ declaration:           : using Attributes = std :: vector < Attribute > ; 
+  Handle C++ declaration:         : using Attributes = std :: vector < Attribute > ; 
+  Test begin scope                : using Terminator = std :: string ; 
+  Test end scope                  : using Terminator = std :: string ; 
+  Test preproc statement:         : using Terminator = std :: string ; 
+  Test namespace definition:      : using Terminator = std :: string ; 
+  Test class definition:          : using Terminator = std :: string ; 
+  Test struct definition:         : using Terminator = std :: string ; 
+  Test C++ function definition:   : using Terminator = std :: string ; 
+  Test control definition:        : using Terminator = std :: string ; 
+  Test C++ declaration:           : using Terminator = std :: string ; 
+  Handle C++ declaration:         : using Terminator = std :: string ; 
+  Test begin scope                : using Body = std :: vector < byte > ; 
+  Test end scope                  : using Body = std :: vector < byte > ; 
+  Test preproc statement:         : using Body = std :: vector < byte > ; 
+  Test namespace definition:      : using Body = std :: vector < byte > ; 
+  Test class definition:          : using Body = std :: vector < byte > ; 
+  Test struct definition:         : using Body = std :: vector < byte > ; 
+  Test C++ function definition:   : using Body = std :: vector < byte > ; 
+  Test control definition:        : using Body = std :: vector < byte > ; 
+  Test C++ declaration:           : using Body = std :: vector < byte > ; 
+  Handle C++ declaration:         : using Body = std :: vector < byte > ; 
+  Test begin scope                : void addAttribute ( const Attribute & attrib ) ; 
+  Test end scope                  : void addAttribute ( const Attribute & attrib ) ; 
+  Test preproc statement:         : void addAttribute ( const Attribute & attrib ) ; 
+  Test namespace definition:      : void addAttribute ( const Attribute & attrib ) ; 
+  Test class definition:          : void addAttribute ( const Attribute & attrib ) ; 
+  Test struct definition:         : void addAttribute ( const Attribute & attrib ) ; 
+  Test C++ function definition:   : void addAttribute ( const Attribute & attrib ) ; 
+  Test control definition:        : void addAttribute ( const Attribute & attrib ) ; 
+  Test C++ declaration:           : void addAttribute ( const Attribute & attrib ) ; 
+  Handle C++ declaration:         : void addAttribute ( const Attribute & attrib ) ; 
+  Test begin scope                : Value findValue ( const Name & name ) ; 
+  Test end scope                  : Value findValue ( const Name & name ) ; 
+  Test preproc statement:         : Value findValue ( const Name & name ) ; 
+  Test namespace definition:      : Value findValue ( const Name & name ) ; 
+  Test class definition:          : Value findValue ( const Name & name ) ; 
+  Test struct definition:         : Value findValue ( const Name & name ) ; 
+  Test C++ function definition:   : Value findValue ( const Name & name ) ; 
+  Test control definition:        : Value findValue ( const Name & name ) ; 
+  Test C++ declaration:           : Value findValue ( const Name & name ) ; 
+  Handle C++ declaration:         : Value findValue ( const Name & name ) ; 
+  Test begin scope                : size_t findAttribute ( const Name & name ) ; 
+  Test end scope                  : size_t findAttribute ( const Name & name ) ; 
+  Test preproc statement:         : size_t findAttribute ( const Name & name ) ; 
+  Test namespace definition:      : size_t findAttribute ( const Name & name ) ; 
+  Test class definition:          : size_t findAttribute ( const Name & name ) ; 
+  Test struct definition:         : size_t findAttribute ( const Name & name ) ; 
+  Test C++ function definition:   : size_t findAttribute ( const Name & name ) ; 
+  Test control definition:        : size_t findAttribute ( const Name & name ) ; 
+  Test C++ declaration:           : size_t findAttribute ( const Name & name ) ; 
+  Handle C++ declaration:         : size_t findAttribute ( const Name & name ) ; 
+  Test begin scope                : bool removeAttribute ( const Name & name ) ; 
+  Test end scope                  : bool removeAttribute ( const Name & name ) ; 
+  Test preproc statement:         : bool removeAttribute ( const Name & name ) ; 
+  Test namespace definition:      : bool removeAttribute ( const Name & name ) ; 
+  Test class definition:          : bool removeAttribute ( const Name & name ) ; 
+  Test struct definition:         : bool removeAttribute ( const Name & name ) ; 
+  Test C++ function definition:   : bool removeAttribute ( const Name & name ) ; 
+  Test control definition:        : bool removeAttribute ( const Name & name ) ; 
+  Test C++ declaration:           : bool removeAttribute ( const Name & name ) ; 
+  Handle C++ declaration:         : bool removeAttribute ( const Name & name ) ; 
+  Test begin scope                : Attributes & attributes ( ) ; 
+  Test end scope                  : Attributes & attributes ( ) ; 
+  Test preproc statement:         : Attributes & attributes ( ) ; 
+  Test namespace definition:      : Attributes & attributes ( ) ; 
+  Test class definition:          : Attributes & attributes ( ) ; 
+  Test struct definition:         : Attributes & attributes ( ) ; 
+  Test C++ function definition:   : Attributes & attributes ( ) ; 
+  Test control definition:        : Attributes & attributes ( ) ; 
+  Test C++ declaration:           : Attributes & attributes ( ) ; 
+  Handle C++ declaration:         : Attributes & attributes ( ) ; 
+  Test begin scope                : static std :: string attribString ( const Attribute & attrib ) ; 
+  Test end scope                  : static std :: string attribString ( const Attribute & attrib ) ; 
+  Test preproc statement:         : static std :: string attribString ( const Attribute & attrib ) ; 
+  Test namespace definition:      : static std :: string attribString ( const Attribute & attrib ) ; 
+  Test class definition:          : static std :: string attribString ( const Attribute & attrib ) ; 
+  Test struct definition:         : static std :: string attribString ( const Attribute & attrib ) ; 
+  Test C++ function definition:   : static std :: string attribString ( const Attribute & attrib ) ; 
+  Test control definition:        : static std :: string attribString ( const Attribute & attrib ) ; 
+  Test C++ declaration:           : static std :: string attribString ( const Attribute & attrib ) ; 
+
+  server recvd message contents:
+<msg>Message #4 from client #2</msg>
+
+  server recvd message contents:
+<msg>Message #4 from client #1</msg>
+  Handle C++ declaration:         : static std :: string attribString ( const Attribute & attrib ) ; 
+  Test begin scope                : static Attribute attribute ( const Name & name , const Value & value ) ; 
+  Test end scope                  : static Attribute attribute ( const Name & name , const Value & value ) ; 
+  Test preproc statement:         : static Attribute attribute ( const Name & name , const Value & value ) ; 
+  Test namespace definition:      : static Attribute attribute ( const Name & name , const Value & value ) ; 
+  Test class definition:          : static Attribute attribute ( const Name & name , const Value & value ) ; 
+  Test struct definition:         : static Attribute attribute ( const Name & name , const Value & value ) ; 
+  Test C++ function definition:   : static Attribute attribute ( const Name & name , const Value & value ) ; 
+  Test control definition:        : static Attribute attribute ( const Name & name , const Value & value ) ; 
+  Test C++ declaration:           : static Attribute attribute ( const Name & name , const Value & value ) ; 
+  Handle C++ declaration:         : static Attribute attribute ( const Name & name , const Value & value ) ; 
+  Test begin scope                : static Attribute parseAttribute ( const std :: string & src ) ; 
+  Test end scope                  : static Attribute parseAttribute ( const std :: string & src ) ; 
+  Test preproc statement:         : static Attribute parseAttribute ( const std :: string & src ) ; 
+  Test namespace definition:      : static Attribute parseAttribute ( const std :: string & src ) ; 
+  Test class definition:          : static Attribute parseAttribute ( const std :: string & src ) ; 
+  Test struct definition:         : static Attribute parseAttribute ( const std :: string & src ) ; 
+  Test C++ function definition:   : static Attribute parseAttribute ( const std :: string & src ) ; 
+  Test control definition:        : static Attribute parseAttribute ( const std :: string & src ) ; 
+  Test C++ declaration:           : static Attribute parseAttribute ( const std :: string & src ) ; 
+  Handle C++ declaration:         : static Attribute parseAttribute ( const std :: string & src ) ; 
+  Test begin scope                : void setBody ( byte buffer [ ] , size_t Buflen ) ; 
+  Test end scope                  : void setBody ( byte buffer [ ] , size_t Buflen ) ; 
+  Test preproc statement:         : void setBody ( byte buffer [ ] , size_t Buflen ) ; 
+  Test namespace definition:      : void setBody ( byte buffer [ ] , size_t Buflen ) ; 
+  Test class definition:          : void setBody ( byte buffer [ ] , size_t Buflen ) ; 
+  Test struct definition:         : void setBody ( byte buffer [ ] , size_t Buflen ) ; 
+  Test C++ function definition:   : void setBody ( byte buffer [ ] , size_t Buflen ) ; 
+  Test control definition:        : void setBody ( byte buffer [ ] , size_t Buflen ) ; 
+  Test C++ declaration:           : void setBody ( byte buffer [ ] , size_t Buflen ) ; 
+  Handle C++ declaration:         : void setBody ( byte buffer [ ] , size_t Buflen ) ; 
+  Test begin scope                : size_t getBody ( byte buffer [ ] , size_t & Buflen ) ; 
+  Test end scope                  : size_t getBody ( byte buffer [ ] , size_t & Buflen ) ; 
+  Test preproc statement:         : size_t getBody ( byte buffer [ ] , size_t & Buflen ) ; 
+  Test namespace definition:      : size_t getBody ( byte buffer [ ] , size_t & Buflen ) ; 
+  Test class definition:          : size_t getBody ( byte buffer [ ] , size_t & Buflen ) ; 
+  Test struct definition:         : size_t getBody ( byte buffer [ ] , size_t & Buflen ) ; 
+  Test C++ function definition:   : size_t getBody ( byte buffer [ ] , size_t & Buflen ) ; 
+  Test control definition:        : size_t getBody ( byte buffer [ ] , size_t & Buflen ) ; 
+  Test C++ declaration:           : size_t getBody ( byte buffer [ ] , size_t & Buflen ) ; 
+  Handle C++ declaration:         : size_t getBody ( byte buffer [ ] , size_t & Buflen ) ; 
+  Test begin scope                : void addBody ( const Body & body ) ; 
+  Test end scope                  : void addBody ( const Body & body ) ; 
+  Test preproc statement:         : void addBody ( const Body & body ) ; 
+  Test namespace definition:      : void addBody ( const Body & body ) ; 
+  Test class definition:          : void addBody ( const Body & body ) ; 
+  Test struct definition:         : void addBody ( const Body & body ) ; 
+  Test C++ function definition:   : void addBody ( const Body & body ) ; 
+  Test control definition:        : void addBody ( const Body & body ) ; 
+  Test C++ declaration:           : void addBody ( const Body & body ) ; 
+  Handle C++ declaration:         : void addBody ( const Body & body ) ; 
+  Test begin scope                : void addBody ( const std :: string & body ) ; 
+  Test end scope                  : void addBody ( const std :: string & body ) ; 
+  Test preproc statement:         : void addBody ( const std :: string & body ) ; 
+  Test namespace definition:      : void addBody ( const std :: string & body ) ; 
+  Test class definition:          : void addBody ( const std :: string & body ) ; 
+  Test struct definition:         : void addBody ( const std :: string & body ) ; 
+  Test C++ function definition:   : void addBody ( const std :: string & body ) ; 
+  Test control definition:        : void addBody ( const std :: string & body ) ; 
+  Test C++ declaration:           : void addBody ( const std :: string & body ) ; 
+  Handle C++ declaration:         : void addBody ( const std :: string & body ) ; 
+  Test begin scope                : void addBody ( size_t numBytes , byte * pBuffer ) ; 
+  Test end scope                  : void addBody ( size_t numBytes , byte * pBuffer ) ; 
+  Test preproc statement:         : void addBody ( size_t numBytes , byte * pBuffer ) ; 
+  Test namespace definition:      : void addBody ( size_t numBytes , byte * pBuffer ) ; 
+  Test class definition:          : void addBody ( size_t numBytes , byte * pBuffer ) ; 
+  Test struct definition:         : void addBody ( size_t numBytes , byte * pBuffer ) ; 
+  Test C++ function definition:   : void addBody ( size_t numBytes , byte * pBuffer ) ; 
+  Test control definition:        : void addBody ( size_t numBytes , byte * pBuffer ) ; 
+  Test C++ declaration:           : void addBody ( size_t numBytes , byte * pBuffer ) ; 
+  Handle C++ declaration:         : void addBody ( size_t numBytes , byte * pBuffer ) ; 
+  Test begin scope                : Body & body ( ) ; 
+  Test end scope                  : Body & body ( ) ; 
+  Test preproc statement:         : Body & body ( ) ; 
+  Test namespace definition:      : Body & body ( ) ; 
+  Test class definition:          : Body & body ( ) ; 
+  Test struct definition:         : Body & body ( ) ; 
+  Test C++ function definition:   : Body & body ( ) ; 
+  Test control definition:        : Body & body ( ) ; 
+  Test C++ declaration:           : Body & body ( ) ; 
+  Handle C++ declaration:         : Body & body ( ) ; 
+  Test begin scope                : size_t bodyLength ( ) ; 
+  Test end scope                  : size_t bodyLength ( ) ; 
+  Test preproc statement:         : size_t bodyLength ( ) ; 
+  Test namespace definition:      : size_t bodyLength ( ) ; 
+  Test class definition:          : size_t bodyLength ( ) ; 
+  Test struct definition:         : size_t bodyLength ( ) ; 
+  Test C++ function definition:   : size_t bodyLength ( ) ; 
+  Test control definition:        : size_t bodyLength ( ) ; 
+  Test C++ declaration:           : size_t bodyLength ( ) ; 
+  Handle C++ declaration:         : size_t bodyLength ( ) ; 
+  Test begin scope                : std :: string headerString ( ) const ; 
+  Test end scope                  : std :: string headerString ( ) const ; 
+  Test preproc statement:         : std :: string headerString ( ) const ; 
+  Test namespace definition:      : std :: string headerString ( ) const ; 
+  Test class definition:          : std :: string headerString ( ) const ; 
+  Test struct definition:         : std :: string headerString ( ) const ; 
+  Test C++ function definition:   : std :: string headerString ( ) const ; 
+  Test control definition:        : std :: string headerString ( ) const ; 
+  Test C++ declaration:           : std :: string headerString ( ) const ; 
+  Handle C++ declaration:         : std :: string headerString ( ) const ; 
+  Test begin scope                : std :: string bodyString ( ) const ; 
+  Test end scope                  : std :: string bodyString ( ) const ; 
+  Test preproc statement:         : std :: string bodyString ( ) const ; 
+  Test namespace definition:      : std :: string bodyString ( ) const ; 
+  Test class definition:          : std :: string bodyString ( ) const ; 
+  Test struct definition:         : std :: string bodyString ( ) const ; 
+  Test C++ function definition:   : std :: string bodyString ( ) const ; 
+  Test control definition:        : std :: string bodyString ( ) const ; 
+  Test C++ declaration:           : std :: string bodyString ( ) const ; 
+  Handle C++ declaration:         : std :: string bodyString ( ) const ; 
+  Test begin scope                : std :: string toString ( ) const ; 
+  Test end scope                  : std :: string toString ( ) const ; 
+  Test preproc statement:         : std :: string toString ( ) const ; 
+  Test namespace definition:      : std :: string toString ( ) const ; 
+  Test class definition:          : std :: string toString ( ) const ; 
+  Test struct definition:         : std :: string toString ( ) const ; 
+  Test C++ function definition:   : std :: string toString ( ) const ; 
+  Test control definition:        : std :: string toString ( ) const ; 
+  Test C++ declaration:           : std :: string toString ( ) const ; 
+  Handle C++ declaration:         : std :: string toString ( ) const ; 
+  Test begin scope                : std :: string toIndentedHeaderString ( ) const ; 
+  Test end scope                  : std :: string toIndentedHeaderString ( ) const ; 
+  Test preproc statement:         : std :: string toIndentedHeaderString ( ) const ; 
+  Test namespace definition:      : std :: string toIndentedHeaderString ( ) const ; 
+  Test class definition:          : std :: string toIndentedHeaderString ( ) const ; 
+  Test struct definition:         : std :: string toIndentedHeaderString ( ) const ; 
+  Test C++ function definition:   : std :: string toIndentedHeaderString ( ) const ; 
+  Test control definition:        : std :: string toIndentedHeaderString ( ) const ; 
+  Test C++ declaration:           : std :: string toIndentedHeaderString ( ) const ; 
+  Handle C++ declaration:         : std :: string toIndentedHeaderString ( ) const ; 
+  Test begin scope                : std :: string toIndentedBodyString ( ) const ; 
+  Test end scope                  : std :: string toIndentedBodyString ( ) const ; 
+  Test preproc statement:         : std :: string toIndentedBodyString ( ) const ; 
+  Test namespace definition:      : std :: string toIndentedBodyString ( ) const ; 
+  Test class definition:          : std :: string toIndentedBodyString ( ) const ; 
+  Test struct definition:         : std :: string toIndentedBodyString ( ) const ; 
+  Test C++ function definition:   : std :: string toIndentedBodyString ( ) const ; 
+  Test control definition:        : std :: string toIndentedBodyString ( ) const ; 
+  Test C++ declaration:           : std :: string toIndentedBodyString ( ) const ; 
+  Handle C++ declaration:         : std :: string toIndentedBodyString ( ) const ; 
+  Test begin scope                : std :: string toIndentedString ( ) const ; 
+  Test end scope                  : std :: string toIndentedString ( ) const ; 
+  Test preproc statement:         : std :: string toIndentedString ( ) const ; 
+  Test namespace definition:      : std :: string toIndentedString ( ) const ; 
+  Test class definition:          : std :: string toIndentedString ( ) const ; 
+  Test struct definition:         : std :: string toIndentedString ( ) const ; 
+  Test C++ function definition:   : std :: string toIndentedString ( ) const ; 
+  Test control definition:        : std :: string toIndentedString ( ) const ; 
+  Test C++ declaration:           : std :: string toIndentedString ( ) const ; 
+  Handle C++ declaration:         : std :: string toIndentedString ( ) const ; 
+  Test begin scope                : void clear ( ) ; 
+  Test end scope                  : void clear ( ) ; 
+  Test preproc statement:         : void clear ( ) ; 
+  Test namespace definition:      : void clear ( ) ; 
+  Test class definition:          : void clear ( ) ; 
+  Test struct definition:         : void clear ( ) ; 
+  Test C++ function definition:   : void clear ( ) ; 
+  Test control definition:        : void clear ( ) ; 
+  Test C++ declaration:           : void clear ( ) ; 
+  Handle C++ declaration:         : void clear ( ) ; 
+  Test begin scope                : 
+    static void fillBuffer ( byte buffer [ ] , size_t BufSize , byte fill = '\0' ) ; 
+  Test end scope                  : 
+    static void fillBuffer ( byte buffer [ ] , size_t BufSize , byte fill = '\0' ) ; 
+  Test preproc statement:         : 
+    static void fillBuffer ( byte buffer [ ] , size_t BufSize , byte fill = '\0' ) ; 
+  Test namespace definition:      : 
+    static void fillBuffer ( byte buffer [ ] , size_t BufSize , byte fill = '\0' ) ; 
+  Test class definition:          : 
+    static void fillBuffer ( byte buffer [ ] , size_t BufSize , byte fill = '\0' ) ; 
+  Test struct definition:         : 
+    static void fillBuffer ( byte buffer [ ] , size_t BufSize , byte fill = '\0' ) ; 
+  Test C++ function definition:   : 
+    static void fillBuffer ( byte buffer [ ] , size_t BufSize , byte fill = '\0' ) ; 
+  Test control definition:        : 
+    static void fillBuffer ( byte buffer [ ] , size_t BufSize , byte fill = '\0' ) ; 
+  Test C++ declaration:           : 
+    static void fillBuffer ( byte buffer [ ] , size_t BufSize , byte fill = '\0' ) ; 
+  Handle C++ declaration:         : 
+    static void fillBuffer ( byte buffer [ ] , size_t BufSize , byte fill = '\0' ) ; 
+  Test begin scope                : private : 
+  Test end scope                  : private : 
+  Test preproc statement:         : private : 
+  Test namespace definition:      : private : 
+  Test class definition:          : private : 
+  Test struct definition:         : private : 
+  Test C++ function definition:   : private : 
+  Test control definition:        : private : 
+  Test C++ declaration:           : private : 
+  Test C++ executable:            : private : 
+  Test default:                   : private : 
+  Handle default:                 : private : 
+  Test begin scope                : Attributes attributes_ ; 
+  Test end scope                  : Attributes attributes_ ; 
+  Test preproc statement:         : Attributes attributes_ ; 
+  Test namespace definition:      : Attributes attributes_ ; 
+  Test class definition:          : Attributes attributes_ ; 
+  Test struct definition:         : Attributes attributes_ ; 
+  Test C++ function definition:   : Attributes attributes_ ; 
+  Test control definition:        : Attributes attributes_ ; 
+  Test C++ declaration:           : Attributes attributes_ ; 
+  Handle C++ declaration:         : Attributes attributes_ ; 
+  Test begin scope                : Terminator term_ = "\n" ; 
+  Test end scope                  : Terminator term_ = "\n" ; 
+  Test preproc statement:         : Terminator term_ = "\n" ; 
+  Test namespace definition:      : Terminator term_ = "\n" ; 
+  Test class definition:          : Terminator term_ = "\n" ; 
+  Test struct definition:         : Terminator term_ = "\n" ; 
+  Test C++ function definition:   : Terminator term_ = "\n" ; 
+  Test control definition:        : Terminator term_ = "\n" ; 
+  Test C++ declaration:           : Terminator term_ = "\n" ; 
+  Handle C++ declaration:         : Terminator term_ = "\n" ; 
+  Test begin scope                : Body body_ ; 
+  Test end scope                  : Body body_ ; 
+  Test preproc statement:         : Body body_ ; 
+  Test namespace definition:      : Body body_ ; 
+  Test class definition:          : Body body_ ; 
+  Test struct definition:         : Body body_ ; 
+  Test C++ function definition:   : Body body_ ; 
+  Test control definition:        : Body body_ ; 
+  Test C++ declaration:           : Body body_ ; 
+  Handle C++ declaration:         : Body body_ ; 
+  Test begin scope                : } 
+  Test end scope                  : } 
+  Handle end scope                : } 
+
+  server recvd message contents:
+<msg>Message #5 from client #1</msg>
+
+  server recvd message contents:
+<msg>Message #5 from client #2</msg>
+  Test begin scope                : ; 
+
+  server recvd message contents:
+<msg>Message #6 from client #2</msg>
+
+  server recvd message contents:
+<msg>Message #6 from client #1</msg>
+  Test begin scope                : # include "HttpMessage.h" 
+  Test end scope                  : # include "HttpMessage.h" 
+  Test preproc statement:         : # include "HttpMessage.h" 
+  Handle preproc statement:       : # include "HttpMessage.h" 
+  Test begin scope                : # include "../Utilities/Utilities.h" 
+  Test end scope                  : # include "../Utilities/Utilities.h" 
+  Test preproc statement:         : # include "../Utilities/Utilities.h" 
+  Handle preproc statement:       : # include "../Utilities/Utilities.h" 
+  Test begin scope                : # include < iostream > 
+  Test end scope                  : # include < iostream > 
+  Test preproc statement:         : # include < iostream > 
+  Handle preproc statement:       : # include < iostream > 
+  Test begin scope                : using namespace Utilities ; 
+  Test end scope                  : using namespace Utilities ; 
+  Test preproc statement:         : using namespace Utilities ; 
+  Test namespace definition:      : using namespace Utilities ; 
+  Test class definition:          : using namespace Utilities ; 
+  Test struct definition:         : using namespace Utilities ; 
+  Test C++ function definition:   : using namespace Utilities ; 
+  Test control definition:        : using namespace Utilities ; 
+  Test C++ declaration:           : using namespace Utilities ; 
+  Handle C++ declaration:         : using namespace Utilities ; 
+  Test begin scope                : using Attribute = HttpMessage :: Attribute ; 
+  Test end scope                  : using Attribute = HttpMessage :: Attribute ; 
+  Test preproc statement:         : using Attribute = HttpMessage :: Attribute ; 
+  Test namespace definition:      : using Attribute = HttpMessage :: Attribute ; 
+  Test class definition:          : using Attribute = HttpMessage :: Attribute ; 
+  Test struct definition:         : using Attribute = HttpMessage :: Attribute ; 
+  Test C++ function definition:   : using Attribute = HttpMessage :: Attribute ; 
+  Test control definition:        : using Attribute = HttpMessage :: Attribute ; 
+  Test C++ declaration:           : using Attribute = HttpMessage :: Attribute ; 
+  Handle C++ declaration:         : using Attribute = HttpMessage :: Attribute ; 
+  Test begin scope                : using Attributes = HttpMessage :: Attributes ; 
+  Test end scope                  : using Attributes = HttpMessage :: Attributes ; 
+  Test preproc statement:         : using Attributes = HttpMessage :: Attributes ; 
+  Test namespace definition:      : using Attributes = HttpMessage :: Attributes ; 
+  Test class definition:          : using Attributes = HttpMessage :: Attributes ; 
+  Test struct definition:         : using Attributes = HttpMessage :: Attributes ; 
+  Test C++ function definition:   : using Attributes = HttpMessage :: Attributes ; 
+  Test control definition:        : using Attributes = HttpMessage :: Attributes ; 
+  Test C++ declaration:           : using Attributes = HttpMessage :: Attributes ; 
+  Handle C++ declaration:         : using Attributes = HttpMessage :: Attributes ; 
+  Test begin scope                : using Name = HttpMessage :: Name ; 
+  Test end scope                  : using Name = HttpMessage :: Name ; 
+  Test preproc statement:         : using Name = HttpMessage :: Name ; 
+  Test namespace definition:      : using Name = HttpMessage :: Name ; 
+  Test class definition:          : using Name = HttpMessage :: Name ; 
+  Test struct definition:         : using Name = HttpMessage :: Name ; 
+  Test C++ function definition:   : using Name = HttpMessage :: Name ; 
+  Test control definition:        : using Name = HttpMessage :: Name ; 
+  Test C++ declaration:           : using Name = HttpMessage :: Name ; 
+  Handle C++ declaration:         : using Name = HttpMessage :: Name ; 
+  Test begin scope                : using Value = HttpMessage :: Value ; 
+  Test end scope                  : using Value = HttpMessage :: Value ; 
+  Test preproc statement:         : using Value = HttpMessage :: Value ; 
+  Test namespace definition:      : using Value = HttpMessage :: Value ; 
+  Test class definition:          : using Value = HttpMessage :: Value ; 
+  Test struct definition:         : using Value = HttpMessage :: Value ; 
+  Test C++ function definition:   : using Value = HttpMessage :: Value ; 
+  Test control definition:        : using Value = HttpMessage :: Value ; 
+  Test C++ declaration:           : using Value = HttpMessage :: Value ; 
+  Handle C++ declaration:         : using Value = HttpMessage :: Value ; 
+  Test begin scope                : using Body = HttpMessage :: Body ; 
+  Test end scope                  : using Body = HttpMessage :: Body ; 
+  Test preproc statement:         : using Body = HttpMessage :: Body ; 
+  Test namespace definition:      : using Body = HttpMessage :: Body ; 
+  Test class definition:          : using Body = HttpMessage :: Body ; 
+  Test struct definition:         : using Body = HttpMessage :: Body ; 
+  Test C++ function definition:   : using Body = HttpMessage :: Body ; 
+  Test control definition:        : using Body = HttpMessage :: Body ; 
+  Test C++ declaration:           : using Body = HttpMessage :: Body ; 
+  Handle C++ declaration:         : using Body = HttpMessage :: Body ; 
+  Test begin scope                : using byte = HttpMessage :: byte ; 
+  Test end scope                  : using byte = HttpMessage :: byte ; 
+  Test preproc statement:         : using byte = HttpMessage :: byte ; 
+  Test namespace definition:      : using byte = HttpMessage :: byte ; 
+  Test class definition:          : using byte = HttpMessage :: byte ; 
+  Test struct definition:         : using byte = HttpMessage :: byte ; 
+  Test C++ function definition:   : using byte = HttpMessage :: byte ; 
+  Test control definition:        : using byte = HttpMessage :: byte ; 
+  Test C++ declaration:           : using byte = HttpMessage :: byte ; 
+  Handle C++ declaration:         : using byte = HttpMessage :: byte ; 
+  Test begin scope                : class MockSocket { 
+  handle begin scope              : class MockSocket { 
+
+  server recvd message contents:
+<msg>Message #7 from client #2</msg>
+
+  server recvd message contents:
+<msg>Message #7 from client #1</msg>
+
+  server recvd message contents:
+<msg>Message #8 from client #1</msg>
+
+  server recvd message contents:
+<msg>Message #8 from client #2</msg>
+
+  server recvd message contents:
+<msg>Message #9 from client #1</msg>
+
+  server recvd message contents:
+<msg>Message #9 from client #2</msg>
+
+  server recvd message contents:
+<msg>Message #10 from client #1</msg>
+
+  server recvd message contents:
+<msg>Message #10 from client #2</msg>
+
+  server recvd message contents:
+<msg>Message #11 from client #1</msg>
+
+  server recvd message contents:
+<msg>Message #11 from client #2</msg>
+
+  server recvd message contents:
+<msg>Message #12 from client #1</msg>
+
+  server recvd message contents:
+<msg>Message #12 from client #2</msg>
+
+  server recvd message contents:
+<msg>Message #13 from client #1</msg>
+
+  server recvd message contents:
+<msg>Message #14 from client #1</msg>
+
+  server recvd message contents:
+<msg>Message #13 from client #2</msg>
+
+  server recvd message contents:
+<msg>Message #15 from client #1</msg>
+
+  server recvd message contents:
+<msg>Message #14 from client #2</msg>
+
+  server recvd message contents:
+<msg>Message #16 from client #1</msg>
+
+  server recvd message contents:
+<msg>Message #15 from client #2</msg>
+
+  server recvd message contents:
+<msg>Message #17 from client #1</msg>
+
+  server recvd message contents:
+<msg>Message #16 from client #2</msg>
+
+  server recvd message contents:
+<msg>Message #18 from client #1</msg>
+
+  server recvd message contents:
+<msg>Message #19 from client #1</msg>
+
+  server recvd message contents:
+<msg>Message #17 from client #2</msg>
+
+  server recvd message contents:
+<msg>Message #20 from client #1</msg>
+
+  server recvd message contents:
+<msg>Message #18 from client #2</msg>
+
+  server recvd message contents:
+<msg>Message #19 from client #2</msg> Trying to readFile: ../TestFiles_Client_Server/Logger.cpp.snt 
+
+
+  server recvd message contents:
+<msg>Message #20 from client #2</msg>
+
+  server recvd message contents:
+<file>Logger.cpp</file> Trying to readFile: ../TestFiles_Client_Server/Sockets.cpp.snt 
+
+
+  clienthandler thread is terminating Trying to readFile: ../TestFiles_Client_Server/Logger.cpp.snt 
+ Trying to readFile: ../TestFiles_Client_Server/Sockets.cpp.snt 
+
+
+  server recvd message contents:
+<file>Sockets.cpp</file>
+
+  server recvd message contents:
+<file>Logger.cpp</file>
+
+  clienthandler thread is terminating
+
+  server recvd message contents:
+<file>Sockets.cpp</file>
+  Test end scope                  : class MockSocket { 
+  Test preproc statement:         : class MockSocket { 
+  Test namespace definition:      : class MockSocket { 
+  Test class definition:          : class MockSocket { 
+  Handle class definition:        : class MockSocket { 
+  Test begin scope                : public : 
+  Test end scope                  : public : 
+  Test preproc statement:         : public : 
+  Test namespace definition:      : public : 
+  Test class definition:          : public : 
+  Test struct definition:         : public : 
+  Test C++ function definition:   : public : 
+  Test control definition:        : public : 
+  Test C++ declaration:           : public : 
+  Test C++ executable:            : public : 
+  Test default:                   : public : 
+  Handle default:                 : public : 
+  Test begin scope                : MockSocket ( const HttpMessage & msg ) : msgString_ ( msg . toString ( ) ) { 
+  handle begin scope              : MockSocket ( const HttpMessage & msg ) : msgString_ ( msg . toString ( ) ) { 
+  Test end scope                  : MockSocket ( const HttpMessage & msg ) : msgString_ ( msg . toString ( ) ) { 
+  Test preproc statement:         : MockSocket ( const HttpMessage & msg ) : msgString_ ( msg . toString ( ) ) { 
+  Test namespace definition:      : MockSocket ( const HttpMessage & msg ) : msgString_ ( msg . toString ( ) ) { 
+  Test class definition:          : MockSocket ( const HttpMessage & msg ) : msgString_ ( msg . toString ( ) ) { 
+  Test struct definition:         : MockSocket ( const HttpMessage & msg ) : msgString_ ( msg . toString ( ) ) { 
+  Test C++ function definition:   : MockSocket ( const HttpMessage & msg ) : msgString_ ( msg . toString ( ) ) { 
+  Handle C++ function definition: : MockSocket ( const HttpMessage & msg ) : msgString_ ( msg . toString ( ) ) { 
+  Test begin scope                : } 
+  Test end scope                  : } 
+  Handle end scope                : } 
+  Test begin scope                : ; 
+  Test begin scope                : std :: string recvString ( ) ; 
+  Test end scope                  : std :: string recvString ( ) ; 
+  Test preproc statement:         : std :: string recvString ( ) ; 
+  Test namespace definition:      : std :: string recvString ( ) ; 
+  Test class definition:          : std :: string recvString ( ) ; 
+  Test struct definition:         : std :: string recvString ( ) ; 
+  Test C++ function definition:   : std :: string recvString ( ) ; 
+  Test control definition:        : std :: string recvString ( ) ; 
+  Test C++ declaration:           : std :: string recvString ( ) ; 
+  Handle C++ declaration:         : std :: string recvString ( ) ; 
+  Test begin scope                : bool recv ( size_t bytes , byte * buffer ) ; 
+  Test end scope                  : bool recv ( size_t bytes , byte * buffer ) ; 
+  Test preproc statement:         : bool recv ( size_t bytes , byte * buffer ) ; 
+  Test namespace definition:      : bool recv ( size_t bytes , byte * buffer ) ; 
+  Test class definition:          : bool recv ( size_t bytes , byte * buffer ) ; 
+  Test struct definition:         : bool recv ( size_t bytes , byte * buffer ) ; 
+  Test C++ function definition:   : bool recv ( size_t bytes , byte * buffer ) ; 
+  Test control definition:        : bool recv ( size_t bytes , byte * buffer ) ; 
+  Test C++ declaration:           : bool recv ( size_t bytes , byte * buffer ) ; 
+  Handle C++ declaration:         : bool recv ( size_t bytes , byte * buffer ) ; 
+  Test begin scope                : size_t & setContent_length ( ) { 
+  handle begin scope              : size_t & setContent_length ( ) { 
+  Test end scope                  : size_t & setContent_length ( ) { 
+  Test preproc statement:         : size_t & setContent_length ( ) { 
+  Test namespace definition:      : size_t & setContent_length ( ) { 
+  Test class definition:          : size_t & setContent_length ( ) { 
+  Test struct definition:         : size_t & setContent_length ( ) { 
+  Test C++ function definition:   : size_t & setContent_length ( ) { 
+  Handle C++ function definition: : size_t & setContent_length ( ) { 
+  Test begin scope                : return content_length_ ; 
+  Test end scope                  : return content_length_ ; 
+  Test preproc statement:         : return content_length_ ; 
+  Test namespace definition:      : return content_length_ ; 
+  Test class definition:          : return content_length_ ; 
+  Test struct definition:         : return content_length_ ; 
+  Test C++ function definition:   : return content_length_ ; 
+  Test control definition:        : return content_length_ ; 
+  Test C++ declaration:           : return content_length_ ; 
+  Test C++ executable:            : return content_length_ ; 
+  Handle C++ executable:          : return content_length_ ; 
+  Test begin scope                : } 
+  Test end scope                  : } 
+  Handle end scope                : } 
+  Test begin scope                : private : 
+  Test end scope                  : private : 
+  Test preproc statement:         : private : 
+  Test namespace definition:      : private : 
+  Test class definition:          : private : 
+  Test struct definition:         : private : 
+  Test C++ function definition:   : private : 
+  Test control definition:        : private : 
+  Test C++ declaration:           : private : 
+  Test C++ executable:            : private : 
+  Test default:                   : private : 
+  Handle default:                 : private : 
+  Test begin scope                : std :: string msgString_ ; 
+  Test end scope                  : std :: string msgString_ ; 
+  Test preproc statement:         : std :: string msgString_ ; 
+  Test namespace definition:      : std :: string msgString_ ; 
+  Test class definition:          : std :: string msgString_ ; 
+  Test struct definition:         : std :: string msgString_ ; 
+  Test C++ function definition:   : std :: string msgString_ ; 
+  Test control definition:        : std :: string msgString_ ; 
+  Test C++ declaration:           : std :: string msgString_ ; 
+  Handle C++ declaration:         : std :: string msgString_ ; 
+  Test begin scope                : size_t pos_ = 0 ; 
+  Test end scope                  : size_t pos_ = 0 ; 
+  Test preproc statement:         : size_t pos_ = 0 ; 
+  Test namespace definition:      : size_t pos_ = 0 ; 
+  Test class definition:          : size_t pos_ = 0 ; 
+  Test struct definition:         : size_t pos_ = 0 ; 
+  Test C++ function definition:   : size_t pos_ = 0 ; 
+  Test control definition:        : size_t pos_ = 0 ; 
+  Test C++ declaration:           : size_t pos_ = 0 ; 
+  Handle C++ declaration:         : size_t pos_ = 0 ; 
+  Test begin scope                : size_t content_length_ = 0 ; 
+  Test end scope                  : size_t content_length_ = 0 ; 
+  Test preproc statement:         : size_t content_length_ = 0 ; 
+  Test namespace definition:      : size_t content_length_ = 0 ; 
+  Test class definition:          : size_t content_length_ = 0 ; 
+  Test struct definition:         : size_t content_length_ = 0 ; 
+  Test C++ function definition:   : size_t content_length_ = 0 ; 
+  Test control definition:        : size_t content_length_ = 0 ; 
+  Test C++ declaration:           : size_t content_length_ = 0 ; 
+  Handle C++ declaration:         : size_t content_length_ = 0 ; 
+  Test begin scope                : } 
+  Test end scope                  : } 
+  Handle end scope                : } 
+  Test begin scope                : ; 
+  Test begin scope                : std :: string MockSocket :: recvString ( ) { 
+  handle begin scope              : std :: string MockSocket :: recvString ( ) { 
+  Test end scope                  : std :: string MockSocket :: recvString ( ) { 
+  Test preproc statement:         : std :: string MockSocket :: recvString ( ) { 
+  Test namespace definition:      : std :: string MockSocket :: recvString ( ) { 
+  Test class definition:          : std :: string MockSocket :: recvString ( ) { 
+  Test struct definition:         : std :: string MockSocket :: recvString ( ) { 
+  Test C++ function definition:   : std :: string MockSocket :: recvString ( ) { 
+  Handle C++ function definition: : std :: string MockSocket :: recvString ( ) { 
+  Test begin scope                : std :: string line ; 
+  Test end scope                  : std :: string line ; 
+  Test preproc statement:         : std :: string line ; 
+  Test namespace definition:      : std :: string line ; 
+  Test class definition:          : std :: string line ; 
+  Test struct definition:         : std :: string line ; 
+  Test C++ function definition:   : std :: string line ; 
+  Test control definition:        : std :: string line ; 
+  Test C++ declaration:           : std :: string line ; 
+  Handle C++ declaration:         : std :: string line ; 
+  Test begin scope                : char ch ; 
+  Test end scope                  : char ch ; 
+  Test preproc statement:         : char ch ; 
+  Test namespace definition:      : char ch ; 
+  Test class definition:          : char ch ; 
+  Test struct definition:         : char ch ; 
+  Test C++ function definition:   : char ch ; 
+  Test control definition:        : char ch ; 
+  Test C++ declaration:           : char ch ; 
+  Handle C++ declaration:         : char ch ; 
+  Test begin scope                : while ( ( ch = msgString_ [ pos_ ++ ] ) != '\n' ) { 
+  handle begin scope              : while ( ( ch = msgString_ [ pos_ ++ ] ) != '\n' ) { 
+  Test end scope                  : while ( ( ch = msgString_ [ pos_ ++ ] ) != '\n' ) { 
+  Test preproc statement:         : while ( ( ch = msgString_ [ pos_ ++ ] ) != '\n' ) { 
+  Test namespace definition:      : while ( ( ch = msgString_ [ pos_ ++ ] ) != '\n' ) { 
+  Test class definition:          : while ( ( ch = msgString_ [ pos_ ++ ] ) != '\n' ) { 
+  Test struct definition:         : while ( ( ch = msgString_ [ pos_ ++ ] ) != '\n' ) { 
+  Test C++ function definition:   : while ( ( ch = msgString_ [ pos_ ++ ] ) != '\n' ) { 
+  Test control definition:        : while ( ( ch = msgString_ [ pos_ ++ ] ) != '\n' ) { 
+  Handle control definition:      : while ( ( ch = msgString_ [ pos_ ++ ] ) != '\n' ) { 
+  Test begin scope                : line += ch ; 
+  Test end scope                  : line += ch ; 
+  Test preproc statement:         : line += ch ; 
+  Test namespace definition:      : line += ch ; 
+  Test class definition:          : line += ch ; 
+  Test struct definition:         : line += ch ; 
+  Test C++ function definition:   : line += ch ; 
+  Test control definition:        : line += ch ; 
+  Test C++ declaration:           : line += ch ; 
+  Handle C++ declaration:         : line += ch ; 
+  Test begin scope                : } 
+  Test end scope                  : } 
+  Handle end scope                : } 
+  Test begin scope                : return line ; 
+  Test end scope                  : return line ; 
+  Test preproc statement:         : return line ; 
+  Test namespace definition:      : return line ; 
+  Test class definition:          : return line ; 
+  Test struct definition:         : return line ; 
+  Test C++ function definition:   : return line ; 
+  Test control definition:        : return line ; 
+  Test C++ declaration:           : return line ; 
+  Test C++ executable:            : return line ; 
+  Handle C++ executable:          : return line ; 
+  Test begin scope                : } 
+  Test end scope                  : } 
+  Handle end scope                : } 
+  Test begin scope                : bool MockSocket :: recv ( size_t bytes , byte * buffer ) { 
+  handle begin scope              : bool MockSocket :: recv ( size_t bytes , byte * buffer ) { 
+  Test end scope                  : bool MockSocket :: recv ( size_t bytes , byte * buffer ) { 
+  Test preproc statement:         : bool MockSocket :: recv ( size_t bytes , byte * buffer ) { 
+  Test namespace definition:      : bool MockSocket :: recv ( size_t bytes , byte * buffer ) { 
+  Test class definition:          : bool MockSocket :: recv ( size_t bytes , byte * buffer ) { 
+  Test struct definition:         : bool MockSocket :: recv ( size_t bytes , byte * buffer ) { 
+  Test C++ function definition:   : bool MockSocket :: recv ( size_t bytes , byte * buffer ) { 
+  Handle C++ function definition: : bool MockSocket :: recv ( size_t bytes , byte * buffer ) { 
+  Test begin scope                : for ( size_t i = 0 ; i < bytes ; ++ i ) { 
+  handle begin scope              : for ( size_t i = 0 ; i < bytes ; ++ i ) { 
+  Test end scope                  : for ( size_t i = 0 ; i < bytes ; ++ i ) { 
+  Test preproc statement:         : for ( size_t i = 0 ; i < bytes ; ++ i ) { 
+  Test namespace definition:      : for ( size_t i = 0 ; i < bytes ; ++ i ) { 
+  Test class definition:          : for ( size_t i = 0 ; i < bytes ; ++ i ) { 
+  Test struct definition:         : for ( size_t i = 0 ; i < bytes ; ++ i ) { 
+  Test C++ function definition:   : for ( size_t i = 0 ; i < bytes ; ++ i ) { 
+  Test control definition:        : for ( size_t i = 0 ; i < bytes ; ++ i ) { 
+  Handle control definition:      : for ( size_t i = 0 ; i < bytes ; ++ i ) { 
+  Test begin scope                : if ( pos_ + i == msgString_ . size ( ) ) { 
+  handle begin scope              : if ( pos_ + i == msgString_ . size ( ) ) { 
+  Test end scope                  : if ( pos_ + i == msgString_ . size ( ) ) { 
+  Test preproc statement:         : if ( pos_ + i == msgString_ . size ( ) ) { 
+  Test namespace definition:      : if ( pos_ + i == msgString_ . size ( ) ) { 
+  Test class definition:          : if ( pos_ + i == msgString_ . size ( ) ) { 
+  Test struct definition:         : if ( pos_ + i == msgString_ . size ( ) ) { 
+  Test C++ function definition:   : if ( pos_ + i == msgString_ . size ( ) ) { 
+  Test control definition:        : if ( pos_ + i == msgString_ . size ( ) ) { 
+  Handle control definition:      : if ( pos_ + i == msgString_ . size ( ) ) { 
+  Test begin scope                : std :: cout << "\n---- attempt to index past end of msgString_ ----\n" ; 
+  Test end scope                  : std :: cout << "\n---- attempt to index past end of msgString_ ----\n" ; 
+  Test preproc statement:         : std :: cout << "\n---- attempt to index past end of msgString_ ----\n" ; 
+  Test namespace definition:      : std :: cout << "\n---- attempt to index past end of msgString_ ----\n" ; 
+  Test class definition:          : std :: cout << "\n---- attempt to index past end of msgString_ ----\n" ; 
+  Test struct definition:         : std :: cout << "\n---- attempt to index past end of msgString_ ----\n" ; 
+  Test C++ function definition:   : std :: cout << "\n---- attempt to index past end of msgString_ ----\n" ; 
+  Test control definition:        : std :: cout << "\n---- attempt to index past end of msgString_ ----\n" ; 
+  Test C++ declaration:           : std :: cout << "\n---- attempt to index past end of msgString_ ----\n" ; 
+  Handle C++ declaration:         : std :: cout << "\n---- attempt to index past end of msgString_ ----\n" ; 
+  Test begin scope                : return false ; 
+  Test end scope                  : return false ; 
+  Test preproc statement:         : return false ; 
+  Test namespace definition:      : return false ; 
+  Test class definition:          : return false ; 
+  Test struct definition:         : return false ; 
+  Test C++ function definition:   : return false ; 
+  Test control definition:        : return false ; 
+  Test C++ declaration:           : return false ; 
+  Handle C++ declaration:         : return false ; 
+  Test begin scope                : } 
+  Test end scope                  : } 
+  Handle end scope                : } 
+  Test begin scope                : buffer [ i ] = msgString_ [ pos_ + i ] ; 
+  Test end scope                  : buffer [ i ] = msgString_ [ pos_ + i ] ; 
+  Test preproc statement:         : buffer [ i ] = msgString_ [ pos_ + i ] ; 
+  Test namespace definition:      : buffer [ i ] = msgString_ [ pos_ + i ] ; 
+  Test class definition:          : buffer [ i ] = msgString_ [ pos_ + i ] ; 
+  Test struct definition:         : buffer [ i ] = msgString_ [ pos_ + i ] ; 
+  Test C++ function definition:   : buffer [ i ] = msgString_ [ pos_ + i ] ; 
+  Test control definition:        : buffer [ i ] = msgString_ [ pos_ + i ] ; 
+  Test C++ declaration:           : buffer [ i ] = msgString_ [ pos_ + i ] ; 
+  Handle C++ declaration:         : buffer [ i ] = msgString_ [ pos_ + i ] ; 
+  Test begin scope                : } 
+  Test end scope                  : } 
+  Handle end scope                : } 
+  Test begin scope                : return true ; 
+  Test end scope                  : return true ; 
+  Test preproc statement:         : return true ; 
+  Test namespace definition:      : return true ; 
+  Test class definition:          : return true ; 
+  Test struct definition:         : return true ; 
+  Test C++ function definition:   : return true ; 
+  Test control definition:        : return true ; 
+  Test C++ declaration:           : return true ; 
+  Test C++ executable:            : return true ; 
+  Handle C++ executable:          : return true ; 
+  Test begin scope                : } 
+  Test end scope                  : } 
+  Handle end scope                : } 
+  Test begin scope                : void HttpMessage :: addAttribute ( const Attribute & attrib ) { 
+  handle begin scope              : void HttpMessage :: addAttribute ( const Attribute & attrib ) { 
+  Test end scope                  : void HttpMessage :: addAttribute ( const Attribute & attrib ) { 
+  Test preproc statement:         : void HttpMessage :: addAttribute ( const Attribute & attrib ) { 
+  Test namespace definition:      : void HttpMessage :: addAttribute ( const Attribute & attrib ) { 
+  Test class definition:          : void HttpMessage :: addAttribute ( const Attribute & attrib ) { 
+  Test struct definition:         : void HttpMessage :: addAttribute ( const Attribute & attrib ) { 
+  Test C++ function definition:   : void HttpMessage :: addAttribute ( const Attribute & attrib ) { 
+  Handle C++ function definition: : void HttpMessage :: addAttribute ( const Attribute & attrib ) { 
+  Test begin scope                : attributes_ . push_back ( attrib ) ; 
+  Test end scope                  : attributes_ . push_back ( attrib ) ; 
+  Test preproc statement:         : attributes_ . push_back ( attrib ) ; 
+  Test namespace definition:      : attributes_ . push_back ( attrib ) ; 
+  Test class definition:          : attributes_ . push_back ( attrib ) ; 
+  Test struct definition:         : attributes_ . push_back ( attrib ) ; 
+  Test C++ function definition:   : attributes_ . push_back ( attrib ) ; 
+  Test control definition:        : attributes_ . push_back ( attrib ) ; 
+  Test C++ declaration:           : attributes_ . push_back ( attrib ) ; 
+  Test C++ executable:            : attributes_ . push_back ( attrib ) ; 
+  Handle C++ executable:          : attributes_ . push_back ( attrib ) ; 
+  Test begin scope                : } 
+  Test end scope                  : } 
+  Handle end scope                : } 
+  Test begin scope                : size_t HttpMessage :: findAttribute ( const Name & name ) { 
+  handle begin scope              : size_t HttpMessage :: findAttribute ( const Name & name ) { 
+  Test end scope                  : size_t HttpMessage :: findAttribute ( const Name & name ) { 
+  Test preproc statement:         : size_t HttpMessage :: findAttribute ( const Name & name ) { 
+  Test namespace definition:      : size_t HttpMessage :: findAttribute ( const Name & name ) { 
+  Test class definition:          : size_t HttpMessage :: findAttribute ( const Name & name ) { 
+  Test struct definition:         : size_t HttpMessage :: findAttribute ( const Name & name ) { 
+  Test C++ function definition:   : size_t HttpMessage :: findAttribute ( const Name & name ) { 
+  Handle C++ function definition: : size_t HttpMessage :: findAttribute ( const Name & name ) { 
+  Test begin scope                : 
+    for ( size_t i = 0 ; i < attributes_ . size ( ) ; ++ i ) if ( attributes_ [ i ] . first == name ) return i ; 
+  Test end scope                  : 
+    for ( size_t i = 0 ; i < attributes_ . size ( ) ; ++ i ) if ( attributes_ [ i ] . first == name ) return i ; 
+  Test preproc statement:         : 
+    for ( size_t i = 0 ; i < attributes_ . size ( ) ; ++ i ) if ( attributes_ [ i ] . first == name ) return i ; 
+  Test namespace definition:      : 
+    for ( size_t i = 0 ; i < attributes_ . size ( ) ; ++ i ) if ( attributes_ [ i ] . first == name ) return i ; 
+  Test class definition:          : 
+    for ( size_t i = 0 ; i < attributes_ . size ( ) ; ++ i ) if ( attributes_ [ i ] . first == name ) return i ; 
+  Test struct definition:         : 
+    for ( size_t i = 0 ; i < attributes_ . size ( ) ; ++ i ) if ( attributes_ [ i ] . first == name ) return i ; 
+  Test C++ function definition:   : 
+    for ( size_t i = 0 ; i < attributes_ . size ( ) ; ++ i ) if ( attributes_ [ i ] . first == name ) return i ; 
+  Test control definition:        : 
+    for ( size_t i = 0 ; i < attributes_ . size ( ) ; ++ i ) if ( attributes_ [ i ] . first == name ) return i ; 
+  Test C++ declaration:           : 
+    for ( size_t i = 0 ; i < attributes_ . size ( ) ; ++ i ) if ( attributes_ [ i ] . first == name ) return i ; 
+  Test C++ executable:            : 
+    for ( size_t i = 0 ; i < attributes_ . size ( ) ; ++ i ) if ( attributes_ [ i ] . first == name ) return i ; 
+  Handle C++ executable:          : 
+    for ( size_t i = 0 ; i < attributes_ . size ( ) ; ++ i ) if ( attributes_ [ i ] . first == name ) return i ; 
+  Test begin scope                : return attributes_ . size ( ) ; 
+  Test end scope                  : return attributes_ . size ( ) ; 
+  Test preproc statement:         : return attributes_ . size ( ) ; 
+  Test namespace definition:      : return attributes_ . size ( ) ; 
+  Test class definition:          : return attributes_ . size ( ) ; 
+  Test struct definition:         : return attributes_ . size ( ) ; 
+  Test C++ function definition:   : return attributes_ . size ( ) ; 
+  Test control definition:        : return attributes_ . size ( ) ; 
+  Test C++ declaration:           : return attributes_ . size ( ) ; 
+  Test C++ executable:            : return attributes_ . size ( ) ; 
+  Handle C++ executable:          : return attributes_ . size ( ) ; 
+  Test begin scope                : } 
+  Test end scope                  : } 
+  Handle end scope                : } 
+  Test begin scope                : Value HttpMessage :: findValue ( const Name & name ) { 
+  handle begin scope              : Value HttpMessage :: findValue ( const Name & name ) { 
+  Test end scope                  : Value HttpMessage :: findValue ( const Name & name ) { 
+  Test preproc statement:         : Value HttpMessage :: findValue ( const Name & name ) { 
+  Test namespace definition:      : Value HttpMessage :: findValue ( const Name & name ) { 
+  Test class definition:          : Value HttpMessage :: findValue ( const Name & name ) { 
+  Test struct definition:         : Value HttpMessage :: findValue ( const Name & name ) { 
+  Test C++ function definition:   : Value HttpMessage :: findValue ( const Name & name ) { 
+  Handle C++ function definition: : Value HttpMessage :: findValue ( const Name & name ) { 
+  Test begin scope                : Value val = "" ; 
+  Test end scope                  : Value val = "" ; 
+  Test preproc statement:         : Value val = "" ; 
+  Test namespace definition:      : Value val = "" ; 
+  Test class definition:          : Value val = "" ; 
+  Test struct definition:         : Value val = "" ; 
+  Test C++ function definition:   : Value val = "" ; 
+  Test control definition:        : Value val = "" ; 
+  Test C++ declaration:           : Value val = "" ; 
+  Handle C++ declaration:         : Value val = "" ; 
+  Test begin scope                : size_t pos = findAttribute ( name ) ; 
+  Test end scope                  : size_t pos = findAttribute ( name ) ; 
+  Test preproc statement:         : size_t pos = findAttribute ( name ) ; 
+  Test namespace definition:      : size_t pos = findAttribute ( name ) ; 
+  Test class definition:          : size_t pos = findAttribute ( name ) ; 
+  Test struct definition:         : size_t pos = findAttribute ( name ) ; 
+  Test C++ function definition:   : size_t pos = findAttribute ( name ) ; 
+  Test control definition:        : size_t pos = findAttribute ( name ) ; 
+  Test C++ declaration:           : size_t pos = findAttribute ( name ) ; 
+  Handle C++ declaration:         : size_t pos = findAttribute ( name ) ; 
+  Test begin scope                : if ( pos < attributes_ . size ( ) ) { 
+  handle begin scope              : if ( pos < attributes_ . size ( ) ) { 
+  Test end scope                  : if ( pos < attributes_ . size ( ) ) { 
+  Test preproc statement:         : if ( pos < attributes_ . size ( ) ) { 
+  Test namespace definition:      : if ( pos < attributes_ . size ( ) ) { 
+  Test class definition:          : if ( pos < attributes_ . size ( ) ) { 
+  Test struct definition:         : if ( pos < attributes_ . size ( ) ) { 
+  Test C++ function definition:   : if ( pos < attributes_ . size ( ) ) { 
+  Test control definition:        : if ( pos < attributes_ . size ( ) ) { 
+  Handle control definition:      : if ( pos < attributes_ . size ( ) ) { 
+  Test begin scope                : val = attributes_ [ pos ] . second ; 
+  Test end scope                  : val = attributes_ [ pos ] . second ; 
+  Test preproc statement:         : val = attributes_ [ pos ] . second ; 
+  Test namespace definition:      : val = attributes_ [ pos ] . second ; 
+  Test class definition:          : val = attributes_ [ pos ] . second ; 
+  Test struct definition:         : val = attributes_ [ pos ] . second ; 
+  Test C++ function definition:   : val = attributes_ [ pos ] . second ; 
+  Test control definition:        : val = attributes_ [ pos ] . second ; 
+  Test C++ declaration:           : val = attributes_ [ pos ] . second ; 
+  Handle C++ declaration:         : val = attributes_ [ pos ] . second ; 
+  Test begin scope                : } 
+  Test end scope                  : } 
+  Handle end scope                : } 
+  Test begin scope                : return val ; 
+  Test end scope                  : return val ; 
+  Test preproc statement:         : return val ; 
+  Test namespace definition:      : return val ; 
+  Test class definition:          : return val ; 
+  Test struct definition:         : return val ; 
+  Test C++ function definition:   : return val ; 
+  Test control definition:        : return val ; 
+  Test C++ declaration:           : return val ; 
+  Test C++ executable:            : return val ; 
+  Handle C++ executable:          : return val ; 
+  Test begin scope                : } 
+  Test end scope                  : } 
+  Handle end scope                : } 
+  Test begin scope                : bool HttpMessage :: removeAttribute ( const Name & name ) { 
+  handle begin scope              : bool HttpMessage :: removeAttribute ( const Name & name ) { 
+  Test end scope                  : bool HttpMessage :: removeAttribute ( const Name & name ) { 
+  Test preproc statement:         : bool HttpMessage :: removeAttribute ( const Name & name ) { 
+  Test namespace definition:      : bool HttpMessage :: removeAttribute ( const Name & name ) { 
+  Test class definition:          : bool HttpMessage :: removeAttribute ( const Name & name ) { 
+  Test struct definition:         : bool HttpMessage :: removeAttribute ( const Name & name ) { 
+  Test C++ function definition:   : bool HttpMessage :: removeAttribute ( const Name & name ) { 
+  Handle C++ function definition: : bool HttpMessage :: removeAttribute ( const Name & name ) { 
+  Test begin scope                : size_t pos = findAttribute ( name ) ; 
+  Test end scope                  : size_t pos = findAttribute ( name ) ; 
+  Test preproc statement:         : size_t pos = findAttribute ( name ) ; 
+  Test namespace definition:      : size_t pos = findAttribute ( name ) ; 
+  Test class definition:          : size_t pos = findAttribute ( name ) ; 
+  Test struct definition:         : size_t pos = findAttribute ( name ) ; 
+  Test C++ function definition:   : size_t pos = findAttribute ( name ) ; 
+  Test control definition:        : size_t pos = findAttribute ( name ) ; 
+  Test C++ declaration:           : size_t pos = findAttribute ( name ) ; 
+  Handle C++ declaration:         : size_t pos = findAttribute ( name ) ; 
+  Test begin scope                : if ( pos == attributes_ . size ( ) ) return false ; 
+  Test end scope                  : if ( pos == attributes_ . size ( ) ) return false ; 
+  Test preproc statement:         : if ( pos == attributes_ . size ( ) ) return false ; 
+  Test namespace definition:      : if ( pos == attributes_ . size ( ) ) return false ; 
+  Test class definition:          : if ( pos == attributes_ . size ( ) ) return false ; 
+  Test struct definition:         : if ( pos == attributes_ . size ( ) ) return false ; 
+  Test C++ function definition:   : if ( pos == attributes_ . size ( ) ) return false ; 
+  Test control definition:        : if ( pos == attributes_ . size ( ) ) return false ; 
+  Test C++ declaration:           : if ( pos == attributes_ . size ( ) ) return false ; 
+  Test C++ executable:            : if ( pos == attributes_ . size ( ) ) return false ; 
+  Handle C++ executable:          : if ( pos == attributes_ . size ( ) ) return false ; 
+  Test begin scope                : std :: vector < Attribute > :: iterator iter = attributes_ . begin ( ) + pos ; 
+  Test end scope                  : std :: vector < Attribute > :: iterator iter = attributes_ . begin ( ) + pos ; 
+  Test preproc statement:         : std :: vector < Attribute > :: iterator iter = attributes_ . begin ( ) + pos ; 
+  Test namespace definition:      : std :: vector < Attribute > :: iterator iter = attributes_ . begin ( ) + pos ; 
+  Test class definition:          : std :: vector < Attribute > :: iterator iter = attributes_ . begin ( ) + pos ; 
+  Test struct definition:         : std :: vector < Attribute > :: iterator iter = attributes_ . begin ( ) + pos ; 
+  Test C++ function definition:   : std :: vector < Attribute > :: iterator iter = attributes_ . begin ( ) + pos ; 
+  Test control definition:        : std :: vector < Attribute > :: iterator iter = attributes_ . begin ( ) + pos ; 
+  Test C++ declaration:           : std :: vector < Attribute > :: iterator iter = attributes_ . begin ( ) + pos ; 
+  Test C++ executable:            : std :: vector < Attribute > :: iterator iter = attributes_ . begin ( ) + pos ; 
+  Handle C++ executable:          : std :: vector < Attribute > :: iterator iter = attributes_ . begin ( ) + pos ; 
+  Test begin scope                : attributes_ . erase ( iter ) ; 
+  Test end scope                  : attributes_ . erase ( iter ) ; 
+  Test preproc statement:         : attributes_ . erase ( iter ) ; 
+  Test namespace definition:      : attributes_ . erase ( iter ) ; 
+  Test class definition:          : attributes_ . erase ( iter ) ; 
+  Test struct definition:         : attributes_ . erase ( iter ) ; 
+  Test C++ function definition:   : attributes_ . erase ( iter ) ; 
+  Test control definition:        : attributes_ . erase ( iter ) ; 
+  Test C++ declaration:           : attributes_ . erase ( iter ) ; 
+  Test C++ executable:            : attributes_ . erase ( iter ) ; 
+  Handle C++ executable:          : attributes_ . erase ( iter ) ; 
+  Test begin scope                : return true ; 
+  Test end scope                  : return true ; 
+  Test preproc statement:         : return true ; 
+  Test namespace definition:      : return true ; 
+  Test class definition:          : return true ; 
+  Test struct definition:         : return true ; 
+  Test C++ function definition:   : return true ; 
+  Test control definition:        : return true ; 
+  Test C++ declaration:           : return true ; 
+  Test C++ executable:            : return true ; 
+  Handle C++ executable:          : return true ; 
+  Test begin scope                : } 
+  Test end scope                  : } 
+  Handle end scope                : } 
+  Test begin scope                : Attributes & HttpMessage :: attributes ( ) { 
+  handle begin scope              : Attributes & HttpMessage :: attributes ( ) { 
+  Test end scope                  : Attributes & HttpMessage :: attributes ( ) { 
+  Test preproc statement:         : Attributes & HttpMessage :: attributes ( ) { 
+  Test namespace definition:      : Attributes & HttpMessage :: attributes ( ) { 
+  Test class definition:          : Attributes & HttpMessage :: attributes ( ) { 
+  Test struct definition:         : Attributes & HttpMessage :: attributes ( ) { 
+  Test C++ function definition:   : Attributes & HttpMessage :: attributes ( ) { 
+  Handle C++ function definition: : Attributes & HttpMessage :: attributes ( ) { 
+  Test begin scope                : return attributes_ ; 
+  Test end scope                  : return attributes_ ; 
+  Test preproc statement:         : return attributes_ ; 
+  Test namespace definition:      : return attributes_ ; 
+  Test class definition:          : return attributes_ ; 
+  Test struct definition:         : return attributes_ ; 
+  Test C++ function definition:   : return attributes_ ; 
+  Test control definition:        : return attributes_ ; 
+  Test C++ declaration:           : return attributes_ ; 
+  Test C++ executable:            : return attributes_ ; 
+  Handle C++ executable:          : return attributes_ ; 
+  Test begin scope                : } 
+  Test end scope                  : } 
+  Handle end scope                : } 
+  Test begin scope                : Attribute HttpMessage :: parseAttribute ( const std :: string & src ) { 
+  handle begin scope              : Attribute HttpMessage :: parseAttribute ( const std :: string & src ) { 
+  Test end scope                  : Attribute HttpMessage :: parseAttribute ( const std :: string & src ) { 
+  Test preproc statement:         : Attribute HttpMessage :: parseAttribute ( const std :: string & src ) { 
+  Test namespace definition:      : Attribute HttpMessage :: parseAttribute ( const std :: string & src ) { 
+  Test class definition:          : Attribute HttpMessage :: parseAttribute ( const std :: string & src ) { 
+  Test struct definition:         : Attribute HttpMessage :: parseAttribute ( const std :: string & src ) { 
+  Test C++ function definition:   : Attribute HttpMessage :: parseAttribute ( const std :: string & src ) { 
+  Handle C++ function definition: : Attribute HttpMessage :: parseAttribute ( const std :: string & src ) { 
+  Test begin scope                : Attribute attrib ( "" , "" ) ; 
+  Test end scope                  : Attribute attrib ( "" , "" ) ; 
+  Test preproc statement:         : Attribute attrib ( "" , "" ) ; 
+  Test namespace definition:      : Attribute attrib ( "" , "" ) ; 
+  Test class definition:          : Attribute attrib ( "" , "" ) ; 
+  Test struct definition:         : Attribute attrib ( "" , "" ) ; 
+  Test C++ function definition:   : Attribute attrib ( "" , "" ) ; 
+  Test control definition:        : Attribute attrib ( "" , "" ) ; 
+  Test C++ declaration:           : Attribute attrib ( "" , "" ) ; 
+  Test C++ executable:            : Attribute attrib ( "" , "" ) ; 
+  Test default:                   : Attribute attrib ( "" , "" ) ; 
+  Handle default:                 : Attribute attrib ( "" , "" ) ; 
+  Test begin scope                : size_t pos = src . find ( ':' ) ; 
+  Test end scope                  : size_t pos = src . find ( ':' ) ; 
+  Test preproc statement:         : size_t pos = src . find ( ':' ) ; 
+  Test namespace definition:      : size_t pos = src . find ( ':' ) ; 
+  Test class definition:          : size_t pos = src . find ( ':' ) ; 
+  Test struct definition:         : size_t pos = src . find ( ':' ) ; 
+  Test C++ function definition:   : size_t pos = src . find ( ':' ) ; 
+  Test control definition:        : size_t pos = src . find ( ':' ) ; 
+  Test C++ declaration:           : size_t pos = src . find ( ':' ) ; 
+  Handle C++ declaration:         : size_t pos = src . find ( ':' ) ; 
+  Test begin scope                : if ( pos == std :: string :: npos ) return attrib ; 
+  Test end scope                  : if ( pos == std :: string :: npos ) return attrib ; 
+  Test preproc statement:         : if ( pos == std :: string :: npos ) return attrib ; 
+  Test namespace definition:      : if ( pos == std :: string :: npos ) return attrib ; 
+  Test class definition:          : if ( pos == std :: string :: npos ) return attrib ; 
+  Test struct definition:         : if ( pos == std :: string :: npos ) return attrib ; 
+  Test C++ function definition:   : if ( pos == std :: string :: npos ) return attrib ; 
+  Test control definition:        : if ( pos == std :: string :: npos ) return attrib ; 
+  Test C++ declaration:           : if ( pos == std :: string :: npos ) return attrib ; 
+  Test C++ executable:            : if ( pos == std :: string :: npos ) return attrib ; 
+  Handle C++ executable:          : if ( pos == std :: string :: npos ) return attrib ; 
+  Test begin scope                : std :: string first = StringHelper :: trim ( src . substr ( 0 , pos ) ) ; 
+  Test end scope                  : std :: string first = StringHelper :: trim ( src . substr ( 0 , pos ) ) ; 
+  Test preproc statement:         : std :: string first = StringHelper :: trim ( src . substr ( 0 , pos ) ) ; 
+  Test namespace definition:      : std :: string first = StringHelper :: trim ( src . substr ( 0 , pos ) ) ; 
+  Test class definition:          : std :: string first = StringHelper :: trim ( src . substr ( 0 , pos ) ) ; 
+  Test struct definition:         : std :: string first = StringHelper :: trim ( src . substr ( 0 , pos ) ) ; 
+  Test C++ function definition:   : std :: string first = StringHelper :: trim ( src . substr ( 0 , pos ) ) ; 
+  Test control definition:        : std :: string first = StringHelper :: trim ( src . substr ( 0 , pos ) ) ; 
+  Test C++ declaration:           : std :: string first = StringHelper :: trim ( src . substr ( 0 , pos ) ) ; 
+  Handle C++ declaration:         : std :: string first = StringHelper :: trim ( src . substr ( 0 , pos ) ) ; 
+  Test begin scope                : 
+    std :: string second = StringHelper :: trim ( src . substr ( pos + 1 , src . size ( ) - 1 ) ) ; 
+  Test end scope                  : 
+    std :: string second = StringHelper :: trim ( src . substr ( pos + 1 , src . size ( ) - 1 ) ) ; 
+  Test preproc statement:         : 
+    std :: string second = StringHelper :: trim ( src . substr ( pos + 1 , src . size ( ) - 1 ) ) ; 
+  Test namespace definition:      : 
+    std :: string second = StringHelper :: trim ( src . substr ( pos + 1 , src . size ( ) - 1 ) ) ; 
+  Test class definition:          : 
+    std :: string second = StringHelper :: trim ( src . substr ( pos + 1 , src . size ( ) - 1 ) ) ; 
+  Test struct definition:         : 
+    std :: string second = StringHelper :: trim ( src . substr ( pos + 1 , src . size ( ) - 1 ) ) ; 
+  Test C++ function definition:   : 
+    std :: string second = StringHelper :: trim ( src . substr ( pos + 1 , src . size ( ) - 1 ) ) ; 
+  Test control definition:        : 
+    std :: string second = StringHelper :: trim ( src . substr ( pos + 1 , src . size ( ) - 1 ) ) ; 
+  Test C++ declaration:           : 
+    std :: string second = StringHelper :: trim ( src . substr ( pos + 1 , src . size ( ) - 1 ) ) ; 
+  Handle C++ declaration:         : 
+    std :: string second = StringHelper :: trim ( src . substr ( pos + 1 , src . size ( ) - 1 ) ) ; 
+  Test begin scope                : attrib . first = first ; 
+  Test end scope                  : attrib . first = first ; 
+  Test preproc statement:         : attrib . first = first ; 
+  Test namespace definition:      : attrib . first = first ; 
+  Test class definition:          : attrib . first = first ; 
+  Test struct definition:         : attrib . first = first ; 
+  Test C++ function definition:   : attrib . first = first ; 
+  Test control definition:        : attrib . first = first ; 
+  Test C++ declaration:           : attrib . first = first ; 
+  Test C++ executable:            : attrib . first = first ; 
+  Handle C++ executable:          : attrib . first = first ; 
+  Test begin scope                : attrib . second = second ; 
+  Test end scope                  : attrib . second = second ; 
+  Test preproc statement:         : attrib . second = second ; 
+  Test namespace definition:      : attrib . second = second ; 
+  Test class definition:          : attrib . second = second ; 
+  Test struct definition:         : attrib . second = second ; 
+  Test C++ function definition:   : attrib . second = second ; 
+  Test control definition:        : attrib . second = second ; 
+  Test C++ declaration:           : attrib . second = second ; 
+  Test C++ executable:            : attrib . second = second ; 
+  Handle C++ executable:          : attrib . second = second ; 
+  Test begin scope                : return attrib ; 
+  Test end scope                  : return attrib ; 
+  Test preproc statement:         : return attrib ; 
+  Test namespace definition:      : return attrib ; 
+  Test class definition:          : return attrib ; 
+  Test struct definition:         : return attrib ; 
+  Test C++ function definition:   : return attrib ; 
+  Test control definition:        : return attrib ; 
+  Test C++ declaration:           : return attrib ; 
+  Test C++ executable:            : return attrib ; 
+  Handle C++ executable:          : return attrib ; 
+  Test begin scope                : } 
+  Test end scope                  : } 
+  Handle end scope                : } 
+  Test begin scope                : void HttpMessage :: setBody ( byte buffer [ ] , size_t Buflen ) { 
+  handle begin scope              : void HttpMessage :: setBody ( byte buffer [ ] , size_t Buflen ) { 
+  Test end scope                  : void HttpMessage :: setBody ( byte buffer [ ] , size_t Buflen ) { 
+  Test preproc statement:         : void HttpMessage :: setBody ( byte buffer [ ] , size_t Buflen ) { 
+  Test namespace definition:      : void HttpMessage :: setBody ( byte buffer [ ] , size_t Buflen ) { 
+  Test class definition:          : void HttpMessage :: setBody ( byte buffer [ ] , size_t Buflen ) { 
+  Test struct definition:         : void HttpMessage :: setBody ( byte buffer [ ] , size_t Buflen ) { 
+  Test C++ function definition:   : void HttpMessage :: setBody ( byte buffer [ ] , size_t Buflen ) { 
+  Handle C++ function definition: : void HttpMessage :: setBody ( byte buffer [ ] , size_t Buflen ) { 
+  Test begin scope                : for ( size_t i = 0 ; i < Buflen ; ++ i ) { 
+  handle begin scope              : for ( size_t i = 0 ; i < Buflen ; ++ i ) { 
+  Test end scope                  : for ( size_t i = 0 ; i < Buflen ; ++ i ) { 
+  Test preproc statement:         : for ( size_t i = 0 ; i < Buflen ; ++ i ) { 
+  Test namespace definition:      : for ( size_t i = 0 ; i < Buflen ; ++ i ) { 
+  Test class definition:          : for ( size_t i = 0 ; i < Buflen ; ++ i ) { 
+  Test struct definition:         : for ( size_t i = 0 ; i < Buflen ; ++ i ) { 
+  Test C++ function definition:   : for ( size_t i = 0 ; i < Buflen ; ++ i ) { 
+  Test control definition:        : for ( size_t i = 0 ; i < Buflen ; ++ i ) { 
+  Handle control definition:      : for ( size_t i = 0 ; i < Buflen ; ++ i ) { 
+  Test begin scope                : body_ . push_back ( buffer [ i ] ) ; 
+  Test end scope                  : body_ . push_back ( buffer [ i ] ) ; 
+  Test preproc statement:         : body_ . push_back ( buffer [ i ] ) ; 
+  Test namespace definition:      : body_ . push_back ( buffer [ i ] ) ; 
+  Test class definition:          : body_ . push_back ( buffer [ i ] ) ; 
+  Test struct definition:         : body_ . push_back ( buffer [ i ] ) ; 
+  Test C++ function definition:   : body_ . push_back ( buffer [ i ] ) ; 
+  Test control definition:        : body_ . push_back ( buffer [ i ] ) ; 
+  Test C++ declaration:           : body_ . push_back ( buffer [ i ] ) ; 
+  Handle C++ declaration:         : body_ . push_back ( buffer [ i ] ) ; 
+  Test begin scope                : } 
+  Test end scope                  : } 
+  Handle end scope                : } 
+  Test begin scope                : } 
+  Test end scope                  : } 
+  Handle end scope                : } 
+  Test begin scope                : size_t HttpMessage :: getBody ( byte buffer [ ] , size_t & Buflen ) { 
+  handle begin scope              : size_t HttpMessage :: getBody ( byte buffer [ ] , size_t & Buflen ) { 
+  Test end scope                  : size_t HttpMessage :: getBody ( byte buffer [ ] , size_t & Buflen ) { 
+  Test preproc statement:         : size_t HttpMessage :: getBody ( byte buffer [ ] , size_t & Buflen ) { 
+  Test namespace definition:      : size_t HttpMessage :: getBody ( byte buffer [ ] , size_t & Buflen ) { 
+  Test class definition:          : size_t HttpMessage :: getBody ( byte buffer [ ] , size_t & Buflen ) { 
+  Test struct definition:         : size_t HttpMessage :: getBody ( byte buffer [ ] , size_t & Buflen ) { 
+  Test C++ function definition:   : size_t HttpMessage :: getBody ( byte buffer [ ] , size_t & Buflen ) { 
+  Handle C++ function definition: : size_t HttpMessage :: getBody ( byte buffer [ ] , size_t & Buflen ) { 
+  Test begin scope                : if ( Buflen < body_ . size ( ) ) return 0 ; 
+  Test end scope                  : if ( Buflen < body_ . size ( ) ) return 0 ; 
+  Test preproc statement:         : if ( Buflen < body_ . size ( ) ) return 0 ; 
+  Test namespace definition:      : if ( Buflen < body_ . size ( ) ) return 0 ; 
+  Test class definition:          : if ( Buflen < body_ . size ( ) ) return 0 ; 
+  Test struct definition:         : if ( Buflen < body_ . size ( ) ) return 0 ; 
+  Test C++ function definition:   : if ( Buflen < body_ . size ( ) ) return 0 ; 
+  Test control definition:        : if ( Buflen < body_ . size ( ) ) return 0 ; 
+  Test C++ declaration:           : if ( Buflen < body_ . size ( ) ) return 0 ; 
+  Test C++ executable:            : if ( Buflen < body_ . size ( ) ) return 0 ; 
+  Handle C++ executable:          : if ( Buflen < body_ . size ( ) ) return 0 ; 
+  Test begin scope                : size_t length = body_ . size ( ) ; 
+  Test end scope                  : size_t length = body_ . size ( ) ; 
+  Test preproc statement:         : size_t length = body_ . size ( ) ; 
+  Test namespace definition:      : size_t length = body_ . size ( ) ; 
+  Test class definition:          : size_t length = body_ . size ( ) ; 
+  Test struct definition:         : size_t length = body_ . size ( ) ; 
+  Test C++ function definition:   : size_t length = body_ . size ( ) ; 
+  Test control definition:        : size_t length = body_ . size ( ) ; 
+  Test C++ declaration:           : size_t length = body_ . size ( ) ; 
+  Handle C++ declaration:         : size_t length = body_ . size ( ) ; 
+  Test begin scope                : for ( size_t i = 0 ; i < length ; ++ i ) { 
+  handle begin scope              : for ( size_t i = 0 ; i < length ; ++ i ) { 
+  Test end scope                  : for ( size_t i = 0 ; i < length ; ++ i ) { 
+  Test preproc statement:         : for ( size_t i = 0 ; i < length ; ++ i ) { 
+  Test namespace definition:      : for ( size_t i = 0 ; i < length ; ++ i ) { 
+  Test class definition:          : for ( size_t i = 0 ; i < length ; ++ i ) { 
+  Test struct definition:         : for ( size_t i = 0 ; i < length ; ++ i ) { 
+  Test C++ function definition:   : for ( size_t i = 0 ; i < length ; ++ i ) { 
+  Test control definition:        : for ( size_t i = 0 ; i < length ; ++ i ) { 
+  Handle control definition:      : for ( size_t i = 0 ; i < length ; ++ i ) { 
+  Test begin scope                : buffer [ i ] = body_ [ i ] ; 
+  Test end scope                  : buffer [ i ] = body_ [ i ] ; 
+  Test preproc statement:         : buffer [ i ] = body_ [ i ] ; 
+  Test namespace definition:      : buffer [ i ] = body_ [ i ] ; 
+  Test class definition:          : buffer [ i ] = body_ [ i ] ; 
+  Test struct definition:         : buffer [ i ] = body_ [ i ] ; 
+  Test C++ function definition:   : buffer [ i ] = body_ [ i ] ; 
+  Test control definition:        : buffer [ i ] = body_ [ i ] ; 
+  Test C++ declaration:           : buffer [ i ] = body_ [ i ] ; 
+  Handle C++ declaration:         : buffer [ i ] = body_ [ i ] ; 
+  Test begin scope                : } 
+  Test end scope                  : } 
+  Handle end scope                : } 
+  Test begin scope                : return length ; 
+  Test end scope                  : return length ; 
+  Test preproc statement:         : return length ; 
+  Test namespace definition:      : return length ; 
+  Test class definition:          : return length ; 
+  Test struct definition:         : return length ; 
+  Test C++ function definition:   : return length ; 
+  Test control definition:        : return length ; 
+  Test C++ declaration:           : return length ; 
+  Test C++ executable:            : return length ; 
+  Handle C++ executable:          : return length ; 
+  Test begin scope                : } 
+  Test end scope                  : } 
+  Handle end scope                : } 
+  Test begin scope                : void HttpMessage :: addBody ( const Body & body ) { 
+  handle begin scope              : void HttpMessage :: addBody ( const Body & body ) { 
+  Test end scope                  : void HttpMessage :: addBody ( const Body & body ) { 
+  Test preproc statement:         : void HttpMessage :: addBody ( const Body & body ) { 
+  Test namespace definition:      : void HttpMessage :: addBody ( const Body & body ) { 
+  Test class definition:          : void HttpMessage :: addBody ( const Body & body ) { 
+  Test struct definition:         : void HttpMessage :: addBody ( const Body & body ) { 
+  Test C++ function definition:   : void HttpMessage :: addBody ( const Body & body ) { 
+  Handle C++ function definition: : void HttpMessage :: addBody ( const Body & body ) { 
+  Test begin scope                : body_ = body ; 
+  Test end scope                  : body_ = body ; 
+  Test preproc statement:         : body_ = body ; 
+  Test namespace definition:      : body_ = body ; 
+  Test class definition:          : body_ = body ; 
+  Test struct definition:         : body_ = body ; 
+  Test C++ function definition:   : body_ = body ; 
+  Test control definition:        : body_ = body ; 
+  Test C++ declaration:           : body_ = body ; 
+  Test C++ executable:            : body_ = body ; 
+  Handle C++ executable:          : body_ = body ; 
+  Test begin scope                : } 
+  Test end scope                  : } 
+  Handle end scope                : } 
+  Test begin scope                : void HttpMessage :: addBody ( const std :: string & body ) { 
+  handle begin scope              : void HttpMessage :: addBody ( const std :: string & body ) { 
+  Test end scope                  : void HttpMessage :: addBody ( const std :: string & body ) { 
+  Test preproc statement:         : void HttpMessage :: addBody ( const std :: string & body ) { 
+  Test namespace definition:      : void HttpMessage :: addBody ( const std :: string & body ) { 
+  Test class definition:          : void HttpMessage :: addBody ( const std :: string & body ) { 
+  Test struct definition:         : void HttpMessage :: addBody ( const std :: string & body ) { 
+  Test C++ function definition:   : void HttpMessage :: addBody ( const std :: string & body ) { 
+  Handle C++ function definition: : void HttpMessage :: addBody ( const std :: string & body ) { 
+  Test begin scope                : body_ . clear ( ) ; 
+  Test end scope                  : body_ . clear ( ) ; 
+  Test preproc statement:         : body_ . clear ( ) ; 
+  Test namespace definition:      : body_ . clear ( ) ; 
+  Test class definition:          : body_ . clear ( ) ; 
+  Test struct definition:         : body_ . clear ( ) ; 
+  Test C++ function definition:   : body_ . clear ( ) ; 
+  Test control definition:        : body_ . clear ( ) ; 
+  Test C++ declaration:           : body_ . clear ( ) ; 
+  Test C++ executable:            : body_ . clear ( ) ; 
+  Handle C++ executable:          : body_ . clear ( ) ; 
+  Test begin scope                : for ( auto ch : body ) body_ . push_back ( ch ) ; 
+  Test end scope                  : for ( auto ch : body ) body_ . push_back ( ch ) ; 
+  Test preproc statement:         : for ( auto ch : body ) body_ . push_back ( ch ) ; 
+  Test namespace definition:      : for ( auto ch : body ) body_ . push_back ( ch ) ; 
+  Test class definition:          : for ( auto ch : body ) body_ . push_back ( ch ) ; 
+  Test struct definition:         : for ( auto ch : body ) body_ . push_back ( ch ) ; 
+  Test C++ function definition:   : for ( auto ch : body ) body_ . push_back ( ch ) ; 
+  Test control definition:        : for ( auto ch : body ) body_ . push_back ( ch ) ; 
+  Test C++ declaration:           : for ( auto ch : body ) body_ . push_back ( ch ) ; 
+  Test C++ executable:            : for ( auto ch : body ) body_ . push_back ( ch ) ; 
+  Handle C++ executable:          : for ( auto ch : body ) body_ . push_back ( ch ) ; 
+  Test begin scope                : } 
+  Test end scope                  : } 
+  Handle end scope                : } 
+  Test begin scope                : void HttpMessage :: addBody ( size_t numBytes , byte * pBuffer ) { 
+  handle begin scope              : void HttpMessage :: addBody ( size_t numBytes , byte * pBuffer ) { 
+  Test end scope                  : void HttpMessage :: addBody ( size_t numBytes , byte * pBuffer ) { 
+  Test preproc statement:         : void HttpMessage :: addBody ( size_t numBytes , byte * pBuffer ) { 
+  Test namespace definition:      : void HttpMessage :: addBody ( size_t numBytes , byte * pBuffer ) { 
+  Test class definition:          : void HttpMessage :: addBody ( size_t numBytes , byte * pBuffer ) { 
+  Test struct definition:         : void HttpMessage :: addBody ( size_t numBytes , byte * pBuffer ) { 
+  Test C++ function definition:   : void HttpMessage :: addBody ( size_t numBytes , byte * pBuffer ) { 
+  Handle C++ function definition: : void HttpMessage :: addBody ( size_t numBytes , byte * pBuffer ) { 
+  Test begin scope                : 
+    for ( size_t i = 0 ; i < numBytes ; ++ i ) body_ . push_back ( * ( pBuffer + i ) ) ; 
+  Test end scope                  : 
+    for ( size_t i = 0 ; i < numBytes ; ++ i ) body_ . push_back ( * ( pBuffer + i ) ) ; 
+  Test preproc statement:         : 
+    for ( size_t i = 0 ; i < numBytes ; ++ i ) body_ . push_back ( * ( pBuffer + i ) ) ; 
+  Test namespace definition:      : 
+    for ( size_t i = 0 ; i < numBytes ; ++ i ) body_ . push_back ( * ( pBuffer + i ) ) ; 
+  Test class definition:          : 
+    for ( size_t i = 0 ; i < numBytes ; ++ i ) body_ . push_back ( * ( pBuffer + i ) ) ; 
+  Test struct definition:         : 
+    for ( size_t i = 0 ; i < numBytes ; ++ i ) body_ . push_back ( * ( pBuffer + i ) ) ; 
+  Test C++ function definition:   : 
+    for ( size_t i = 0 ; i < numBytes ; ++ i ) body_ . push_back ( * ( pBuffer + i ) ) ; 
+  Test control definition:        : 
+    for ( size_t i = 0 ; i < numBytes ; ++ i ) body_ . push_back ( * ( pBuffer + i ) ) ; 
+  Test C++ declaration:           : 
+    for ( size_t i = 0 ; i < numBytes ; ++ i ) body_ . push_back ( * ( pBuffer + i ) ) ; 
+  Test C++ executable:            : 
+    for ( size_t i = 0 ; i < numBytes ; ++ i ) body_ . push_back ( * ( pBuffer + i ) ) ; 
+  Handle C++ executable:          : 
+    for ( size_t i = 0 ; i < numBytes ; ++ i ) body_ . push_back ( * ( pBuffer + i ) ) ; 
+  Test begin scope                : } 
+  Test end scope                  : } 
+  Handle end scope                : } 
+  Test begin scope                : Body & HttpMessage :: body ( ) { 
+  handle begin scope              : Body & HttpMessage :: body ( ) { 
+  Test end scope                  : Body & HttpMessage :: body ( ) { 
+  Test preproc statement:         : Body & HttpMessage :: body ( ) { 
+  Test namespace definition:      : Body & HttpMessage :: body ( ) { 
+  Test class definition:          : Body & HttpMessage :: body ( ) { 
+  Test struct definition:         : Body & HttpMessage :: body ( ) { 
+  Test C++ function definition:   : Body & HttpMessage :: body ( ) { 
+  Handle C++ function definition: : Body & HttpMessage :: body ( ) { 
+  Test begin scope                : return body_ ; 
+  Test end scope                  : return body_ ; 
+  Test preproc statement:         : return body_ ; 
+  Test namespace definition:      : return body_ ; 
+  Test class definition:          : return body_ ; 
+  Test struct definition:         : return body_ ; 
+  Test C++ function definition:   : return body_ ; 
+  Test control definition:        : return body_ ; 
+  Test C++ declaration:           : return body_ ; 
+  Test C++ executable:            : return body_ ; 
+  Handle C++ executable:          : return body_ ; 
+  Test begin scope                : } 
+  Test end scope                  : } 
+  Handle end scope                : } 
+  Test begin scope                : size_t HttpMessage :: bodyLength ( ) { 
+  handle begin scope              : size_t HttpMessage :: bodyLength ( ) { 
+  Test end scope                  : size_t HttpMessage :: bodyLength ( ) { 
+  Test preproc statement:         : size_t HttpMessage :: bodyLength ( ) { 
+  Test namespace definition:      : size_t HttpMessage :: bodyLength ( ) { 
+  Test class definition:          : size_t HttpMessage :: bodyLength ( ) { 
+  Test struct definition:         : size_t HttpMessage :: bodyLength ( ) { 
+  Test C++ function definition:   : size_t HttpMessage :: bodyLength ( ) { 
+  Handle C++ function definition: : size_t HttpMessage :: bodyLength ( ) { 
+  Test begin scope                : return body_ . size ( ) * sizeof ( byte ) ; 
+  Test end scope                  : return body_ . size ( ) * sizeof ( byte ) ; 
+  Test preproc statement:         : return body_ . size ( ) * sizeof ( byte ) ; 
+  Test namespace definition:      : return body_ . size ( ) * sizeof ( byte ) ; 
+  Test class definition:          : return body_ . size ( ) * sizeof ( byte ) ; 
+  Test struct definition:         : return body_ . size ( ) * sizeof ( byte ) ; 
+  Test C++ function definition:   : return body_ . size ( ) * sizeof ( byte ) ; 
+  Test control definition:        : return body_ . size ( ) * sizeof ( byte ) ; 
+  Test C++ declaration:           : return body_ . size ( ) * sizeof ( byte ) ; 
+  Test C++ executable:            : return body_ . size ( ) * sizeof ( byte ) ; 
+  Handle C++ executable:          : return body_ . size ( ) * sizeof ( byte ) ; 
+  Test begin scope                : } 
+  Test end scope                  : } 
+  Handle end scope                : } 
+  Test begin scope                : std :: string HttpMessage :: attribString ( const Attribute & attrib ) { 
+  handle begin scope              : std :: string HttpMessage :: attribString ( const Attribute & attrib ) { 
+  Test end scope                  : std :: string HttpMessage :: attribString ( const Attribute & attrib ) { 
+  Test preproc statement:         : std :: string HttpMessage :: attribString ( const Attribute & attrib ) { 
+  Test namespace definition:      : std :: string HttpMessage :: attribString ( const Attribute & attrib ) { 
+  Test class definition:          : std :: string HttpMessage :: attribString ( const Attribute & attrib ) { 
+  Test struct definition:         : std :: string HttpMessage :: attribString ( const Attribute & attrib ) { 
+  Test C++ function definition:   : std :: string HttpMessage :: attribString ( const Attribute & attrib ) { 
+  Handle C++ function definition: : std :: string HttpMessage :: attribString ( const Attribute & attrib ) { 
+  Test begin scope                : return attrib . first + ":" + attrib . second + '\n' ; 
+  Test end scope                  : return attrib . first + ":" + attrib . second + '\n' ; 
+  Test preproc statement:         : return attrib . first + ":" + attrib . second + '\n' ; 
+  Test namespace definition:      : return attrib . first + ":" + attrib . second + '\n' ; 
+  Test class definition:          : return attrib . first + ":" + attrib . second + '\n' ; 
+  Test struct definition:         : return attrib . first + ":" + attrib . second + '\n' ; 
+  Test C++ function definition:   : return attrib . first + ":" + attrib . second + '\n' ; 
+  Test control definition:        : return attrib . first + ":" + attrib . second + '\n' ; 
+  Test C++ declaration:           : return attrib . first + ":" + attrib . second + '\n' ; 
+  Test C++ executable:            : return attrib . first + ":" + attrib . second + '\n' ; 
+  Handle C++ executable:          : return attrib . first + ":" + attrib . second + '\n' ; 
+  Test begin scope                : } 
+  Test end scope                  : } 
+  Handle end scope                : } 
+  Test begin scope                : 
+    Attribute HttpMessage :: attribute ( const Name & name , const Value & value ) { 
+  handle begin scope              : 
+    Attribute HttpMessage :: attribute ( const Name & name , const Value & value ) { 
+  Test end scope                  : 
+    Attribute HttpMessage :: attribute ( const Name & name , const Value & value ) { 
+  Test preproc statement:         : 
+    Attribute HttpMessage :: attribute ( const Name & name , const Value & value ) { 
+  Test namespace definition:      : 
+    Attribute HttpMessage :: attribute ( const Name & name , const Value & value ) { 
+  Test class definition:          : 
+    Attribute HttpMessage :: attribute ( const Name & name , const Value & value ) { 
+  Test struct definition:         : 
+    Attribute HttpMessage :: attribute ( const Name & name , const Value & value ) { 
+  Test C++ function definition:   : 
+    Attribute HttpMessage :: attribute ( const Name & name , const Value & value ) { 
+  Handle C++ function definition: : 
+    Attribute HttpMessage :: attribute ( const Name & name , const Value & value ) { 
+  Test begin scope                : return std :: pair < Name , Value > ( name , value ) ; 
+  Test end scope                  : return std :: pair < Name , Value > ( name , value ) ; 
+  Test preproc statement:         : return std :: pair < Name , Value > ( name , value ) ; 
+  Test namespace definition:      : return std :: pair < Name , Value > ( name , value ) ; 
+  Test class definition:          : return std :: pair < Name , Value > ( name , value ) ; 
+  Test struct definition:         : return std :: pair < Name , Value > ( name , value ) ; 
+  Test C++ function definition:   : return std :: pair < Name , Value > ( name , value ) ; 
+  Test control definition:        : return std :: pair < Name , Value > ( name , value ) ; 
+  Test C++ declaration:           : return std :: pair < Name , Value > ( name , value ) ; 
+  Test C++ executable:            : return std :: pair < Name , Value > ( name , value ) ; 
+  Handle C++ executable:          : return std :: pair < Name , Value > ( name , value ) ; 
+  Test begin scope                : } 
+  Test end scope                  : } 
+  Handle end scope                : } 
+  Test begin scope                : std :: string HttpMessage :: headerString ( ) const { 
+  handle begin scope              : std :: string HttpMessage :: headerString ( ) const { 
+  Test end scope                  : std :: string HttpMessage :: headerString ( ) const { 
+  Test preproc statement:         : std :: string HttpMessage :: headerString ( ) const { 
+  Test namespace definition:      : std :: string HttpMessage :: headerString ( ) const { 
+  Test class definition:          : std :: string HttpMessage :: headerString ( ) const { 
+  Test struct definition:         : std :: string HttpMessage :: headerString ( ) const { 
+  Test C++ function definition:   : std :: string HttpMessage :: headerString ( ) const { 
+  Handle C++ function definition: : std :: string HttpMessage :: headerString ( ) const { 
+  Test begin scope                : std :: string header ; 
+  Test end scope                  : std :: string header ; 
+  Test preproc statement:         : std :: string header ; 
+  Test namespace definition:      : std :: string header ; 
+  Test class definition:          : std :: string header ; 
+  Test struct definition:         : std :: string header ; 
+  Test C++ function definition:   : std :: string header ; 
+  Test control definition:        : std :: string header ; 
+  Test C++ declaration:           : std :: string header ; 
+  Handle C++ declaration:         : std :: string header ; 
+  Test begin scope                : for ( auto attrib : attributes_ ) { 
+  handle begin scope              : for ( auto attrib : attributes_ ) { 
+  Test end scope                  : for ( auto attrib : attributes_ ) { 
+  Test preproc statement:         : for ( auto attrib : attributes_ ) { 
+  Test namespace definition:      : for ( auto attrib : attributes_ ) { 
+  Test class definition:          : for ( auto attrib : attributes_ ) { 
+  Test struct definition:         : for ( auto attrib : attributes_ ) { 
+  Test C++ function definition:   : for ( auto attrib : attributes_ ) { 
+  Test control definition:        : for ( auto attrib : attributes_ ) { 
+  Handle control definition:      : for ( auto attrib : attributes_ ) { 
+  Test begin scope                : header += attribString ( attrib ) ; 
+  Test end scope                  : header += attribString ( attrib ) ; 
+  Test preproc statement:         : header += attribString ( attrib ) ; 
+  Test namespace definition:      : header += attribString ( attrib ) ; 
+  Test class definition:          : header += attribString ( attrib ) ; 
+  Test struct definition:         : header += attribString ( attrib ) ; 
+  Test C++ function definition:   : header += attribString ( attrib ) ; 
+  Test control definition:        : header += attribString ( attrib ) ; 
+  Test C++ declaration:           : header += attribString ( attrib ) ; 
+  Handle C++ declaration:         : header += attribString ( attrib ) ; 
+  Test begin scope                : } 
+  Test end scope                  : } 
+  Handle end scope                : } 
+  Test begin scope                : header += term_ ; 
+  Test end scope                  : header += term_ ; 
+  Test preproc statement:         : header += term_ ; 
+  Test namespace definition:      : header += term_ ; 
+  Test class definition:          : header += term_ ; 
+  Test struct definition:         : header += term_ ; 
+  Test C++ function definition:   : header += term_ ; 
+  Test control definition:        : header += term_ ; 
+  Test C++ declaration:           : header += term_ ; 
+  Test C++ executable:            : header += term_ ; 
+  Handle C++ executable:          : header += term_ ; 
+  Test begin scope                : return header ; 
+  Test end scope                  : return header ; 
+  Test preproc statement:         : return header ; 
+  Test namespace definition:      : return header ; 
+  Test class definition:          : return header ; 
+  Test struct definition:         : return header ; 
+  Test C++ function definition:   : return header ; 
+  Test control definition:        : return header ; 
+  Test C++ declaration:           : return header ; 
+  Test C++ executable:            : return header ; 
+  Handle C++ executable:          : return header ; 
+  Test begin scope                : } 
+  Test end scope                  : } 
+  Handle end scope                : } 
+  Test begin scope                : std :: string HttpMessage :: toIndentedHeaderString ( ) const { 
+  handle begin scope              : std :: string HttpMessage :: toIndentedHeaderString ( ) const { 
+  Test end scope                  : std :: string HttpMessage :: toIndentedHeaderString ( ) const { 
+  Test preproc statement:         : std :: string HttpMessage :: toIndentedHeaderString ( ) const { 
+  Test namespace definition:      : std :: string HttpMessage :: toIndentedHeaderString ( ) const { 
+  Test class definition:          : std :: string HttpMessage :: toIndentedHeaderString ( ) const { 
+  Test struct definition:         : std :: string HttpMessage :: toIndentedHeaderString ( ) const { 
+  Test C++ function definition:   : std :: string HttpMessage :: toIndentedHeaderString ( ) const { 
+  Handle C++ function definition: : std :: string HttpMessage :: toIndentedHeaderString ( ) const { 
+  Test begin scope                : std :: string header = "  " ; 
+  Test end scope                  : std :: string header = "  " ; 
+  Test preproc statement:         : std :: string header = "  " ; 
+  Test namespace definition:      : std :: string header = "  " ; 
+  Test class definition:          : std :: string header = "  " ; 
+  Test struct definition:         : std :: string header = "  " ; 
+  Test C++ function definition:   : std :: string header = "  " ; 
+  Test control definition:        : std :: string header = "  " ; 
+  Test C++ declaration:           : std :: string header = "  " ; 
+  Handle C++ declaration:         : std :: string header = "  " ; 
+  Test begin scope                : for ( auto attrib : attributes_ ) { 
+  handle begin scope              : for ( auto attrib : attributes_ ) { 
+  Test end scope                  : for ( auto attrib : attributes_ ) { 
+  Test preproc statement:         : for ( auto attrib : attributes_ ) { 
+  Test namespace definition:      : for ( auto attrib : attributes_ ) { 
+  Test class definition:          : for ( auto attrib : attributes_ ) { 
+  Test struct definition:         : for ( auto attrib : attributes_ ) { 
+  Test C++ function definition:   : for ( auto attrib : attributes_ ) { 
+  Test control definition:        : for ( auto attrib : attributes_ ) { 
+  Handle control definition:      : for ( auto attrib : attributes_ ) { 
+  Test begin scope                : header += attribString ( attrib ) + "  " ; 
+  Test end scope                  : header += attribString ( attrib ) + "  " ; 
+  Test preproc statement:         : header += attribString ( attrib ) + "  " ; 
+  Test namespace definition:      : header += attribString ( attrib ) + "  " ; 
+  Test class definition:          : header += attribString ( attrib ) + "  " ; 
+  Test struct definition:         : header += attribString ( attrib ) + "  " ; 
+  Test C++ function definition:   : header += attribString ( attrib ) + "  " ; 
+  Test control definition:        : header += attribString ( attrib ) + "  " ; 
+  Test C++ declaration:           : header += attribString ( attrib ) + "  " ; 
+  Handle C++ declaration:         : header += attribString ( attrib ) + "  " ; 
+  Test begin scope                : } 
+  Test end scope                  : } 
+  Handle end scope                : } 
+  Test begin scope                : header += term_ ; 
+  Test end scope                  : header += term_ ; 
+  Test preproc statement:         : header += term_ ; 
+  Test namespace definition:      : header += term_ ; 
+  Test class definition:          : header += term_ ; 
+  Test struct definition:         : header += term_ ; 
+  Test C++ function definition:   : header += term_ ; 
+  Test control definition:        : header += term_ ; 
+  Test C++ declaration:           : header += term_ ; 
+  Test C++ executable:            : header += term_ ; 
+  Handle C++ executable:          : header += term_ ; 
+  Test begin scope                : return header ; 
+  Test end scope                  : return header ; 
+  Test preproc statement:         : return header ; 
+  Test namespace definition:      : return header ; 
+  Test class definition:          : return header ; 
+  Test struct definition:         : return header ; 
+  Test C++ function definition:   : return header ; 
+  Test control definition:        : return header ; 
+  Test C++ declaration:           : return header ; 
+  Test C++ executable:            : return header ; 
+  Handle C++ executable:          : return header ; 
+  Test begin scope                : } 
+  Test end scope                  : } 
+  Handle end scope                : } 
+  Test begin scope                : std :: string HttpMessage :: bodyString ( ) const { 
+  handle begin scope              : std :: string HttpMessage :: bodyString ( ) const { 
+  Test end scope                  : std :: string HttpMessage :: bodyString ( ) const { 
+  Test preproc statement:         : std :: string HttpMessage :: bodyString ( ) const { 
+  Test namespace definition:      : std :: string HttpMessage :: bodyString ( ) const { 
+  Test class definition:          : std :: string HttpMessage :: bodyString ( ) const { 
+  Test struct definition:         : std :: string HttpMessage :: bodyString ( ) const { 
+  Test C++ function definition:   : std :: string HttpMessage :: bodyString ( ) const { 
+  Handle C++ function definition: : std :: string HttpMessage :: bodyString ( ) const { 
+  Test begin scope                : std :: string body ; 
+  Test end scope                  : std :: string body ; 
+  Test preproc statement:         : std :: string body ; 
+  Test namespace definition:      : std :: string body ; 
+  Test class definition:          : std :: string body ; 
+  Test struct definition:         : std :: string body ; 
+  Test C++ function definition:   : std :: string body ; 
+  Test control definition:        : std :: string body ; 
+  Test C++ declaration:           : std :: string body ; 
+  Handle C++ declaration:         : std :: string body ; 
+  Test begin scope                : for ( char ch : body_ ) body += ch ; 
+  Test end scope                  : for ( char ch : body_ ) body += ch ; 
+  Test preproc statement:         : for ( char ch : body_ ) body += ch ; 
+  Test namespace definition:      : for ( char ch : body_ ) body += ch ; 
+  Test class definition:          : for ( char ch : body_ ) body += ch ; 
+  Test struct definition:         : for ( char ch : body_ ) body += ch ; 
+  Test C++ function definition:   : for ( char ch : body_ ) body += ch ; 
+  Test control definition:        : for ( char ch : body_ ) body += ch ; 
+  Test C++ declaration:           : for ( char ch : body_ ) body += ch ; 
+  Test C++ executable:            : for ( char ch : body_ ) body += ch ; 
+  Handle C++ executable:          : for ( char ch : body_ ) body += ch ; 
+  Test begin scope                : return body ; 
+  Test end scope                  : return body ; 
+  Test preproc statement:         : return body ; 
+  Test namespace definition:      : return body ; 
+  Test class definition:          : return body ; 
+  Test struct definition:         : return body ; 
+  Test C++ function definition:   : return body ; 
+  Test control definition:        : return body ; 
+  Test C++ declaration:           : return body ; 
+  Test C++ executable:            : return body ; 
+  Handle C++ executable:          : return body ; 
+  Test begin scope                : } 
+  Test end scope                  : } 
+  Handle end scope                : } 
+  Test begin scope                : std :: string HttpMessage :: toIndentedBodyString ( ) const { 
+  handle begin scope              : std :: string HttpMessage :: toIndentedBodyString ( ) const { 
+  Test end scope                  : std :: string HttpMessage :: toIndentedBodyString ( ) const { 
+  Test preproc statement:         : std :: string HttpMessage :: toIndentedBodyString ( ) const { 
+  Test namespace definition:      : std :: string HttpMessage :: toIndentedBodyString ( ) const { 
+  Test class definition:          : std :: string HttpMessage :: toIndentedBodyString ( ) const { 
+  Test struct definition:         : std :: string HttpMessage :: toIndentedBodyString ( ) const { 
+  Test C++ function definition:   : std :: string HttpMessage :: toIndentedBodyString ( ) const { 
+  Handle C++ function definition: : std :: string HttpMessage :: toIndentedBodyString ( ) const { 
+  Test begin scope                : std :: string body = "  " ; 
+  Test end scope                  : std :: string body = "  " ; 
+  Test preproc statement:         : std :: string body = "  " ; 
+  Test namespace definition:      : std :: string body = "  " ; 
+  Test class definition:          : std :: string body = "  " ; 
+  Test struct definition:         : std :: string body = "  " ; 
+  Test C++ function definition:   : std :: string body = "  " ; 
+  Test control definition:        : std :: string body = "  " ; 
+  Test C++ declaration:           : std :: string body = "  " ; 
+  Handle C++ declaration:         : std :: string body = "  " ; 
+  Test begin scope                : for ( char ch : body_ ) body += ch ; 
+  Test end scope                  : for ( char ch : body_ ) body += ch ; 
+  Test preproc statement:         : for ( char ch : body_ ) body += ch ; 
+  Test namespace definition:      : for ( char ch : body_ ) body += ch ; 
+  Test class definition:          : for ( char ch : body_ ) body += ch ; 
+  Test struct definition:         : for ( char ch : body_ ) body += ch ; 
+  Test C++ function definition:   : for ( char ch : body_ ) body += ch ; 
+  Test control definition:        : for ( char ch : body_ ) body += ch ; 
+  Test C++ declaration:           : for ( char ch : body_ ) body += ch ; 
+  Test C++ executable:            : for ( char ch : body_ ) body += ch ; 
+  Handle C++ executable:          : for ( char ch : body_ ) body += ch ; 
+  Test begin scope                : return body ; 
+  Test end scope                  : return body ; 
+  Test preproc statement:         : return body ; 
+  Test namespace definition:      : return body ; 
+  Test class definition:          : return body ; 
+  Test struct definition:         : return body ; 
+  Test C++ function definition:   : return body ; 
+  Test control definition:        : return body ; 
+  Test C++ declaration:           : return body ; 
+  Test C++ executable:            : return body ; 
+  Handle C++ executable:          : return body ; 
+  Test begin scope                : } 
+  Test end scope                  : } 
+  Handle end scope                : } 
+  Test begin scope                : std :: string HttpMessage :: toString ( ) const { 
+  handle begin scope              : std :: string HttpMessage :: toString ( ) const { 
+  Test end scope                  : std :: string HttpMessage :: toString ( ) const { 
+  Test preproc statement:         : std :: string HttpMessage :: toString ( ) const { 
+  Test namespace definition:      : std :: string HttpMessage :: toString ( ) const { 
+  Test class definition:          : std :: string HttpMessage :: toString ( ) const { 
+  Test struct definition:         : std :: string HttpMessage :: toString ( ) const { 
+  Test C++ function definition:   : std :: string HttpMessage :: toString ( ) const { 
+  Handle C++ function definition: : std :: string HttpMessage :: toString ( ) const { 
+  Test begin scope                : return headerString ( ) + bodyString ( ) ; 
+  Test end scope                  : return headerString ( ) + bodyString ( ) ; 
+  Test preproc statement:         : return headerString ( ) + bodyString ( ) ; 
+  Test namespace definition:      : return headerString ( ) + bodyString ( ) ; 
+  Test class definition:          : return headerString ( ) + bodyString ( ) ; 
+  Test struct definition:         : return headerString ( ) + bodyString ( ) ; 
+  Test C++ function definition:   : return headerString ( ) + bodyString ( ) ; 
+  Test control definition:        : return headerString ( ) + bodyString ( ) ; 
+  Test C++ declaration:           : return headerString ( ) + bodyString ( ) ; 
+  Test C++ executable:            : return headerString ( ) + bodyString ( ) ; 
+  Handle C++ executable:          : return headerString ( ) + bodyString ( ) ; 
+  Test begin scope                : } 
+  Test end scope                  : } 
+  Handle end scope                : } 
+  Test begin scope                : std :: string HttpMessage :: toIndentedString ( ) const { 
+  handle begin scope              : std :: string HttpMessage :: toIndentedString ( ) const { 
+  Test end scope                  : std :: string HttpMessage :: toIndentedString ( ) const { 
+  Test preproc statement:         : std :: string HttpMessage :: toIndentedString ( ) const { 
+  Test namespace definition:      : std :: string HttpMessage :: toIndentedString ( ) const { 
+  Test class definition:          : std :: string HttpMessage :: toIndentedString ( ) const { 
+  Test struct definition:         : std :: string HttpMessage :: toIndentedString ( ) const { 
+  Test C++ function definition:   : std :: string HttpMessage :: toIndentedString ( ) const { 
+  Handle C++ function definition: : std :: string HttpMessage :: toIndentedString ( ) const { 
+  Test begin scope                : return toIndentedHeaderString ( ) + toIndentedBodyString ( ) ; 
+  Test end scope                  : return toIndentedHeaderString ( ) + toIndentedBodyString ( ) ; 
+  Test preproc statement:         : return toIndentedHeaderString ( ) + toIndentedBodyString ( ) ; 
+  Test namespace definition:      : return toIndentedHeaderString ( ) + toIndentedBodyString ( ) ; 
+  Test class definition:          : return toIndentedHeaderString ( ) + toIndentedBodyString ( ) ; 
+  Test struct definition:         : return toIndentedHeaderString ( ) + toIndentedBodyString ( ) ; 
+  Test C++ function definition:   : return toIndentedHeaderString ( ) + toIndentedBodyString ( ) ; 
+  Test control definition:        : return toIndentedHeaderString ( ) + toIndentedBodyString ( ) ; 
+  Test C++ declaration:           : return toIndentedHeaderString ( ) + toIndentedBodyString ( ) ; 
+  Test C++ executable:            : return toIndentedHeaderString ( ) + toIndentedBodyString ( ) ; 
+  Handle C++ executable:          : return toIndentedHeaderString ( ) + toIndentedBodyString ( ) ; 
+  Test begin scope                : } 
+  Test end scope                  : } 
+  Handle end scope                : } 
+  Test begin scope                : void HttpMessage :: clear ( ) { 
+  handle begin scope              : void HttpMessage :: clear ( ) { 
+  Test end scope                  : void HttpMessage :: clear ( ) { 
+  Test preproc statement:         : void HttpMessage :: clear ( ) { 
+  Test namespace definition:      : void HttpMessage :: clear ( ) { 
+  Test class definition:          : void HttpMessage :: clear ( ) { 
+  Test struct definition:         : void HttpMessage :: clear ( ) { 
+  Test C++ function definition:   : void HttpMessage :: clear ( ) { 
+  Handle C++ function definition: : void HttpMessage :: clear ( ) { 
+  Test begin scope                : attributes_ . clear ( ) ; 
+  Test end scope                  : attributes_ . clear ( ) ; 
+  Test preproc statement:         : attributes_ . clear ( ) ; 
+  Test namespace definition:      : attributes_ . clear ( ) ; 
+  Test class definition:          : attributes_ . clear ( ) ; 
+  Test struct definition:         : attributes_ . clear ( ) ; 
+  Test C++ function definition:   : attributes_ . clear ( ) ; 
+  Test control definition:        : attributes_ . clear ( ) ; 
+  Test C++ declaration:           : attributes_ . clear ( ) ; 
+  Test C++ executable:            : attributes_ . clear ( ) ; 
+  Handle C++ executable:          : attributes_ . clear ( ) ; 
+  Test begin scope                : body_ . clear ( ) ; 
+  Test end scope                  : body_ . clear ( ) ; 
+  Test preproc statement:         : body_ . clear ( ) ; 
+  Test namespace definition:      : body_ . clear ( ) ; 
+  Test class definition:          : body_ . clear ( ) ; 
+  Test struct definition:         : body_ . clear ( ) ; 
+  Test C++ function definition:   : body_ . clear ( ) ; 
+  Test control definition:        : body_ . clear ( ) ; 
+  Test C++ declaration:           : body_ . clear ( ) ; 
+  Test C++ executable:            : body_ . clear ( ) ; 
+  Handle C++ executable:          : body_ . clear ( ) ; 
+  Test begin scope                : } 
+  Test end scope                  : } 
+  Handle end scope                : } 
+  Test begin scope                : 
+    void HttpMessage :: fillBuffer ( byte buffer [ ] , size_t BufSize , byte fill ) { 
+  handle begin scope              : 
+    void HttpMessage :: fillBuffer ( byte buffer [ ] , size_t BufSize , byte fill ) { 
+  Test end scope                  : 
+    void HttpMessage :: fillBuffer ( byte buffer [ ] , size_t BufSize , byte fill ) { 
+  Test preproc statement:         : 
+    void HttpMessage :: fillBuffer ( byte buffer [ ] , size_t BufSize , byte fill ) { 
+  Test namespace definition:      : 
+    void HttpMessage :: fillBuffer ( byte buffer [ ] , size_t BufSize , byte fill ) { 
+  Test class definition:          : 
+    void HttpMessage :: fillBuffer ( byte buffer [ ] , size_t BufSize , byte fill ) { 
+  Test struct definition:         : 
+    void HttpMessage :: fillBuffer ( byte buffer [ ] , size_t BufSize , byte fill ) { 
+  Test C++ function definition:   : 
+    void HttpMessage :: fillBuffer ( byte buffer [ ] , size_t BufSize , byte fill ) { 
+  Handle C++ function definition: : 
+    void HttpMessage :: fillBuffer ( byte buffer [ ] , size_t BufSize , byte fill ) { 
+  Test begin scope                : for ( size_t i = 0 ; i < BufSize ; ++ i ) buffer [ i ] = fill ; 
+  Test end scope                  : for ( size_t i = 0 ; i < BufSize ; ++ i ) buffer [ i ] = fill ; 
+  Test preproc statement:         : for ( size_t i = 0 ; i < BufSize ; ++ i ) buffer [ i ] = fill ; 
+  Test namespace definition:      : for ( size_t i = 0 ; i < BufSize ; ++ i ) buffer [ i ] = fill ; 
+  Test class definition:          : for ( size_t i = 0 ; i < BufSize ; ++ i ) buffer [ i ] = fill ; 
+  Test struct definition:         : for ( size_t i = 0 ; i < BufSize ; ++ i ) buffer [ i ] = fill ; 
+  Test C++ function definition:   : for ( size_t i = 0 ; i < BufSize ; ++ i ) buffer [ i ] = fill ; 
+  Test control definition:        : for ( size_t i = 0 ; i < BufSize ; ++ i ) buffer [ i ] = fill ; 
+  Test C++ declaration:           : for ( size_t i = 0 ; i < BufSize ; ++ i ) buffer [ i ] = fill ; 
+  Test C++ executable:            : for ( size_t i = 0 ; i < BufSize ; ++ i ) buffer [ i ] = fill ; 
+  Handle C++ executable:          : for ( size_t i = 0 ; i < BufSize ; ++ i ) buffer [ i ] = fill ; 
+  Test begin scope                : } 
+  Test end scope                  : } 
+  Handle end scope                : } 
+  Test begin scope                : using Utils = StringHelper ; 
+  Test end scope                  : using Utils = StringHelper ; 
+  Test preproc statement:         : using Utils = StringHelper ; 
+  Test namespace definition:      : using Utils = StringHelper ; 
+  Test class definition:          : using Utils = StringHelper ; 
+  Test struct definition:         : using Utils = StringHelper ; 
+  Test C++ function definition:   : using Utils = StringHelper ; 
+  Test control definition:        : using Utils = StringHelper ; 
+  Test C++ declaration:           : using Utils = StringHelper ; 
+  Handle C++ declaration:         : using Utils = StringHelper ; 
+  Test begin scope                : # ifdef TEST_HTTPMESSAGE 
+  Test end scope                  : # ifdef TEST_HTTPMESSAGE 
+  Test preproc statement:         : # ifdef TEST_HTTPMESSAGE 
+  Handle preproc statement:       : # ifdef TEST_HTTPMESSAGE 
+  Test begin scope                : int main ( ) { 
+  handle begin scope              : int main ( ) { 
+  Test end scope                  : int main ( ) { 
+  Test preproc statement:         : int main ( ) { 
+  Test namespace definition:      : int main ( ) { 
+  Test class definition:          : int main ( ) { 
+  Test struct definition:         : int main ( ) { 
+  Test C++ function definition:   : int main ( ) { 
+  Handle C++ function definition: : int main ( ) { 
+  Test begin scope                : Utils :: Title ( "Testing HttpMessage class" , '=' ) ; 
+  Test end scope                  : Utils :: Title ( "Testing HttpMessage class" , '=' ) ; 
+  Test preproc statement:         : Utils :: Title ( "Testing HttpMessage class" , '=' ) ; 
+  Test namespace definition:      : Utils :: Title ( "Testing HttpMessage class" , '=' ) ; 
+  Test class definition:          : Utils :: Title ( "Testing HttpMessage class" , '=' ) ; 
+  Test struct definition:         : Utils :: Title ( "Testing HttpMessage class" , '=' ) ; 
+  Test C++ function definition:   : Utils :: Title ( "Testing HttpMessage class" , '=' ) ; 
+  Test control definition:        : Utils :: Title ( "Testing HttpMessage class" , '=' ) ; 
+  Test C++ declaration:           : Utils :: Title ( "Testing HttpMessage class" , '=' ) ; 
+  Test C++ executable:            : Utils :: Title ( "Testing HttpMessage class" , '=' ) ; 
+  Handle C++ executable:          : Utils :: Title ( "Testing HttpMessage class" , '=' ) ; 
+  Test begin scope                : HttpMessage msg ; 
+  Test end scope                  : HttpMessage msg ; 
+  Test preproc statement:         : HttpMessage msg ; 
+  Test namespace definition:      : HttpMessage msg ; 
+  Test class definition:          : HttpMessage msg ; 
+  Test struct definition:         : HttpMessage msg ; 
+  Test C++ function definition:   : HttpMessage msg ; 
+  Test control definition:        : HttpMessage msg ; 
+  Test C++ declaration:           : HttpMessage msg ; 
+  Handle C++ declaration:         : HttpMessage msg ; 
+  Test begin scope                : msg . addAttribute ( HttpMessage :: attribute ( "Command" , "GetFiles" ) ) ; 
+  Test end scope                  : msg . addAttribute ( HttpMessage :: attribute ( "Command" , "GetFiles" ) ) ; 
+  Test preproc statement:         : msg . addAttribute ( HttpMessage :: attribute ( "Command" , "GetFiles" ) ) ; 
+  Test namespace definition:      : msg . addAttribute ( HttpMessage :: attribute ( "Command" , "GetFiles" ) ) ; 
+  Test class definition:          : msg . addAttribute ( HttpMessage :: attribute ( "Command" , "GetFiles" ) ) ; 
+  Test struct definition:         : msg . addAttribute ( HttpMessage :: attribute ( "Command" , "GetFiles" ) ) ; 
+  Test C++ function definition:   : msg . addAttribute ( HttpMessage :: attribute ( "Command" , "GetFiles" ) ) ; 
+  Test control definition:        : msg . addAttribute ( HttpMessage :: attribute ( "Command" , "GetFiles" ) ) ; 
+  Test C++ declaration:           : msg . addAttribute ( HttpMessage :: attribute ( "Command" , "GetFiles" ) ) ; 
+  Test C++ executable:            : msg . addAttribute ( HttpMessage :: attribute ( "Command" , "GetFiles" ) ) ; 
+  Handle C++ executable:          : msg . addAttribute ( HttpMessage :: attribute ( "Command" , "GetFiles" ) ) ; 
+  Test begin scope                : 
+    msg . addAttribute ( HttpMessage :: attribute ( "ToAddr" , "127.0.0.1:8080" ) ) ; 
+  Test end scope                  : 
+    msg . addAttribute ( HttpMessage :: attribute ( "ToAddr" , "127.0.0.1:8080" ) ) ; 
+  Test preproc statement:         : 
+    msg . addAttribute ( HttpMessage :: attribute ( "ToAddr" , "127.0.0.1:8080" ) ) ; 
+  Test namespace definition:      : 
+    msg . addAttribute ( HttpMessage :: attribute ( "ToAddr" , "127.0.0.1:8080" ) ) ; 
+  Test class definition:          : 
+    msg . addAttribute ( HttpMessage :: attribute ( "ToAddr" , "127.0.0.1:8080" ) ) ; 
+  Test struct definition:         : 
+    msg . addAttribute ( HttpMessage :: attribute ( "ToAddr" , "127.0.0.1:8080" ) ) ; 
+  Test C++ function definition:   : 
+    msg . addAttribute ( HttpMessage :: attribute ( "ToAddr" , "127.0.0.1:8080" ) ) ; 
+  Test control definition:        : 
+    msg . addAttribute ( HttpMessage :: attribute ( "ToAddr" , "127.0.0.1:8080" ) ) ; 
+  Test C++ declaration:           : 
+    msg . addAttribute ( HttpMessage :: attribute ( "ToAddr" , "127.0.0.1:8080" ) ) ; 
+  Test C++ executable:            : 
+    msg . addAttribute ( HttpMessage :: attribute ( "ToAddr" , "127.0.0.1:8080" ) ) ; 
+  Handle C++ executable:          : 
+    msg . addAttribute ( HttpMessage :: attribute ( "ToAddr" , "127.0.0.1:8080" ) ) ; 
+  Test begin scope                : 
+    msg . addAttribute ( HttpMessage :: attribute ( "FromAddr" , "127.0.0.1:8081" ) ) ; 
+  Test end scope                  : 
+    msg . addAttribute ( HttpMessage :: attribute ( "FromAddr" , "127.0.0.1:8081" ) ) ; 
+  Test preproc statement:         : 
+    msg . addAttribute ( HttpMessage :: attribute ( "FromAddr" , "127.0.0.1:8081" ) ) ; 
+  Test namespace definition:      : 
+    msg . addAttribute ( HttpMessage :: attribute ( "FromAddr" , "127.0.0.1:8081" ) ) ; 
+  Test class definition:          : 
+    msg . addAttribute ( HttpMessage :: attribute ( "FromAddr" , "127.0.0.1:8081" ) ) ; 
+  Test struct definition:         : 
+    msg . addAttribute ( HttpMessage :: attribute ( "FromAddr" , "127.0.0.1:8081" ) ) ; 
+  Test C++ function definition:   : 
+    msg . addAttribute ( HttpMessage :: attribute ( "FromAddr" , "127.0.0.1:8081" ) ) ; 
+  Test control definition:        : 
+    msg . addAttribute ( HttpMessage :: attribute ( "FromAddr" , "127.0.0.1:8081" ) ) ; 
+  Test C++ declaration:           : 
+    msg . addAttribute ( HttpMessage :: attribute ( "FromAddr" , "127.0.0.1:8081" ) ) ; 
+  Test C++ executable:            : 
+    msg . addAttribute ( HttpMessage :: attribute ( "FromAddr" , "127.0.0.1:8081" ) ) ; 
+  Handle C++ executable:          : 
+    msg . addAttribute ( HttpMessage :: attribute ( "FromAddr" , "127.0.0.1:8081" ) ) ; 
+  Test begin scope                : msg . addAttribute ( HttpMessage :: attribute ( "Mode" , "OneWay" ) ) ; 
+  Test end scope                  : msg . addAttribute ( HttpMessage :: attribute ( "Mode" , "OneWay" ) ) ; 
+  Test preproc statement:         : msg . addAttribute ( HttpMessage :: attribute ( "Mode" , "OneWay" ) ) ; 
+  Test namespace definition:      : msg . addAttribute ( HttpMessage :: attribute ( "Mode" , "OneWay" ) ) ; 
+  Test class definition:          : msg . addAttribute ( HttpMessage :: attribute ( "Mode" , "OneWay" ) ) ; 
+  Test struct definition:         : msg . addAttribute ( HttpMessage :: attribute ( "Mode" , "OneWay" ) ) ; 
+  Test C++ function definition:   : msg . addAttribute ( HttpMessage :: attribute ( "Mode" , "OneWay" ) ) ; 
+  Test control definition:        : msg . addAttribute ( HttpMessage :: attribute ( "Mode" , "OneWay" ) ) ; 
+  Test C++ declaration:           : msg . addAttribute ( HttpMessage :: attribute ( "Mode" , "OneWay" ) ) ; 
+  Test C++ executable:            : msg . addAttribute ( HttpMessage :: attribute ( "Mode" , "OneWay" ) ) ; 
+  Handle C++ executable:          : msg . addAttribute ( HttpMessage :: attribute ( "Mode" , "OneWay" ) ) ; 
+  Test begin scope                : msg . addAttribute ( HttpMessage :: attribute ( "content_length" , "10" ) ) ; 
+  Test end scope                  : msg . addAttribute ( HttpMessage :: attribute ( "content_length" , "10" ) ) ; 
+  Test preproc statement:         : msg . addAttribute ( HttpMessage :: attribute ( "content_length" , "10" ) ) ; 
+  Test namespace definition:      : msg . addAttribute ( HttpMessage :: attribute ( "content_length" , "10" ) ) ; 
+  Test class definition:          : msg . addAttribute ( HttpMessage :: attribute ( "content_length" , "10" ) ) ; 
+  Test struct definition:         : msg . addAttribute ( HttpMessage :: attribute ( "content_length" , "10" ) ) ; 
+  Test C++ function definition:   : msg . addAttribute ( HttpMessage :: attribute ( "content_length" , "10" ) ) ; 
+  Test control definition:        : msg . addAttribute ( HttpMessage :: attribute ( "content_length" , "10" ) ) ; 
+  Test C++ declaration:           : msg . addAttribute ( HttpMessage :: attribute ( "content_length" , "10" ) ) ; 
+  Test C++ executable:            : msg . addAttribute ( HttpMessage :: attribute ( "content_length" , "10" ) ) ; 
+  Handle C++ executable:          : msg . addAttribute ( HttpMessage :: attribute ( "content_length" , "10" ) ) ; 
+  Test begin scope                : msg . addBody ( std :: vector < HttpMessage :: byte > { 
+  handle begin scope              : msg . addBody ( std :: vector < HttpMessage :: byte > { 
+  Test end scope                  : msg . addBody ( std :: vector < HttpMessage :: byte > { 
+  Test preproc statement:         : msg . addBody ( std :: vector < HttpMessage :: byte > { 
+  Test namespace definition:      : msg . addBody ( std :: vector < HttpMessage :: byte > { 
+  Test class definition:          : msg . addBody ( std :: vector < HttpMessage :: byte > { 
+  Test struct definition:         : msg . addBody ( std :: vector < HttpMessage :: byte > { 
+  Test C++ function definition:   : msg . addBody ( std :: vector < HttpMessage :: byte > { 
+  Handle C++ function definition: : msg . addBody ( std :: vector < HttpMessage :: byte > { 
+  Test begin scope                : '0' , '1' , '2' , '3' , '4' , '5' , '6' , '7' , '8' , '9' } 
+  Test end scope                  : '0' , '1' , '2' , '3' , '4' , '5' , '6' , '7' , '8' , '9' } 
+  Handle end scope                : '0' , '1' , '2' , '3' , '4' , '5' , '6' , '7' , '8' , '9' } 
+  Test begin scope                : ) ; 
+  Test end scope                  : ) ; 
+  Test preproc statement:         : ) ; 
+  Test namespace definition:      : ) ; 
+  Test class definition:          : ) ; 
+  Test struct definition:         : ) ; 
+  Test C++ function definition:   : ) ; 
+  Test control definition:        : ) ; 
+  Test C++ declaration:           : ) ; 
+  Test C++ executable:            : ) ; 
+  Test default:                   : ) ; 
+  Handle default:                 : ) ; 
+  Test begin scope                : 
+    std :: cout << "\n" << Utils :: addHeaderAndFooterLines ( msg . toString ( ) ) ; 
+  Test end scope                  : 
+    std :: cout << "\n" << Utils :: addHeaderAndFooterLines ( msg . toString ( ) ) ; 
+  Test preproc statement:         : 
+    std :: cout << "\n" << Utils :: addHeaderAndFooterLines ( msg . toString ( ) ) ; 
+  Test namespace definition:      : 
+    std :: cout << "\n" << Utils :: addHeaderAndFooterLines ( msg . toString ( ) ) ; 
+  Test class definition:          : 
+    std :: cout << "\n" << Utils :: addHeaderAndFooterLines ( msg . toString ( ) ) ; 
+  Test struct definition:         : 
+    std :: cout << "\n" << Utils :: addHeaderAndFooterLines ( msg . toString ( ) ) ; 
+  Test C++ function definition:   : 
+    std :: cout << "\n" << Utils :: addHeaderAndFooterLines ( msg . toString ( ) ) ; 
+  Test control definition:        : 
+    std :: cout << "\n" << Utils :: addHeaderAndFooterLines ( msg . toString ( ) ) ; 
+  Test C++ declaration:           : 
+    std :: cout << "\n" << Utils :: addHeaderAndFooterLines ( msg . toString ( ) ) ; 
+  Test C++ executable:            : 
+    std :: cout << "\n" << Utils :: addHeaderAndFooterLines ( msg . toString ( ) ) ; 
+  Handle C++ executable:          : 
+    std :: cout << "\n" << Utils :: addHeaderAndFooterLines ( msg . toString ( ) ) ; 
+  Test begin scope                : Utils :: title ( "testing headerString(), bodyString(), and toString()" ) ; 
+  Test end scope                  : Utils :: title ( "testing headerString(), bodyString(), and toString()" ) ; 
+  Test preproc statement:         : Utils :: title ( "testing headerString(), bodyString(), and toString()" ) ; 
+  Test namespace definition:      : Utils :: title ( "testing headerString(), bodyString(), and toString()" ) ; 
+  Test class definition:          : Utils :: title ( "testing headerString(), bodyString(), and toString()" ) ; 
+  Test struct definition:         : Utils :: title ( "testing headerString(), bodyString(), and toString()" ) ; 
+  Test C++ function definition:   : Utils :: title ( "testing headerString(), bodyString(), and toString()" ) ; 
+  Test control definition:        : Utils :: title ( "testing headerString(), bodyString(), and toString()" ) ; 
+  Test C++ declaration:           : Utils :: title ( "testing headerString(), bodyString(), and toString()" ) ; 
+  Test C++ executable:            : Utils :: title ( "testing headerString(), bodyString(), and toString()" ) ; 
+  Handle C++ executable:          : Utils :: title ( "testing headerString(), bodyString(), and toString()" ) ; 
+  Test begin scope                : std :: cout << "\nheader string:" ; 
+  Test end scope                  : std :: cout << "\nheader string:" ; 
+  Test preproc statement:         : std :: cout << "\nheader string:" ; 
+  Test namespace definition:      : std :: cout << "\nheader string:" ; 
+  Test class definition:          : std :: cout << "\nheader string:" ; 
+  Test struct definition:         : std :: cout << "\nheader string:" ; 
+  Test C++ function definition:   : std :: cout << "\nheader string:" ; 
+  Test control definition:        : std :: cout << "\nheader string:" ; 
+  Test C++ declaration:           : std :: cout << "\nheader string:" ; 
+  Test C++ executable:            : std :: cout << "\nheader string:" ; 
+  Handle C++ executable:          : std :: cout << "\nheader string:" ; 
+  Test begin scope                : std :: cout << "\n" << msg . headerString ( ) ; 
+  Test end scope                  : std :: cout << "\n" << msg . headerString ( ) ; 
+  Test preproc statement:         : std :: cout << "\n" << msg . headerString ( ) ; 
+  Test namespace definition:      : std :: cout << "\n" << msg . headerString ( ) ; 
+  Test class definition:          : std :: cout << "\n" << msg . headerString ( ) ; 
+  Test struct definition:         : std :: cout << "\n" << msg . headerString ( ) ; 
+  Test C++ function definition:   : std :: cout << "\n" << msg . headerString ( ) ; 
+  Test control definition:        : std :: cout << "\n" << msg . headerString ( ) ; 
+  Test C++ declaration:           : std :: cout << "\n" << msg . headerString ( ) ; 
+  Test C++ executable:            : std :: cout << "\n" << msg . headerString ( ) ; 
+  Handle C++ executable:          : std :: cout << "\n" << msg . headerString ( ) ; 
+  Test begin scope                : std :: cout << "\nbody string:" ; 
+  Test end scope                  : std :: cout << "\nbody string:" ; 
+  Test preproc statement:         : std :: cout << "\nbody string:" ; 
+  Test namespace definition:      : std :: cout << "\nbody string:" ; 
+  Test class definition:          : std :: cout << "\nbody string:" ; 
+  Test struct definition:         : std :: cout << "\nbody string:" ; 
+  Test C++ function definition:   : std :: cout << "\nbody string:" ; 
+  Test control definition:        : std :: cout << "\nbody string:" ; 
+  Test C++ declaration:           : std :: cout << "\nbody string:" ; 
+  Test C++ executable:            : std :: cout << "\nbody string:" ; 
+  Handle C++ executable:          : std :: cout << "\nbody string:" ; 
+  Test begin scope                : std :: cout << "\n" << msg . bodyString ( ) ; 
+  Test end scope                  : std :: cout << "\n" << msg . bodyString ( ) ; 
+  Test preproc statement:         : std :: cout << "\n" << msg . bodyString ( ) ; 
+  Test namespace definition:      : std :: cout << "\n" << msg . bodyString ( ) ; 
+  Test class definition:          : std :: cout << "\n" << msg . bodyString ( ) ; 
+  Test struct definition:         : std :: cout << "\n" << msg . bodyString ( ) ; 
+  Test C++ function definition:   : std :: cout << "\n" << msg . bodyString ( ) ; 
+  Test control definition:        : std :: cout << "\n" << msg . bodyString ( ) ; 
+  Test C++ declaration:           : std :: cout << "\n" << msg . bodyString ( ) ; 
+  Test C++ executable:            : std :: cout << "\n" << msg . bodyString ( ) ; 
+  Handle C++ executable:          : std :: cout << "\n" << msg . bodyString ( ) ; 
+  Test begin scope                : std :: cout << "\n\nmessage string:" ; 
+  Test end scope                  : std :: cout << "\n\nmessage string:" ; 
+  Test preproc statement:         : std :: cout << "\n\nmessage string:" ; 
+  Test namespace definition:      : std :: cout << "\n\nmessage string:" ; 
+  Test class definition:          : std :: cout << "\n\nmessage string:" ; 
+  Test struct definition:         : std :: cout << "\n\nmessage string:" ; 
+  Test C++ function definition:   : std :: cout << "\n\nmessage string:" ; 
+  Test control definition:        : std :: cout << "\n\nmessage string:" ; 
+  Test C++ declaration:           : std :: cout << "\n\nmessage string:" ; 
+  Test C++ executable:            : std :: cout << "\n\nmessage string:" ; 
+  Handle C++ executable:          : std :: cout << "\n\nmessage string:" ; 
+  Test begin scope                : 
+    std :: cout << "\n" << StringHelper :: addHeaderAndFooterLines ( msg . toString ( ) ) ; 
+  Test end scope                  : 
+    std :: cout << "\n" << StringHelper :: addHeaderAndFooterLines ( msg . toString ( ) ) ; 
+  Test preproc statement:         : 
+    std :: cout << "\n" << StringHelper :: addHeaderAndFooterLines ( msg . toString ( ) ) ; 
+  Test namespace definition:      : 
+    std :: cout << "\n" << StringHelper :: addHeaderAndFooterLines ( msg . toString ( ) ) ; 
+  Test class definition:          : 
+    std :: cout << "\n" << StringHelper :: addHeaderAndFooterLines ( msg . toString ( ) ) ; 
+  Test struct definition:         : 
+    std :: cout << "\n" << StringHelper :: addHeaderAndFooterLines ( msg . toString ( ) ) ; 
+  Test C++ function definition:   : 
+    std :: cout << "\n" << StringHelper :: addHeaderAndFooterLines ( msg . toString ( ) ) ; 
+  Test control definition:        : 
+    std :: cout << "\n" << StringHelper :: addHeaderAndFooterLines ( msg . toString ( ) ) ; 
+  Test C++ declaration:           : 
+    std :: cout << "\n" << StringHelper :: addHeaderAndFooterLines ( msg . toString ( ) ) ; 
+  Test C++ executable:            : 
+    std :: cout << "\n" << StringHelper :: addHeaderAndFooterLines ( msg . toString ( ) ) ; 
+  Handle C++ executable:          : 
+    std :: cout << "\n" << StringHelper :: addHeaderAndFooterLines ( msg . toString ( ) ) ; 
+  Test begin scope                : Utils :: title ( "Testing removeAttribute" ) ; 
+  Test end scope                  : Utils :: title ( "Testing removeAttribute" ) ; 
+  Test preproc statement:         : Utils :: title ( "Testing removeAttribute" ) ; 
+  Test namespace definition:      : Utils :: title ( "Testing removeAttribute" ) ; 
+  Test class definition:          : Utils :: title ( "Testing removeAttribute" ) ; 
+  Test struct definition:         : Utils :: title ( "Testing removeAttribute" ) ; 
+  Test C++ function definition:   : Utils :: title ( "Testing removeAttribute" ) ; 
+  Test control definition:        : Utils :: title ( "Testing removeAttribute" ) ; 
+  Test C++ declaration:           : Utils :: title ( "Testing removeAttribute" ) ; 
+  Test C++ executable:            : Utils :: title ( "Testing removeAttribute" ) ; 
+  Handle C++ executable:          : Utils :: title ( "Testing removeAttribute" ) ; 
+  Test begin scope                : putline ( ) ; 
+  Test end scope                  : putline ( ) ; 
+  Test preproc statement:         : putline ( ) ; 
+  Test namespace definition:      : putline ( ) ; 
+  Test class definition:          : putline ( ) ; 
+  Test struct definition:         : putline ( ) ; 
+  Test C++ function definition:   : putline ( ) ; 
+  Test control definition:        : putline ( ) ; 
+  Test C++ declaration:           : putline ( ) ; 
+  Test C++ executable:            : putline ( ) ; 
+  Handle C++ executable:          : putline ( ) ; 
+  Test begin scope                : msg . removeAttribute ( "content_length" ) ; 
+  Test end scope                  : msg . removeAttribute ( "content_length" ) ; 
+  Test preproc statement:         : msg . removeAttribute ( "content_length" ) ; 
+  Test namespace definition:      : msg . removeAttribute ( "content_length" ) ; 
+  Test class definition:          : msg . removeAttribute ( "content_length" ) ; 
+  Test struct definition:         : msg . removeAttribute ( "content_length" ) ; 
+  Test C++ function definition:   : msg . removeAttribute ( "content_length" ) ; 
+  Test control definition:        : msg . removeAttribute ( "content_length" ) ; 
+  Test C++ declaration:           : msg . removeAttribute ( "content_length" ) ; 
+  Test C++ executable:            : msg . removeAttribute ( "content_length" ) ; 
+  Handle C++ executable:          : msg . removeAttribute ( "content_length" ) ; 
+  Test begin scope                : std :: cout << msg . toString ( ) ; 
+  Test end scope                  : std :: cout << msg . toString ( ) ; 
+  Test preproc statement:         : std :: cout << msg . toString ( ) ; 
+  Test namespace definition:      : std :: cout << msg . toString ( ) ; 
+  Test class definition:          : std :: cout << msg . toString ( ) ; 
+  Test struct definition:         : std :: cout << msg . toString ( ) ; 
+  Test C++ function definition:   : std :: cout << msg . toString ( ) ; 
+  Test control definition:        : std :: cout << msg . toString ( ) ; 
+  Test C++ declaration:           : std :: cout << msg . toString ( ) ; 
+  Test C++ executable:            : std :: cout << msg . toString ( ) ; 
+  Handle C++ executable:          : std :: cout << msg . toString ( ) ; 
+  Test begin scope                : putline ( ) ; 
+  Test end scope                  : putline ( ) ; 
+  Test preproc statement:         : putline ( ) ; 
+  Test namespace definition:      : putline ( ) ; 
+  Test class definition:          : putline ( ) ; 
+  Test struct definition:         : putline ( ) ; 
+  Test C++ function definition:   : putline ( ) ; 
+  Test control definition:        : putline ( ) ; 
+  Test C++ declaration:           : putline ( ) ; 
+  Test C++ executable:            : putline ( ) ; 
+  Handle C++ executable:          : putline ( ) ; 
+  Test begin scope                : Utils :: title ( "Testing addBody(const std::string&)" ) ; 
+  Test end scope                  : Utils :: title ( "Testing addBody(const std::string&)" ) ; 
+  Test preproc statement:         : Utils :: title ( "Testing addBody(const std::string&)" ) ; 
+  Test namespace definition:      : Utils :: title ( "Testing addBody(const std::string&)" ) ; 
+  Test class definition:          : Utils :: title ( "Testing addBody(const std::string&)" ) ; 
+  Test struct definition:         : Utils :: title ( "Testing addBody(const std::string&)" ) ; 
+  Test C++ function definition:   : Utils :: title ( "Testing addBody(const std::string&)" ) ; 
+  Test control definition:        : Utils :: title ( "Testing addBody(const std::string&)" ) ; 
+  Test C++ declaration:           : Utils :: title ( "Testing addBody(const std::string&)" ) ; 
+  Test C++ executable:            : Utils :: title ( "Testing addBody(const std::string&)" ) ; 
+  Handle C++ executable:          : Utils :: title ( "Testing addBody(const std::string&)" ) ; 
+  Test begin scope                : std :: string msgBody = "<msg>this is a message</msg>" ; 
+  Test end scope                  : std :: string msgBody = "<msg>this is a message</msg>" ; 
+  Test preproc statement:         : std :: string msgBody = "<msg>this is a message</msg>" ; 
+  Test namespace definition:      : std :: string msgBody = "<msg>this is a message</msg>" ; 
+  Test class definition:          : std :: string msgBody = "<msg>this is a message</msg>" ; 
+  Test struct definition:         : std :: string msgBody = "<msg>this is a message</msg>" ; 
+  Test C++ function definition:   : std :: string msgBody = "<msg>this is a message</msg>" ; 
+  Test control definition:        : std :: string msgBody = "<msg>this is a message</msg>" ; 
+  Test C++ declaration:           : std :: string msgBody = "<msg>this is a message</msg>" ; 
+  Handle C++ declaration:         : std :: string msgBody = "<msg>this is a message</msg>" ; 
+  Test begin scope                : 
+    msg . addAttribute ( HttpMessage :: Attribute ( "content_length" , Converter < size_t > :: toString ( msgBody . size ( ) ) ) ) ; 
+  Test end scope                  : 
+    msg . addAttribute ( HttpMessage :: Attribute ( "content_length" , Converter < size_t > :: toString ( msgBody . size ( ) ) ) ) ; 
+  Test preproc statement:         : 
+    msg . addAttribute ( HttpMessage :: Attribute ( "content_length" , Converter < size_t > :: toString ( msgBody . size ( ) ) ) ) ; 
+  Test namespace definition:      : 
+    msg . addAttribute ( HttpMessage :: Attribute ( "content_length" , Converter < size_t > :: toString ( msgBody . size ( ) ) ) ) ; 
+  Test class definition:          : 
+    msg . addAttribute ( HttpMessage :: Attribute ( "content_length" , Converter < size_t > :: toString ( msgBody . size ( ) ) ) ) ; 
+  Test struct definition:         : 
+    msg . addAttribute ( HttpMessage :: Attribute ( "content_length" , Converter < size_t > :: toString ( msgBody . size ( ) ) ) ) ; 
+  Test C++ function definition:   : 
+    msg . addAttribute ( HttpMessage :: Attribute ( "content_length" , Converter < size_t > :: toString ( msgBody . size ( ) ) ) ) ; 
+  Test control definition:        : 
+    msg . addAttribute ( HttpMessage :: Attribute ( "content_length" , Converter < size_t > :: toString ( msgBody . size ( ) ) ) ) ; 
+  Test C++ declaration:           : 
+    msg . addAttribute ( HttpMessage :: Attribute ( "content_length" , Converter < size_t > :: toString ( msgBody . size ( ) ) ) ) ; 
+  Test C++ executable:            : 
+    msg . addAttribute ( HttpMessage :: Attribute ( "content_length" , Converter < size_t > :: toString ( msgBody . size ( ) ) ) ) ; 
+  Handle C++ executable:          : 
+    msg . addAttribute ( HttpMessage :: Attribute ( "content_length" , Converter < size_t > :: toString ( msgBody . size ( ) ) ) ) ; 
+  Test begin scope                : msg . addBody ( msgBody ) ; 
+  Test end scope                  : msg . addBody ( msgBody ) ; 
+  Test preproc statement:         : msg . addBody ( msgBody ) ; 
+  Test namespace definition:      : msg . addBody ( msgBody ) ; 
+  Test class definition:          : msg . addBody ( msgBody ) ; 
+  Test struct definition:         : msg . addBody ( msgBody ) ; 
+  Test C++ function definition:   : msg . addBody ( msgBody ) ; 
+  Test control definition:        : msg . addBody ( msgBody ) ; 
+  Test C++ declaration:           : msg . addBody ( msgBody ) ; 
+  Test C++ executable:            : msg . addBody ( msgBody ) ; 
+  Handle C++ executable:          : msg . addBody ( msgBody ) ; 
+  Test begin scope                : 
+    std :: cout << "\n" << StringHelper :: addHeaderAndFooterLines ( msg . toString ( ) ) ; 
+  Test end scope                  : 
+    std :: cout << "\n" << StringHelper :: addHeaderAndFooterLines ( msg . toString ( ) ) ; 
+  Test preproc statement:         : 
+    std :: cout << "\n" << StringHelper :: addHeaderAndFooterLines ( msg . toString ( ) ) ; 
+  Test namespace definition:      : 
+    std :: cout << "\n" << StringHelper :: addHeaderAndFooterLines ( msg . toString ( ) ) ; 
+  Test class definition:          : 
+    std :: cout << "\n" << StringHelper :: addHeaderAndFooterLines ( msg . toString ( ) ) ; 
+  Test struct definition:         : 
+    std :: cout << "\n" << StringHelper :: addHeaderAndFooterLines ( msg . toString ( ) ) ; 
+  Test C++ function definition:   : 
+    std :: cout << "\n" << StringHelper :: addHeaderAndFooterLines ( msg . toString ( ) ) ; 
+  Test control definition:        : 
+    std :: cout << "\n" << StringHelper :: addHeaderAndFooterLines ( msg . toString ( ) ) ; 
+  Test C++ declaration:           : 
+    std :: cout << "\n" << StringHelper :: addHeaderAndFooterLines ( msg . toString ( ) ) ; 
+  Test C++ executable:            : 
+    std :: cout << "\n" << StringHelper :: addHeaderAndFooterLines ( msg . toString ( ) ) ; 
+  Handle C++ executable:          : 
+    std :: cout << "\n" << StringHelper :: addHeaderAndFooterLines ( msg . toString ( ) ) ; 
+  Test begin scope                : Utils :: title ( "Testing parseAttribute(const std::string&)" ) ; 
+  Test end scope                  : Utils :: title ( "Testing parseAttribute(const std::string&)" ) ; 
+  Test preproc statement:         : Utils :: title ( "Testing parseAttribute(const std::string&)" ) ; 
+  Test namespace definition:      : Utils :: title ( "Testing parseAttribute(const std::string&)" ) ; 
+  Test class definition:          : Utils :: title ( "Testing parseAttribute(const std::string&)" ) ; 
+  Test struct definition:         : Utils :: title ( "Testing parseAttribute(const std::string&)" ) ; 
+  Test C++ function definition:   : Utils :: title ( "Testing parseAttribute(const std::string&)" ) ; 
+  Test control definition:        : Utils :: title ( "Testing parseAttribute(const std::string&)" ) ; 
+  Test C++ declaration:           : Utils :: title ( "Testing parseAttribute(const std::string&)" ) ; 
+  Test C++ executable:            : Utils :: title ( "Testing parseAttribute(const std::string&)" ) ; 
+  Handle C++ executable:          : Utils :: title ( "Testing parseAttribute(const std::string&)" ) ; 
+  Test begin scope                : std :: string test2 = "name:value" ; 
+  Test end scope                  : std :: string test2 = "name:value" ; 
+  Test preproc statement:         : std :: string test2 = "name:value" ; 
+  Test namespace definition:      : std :: string test2 = "name:value" ; 
+  Test class definition:          : std :: string test2 = "name:value" ; 
+  Test struct definition:         : std :: string test2 = "name:value" ; 
+  Test C++ function definition:   : std :: string test2 = "name:value" ; 
+  Test control definition:        : std :: string test2 = "name:value" ; 
+  Test C++ declaration:           : std :: string test2 = "name:value" ; 
+  Handle C++ declaration:         : std :: string test2 = "name:value" ; 
+  Test begin scope                : std :: cout << "\n  input = \"" << test2 << "\"" ; 
+  Test end scope                  : std :: cout << "\n  input = \"" << test2 << "\"" ; 
+  Test preproc statement:         : std :: cout << "\n  input = \"" << test2 << "\"" ; 
+  Test namespace definition:      : std :: cout << "\n  input = \"" << test2 << "\"" ; 
+  Test class definition:          : std :: cout << "\n  input = \"" << test2 << "\"" ; 
+  Test struct definition:         : std :: cout << "\n  input = \"" << test2 << "\"" ; 
+  Test C++ function definition:   : std :: cout << "\n  input = \"" << test2 << "\"" ; 
+  Test control definition:        : std :: cout << "\n  input = \"" << test2 << "\"" ; 
+  Test C++ declaration:           : std :: cout << "\n  input = \"" << test2 << "\"" ; 
+  Test C++ executable:            : std :: cout << "\n  input = \"" << test2 << "\"" ; 
+  Handle C++ executable:          : std :: cout << "\n  input = \"" << test2 << "\"" ; 
+  Test begin scope                : Attribute attrib2 = HttpMessage :: parseAttribute ( test2 ) ; 
+  Test end scope                  : Attribute attrib2 = HttpMessage :: parseAttribute ( test2 ) ; 
+  Test preproc statement:         : Attribute attrib2 = HttpMessage :: parseAttribute ( test2 ) ; 
+  Test namespace definition:      : Attribute attrib2 = HttpMessage :: parseAttribute ( test2 ) ; 
+  Test class definition:          : Attribute attrib2 = HttpMessage :: parseAttribute ( test2 ) ; 
+  Test struct definition:         : Attribute attrib2 = HttpMessage :: parseAttribute ( test2 ) ; 
+  Test C++ function definition:   : Attribute attrib2 = HttpMessage :: parseAttribute ( test2 ) ; 
+  Test control definition:        : Attribute attrib2 = HttpMessage :: parseAttribute ( test2 ) ; 
+  Test C++ declaration:           : Attribute attrib2 = HttpMessage :: parseAttribute ( test2 ) ; 
+  Handle C++ declaration:         : Attribute attrib2 = HttpMessage :: parseAttribute ( test2 ) ; 
+  Test begin scope                : std :: cout << "\n  result is: " << HttpMessage :: attribString ( attrib2 ) ; 
+  Test end scope                  : std :: cout << "\n  result is: " << HttpMessage :: attribString ( attrib2 ) ; 
+  Test preproc statement:         : std :: cout << "\n  result is: " << HttpMessage :: attribString ( attrib2 ) ; 
+  Test namespace definition:      : std :: cout << "\n  result is: " << HttpMessage :: attribString ( attrib2 ) ; 
+  Test class definition:          : std :: cout << "\n  result is: " << HttpMessage :: attribString ( attrib2 ) ; 
+  Test struct definition:         : std :: cout << "\n  result is: " << HttpMessage :: attribString ( attrib2 ) ; 
+  Test C++ function definition:   : std :: cout << "\n  result is: " << HttpMessage :: attribString ( attrib2 ) ; 
+  Test control definition:        : std :: cout << "\n  result is: " << HttpMessage :: attribString ( attrib2 ) ; 
+  Test C++ declaration:           : std :: cout << "\n  result is: " << HttpMessage :: attribString ( attrib2 ) ; 
+  Test C++ executable:            : std :: cout << "\n  result is: " << HttpMessage :: attribString ( attrib2 ) ; 
+  Handle C++ executable:          : std :: cout << "\n  result is: " << HttpMessage :: attribString ( attrib2 ) ; 
+  Test begin scope                : test2 = " name : value " ; 
+  Test end scope                  : test2 = " name : value " ; 
+  Test preproc statement:         : test2 = " name : value " ; 
+  Test namespace definition:      : test2 = " name : value " ; 
+  Test class definition:          : test2 = " name : value " ; 
+  Test struct definition:         : test2 = " name : value " ; 
+  Test C++ function definition:   : test2 = " name : value " ; 
+  Test control definition:        : test2 = " name : value " ; 
+  Test C++ declaration:           : test2 = " name : value " ; 
+  Test C++ executable:            : test2 = " name : value " ; 
+  Handle C++ executable:          : test2 = " name : value " ; 
+  Test begin scope                : std :: cout << "\n  input = \"" << test2 << "\"" ; 
+  Test end scope                  : std :: cout << "\n  input = \"" << test2 << "\"" ; 
+  Test preproc statement:         : std :: cout << "\n  input = \"" << test2 << "\"" ; 
+  Test namespace definition:      : std :: cout << "\n  input = \"" << test2 << "\"" ; 
+  Test class definition:          : std :: cout << "\n  input = \"" << test2 << "\"" ; 
+  Test struct definition:         : std :: cout << "\n  input = \"" << test2 << "\"" ; 
+  Test C++ function definition:   : std :: cout << "\n  input = \"" << test2 << "\"" ; 
+  Test control definition:        : std :: cout << "\n  input = \"" << test2 << "\"" ; 
+  Test C++ declaration:           : std :: cout << "\n  input = \"" << test2 << "\"" ; 
+  Test C++ executable:            : std :: cout << "\n  input = \"" << test2 << "\"" ; 
+  Handle C++ executable:          : std :: cout << "\n  input = \"" << test2 << "\"" ; 
+  Test begin scope                : attrib2 = HttpMessage :: parseAttribute ( test2 ) ; 
+  Test end scope                  : attrib2 = HttpMessage :: parseAttribute ( test2 ) ; 
+  Test preproc statement:         : attrib2 = HttpMessage :: parseAttribute ( test2 ) ; 
+  Test namespace definition:      : attrib2 = HttpMessage :: parseAttribute ( test2 ) ; 
+  Test class definition:          : attrib2 = HttpMessage :: parseAttribute ( test2 ) ; 
+  Test struct definition:         : attrib2 = HttpMessage :: parseAttribute ( test2 ) ; 
+  Test C++ function definition:   : attrib2 = HttpMessage :: parseAttribute ( test2 ) ; 
+  Test control definition:        : attrib2 = HttpMessage :: parseAttribute ( test2 ) ; 
+  Test C++ declaration:           : attrib2 = HttpMessage :: parseAttribute ( test2 ) ; 
+  Test C++ executable:            : attrib2 = HttpMessage :: parseAttribute ( test2 ) ; 
+  Handle C++ executable:          : attrib2 = HttpMessage :: parseAttribute ( test2 ) ; 
+  Test begin scope                : std :: cout << "\n  result is: " << HttpMessage :: attribString ( attrib2 ) ; 
+  Test end scope                  : std :: cout << "\n  result is: " << HttpMessage :: attribString ( attrib2 ) ; 
+  Test preproc statement:         : std :: cout << "\n  result is: " << HttpMessage :: attribString ( attrib2 ) ; 
+  Test namespace definition:      : std :: cout << "\n  result is: " << HttpMessage :: attribString ( attrib2 ) ; 
+  Test class definition:          : std :: cout << "\n  result is: " << HttpMessage :: attribString ( attrib2 ) ; 
+  Test struct definition:         : std :: cout << "\n  result is: " << HttpMessage :: attribString ( attrib2 ) ; 
+  Test C++ function definition:   : std :: cout << "\n  result is: " << HttpMessage :: attribString ( attrib2 ) ; 
+  Test control definition:        : std :: cout << "\n  result is: " << HttpMessage :: attribString ( attrib2 ) ; 
+  Test C++ declaration:           : std :: cout << "\n  result is: " << HttpMessage :: attribString ( attrib2 ) ; 
+  Test C++ executable:            : std :: cout << "\n  result is: " << HttpMessage :: attribString ( attrib2 ) ; 
+  Handle C++ executable:          : std :: cout << "\n  result is: " << HttpMessage :: attribString ( attrib2 ) ; 
+  Test begin scope                : Utils :: title ( "Testing Message parsing" ) ; 
+  Test end scope                  : Utils :: title ( "Testing Message parsing" ) ; 
+  Test preproc statement:         : Utils :: title ( "Testing Message parsing" ) ; 
+  Test namespace definition:      : Utils :: title ( "Testing Message parsing" ) ; 
+  Test class definition:          : Utils :: title ( "Testing Message parsing" ) ; 
+  Test struct definition:         : Utils :: title ( "Testing Message parsing" ) ; 
+  Test C++ function definition:   : Utils :: title ( "Testing Message parsing" ) ; 
+  Test control definition:        : Utils :: title ( "Testing Message parsing" ) ; 
+  Test C++ declaration:           : Utils :: title ( "Testing Message parsing" ) ; 
+  Test C++ executable:            : Utils :: title ( "Testing Message parsing" ) ; 
+  Handle C++ executable:          : Utils :: title ( "Testing Message parsing" ) ; 
+  Test begin scope                : MockSocket sock ( msg ) ; 
+  Test end scope                  : MockSocket sock ( msg ) ; 
+  Test preproc statement:         : MockSocket sock ( msg ) ; 
+  Test namespace definition:      : MockSocket sock ( msg ) ; 
+  Test class definition:          : MockSocket sock ( msg ) ; 
+  Test struct definition:         : MockSocket sock ( msg ) ; 
+  Test C++ function definition:   : MockSocket sock ( msg ) ; 
+  Test control definition:        : MockSocket sock ( msg ) ; 
+  Test C++ declaration:           : MockSocket sock ( msg ) ; 
+  Test C++ executable:            : MockSocket sock ( msg ) ; 
+  Test default:                   : MockSocket sock ( msg ) ; 
+  Handle default:                 : MockSocket sock ( msg ) ; 
+  Test begin scope                : HttpMessage msg2 ; 
+  Test end scope                  : HttpMessage msg2 ; 
+  Test preproc statement:         : HttpMessage msg2 ; 
+  Test namespace definition:      : HttpMessage msg2 ; 
+  Test class definition:          : HttpMessage msg2 ; 
+  Test struct definition:         : HttpMessage msg2 ; 
+  Test C++ function definition:   : HttpMessage msg2 ; 
+  Test control definition:        : HttpMessage msg2 ; 
+  Test C++ declaration:           : HttpMessage msg2 ; 
+  Handle C++ declaration:         : HttpMessage msg2 ; 
+  Test begin scope                : while ( true ) { 
+  handle begin scope              : while ( true ) { 
+  Test end scope                  : while ( true ) { 
+  Test preproc statement:         : while ( true ) { 
+  Test namespace definition:      : while ( true ) { 
+  Test class definition:          : while ( true ) { 
+  Test struct definition:         : while ( true ) { 
+  Test C++ function definition:   : while ( true ) { 
+  Test control definition:        : while ( true ) { 
+  Handle control definition:      : while ( true ) { 
+  Test begin scope                : std :: string line = sock . recvString ( ) ; 
+  Test end scope                  : std :: string line = sock . recvString ( ) ; 
+  Test preproc statement:         : std :: string line = sock . recvString ( ) ; 
+  Test namespace definition:      : std :: string line = sock . recvString ( ) ; 
+  Test class definition:          : std :: string line = sock . recvString ( ) ; 
+  Test struct definition:         : std :: string line = sock . recvString ( ) ; 
+  Test C++ function definition:   : std :: string line = sock . recvString ( ) ; 
+  Test control definition:        : std :: string line = sock . recvString ( ) ; 
+  Test C++ declaration:           : std :: string line = sock . recvString ( ) ; 
+  Handle C++ declaration:         : std :: string line = sock . recvString ( ) ; 
+  Test begin scope                : if ( line . size ( ) == 0 ) break ; 
+  Test end scope                  : if ( line . size ( ) == 0 ) break ; 
+  Test preproc statement:         : if ( line . size ( ) == 0 ) break ; 
+  Test namespace definition:      : if ( line . size ( ) == 0 ) break ; 
+  Test class definition:          : if ( line . size ( ) == 0 ) break ; 
+  Test struct definition:         : if ( line . size ( ) == 0 ) break ; 
+  Test C++ function definition:   : if ( line . size ( ) == 0 ) break ; 
+  Test control definition:        : if ( line . size ( ) == 0 ) break ; 
+  Test C++ declaration:           : if ( line . size ( ) == 0 ) break ; 
+  Handle C++ declaration:         : if ( line . size ( ) == 0 ) break ; 
+  Test begin scope                : Attribute attrib = HttpMessage :: parseAttribute ( line ) ; 
+  Test end scope                  : Attribute attrib = HttpMessage :: parseAttribute ( line ) ; 
+  Test preproc statement:         : Attribute attrib = HttpMessage :: parseAttribute ( line ) ; 
+  Test namespace definition:      : Attribute attrib = HttpMessage :: parseAttribute ( line ) ; 
+  Test class definition:          : Attribute attrib = HttpMessage :: parseAttribute ( line ) ; 
+  Test struct definition:         : Attribute attrib = HttpMessage :: parseAttribute ( line ) ; 
+  Test C++ function definition:   : Attribute attrib = HttpMessage :: parseAttribute ( line ) ; 
+  Test control definition:        : Attribute attrib = HttpMessage :: parseAttribute ( line ) ; 
+  Test C++ declaration:           : Attribute attrib = HttpMessage :: parseAttribute ( line ) ; 
+  Handle C++ declaration:         : Attribute attrib = HttpMessage :: parseAttribute ( line ) ; 
+  Test begin scope                : msg2 . addAttribute ( attrib ) ; 
+  Test end scope                  : msg2 . addAttribute ( attrib ) ; 
+  Test preproc statement:         : msg2 . addAttribute ( attrib ) ; 
+  Test namespace definition:      : msg2 . addAttribute ( attrib ) ; 
+  Test class definition:          : msg2 . addAttribute ( attrib ) ; 
+  Test struct definition:         : msg2 . addAttribute ( attrib ) ; 
+  Test C++ function definition:   : msg2 . addAttribute ( attrib ) ; 
+  Test control definition:        : msg2 . addAttribute ( attrib ) ; 
+  Test C++ declaration:           : msg2 . addAttribute ( attrib ) ; 
+  Handle C++ declaration:         : msg2 . addAttribute ( attrib ) ; 
+  Test begin scope                : } 
+  Test end scope                  : } 
+  Handle end scope                : } 
+  Test begin scope                : Value val = msg2 . findValue ( "content_length" ) ; 
+  Test end scope                  : Value val = msg2 . findValue ( "content_length" ) ; 
+  Test preproc statement:         : Value val = msg2 . findValue ( "content_length" ) ; 
+  Test namespace definition:      : Value val = msg2 . findValue ( "content_length" ) ; 
+  Test class definition:          : Value val = msg2 . findValue ( "content_length" ) ; 
+  Test struct definition:         : Value val = msg2 . findValue ( "content_length" ) ; 
+  Test C++ function definition:   : Value val = msg2 . findValue ( "content_length" ) ; 
+  Test control definition:        : Value val = msg2 . findValue ( "content_length" ) ; 
+  Test C++ declaration:           : Value val = msg2 . findValue ( "content_length" ) ; 
+  Handle C++ declaration:         : Value val = msg2 . findValue ( "content_length" ) ; 
+  Test begin scope                : if ( val . size ( ) > 0 ) { 
+  handle begin scope              : if ( val . size ( ) > 0 ) { 
+  Test end scope                  : if ( val . size ( ) > 0 ) { 
+  Test preproc statement:         : if ( val . size ( ) > 0 ) { 
+  Test namespace definition:      : if ( val . size ( ) > 0 ) { 
+  Test class definition:          : if ( val . size ( ) > 0 ) { 
+  Test struct definition:         : if ( val . size ( ) > 0 ) { 
+  Test C++ function definition:   : if ( val . size ( ) > 0 ) { 
+  Test control definition:        : if ( val . size ( ) > 0 ) { 
+  Handle control definition:      : if ( val . size ( ) > 0 ) { 
+  Test begin scope                : size_t numBytes = Converter < size_t > :: toValue ( val ) ; 
+  Test end scope                  : size_t numBytes = Converter < size_t > :: toValue ( val ) ; 
+  Test preproc statement:         : size_t numBytes = Converter < size_t > :: toValue ( val ) ; 
+  Test namespace definition:      : size_t numBytes = Converter < size_t > :: toValue ( val ) ; 
+  Test class definition:          : size_t numBytes = Converter < size_t > :: toValue ( val ) ; 
+  Test struct definition:         : size_t numBytes = Converter < size_t > :: toValue ( val ) ; 
+  Test C++ function definition:   : size_t numBytes = Converter < size_t > :: toValue ( val ) ; 
+  Test control definition:        : size_t numBytes = Converter < size_t > :: toValue ( val ) ; 
+  Test C++ declaration:           : size_t numBytes = Converter < size_t > :: toValue ( val ) ; 
+  Handle C++ declaration:         : size_t numBytes = Converter < size_t > :: toValue ( val ) ; 
+  Test begin scope                : byte * pBuffer = new byte [ numBytes ] ; 
+  Test end scope                  : byte * pBuffer = new byte [ numBytes ] ; 
+  Test preproc statement:         : byte * pBuffer = new byte [ numBytes ] ; 
+  Test namespace definition:      : byte * pBuffer = new byte [ numBytes ] ; 
+  Test class definition:          : byte * pBuffer = new byte [ numBytes ] ; 
+  Test struct definition:         : byte * pBuffer = new byte [ numBytes ] ; 
+  Test C++ function definition:   : byte * pBuffer = new byte [ numBytes ] ; 
+  Test control definition:        : byte * pBuffer = new byte [ numBytes ] ; 
+  Test C++ declaration:           : byte * pBuffer = new byte [ numBytes ] ; 
+  Handle C++ declaration:         : byte * pBuffer = new byte [ numBytes ] ; 
+  Test begin scope                : sock . recv ( numBytes , pBuffer ) ; 
+  Test end scope                  : sock . recv ( numBytes , pBuffer ) ; 
+  Test preproc statement:         : sock . recv ( numBytes , pBuffer ) ; 
+  Test namespace definition:      : sock . recv ( numBytes , pBuffer ) ; 
+  Test class definition:          : sock . recv ( numBytes , pBuffer ) ; 
+  Test struct definition:         : sock . recv ( numBytes , pBuffer ) ; 
+  Test C++ function definition:   : sock . recv ( numBytes , pBuffer ) ; 
+  Test control definition:        : sock . recv ( numBytes , pBuffer ) ; 
+  Test C++ declaration:           : sock . recv ( numBytes , pBuffer ) ; 
+  Handle C++ declaration:         : sock . recv ( numBytes , pBuffer ) ; 
+  Test begin scope                : msg2 . addBody ( numBytes , pBuffer ) ; 
+  Test end scope                  : msg2 . addBody ( numBytes , pBuffer ) ; 
+  Test preproc statement:         : msg2 . addBody ( numBytes , pBuffer ) ; 
+  Test namespace definition:      : msg2 . addBody ( numBytes , pBuffer ) ; 
+  Test class definition:          : msg2 . addBody ( numBytes , pBuffer ) ; 
+  Test struct definition:         : msg2 . addBody ( numBytes , pBuffer ) ; 
+  Test C++ function definition:   : msg2 . addBody ( numBytes , pBuffer ) ; 
+  Test control definition:        : msg2 . addBody ( numBytes , pBuffer ) ; 
+  Test C++ declaration:           : msg2 . addBody ( numBytes , pBuffer ) ; 
+  Handle C++ declaration:         : msg2 . addBody ( numBytes , pBuffer ) ; 
+  Test begin scope                : } 
+  Test end scope                  : } 
+  Handle end scope                : } 
+  Test begin scope                : 
+    std :: cout << "\n" << Utils :: addHeaderAndFooterLines ( msg2 . toString ( ) ) ; 
+  Test end scope                  : 
+    std :: cout << "\n" << Utils :: addHeaderAndFooterLines ( msg2 . toString ( ) ) ;                                                                                
+    searched     4 dirs
+   processed     2 files
+  Test preproc statement:         : 
+    std :: cout << "\n" << Utils :: addHeaderAndFooterLines ( msg2 . toString ( ) ) ; 
+
+  Test namespace definition:      : 
+    std :: cout << "\n" << Utils :: addHeaderAndFooterLines ( msg2 . toString ( ) ) ; 
+  Test class definition:          : 
+    std :: cout << "\n" << Utils :: addHeaderAndFooterLines ( msg2 . toString ( ) ) ; 
+  Test struct definition:         : 
+    std :: cout << "\n" << Utils :: addHeaderAndFooterLines ( msg2 . toString ( ) ) ; 
+  Test C++ function definition:   : 
+    std :: cout << "\n" << Utils :: addHeaderAndFooterLines ( msg2 . toString ( ) ) ; 
+  Test control definition:        : 
+    std :: cout << "\n" << Utils :: addHeaderAndFooterLines ( msg2 . toString ( ) ) ; 
+  Test C++ declaration:           : 
+    std :: cout << "\n" << Utils :: addHeaderAndFooterLines ( msg2 . toString ( ) ) ; 
+  Test C++ executable:            : 
+    std :: cout << "\n" << Utils :: addHeaderAndFooterLines ( msg2 . toString ( ) ) ; 
+  Handle C++ executable:          : 
+    std :: cout << "\n" << Utils :: addHeaderAndFooterLines ( msg2 . toString ( ) ) ; 
+  Test begin scope                : std :: cout << "\n\n" ; 
+  Test end scope                  : std :: cout << "\n\n" ; 
+  Test preproc statement:         : std :: cout << "\n\n" ; 
+  Test namespace definition:      : std :: cout << "\n\n" ; 
+  Test class definition:          : std :: cout << "\n\n" ; 
+  Test struct definition:         : std :: cout << "\n\n" ; 
+  Test C++ function definition:   : std :: cout << "\n\n" ; 
+  Test control definition:        : std :: cout << "\n\n" ; 
+  Test C++ declaration:           : std :: cout << "\n\n" ; 
+  Test C++ executable:            : std :: cout << "\n\n" ; 
+  Handle C++ executable:          : std :: cout << "\n\n" ; 
+  Test begin scope                : } 
+  Test end scope                  : } 
+  Handle end scope                : } 
+  Test begin scope                : # endif 
+  Test end scope                  : # endif 
+  Test preproc statement:         : # endif 
+  Handle preproc statement:       : # endif 

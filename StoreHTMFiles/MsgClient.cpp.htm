@@ -1,0 +1,838 @@
+<html>
+<head>
+   <link rel = "stylesheet" href ="..\stylesheet.css">
+   <script src="..\javascript.js"></script>
+</head>
+<body>
+<pre><hr /><div class="indent" >
+<h4>Dependencies:</h4>
+<a href=Executive.cpp.htm>Executive.cpp</a>
+<a href=Cpp11-BlockingQueue.h.htm>Cpp11-BlockingQueue.h</a>
+<a href=MsgClient.h.htm>MsgClient.h</a>
+</div>
+  <hr />
+ <pre>
+/////////////////////////////////////////////////////////////////////////
+// MsgClient.cpp - Demonstrates simple one-way HTTP messaging          //
+//                                                                     //
+// Jim Fawcett, CSE687 - Object Oriented Design, Spring 2016           //
+// Application: OOD Project #4                                         //
+// Platform:    Visual Studio 2015, Dell XPS 8900, Windows 10 pro      //
+/////////////////////////////////////////////////////////////////////////
+/*
+* This package implements a client that sends HTTP style messages and
+* files to a server that simply displays messages and stores files.
+*
+* It's purpose is to provide a very simple illustration of how to use
+* the Socket Package provided for Project #4.
+*/
+/*
+* Required Files:
+*   MsgClient.cpp, MsgServer.cpp
+*   HttpMessage.h, HttpMessage.cpp
+*   Cpp11-BlockingQueue.h
+*   Sockets.h, Sockets.cpp
+*   FileSystem.h, FileSystem.cpp
+*   Logger.h, Logger.cpp
+*   Utilities.h, Utilities.cpp
+*/
+/*
+* ToDo:
+* - pull the sending parts into a new Sender class
+* - You should create a Sender like this:
+*     Sender sndr(endPoint);  // sender's EndPoint
+*     sndr.PostMessage(msg);
+*   HttpMessage msg has the sending adddress, e.g., localhost:8080.
+*/
+#include "MsgClient.h"
+#include "../FileSystem/FileSystem.h"
+#include "../Logger/Logger.h"
+#include "../Utilities/Utilities.h"
+#include &lt;string&gt;
+#include &lt;iostream&gt;
+#include &lt;thread&gt;
+#include &lt;unordered_map&gt;
+#include &lt;Windows.h&gt;
+#include &lt;shellapi.h&gt;
+
+
+using Show = Logging::StaticLogger&lt;1&gt;;  // use for demonstrations of processing
+using namespace Utilities;
+using namespace Async;
+using BQueue = BlockingQueue&lt;std::string&gt;;
+using Utils = StringHelper;
+
+class ClientHandler
+{
+<input onclick="expand_collapse(simplediv1398.id, this.id)" type="button" value=" ^ " id="myButton1398" /><div id="simplediv1398" style="display:block; ">
+public:
+	using Path = std::string;
+public:
+	ClientHandler(BlockingQueue&lt;HttpMessage&gt;& msgQ) : msgQ_(msgQ) {
+<input onclick="expand_collapse(simplediv1399.id, this.id)" type="button" value=" ^ " id="myButton1399" /><div id="simplediv1399" style="display:block; ">}</div>
+	void operator()(Socket socket);
+	bool ProcessCommandLine();
+	HttpMessage readMessageForPost(HttpMessage& msg, Socket& socket);
+private:
+	bool connectionClosed_;
+	HttpMessage readMessage(Socket& socket);
+	bool readFile(const std::string& filename, size_t fileSize, const std::string& getDir, Socket& socket);
+	bool readFileFromServer(HttpMessage &msg, Socket& socket);
+	bool readMessageBody(HttpMessage &msg, Socket& socket);
+	BlockingQueue&lt;HttpMessage&gt;& msgQ_;
+	Path path_;
+}</div>;
+
+/* This can be used only for normal message bodies except file stream etc.. */
+bool ClientHandler::readMessageBody(HttpMessage &msg, Socket& socket) {
+<input onclick="expand_collapse(simplediv1400.id, this.id)" type="button" value=" ^ " id="myButton1400" /><div id="simplediv1400" style="display:block; ">
+	size_t numBytes = 0;
+	size_t pos = msg.findAttribute("content-length");
+	if (pos &lt; msg.attributes().size())
+	{
+<input onclick="expand_collapse(simplediv1401.id, this.id)" type="button" value=" ^ " id="myButton1401" /><div id="simplediv1401" style="display:block; ">
+		numBytes = Converter&lt;size_t&gt;::toValue(msg.attributes()[pos].second);
+		Socket::byte* buffer = new Socket::byte[numBytes + 1];
+		socket.recv(numBytes, buffer);
+		buffer[numBytes] = '\0';
+		std::string msgBody(buffer);
+		msg.addBody(msgBody);
+		delete[] buffer;
+	}</div>
+	return true;
+}</div>
+
+bool ClientHandler::readFileFromServer(HttpMessage &msg, Socket& socket) {
+<input onclick="expand_collapse(simplediv1402.id, this.id)" type="button" value=" ^ " id="myButton1402" /><div id="simplediv1402" style="display:block; ">
+	try {
+<input onclick="expand_collapse(simplediv1403.id, this.id)" type="button" value=" ^ " id="myButton1403" /><div id="simplediv1403" style="display:block; ">
+		const size_t BlockSize = 2048;
+		Socket::byte buffer[BlockSize];
+		std::string recvFilePath_;
+		if (msg.findValue("fileName").find(".htm") != std::string::npos)
+			recvFilePath_ = "../../../clientStorage/FileStorage/" + msg.findValue("fileName");
+		else
+			recvFilePath_ = "../../../clientStorage/" + msg.findValue("fileName");
+		 cout &lt;&lt; "The recieve path at client end is " &lt;&lt; FileSystem::Path::getFullFileSpec(recvFilePath_) &lt;&lt; endl;
+		if (FileSystem::File::exists(recvFilePath_)) {
+<input onclick="expand_collapse(simplediv1404.id, this.id)" type="button" value=" ^ " id="myButton1404" /><div id="simplediv1404" style="display:block; ">
+			cout &lt;&lt; "file already exist: " &lt;&lt; recvFilePath_ &lt;&lt; endl;
+			FileSystem::File::remove(recvFilePath_); }</div>
+		FileSystem::File file(recvFilePath_);
+		file.open(FileSystem::File::out, FileSystem::File::binary);
+		if (file.isGood())
+			cout &lt;&lt; "File is good in client end" &lt;&lt; endl;
+		size_t bytesToRead;
+		string getFileSize = msg.findValue("content-length");
+		size_t fileSize = Converter&lt;size_t&gt;::toValue(getFileSize);
+		while (true) {
+<input onclick="expand_collapse(simplediv1405.id, this.id)" type="button" value=" ^ " id="myButton1405" /><div id="simplediv1405" style="display:block; ">
+			if (fileSize &gt; BlockSize)
+				bytesToRead = BlockSize;
+			else
+				bytesToRead = fileSize;
+			socket.recv(bytesToRead, buffer);
+			FileSystem::Block blk;
+			for (size_t i = 0; i &lt; bytesToRead; ++i) {
+<input onclick="expand_collapse(simplediv1406.id, this.id)" type="button" value=" ^ " id="myButton1406" /><div id="simplediv1406" style="display:block; ">
+				blk.push_back(buffer[i]); }</div>
+			file.putBlock(blk);
+			if (fileSize &lt; BlockSize)
+				break;
+			fileSize -= BlockSize; }</div>
+		file.close();
+		cout &lt;&lt; "File : " + msg.findValue("fileName") + " was downloaded successfully on the client side successfully" &lt;&lt; endl;
+		/*if (msg.findValue("fileName").find(".htm") != std::string::npos) {
+<input onclick="expand_collapse(simplediv1407.id, this.id)" type="button" value=" ^ " id="myButton1407" /><div id="simplediv1407" style="display:block; ">
+			std::string path1 = FileSystem::Path::getFullFileSpec(recvFilePath_);
+			std::wstring sPath1(path1.begin(), path1.end());
+			Utilities::StringHelper::Title("Trying to open the dependency Files on the IIS virtual Directory folder");
+			ShellExecute(NULL, "open", sPath1.c_str(), NULL, NULL, SW_SHOWNORMAL);
+		}</div>*/
+	}</div>
+	catch (std::exception& except) {
+<input onclick="expand_collapse(simplediv1408.id, this.id)" type="button" value=" ^ " id="myButton1408" /><div id="simplediv1408" style="display:block; ">
+		cout &lt;&lt; "Exception caught in readFileFromServer of client " &lt;&lt;  std::string(except.what()) &lt;&lt;  "\n\n";
+	}</div>
+	return true;
+}</div>
+
+
+HttpMessage ClientHandler::readMessageForPost(HttpMessage& msg, Socket& socket) {
+<input onclick="expand_collapse(simplediv1409.id, this.id)" type="button" value=" ^ " id="myButton1409" /><div id="simplediv1409" style="display:block; ">
+	//// is this a file message?
+	std::string filename = msg.findValue("file");
+	if (filename != "")
+	{
+<input onclick="expand_collapse(simplediv1410.id, this.id)" type="button" value=" ^ " id="myButton1410" /><div id="simplediv1410" style="display:block; ">
+		size_t contentSize;
+		std::string sizeString = msg.findValue("content-length");
+		if (sizeString != "")
+			contentSize = Converter&lt;size_t&gt;::toValue(sizeString);
+		else
+			return msg;
+
+		std::string getDir = msg.findValue("directory");
+
+		readFile(filename, contentSize, getDir, socket);
+	}</div>
+
+	if (filename != "")
+	{
+<input onclick="expand_collapse(simplediv1411.id, this.id)" type="button" value=" ^ " id="myButton1411" /><div id="simplediv1411" style="display:block; ">
+		msg.removeAttribute("content-length");
+		std::string bodyString = "&lt;file&gt;" + filename + "&lt;/file&gt;";
+		std::string sizeString = Converter&lt;size_t&gt;::toString(bodyString.size());
+		msg.addAttribute(HttpMessage::Attribute("content-length", sizeString));
+		msg.addBody(bodyString);
+	}</div>
+	else
+	{
+<input onclick="expand_collapse(simplediv1412.id, this.id)" type="button" value=" ^ " id="myButton1412" /><div id="simplediv1412" style="display:block; ">
+		readMessageBody(msg, socket);
+	}</div>
+
+	return msg;
+}</div>
+//----&lt; this defines processing to frame messages &gt;------------------
+
+HttpMessage ClientHandler::readMessage(Socket& socket)
+{
+<input onclick="expand_collapse(simplediv1413.id, this.id)" type="button" value=" ^ " id="myButton1413" /><div id="simplediv1413" style="display:block; ">
+	HttpMessage msg;
+	connectionClosed_ = false;
+	try {
+<input onclick="expand_collapse(simplediv1414.id, this.id)" type="button" value=" ^ " id="myButton1414" /><div id="simplediv1414" style="display:block; ">
+		while (true)
+		{
+<input onclick="expand_collapse(simplediv1415.id, this.id)" type="button" value=" ^ " id="myButton1415" /><div id="simplediv1415" style="display:block; ">
+			std::string attribString = socket.recvString('\n');
+
+			if (attribString.size() &gt; 1)
+			{
+<input onclick="expand_collapse(simplediv1416.id, this.id)" type="button" value=" ^ " id="myButton1416" /><div id="simplediv1416" style="display:block; ">
+				HttpMessage::Attribute attrib = HttpMessage::parseAttribute(attribString);
+				msg.addAttribute(attrib);
+			}</div>
+			else
+				break;
+		}</div>
+		if (msg.attributes().size() == 0)
+		{
+<input onclick="expand_collapse(simplediv1417.id, this.id)" type="button" value=" ^ " id="myButton1417" /><div id="simplediv1417" style="display:block; ">
+			connectionClosed_ = true;
+			return msg;
+		}</div>
+		if (msg.attributes()[0].first == "POST")
+		{
+<input onclick="expand_collapse(simplediv1418.id, this.id)" type="button" value=" ^ " id="myButton1418" /><div id="simplediv1418" style="display:block; ">
+			msg = readMessageForPost(msg, socket);
+		}</div>
+		else if (msg.attributes()[0].first == "GET") {
+<input onclick="expand_collapse(simplediv1419.id, this.id)" type="button" value=" ^ " id="myButton1419" /><div id="simplediv1419" style="display:block; ">
+			cout &lt;&lt; "\n ClientHandler::readMessage::Inside Get \n";
+			std::string getMessageType = msg.findValue("messageType");
+			cout &lt;&lt; "\n ClientHandler::readMessage::The Message Type is: " &lt;&lt; getMessageType &lt;&lt; "\n";
+			Show::write("\n");
+			if ((getMessageType.compare("getCategoriesReply") == 0) || 
+				(getMessageType.compare("getFileNamesReply") == 0))
+			{
+<input onclick="expand_collapse(simplediv1420.id, this.id)" type="button" value=" ^ " id="myButton1420" /><div id="simplediv1420" style="display:block; ">
+				readMessageBody(msg, socket);
+			}</div>
+			else if (getMessageType.compare("HtmFileContentReplyFromServer") == 0) {
+<input onclick="expand_collapse(simplediv1421.id, this.id)" type="button" value=" ^ " id="myButton1421" /><div id="simplediv1421" style="display:block; ">
+				cout &lt;&lt; "\n ClientHandler::readMessage::Client is calling the readFileFromServer method\n";
+				readFileFromServer(msg, socket);
+			}</div>
+		}</div>
+		cout &lt;&lt; "\n The message received from the server is " &lt;&lt; msg.toString() &lt;&lt; "\n";
+	}</div>
+	catch (std::exception& except)
+	{
+<input onclick="expand_collapse(simplediv1422.id, this.id)" type="button" value=" ^ " id="myButton1422" /><div id="simplediv1422" style="display:block; "> 
+		cout &lt;&lt; "Exception caught in readMessage of client " &lt;&lt; std::string(except.what()) &lt;&lt; "\n\n";
+	}</div>
+	return msg;
+}</div>
+
+//----&lt; read a binary file from socket and save &gt;--------------------
+/*
+* This function expects the sender to have already send a file message,
+* and when this function is running, continuosly send bytes until
+* fileSize bytes have been sent.
+*/
+bool ClientHandler::readFile(const std::string& filename, size_t fileSize,
+	const std::string& getDir, Socket& socket)
+{
+<input onclick="expand_collapse(simplediv1423.id, this.id)" type="button" value=" ^ " id="myButton1423" /><div id="simplediv1423" style="display:block; ">
+	//std::string fqname = "../TestFiles_Client_Server/" + filename + ".snt";
+	std::string checkDirPath = path_ + "/" + getDir;
+	if (FileSystem::Directory::exists(checkDirPath) == false)
+	{
+<input onclick="expand_collapse(simplediv1424.id, this.id)" type="button" value=" ^ " id="myButton1424" /><div id="simplediv1424" style="display:block; ">
+		FileSystem::Directory::create(checkDirPath);
+	}</div>
+	std::string fqname = path_ + "/" + getDir + "/" + filename;
+//	Show::write(" Trying to readFile: " + fqname + " \n");
+	cout &lt;&lt; "Trying to readFile: " &lt;&lt; fqname &lt;&lt; " \n";
+	FileSystem::File file(fqname);
+	file.open(FileSystem::File::out, FileSystem::File::binary);
+	if (!file.isGood())
+	{
+<input onclick="expand_collapse(simplediv1425.id, this.id)" type="button" value=" ^ " id="myButton1425" /><div id="simplediv1425" style="display:block; ">
+		cout &lt;&lt; "\n\n can't open file " &lt;&lt; fqname &lt;&lt; endl;
+		return false;
+	}</div>
+	const size_t BlockSize = 2048;
+	Socket::byte buffer[BlockSize];
+	size_t bytesToRead;
+	while (true)
+	{
+<input onclick="expand_collapse(simplediv1426.id, this.id)" type="button" value=" ^ " id="myButton1426" /><div id="simplediv1426" style="display:block; ">
+		if (fileSize &gt; BlockSize)
+			bytesToRead = BlockSize;
+		else
+			bytesToRead = fileSize;
+
+		socket.recv(bytesToRead, buffer);
+
+		FileSystem::Block blk;
+		for (size_t i = 0; i &lt; bytesToRead; ++i)
+			blk.push_back(buffer[i]);
+
+		file.putBlock(blk);
+		if (fileSize &lt; BlockSize)
+			break;
+		fileSize -= BlockSize;
+	}</div>
+	file.close();
+	return true;
+}</div>
+
+//----&lt; receiver functionality is defined by this function &gt;---------
+
+void ClientHandler::operator()(Socket socket)
+{
+<input onclick="expand_collapse(simplediv1427.id, this.id)" type="button" value=" ^ " id="myButton1427" /><div id="simplediv1427" style="display:block; ">
+
+	while (true)
+	{
+<input onclick="expand_collapse(simplediv1428.id, this.id)" type="button" value=" ^ " id="myButton1428" /><div id="simplediv1428" style="display:block; ">
+		HttpMessage msg = readMessage(socket);
+		if (connectionClosed_ || msg.bodyString() == "quit")
+		{
+<input onclick="expand_collapse(simplediv1429.id, this.id)" type="button" value=" ^ " id="myButton1429" /><div id="simplediv1429" style="display:block; ">
+		//	Show::write("\n\n  clienthandler thread is terminating");
+			cout &lt;&lt; "\n\n clientHandler thread is terminationg " &lt;&lt; endl;
+			break;
+		}</div>
+		msgQ_.enQ(msg);
+	}</div>
+}</div>
+
+
+/////////////////////////////////////////////////////////////////////
+// ClientCounter creates a sequential number for each client
+//
+class ClientCounter
+{
+<input onclick="expand_collapse(simplediv1430.id, this.id)" type="button" value=" ^ " id="myButton1430" /><div id="simplediv1430" style="display:block; ">
+public:
+	ClientCounter() {
+<input onclick="expand_collapse(simplediv1431.id, this.id)" type="button" value=" ^ " id="myButton1431" /><div id="simplediv1431" style="display:block; "> ++clientCount; }</div>
+	size_t count() {
+<input onclick="expand_collapse(simplediv1432.id, this.id)" type="button" value=" ^ " id="myButton1432" /><div id="simplediv1432" style="display:block; "> return clientCount; }</div>
+private:
+	static size_t clientCount;
+}</div>;
+
+size_t ClientCounter::clientCount = 0;
+
+
+
+
+// --&lt; start Http CLient to listen for connections &gt;-----------
+void MsgClient::startHttpClient(BQueue &sharedQueue)
+{
+<input onclick="expand_collapse(simplediv1433.id, this.id)" type="button" value=" ^ " id="myButton1433" /><div id="simplediv1433" style="display:block; ">
+	std::thread t2([&]() {
+<input onclick="expand_collapse(simplediv1434.id, this.id)" type="button" value=" ^ " id="myButton1434" /><div id="simplediv1434" style="display:block; ">
+		try {
+<input onclick="expand_collapse(simplediv1435.id, this.id)" type="button" value=" ^ " id="myButton1435" /><div id="simplediv1435" style="display:block; ">
+			SocketSystem ss;
+			SocketListener sl(8081, Socket::IP6);
+			BlockingQueue&lt;HttpMessage&gt; msgQ;
+			ClientHandler cp(msgQ);
+			cp.ProcessCommandLine();
+			cout &lt;&lt; "\n msgClient::startHttpClient::Starting startHttpClient socket and callable object client handler\n";
+			sl.start(cp);
+			while (true)
+			{
+<input onclick="expand_collapse(simplediv1436.id, this.id)" type="button" value=" ^ " id="myButton1436" /><div id="simplediv1436" style="display:block; ">
+				HttpMessage msg = msgQ.deQ();
+				size_t numBytes = 0;
+				size_t pos = msg.findAttribute("content-length");
+				string getMessageType = msg.findValue("messageType");
+				if ((pos &lt; msg.attributes().size()) && (msg.findValue("messageType").compare("HtmFileContentReplyFromServer") != 0))
+				{
+<input onclick="expand_collapse(simplediv1437.id, this.id)" type="button" value=" ^ " id="myButton1437" /><div id="simplediv1437" style="display:block; ">
+					numBytes = Converter&lt;size_t&gt;::toValue(msg.attributes()[pos].second);
+					Socket::byte* buffer = new Socket::byte[numBytes + 1];
+					msg.getBody(buffer, numBytes);
+					buffer[numBytes] = '\0';
+					cout &lt;&lt; "\nMessage being enqueued to sender channel is " &lt;&lt; msg.findValue("messageType") &lt;&lt; "$" &lt;&lt; buffer &lt;&lt; endl;
+					sharedQueue.enQ(msg.findValue("messageType")+ "$" + buffer);
+					delete[] buffer;
+				}</div>
+				Utilities::StringHelper::Title("Requirement 6 is met: Used Message passing communication to receive a message");
+				cout &lt;&lt; "\n\n  MsgClient::startHttpClient:: Client received new message with contents:\n" &lt;&lt; msg.toString() &lt;&lt; endl;
+			}</div>
+		}</div>
+		catch (std::exception& exc) {
+<input onclick="expand_collapse(simplediv1438.id, this.id)" type="button" value=" ^ " id="myButton1438" /><div id="simplediv1438" style="display:block; ">
+			std::string exMsg = "\n  " + std::string(exc.what()) + "\n\n";
+			cout &lt;&lt; "\n  Exception caught: " &lt;&lt; exMsg &lt;&lt; endl;
+		}</div>
+	}</div>);
+	t2.detach();
+}</div>
+
+bool ClientHandler::ProcessCommandLine()
+{
+<input onclick="expand_collapse(simplediv1439.id, this.id)" type="button" value=" ^ " id="myButton1439" /><div id="simplediv1439" style="display:block; ">
+	return true;
+}</div>
+void MsgClient::downloadJsAndCssFromServer()
+{
+<input onclick="expand_collapse(simplediv1440.id, this.id)" type="button" value=" ^ " id="myButton1440" /><div id="simplediv1440" style="display:block; ">
+	ClientCounter counter;
+	size_t myCount = counter.count();
+	std::string myCountString = Utilities::Converter&lt;size_t&gt;::toString(myCount);
+	cout &lt;&lt; " \n MsgClient::downloadJsAndCssFromServer::A request for downloading js and css files has been recieved from WPF GUI to client \n";
+	cout &lt;&lt; "\nStarting HttpMessage client to download js and css files " &lt;&lt; myCountString &lt;&lt; "on thread " &lt;&lt; Utilities::Converter&lt;std::thread::id&gt;::toString(std::this_thread::get_id());
+	try
+	{
+<input onclick="expand_collapse(simplediv1441.id, this.id)" type="button" value=" ^ " id="myButton1441" /><div id="simplediv1441" style="display:block; ">
+		SocketSystem ss;
+		SocketConnecter si;
+		while (!si.connect("localhost", 8080))
+		{
+<input onclick="expand_collapse(simplediv1442.id, this.id)" type="button" value=" ^ " id="myButton1442" /><div id="simplediv1442" style="display:block; ">
+			cout &lt;&lt; "\n MsgClient::downloadJsAndCssFromServer:: Client waiting to connect to the server \n";
+			::Sleep(100);
+		}</div>
+		HttpMessage msg = makeMessage(2, "downloadJsAndCssFromServer", "localhost::8080");
+		msg.addAttribute(HttpMessage::Attribute("messageType", "downloadJsAndCssFromServer"));
+		sendMessage(msg, si);
+		cout &lt;&lt; " \n HTTP Message request to download js and css files has been sent to the Repository server" &lt;&lt; endl;
+	}</div>
+	catch (std::exception& exc)
+	{
+<input onclick="expand_collapse(simplediv1443.id, this.id)" type="button" value=" ^ " id="myButton1443" /><div id="simplediv1443" style="display:block; ">
+		std::string exMsg = "\n  " + std::string(exc.what()) + "\n\n";
+		cout &lt;&lt; "\n  Exeception caught in the method downloadJsAndCssFromServer: \n" &lt;&lt; exMsg;
+	}</div>
+}</div>
+//----&lt; factory for creating messages &gt;------------------------------
+/*
+* This function only creates one type of message for this demo.
+* - To do that the first argument is 1, e.g., index for the type of message to create.
+* - The body may be an empty string.
+* - EndPoints are strings of the form ip:port, e.g., localhost:8081. This argument
+*   expects the receiver EndPoint for the toAddr attribute.
+*/
+HttpMessage MsgClient::makeMessage(size_t n, const std::string& body, const EndPoint& ep)
+{
+<input onclick="expand_collapse(simplediv1444.id, this.id)" type="button" value=" ^ " id="myButton1444" /><div id="simplediv1444" style="display:block; ">
+	HttpMessage msg;
+	HttpMessage::Attribute attrib;
+	EndPoint myEndPoint = "localhost::8081";  // ToDo: make this a member of the sender
+											 // given to its constructor.
+	switch (n)
+	{
+<input onclick="expand_collapse(simplediv1445.id, this.id)" type="button" value=" ^ " id="myButton1445" /><div id="simplediv1445" style="display:block; ">
+	case 1:
+		msg.clear();
+		msg.addAttribute(HttpMessage::attribute("POST", "Message"));
+		msg.addAttribute(HttpMessage::Attribute("mode", "oneway"));
+		msg.addAttribute(HttpMessage::parseAttribute("toAddr:" + ep));
+		msg.addAttribute(HttpMessage::parseAttribute("fromAddr:" + myEndPoint));
+
+		msg.addBody(body);
+		if (body.size() &gt; 0)
+		{
+<input onclick="expand_collapse(simplediv1446.id, this.id)" type="button" value=" ^ " id="myButton1446" /><div id="simplediv1446" style="display:block; ">
+			attrib = HttpMessage::attribute("content-length", Converter&lt;size_t&gt;::toString(body.size()));
+			msg.addAttribute(attrib);
+
+		}</div>
+		break;
+	case 2:
+		msg.clear();
+		msg.addAttribute(HttpMessage::attribute("GET", "Message"));
+		msg.addAttribute(HttpMessage::Attribute("mode", "Duplex"));
+		msg.addAttribute(HttpMessage::parseAttribute("toAddr:" + ep));
+		msg.addAttribute(HttpMessage::parseAttribute("fromAddr:" + myEndPoint));
+		msg.addBody(body);
+		if (body.size() &gt; 0)
+		{
+<input onclick="expand_collapse(simplediv1447.id, this.id)" type="button" value=" ^ " id="myButton1447" /><div id="simplediv1447" style="display:block; ">
+			attrib = HttpMessage::attribute("content-length", Converter&lt;size_t&gt;::toString(body.size()));
+			msg.addAttribute(attrib);
+		}</div>
+		break;
+	default:
+		msg.clear();
+		msg.addAttribute(HttpMessage::attribute("Error", "unknown message type"));
+	}</div>
+	return msg;
+}</div>
+//----&lt; send message using socket &gt;----------------------------------
+
+void MsgClient::sendMessage(HttpMessage& msg, Socket& socket)
+{
+<input onclick="expand_collapse(simplediv1448.id, this.id)" type="button" value=" ^ " id="myButton1448" /><div id="simplediv1448" style="display:block; ">
+//	Show::write( " \n MsgClient::The message being sent from client end is :: " + msg.toString());
+//	Show::write("\n");
+	cout &lt;&lt; "\n MsgClient::sendMessage : The message being sent from client end is: " &lt;&lt; msg.toString() &lt;&lt; "\n\n";
+	Utilities::StringHelper::Title("\n Sending the message \n");
+	std::string msgString = msg.toString();
+	socket.send(msgString.size(), (Socket::byte*)msgString.c_str());
+}</div>
+//----&lt; send file using socket &gt;-------------------------------------
+/*
+* - Sends a message to tell receiver a file is coming.
+* - Then sends a stream of bytes until the entire file
+*   has been sent.
+* - Sends in binary mode which works for either text or binary.
+*/
+bool MsgClient::sendFile(const std::string& fullFilePath, Socket& socket)
+{
+<input onclick="expand_collapse(simplediv1449.id, this.id)" type="button" value=" ^ " id="myButton1449" /><div id="simplediv1449" style="display:block; ">
+	cout &lt;&lt; "\n Full file path to be sent is " &lt;&lt; fullFilePath &lt;&lt; "\n";
+	std::string fqname = fullFilePath;
+	FileSystem::FileInfo fi(fqname);
+	size_t fileSize = fi.size();
+	std::string sizeString = Converter&lt;size_t&gt;::toString(fileSize);
+	FileSystem::File file(fqname);
+	file.open(FileSystem::File::in, FileSystem::File::binary);
+	if (!file.isGood())
+	{
+<input onclick="expand_collapse(simplediv1450.id, this.id)" type="button" value=" ^ " id="myButton1450" /><div id="simplediv1450" style="display:block; "> 
+		cout &lt;&lt; "File is not in good state to be read \n";
+		return false;
+	}</div>
+	/* Get only filename from file path */
+	size_t found = fullFilePath.find_last_of("\\");
+	std::string filename = fullFilePath.substr(found + 1);
+	std::string getPath = fullFilePath.substr(0, found);
+	std::string getDirectory = getPath.substr(getPath.find_last_of("\\") + 1);
+	HttpMessage msg = makeMessage(1, "", "localhost::8080");
+	//Show::write("\n The file name is " + filename);
+	//Show::write("\n");
+	cout &lt;&lt; "\n The file name is " &lt;&lt; filename &lt;&lt; "\n";
+	msg.addAttribute(HttpMessage::Attribute("file", filename));
+	//Show::write(" \n The Directory name is " + getDirectory);
+	//Show::write("\n");
+	cout &lt;&lt; "\n The directory name is " &lt;&lt; getDirectory &lt;&lt; "\n";
+	msg.addAttribute(HttpMessage::Attribute("content-length", sizeString));
+	msg.addAttribute(HttpMessage::Attribute("directory", getDirectory));
+	sendMessage(msg, socket);
+	
+	const size_t BlockSize = 2048;
+	Socket::byte buffer[BlockSize];
+	while (true)
+	{
+<input onclick="expand_collapse(simplediv1451.id, this.id)" type="button" value=" ^ " id="myButton1451" /><div id="simplediv1451" style="display:block; ">
+		FileSystem::Block blk = file.getBlock(BlockSize);
+		if (blk.size() == 0)
+			break;
+		for (size_t i = 0; i &lt; blk.size(); ++i)
+			buffer[i] = blk[i];
+		socket.send(blk.size(), buffer);
+		if (!file.isGood())
+			break;
+	}</div>
+	Utilities::StringHelper::Title("Requirement 8 is met: File " + filename + " was sent through stream of 2048 bytes each successfully from the client end");
+	file.close();
+	return true;
+}</div>
+
+void MsgClient::sendCodeAnalysisToolRequest() {
+<input onclick="expand_collapse(simplediv1452.id, this.id)" type="button" value=" ^ " id="myButton1452" /><div id="simplediv1452" style="display:block; ">
+	ClientCounter counter;
+	size_t myCount = counter.count();
+	std::string myCountString = Utilities::Converter&lt;size_t&gt;::toString(myCount);
+	cout &lt;&lt; " \n MsgClient::executeSingleMessage::A request for codeAnalyzer has been recieved from wpf by client \n";
+	cout &lt;&lt; "\n  Starting HttpMessage client " &lt;&lt; myCountString &lt;&lt; "on thread " &lt;&lt; Utilities::Converter&lt;std::thread::id&gt;::toString(std::this_thread::get_id());
+	try
+	{
+<input onclick="expand_collapse(simplediv1453.id, this.id)" type="button" value=" ^ " id="myButton1453" /><div id="simplediv1453" style="display:block; ">
+		SocketSystem ss;
+		SocketConnecter si;
+		while (!si.connect("localhost", 8080))
+		{
+<input onclick="expand_collapse(simplediv1454.id, this.id)" type="button" value=" ^ " id="myButton1454" /><div id="simplediv1454" style="display:block; ">
+		//	Show::write("\n MsgClient::sendCodeAnalysisToolRequest:: Client waiting to connect to the server \n");
+			cout &lt;&lt; "\n MsgClient::sendCodeAnalysisToolRequest:: Client waiting to connect to the server \n";
+			::Sleep(100);
+		}</div>
+		HttpMessage msg = makeMessage(1, "RunCodeAnalysis", "localhost::8080");
+		msg.addAttribute(HttpMessage::Attribute("messageType", "runCodeAnalysisOnRepository"));
+		sendMessage(msg, si);
+		cout &lt;&lt; " \n MsgClient::sendCodeAnalysisToolRequest::Message has been sent to the Repository server from the Client" &lt;&lt; endl;
+	}</div>
+	catch (std::exception& exc)
+	{
+<input onclick="expand_collapse(simplediv1455.id, this.id)" type="button" value=" ^ " id="myButton1455" /><div id="simplediv1455" style="display:block; ">
+		//Show::write("\n  Exeception caught in the method sendCodeAnalysisToolRequest: \n");
+		std::string exMsg = "\n  " + std::string(exc.what()) + "\n\n";
+		//Show::write(exMsg);
+		cout &lt;&lt; "\n  Exeception caught in the method sendCodeAnalysisToolRequest: \n" &lt;&lt; exMsg;
+	}</div>
+}</div>
+
+void MsgClient::executeSingleFileDeleteRequest(string splitMsg) {
+<input onclick="expand_collapse(simplediv1456.id, this.id)" type="button" value=" ^ " id="myButton1456" /><div id="simplediv1456" style="display:block; ">
+	ClientCounter counter;
+	size_t myCount = counter.count();
+	std::string myCountString = Utilities::Converter&lt;size_t&gt;::toString(myCount);
+	cout &lt;&lt; " \n MsgClient::executeSingleFileDeleteRequest:: A request for deletFile has been recieved from wpf by client \n";
+	cout &lt;&lt; "\n Starting HttpMessage client " &lt;&lt; myCountString &lt;&lt; "on thread " &lt;&lt; Utilities::Converter&lt;std::thread::id&gt;::toString(std::this_thread::get_id());
+	try
+	{
+<input onclick="expand_collapse(simplediv1457.id, this.id)" type="button" value=" ^ " id="myButton1457" /><div id="simplediv1457" style="display:block; ">
+		SocketSystem ss;
+		SocketConnecter si;
+		while (!si.connect("localhost", 8080))
+		{
+<input onclick="expand_collapse(simplediv1458.id, this.id)" type="button" value=" ^ " id="myButton1458" /><div id="simplediv1458" style="display:block; ">
+			cout &lt;&lt; "\n MsgClient::executeSingleFileDeleteRequest:: Client waiting to connect to the server \n";
+			::Sleep(100);
+		}</div>
+		HttpMessage msg = makeMessage(1, splitMsg, "localhost::8080");
+		msg.addAttribute(HttpMessage::Attribute("messageType", "deleteFileFromServer"));
+		sendMessage(msg, si);
+	}</div>
+	catch (std::exception& exc)
+	{
+<input onclick="expand_collapse(simplediv1459.id, this.id)" type="button" value=" ^ " id="myButton1459" /><div id="simplediv1459" style="display:block; ">
+		std::string exMsg = "\n  " + std::string(exc.what()) + "\n\n";
+		cout &lt;&lt; "\n  Exeception caught in the method executeSingleMessage: \n" &lt;&lt; exMsg;
+	}</div>
+}</div>
+
+void MsgClient::executeSingleFileDownloadMessage(string splitMsg) {
+<input onclick="expand_collapse(simplediv1460.id, this.id)" type="button" value=" ^ " id="myButton1460" /><div id="simplediv1460" style="display:block; ">
+
+	ClientCounter counter;
+	size_t myCount = counter.count();
+	std::string myCountString = Utilities::Converter&lt;size_t&gt;::toString(myCount);
+	cout &lt;&lt; " \n MsgClient::executeSingleFileDownloadMessage:: A request for downloadfile has been recieved from wpf by client" &lt;&lt; endl;
+	cout &lt;&lt; "\n Starting HttpMessage client" + myCountString + " on thread " + Utilities::Converter&lt;std::thread::id&gt;::toString(std::this_thread::get_id()) &lt;&lt; endl;
+	try
+	{
+<input onclick="expand_collapse(simplediv1461.id, this.id)" type="button" value=" ^ " id="myButton1461" /><div id="simplediv1461" style="display:block; ">
+		SocketSystem ss;
+		SocketConnecter si;
+		while (!si.connect("localhost", 8080))
+		{
+<input onclick="expand_collapse(simplediv1462.id, this.id)" type="button" value=" ^ " id="myButton1462" /><div id="simplediv1462" style="display:block; ">
+			cout&lt;&lt;"\n MsgClient::executeSingleMessage:: Client waiting to connect to the server \n"&lt;&lt;endl;
+			::Sleep(100);
+		}</div>
+		HttpMessage msg = makeMessage(2, splitMsg, "localhost::8080");
+		msg.addAttribute(HttpMessage::Attribute("messageType", "downloadHtmFileFromServer"));
+		cout &lt;&lt; endl;
+		sendMessage(msg, si);
+		cout &lt;&lt; " \n MsgClient::executeGetAllFilesFromRepositoryBasedOnCategory::Message has been sent to the Repository server from the Client" &lt;&lt; endl;
+	}</div>
+	catch (std::exception& exc)
+	{
+<input onclick="expand_collapse(simplediv1463.id, this.id)" type="button" value=" ^ " id="myButton1463" /><div id="simplediv1463" style="display:block; ">
+		cout&lt;&lt;"\n  Exeception caught in the method executeSingleMessage: \n";
+		std::string exMsg = "\n  " + std::string(exc.what()) + "\n\n";
+		cout &lt;&lt; exMsg &lt;&lt; endl;
+	}</div>
+
+}</div>
+
+void MsgClient::executeRunCodeAnalyzerOnServer(string requestMsg)
+{
+<input onclick="expand_collapse(simplediv1464.id, this.id)" type="button" value=" ^ " id="myButton1464" /><div id="simplediv1464" style="display:block; ">
+	ClientCounter counter;
+	size_t myCount = counter.count();
+	std::string myCountString = Utilities::Converter&lt;size_t&gt;::toString(myCount);
+    cout &lt;&lt; " \n MsgClient::executeSingleFileDownloadMessage:: A request for downloadfile has been recieved from wpf by client \n";
+	cout &lt;&lt; "\n Starting HttpMessage client" + myCountString + " on thread " + Utilities::Converter&lt;std::thread::id&gt;::toString(std::this_thread::get_id()) &lt;&lt; endl;
+	try
+	{
+<input onclick="expand_collapse(simplediv1465.id, this.id)" type="button" value=" ^ " id="myButton1465" /><div id="simplediv1465" style="display:block; ">
+		SocketSystem ss;
+		SocketConnecter si;
+		while (!si.connect("localhost", 8080))
+		{
+<input onclick="expand_collapse(simplediv1466.id, this.id)" type="button" value=" ^ " id="myButton1466" /><div id="simplediv1466" style="display:block; ">
+			cout &lt;&lt; "\n MsgClient::executeRunCodeAnalyzerOnServer:: Client waiting to connect to the server \n" &lt;&lt; endl;
+			::Sleep(100);
+		}</div>
+		HttpMessage msg = makeMessage(1, requestMsg, "localhost::8080");
+		msg.addAttribute(HttpMessage::Attribute("messageType", "runCodeAnalyzer"));
+		cout &lt;&lt; endl;
+		sendMessage(msg, si);
+		cout &lt;&lt; " \n Requirement 7 is met: HTTP Message for code Analysis has been sent to the Repository" &lt;&lt; endl;
+	}</div>
+	catch (std::exception& exc)
+	{
+<input onclick="expand_collapse(simplediv1467.id, this.id)" type="button" value=" ^ " id="myButton1467" /><div id="simplediv1467" style="display:block; ">
+		cout &lt;&lt; "\n  Exeception caught in the method executeRunCodeAnalyzerOnServer: \n";
+		std::string exMsg = "\n  " + std::string(exc.what()) + "\n\n";
+		cout &lt;&lt; exMsg &lt;&lt; endl;
+	}</div>
+}</div>
+
+void MsgClient::executeSingleMessage(string filepath)
+{
+<input onclick="expand_collapse(simplediv1468.id, this.id)" type="button" value=" ^ " id="myButton1468" /><div id="simplediv1468" style="display:block; ">
+	ClientCounter counter;
+	size_t myCount = counter.count();
+	std::string myCountString = Utilities::Converter&lt;size_t&gt;::toString(myCount);
+    cout &lt;&lt; " \n MsgClient::executeSingleMessage:: A request for uploadfile has been recieved from wpf by client \n"&lt;&lt;endl;
+	cout &lt;&lt; "\n Starting HttpMessage client" + myCountString + " on thread " + Utilities::Converter&lt;std::thread::id&gt;::toString(std::this_thread::get_id()) &lt;&lt; endl;
+
+	try
+	{
+<input onclick="expand_collapse(simplediv1469.id, this.id)" type="button" value=" ^ " id="myButton1469" /><div id="simplediv1469" style="display:block; ">
+		SocketSystem ss;
+		SocketConnecter si;
+		while (!si.connect("localhost", 8080))
+		{
+<input onclick="expand_collapse(simplediv1470.id, this.id)" type="button" value=" ^ " id="myButton1470" /><div id="simplediv1470" style="display:block; ">
+			cout &lt;&lt; "\n MsgClient::executeSingleMessage:: Client waiting to connect to the server \n" &lt;&lt; endl;
+			::Sleep(100);
+		}</div>
+		sendFile(filepath, si);
+	}</div>
+	catch (std::exception& exc)
+	{
+<input onclick="expand_collapse(simplediv1471.id, this.id)" type="button" value=" ^ " id="myButton1471" /><div id="simplediv1471" style="display:block; ">
+		cout &lt;&lt; "\n  Exeception caught in the method executeSingleMessage: \n";
+		std::string exMsg = "\n  " + std::string(exc.what()) + "\n\n";
+		cout &lt;&lt; exMsg &lt;&lt; endl;
+	}</div>
+}</div>
+
+void MsgClient::executeGetAllFilesFromRepositoryBasedOnCategory(string getmsgtoretrievefilenames)
+{
+<input onclick="expand_collapse(simplediv1472.id, this.id)" type="button" value=" ^ " id="myButton1472" /><div id="simplediv1472" style="display:block; ">
+
+	std::string filecategory = getmsgtoretrievefilenames.substr(getmsgtoretrievefilenames.find('$') + 1);
+	cout &lt;&lt; "\n MsgClient::executeGetAllFilesFromRepositoryBasedOnCategory::filecategory selected by the user is: " &lt;&lt; filecategory &lt;&lt; endl;
+    cout &lt;&lt;"\n MsgClient::executeGetAllFilesFromRepositoryBasedOnCategory::A request for getFiles has been recieved from wpf by client"&lt;&lt;endl;
+	cout &lt;&lt; endl;
+	ClientCounter counter;
+	size_t myCount = counter.count();
+	std::string myCountString = Utilities::Converter&lt;size_t&gt;::toString(myCount);
+	cout &lt;&lt; "\n Starting HttpMessage client" + myCountString + " on thread " + Utilities::Converter&lt;std::thread::id&gt;::toString(std::this_thread::get_id()) &lt;&lt; endl;
+	cout &lt;&lt; "\nA request for getfiles has been recieved from WPF GUI to client"&lt;&lt;endl;
+	cout &lt;&lt; endl;
+	try
+	{
+<input onclick="expand_collapse(simplediv1473.id, this.id)" type="button" value=" ^ " id="myButton1473" /><div id="simplediv1473" style="display:block; ">
+		SocketSystem ss;
+		SocketConnecter si;
+		while (!si.connect("localhost", 8080))
+		{
+<input onclick="expand_collapse(simplediv1474.id, this.id)" type="button" value=" ^ " id="myButton1474" /><div id="simplediv1474" style="display:block; ">
+			cout &lt;&lt; "\n MsgClient::executeGetAllFilesFromRepositoryBasedOnCategory:: Client waiting to connect to the server \n" &lt;&lt; endl;
+			::Sleep(100);
+		}</div>
+		HttpMessage msg = makeMessage(2, "getFilesRequest", "localhost::8080");
+		msg.addAttribute(HttpMessage::Attribute("messageType", "getFileNamesFromServer"));
+		msg.addAttribute(HttpMessage::Attribute("FileCategory", filecategory));
+		//sending message
+		cout &lt;&lt; endl;
+		sendMessage(msg, si);
+		cout &lt;&lt; " \n Requirement 7 is met: HTTP Message request for Files based on category has been sent to the Repository server" &lt;&lt; endl;
+	}</div>
+	catch (std::exception& exc)
+	{
+<input onclick="expand_collapse(simplediv1475.id, this.id)" type="button" value=" ^ " id="myButton1475" /><div id="simplediv1475" style="display:block; ">
+		cout &lt;&lt; "\n  Exeception caught in the method executeGetAllFilesFromRepositoryBasedOnCategory: \n";
+		std::string exMsg = "\n  " + std::string(exc.what()) + "\n\n";
+		cout &lt;&lt; exMsg &lt;&lt; endl;
+	}</div>
+}</div>
+
+void MsgClient::executeGetCategoriesMessage()
+{
+<input onclick="expand_collapse(simplediv1476.id, this.id)" type="button" value=" ^ " id="myButton1476" /><div id="simplediv1476" style="display:block; ">
+	try {
+<input onclick="expand_collapse(simplediv1477.id, this.id)" type="button" value=" ^ " id="myButton1477" /><div id="simplediv1477" style="display:block; ">
+		cout &lt;&lt; endl;
+	    cout&lt;&lt;" MsgClient::executeGetCategoriesMessage::A request for getcategories has been recieved from wpf by client"&lt;&lt;endl;
+	    cout &lt;&lt; endl;
+	    ClientCounter counter;
+	    size_t myCount = counter.count();
+	    std::string myCountString = Utilities::Converter&lt;size_t&gt;::toString(myCount);
+	    cout &lt;&lt; "\n Starting HttpMessage client" + myCountString + " on thread " + Utilities::Converter&lt;std::thread::id&gt;::toString(std::this_thread::get_id()) &lt;&lt; endl;
+	    cout &lt;&lt; endl;
+        cout &lt;&lt; "\nA request for getcategories has been recieved from WPF GUI to client"&lt;&lt;endl;
+	    cout &lt;&lt; endl;
+	
+		SocketSystem ss;
+		SocketConnecter si;
+		while (!si.connect("localhost", 8080))
+		{
+<input onclick="expand_collapse(simplediv1478.id, this.id)" type="button" value=" ^ " id="myButton1478" /><div id="simplediv1478" style="display:block; ">
+			cout &lt;&lt; "\n MsgClient::executeGetCategoriesMessage:: Client waiting to connect to the server \n" &lt;&lt; endl;
+			::Sleep(100);
+		}</div>
+		HttpMessage msg = makeMessage(2, "getcategoriesrequest", "localhost::8080");
+		msg.addAttribute(HttpMessage::Attribute("messageType", "getCategories"));
+		//sending message
+		cout &lt;&lt; endl;
+		sendMessage(msg, si);
+		cout &lt;&lt; " \n Requirement 7 is met: HTTP Message Request for categories has been sent to the Repository " &lt;&lt; endl;
+	}</div>
+	catch (std::exception& exc)
+	{
+<input onclick="expand_collapse(simplediv1479.id, this.id)" type="button" value=" ^ " id="myButton1479" /><div id="simplediv1479" style="display:block; ">
+		cout &lt;&lt; "\n  Exeception caught in the method executeGetCategoriesMessage: \n";
+		std::string exMsg = "\n  " + std::string(exc.what()) + "\n\n";
+		cout &lt;&lt; exMsg &lt;&lt; endl;
+	}</div>
+}</div>
+
+
+#ifdef  TEST_MESSAGE_CLIENT
+int main(int argc, char* argv[])
+{
+<input onclick="expand_collapse(simplediv1480.id, this.id)" type="button" value=" ^ " id="myButton1480" /><div id="simplediv1480" style="display:block; ">
+	::SetConsoleTitle("Clients Running on Threads");
+
+	Show::title("Demonstrating two HttpMessage Clients each running on a child thread");
+
+	MsgClient c1;
+	std::thread t1(
+		[&]() {
+<input onclick="expand_collapse(simplediv1481.id, this.id)" type="button" value=" ^ " id="myButton1481" /><div id="simplediv1481" style="display:block; "> c1.execute(100, 20); }</div> // 20 messages 100 millisec apart
+	);
+
+	std::thread t2([&]() {
+<input onclick="expand_collapse(simplediv1482.id, this.id)" type="button" value=" ^ " id="myButton1482" /><div id="simplediv1482" style="display:block; "> c1.startReceiver(argc, argv); }</div>);
+
+	//MsgClient c2;
+	//std::thread t2(
+	//	[&]() {
+<input onclick="expand_collapse(simplediv1483.id, this.id)" type="button" value=" ^ " id="myButton1483" /><div id="simplediv1483" style="display:block; "> c2.execute(120, 20); }</div> // 20 messages 120 millisec apart
+	//);
+	t1.join();
+	t2.join();
+	//t2.join();
+	getchar();
+}</div>
+#endif //  TEST_MESSAGE_CLIENT</pre>
+</body>
+</html>

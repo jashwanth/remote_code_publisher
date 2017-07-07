@@ -1,0 +1,40 @@
+
+                                             CodeAnalysis
+    ==============================================================================================
+     Fri Oct 28 13:35:26 2016
+     Path: C:\Users\jfawc\Desktop\CodeAnalyzer\TestFiles
+     Args: Test1.cpp, Test1.h, Test2.cpp, /m, /r, /f
+                                                                               
+           Code Metrics - Start Line, Size (lines/code), and Complexity (number of scopes)
+    ==============================================================================================
+
+                 file name        type                               name    line    size    cplx
+    -----------------------  ----------  ---------------------------------  ------  ------  ------
+                             namespace                   Global Namespace       1       1       9
+
+                 file name        type                               name    line    size    cplx
+    -----------------------  ----------  ---------------------------------  ------  ------  ------
+                   Test1.h   namespace                               Test       8      12       5
+                   Test1.h       class                              Test1      10      10       4
+                   Test1.h    function                           doThing1      15       2       1
+
+                 file name        type                               name    line    size    cplx
+    -----------------------  ----------  ---------------------------------  ------  ------  ------
+                 Test1.cpp    function                              Test1       6       2       1
+                 Test1.cpp    function                             ~Test1       8       2       1
+                 Test1.cpp    function                           toString      13       5       1
+                 Test1.cpp    function                               main      24       5       1
+
+                 file name        type                               name    line    size    cplx
+    -----------------------  ----------  ---------------------------------  ------  ------  ------
+                 Test2.cpp    function                               main       9       3       1
+
+                          Functions Exceeding Metric Limits and Public Data
+    ==============================================================================================
+                 file name        type                               name    line    size    cplx
+    -----------------------  ----------  ---------------------------------  ------  ------  ------
+
+
+
+    searched     4 dirs
+   processed     3 files

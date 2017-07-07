@@ -1,0 +1,683 @@
+
+                                             CodeAnalysis
+    ==============================================================================================
+     Sun Feb 26 11:39:32 2017
+     Path: "C:\Users\James\Desktop\CodeAnalyzerEx"
+     Args: *.h, *.cpp, *.cs, /f, /r
+     Processing file: C:\Users\James\Desktop\CodeAnalyzerEx\AbstractSyntaxTree\AbstrSynTree.h              Processing file: C:\Users\James\Desktop\CodeAnalyzerEx\Analyzer\DepAnal.h                             Processing file: C:\Users\James\Desktop\CodeAnalyzerEx\Analyzer\Executive.h                           Processing file: C:\Users\James\Desktop\CodeAnalyzerEx\Cpp11-BlockingQueue\Cpp11-BlockingQueue.h      Processing file: C:\Users\James\Desktop\CodeAnalyzerEx\FileMgr\FileMgr.h                              Processing file: C:\Users\James\Desktop\CodeAnalyzerEx\FileMgr\IFileMgr.h                             Processing file: C:\Users\James\Desktop\CodeAnalyzerEx\FileSystem\FileSystem.h                        Processing file: C:\Users\James\Desktop\CodeAnalyzerEx\FileSystem\TestFileSystem\CopyOfUnitTest.h     Processing file: C:\Users\James\Desktop\CodeAnalyzerEx\FileSystem\TestFileSystem\UnitTest.h           Processing file: C:\Users\James\Desktop\CodeAnalyzerEx\GrammarHelpers\GrammarHelpers.h                Processing file: C:\Users\James\Desktop\CodeAnalyzerEx\GUI\Window.h                                   Processing file: C:\Users\James\Desktop\CodeAnalyzerEx\Logger\Logger.h                                Processing file: C:\Users\James\Desktop\CodeAnalyzerEx\Parser\ActionsAndRules.h                       Processing file: C:\Users\James\Desktop\CodeAnalyzerEx\Parser\ConfigureParser.h                       Processing file: C:\Users\James\Desktop\CodeAnalyzerEx\Parser\Parser.h                                Processing file: C:\Users\James\Desktop\CodeAnalyzerEx\ScopeStack\ScopeStack.h                        Processing file: C:\Users\James\Desktop\CodeAnalyzerEx\SemiExp\itokcollection.h                       Processing file: C:\Users\James\Desktop\CodeAnalyzerEx\SemiExp\SemiExp.h                              Processing file: C:\Users\James\Desktop\CodeAnalyzerEx\TestFiles\Test1.h                              Processing file: C:\Users\James\Desktop\CodeAnalyzerEx\Tokenizer\Tokenizer.h                          Processing file: C:\Users\James\Desktop\CodeAnalyzerEx\Utilities\Utilities.h                          Processing file: C:\Users\James\Desktop\CodeAnalyzerEx\AbstractSyntaxTree\AbstrSynTree.cpp            Processing file: C:\Users\James\Desktop\CodeAnalyzerEx\Analyzer\DepAnal.cpp                           Processing file: C:\Users\James\Desktop\CodeAnalyzerEx\Analyzer\Executive.cpp                         Processing file: C:\Users\James\Desktop\CodeAnalyzerEx\Cpp11-BlockingQueue\Cpp11-BlockingQueue.cp     Processing file: C:\Users\James\Desktop\CodeAnalyzerEx\FileMgr\FileMgr.cpp                            Processing file: C:\Users\James\Desktop\CodeAnalyzerEx\FileSystem\FileSystem.cpp                      Processing file: C:\Users\James\Desktop\CodeAnalyzerEx\FileSystem\TestFileSystem\FileSystemTest.c     Processing file: C:\Users\James\Desktop\CodeAnalyzerEx\FileSystem\TestFileSystem\UnitTest.cpp         Processing file: C:\Users\James\Desktop\CodeAnalyzerEx\GrammarHelpers\GrammarHelpers.cpp              Processing file: C:\Users\James\Desktop\CodeAnalyzerEx\GUI\Window.cpp                                 Processing file: C:\Users\James\Desktop\CodeAnalyzerEx\Logger\Logger.cpp                              Processing file: C:\Users\James\Desktop\CodeAnalyzerEx\Parser\ActionsAndRules.cpp                     Processing file: C:\Users\James\Desktop\CodeAnalyzerEx\Parser\ConfigureParser.cpp                     Processing file: C:\Users\James\Desktop\CodeAnalyzerEx\Parser\Parser.cpp                              Processing file: C:\Users\James\Desktop\CodeAnalyzerEx\ScopeStack\ScopeStack.cpp                      Processing file: C:\Users\James\Desktop\CodeAnalyzerEx\SemiExp\SemiExp.cpp                            Processing file: C:\Users\James\Desktop\CodeAnalyzerEx\TestFiles\Test1.cpp                            Processing file: C:\Users\James\Desktop\CodeAnalyzerEx\TestFiles\Test2.cpp                            Processing file: C:\Users\James\Desktop\CodeAnalyzerEx\Tokenizer\Tokenizer.cpp                        Processing file: C:\Users\James\Desktop\CodeAnalyzerEx\Utilities\Utilities.cpp                        Processing file: C:\Users\James\Desktop\CodeAnalyzerEx\TestFiles-CS\Program.cs                        Processing file: C:\Users\James\Desktop\CodeAnalyzerEx\TestFiles-CS\obj\Debug\TemporaryGeneratedF     Processing file: C:\Users\James\Desktop\CodeAnalyzerEx\TestFiles-CS\obj\Debug\TemporaryGeneratedF     Processing file: C:\Users\James\Desktop\CodeAnalyzerEx\TestFiles-CS\obj\Debug\TemporaryGeneratedF     Processing file: C:\Users\James\Desktop\CodeAnalyzerEx\TestFiles-CS\Properties\AssemblyInfo.cs                                                                                                                                                                                        
+                          Functions Exceeding Metric Limits and Public Data
+    ==============================================================================================
+                 file name        type                               name    line    size    cplx
+    -----------------------  ----------  ---------------------------------  ------  ------  ------
+         ActionsAndRules.h    function                           doAction     590      85       6
+       ConfigureParser.cpp    function                              Build      89      98       3
+   Cpp11-BlockingQueue.cpp    function                               main      37      52       3
+             Executive.cpp    function                  processSourceCode     366      95       8
+             Executive.cpp    function                               main     865      52       4
+            FileSystem.cpp    function                               main     769     438      31
+        GrammarHelpers.cpp    function              isFirstArgDeclaration     164      54       2
+        GrammarHelpers.cpp    function                               main     584      59      17
+                Parser.cpp    function                               main      89      55       8
+            ScopeStack.cpp    function                               main      49      75       1
+             Tokenizer.cpp    function                          nextState     192      79      14
+             Tokenizer.cpp    function                               main     663      79       7
+                Window.cpp    function                    getUserSettings     104      57       4
+                Window.cpp    function                 setUpDisplaysPanel     501      53       1
+                Window.cpp    function              createDisplayModeView     566      54       1
+                Window.cpp    function                    browseForFolder     701      52       5
+                Window.cpp    function                  browseForFolderEx     760      54       6
+
+              public data: AbstrSynTree.h : 72 - struct DeclarationNode
+                Scanner :: ITokCollection * pTc = nullptr ; 
+              public data: AbstrSynTree.h : 73 - struct DeclarationNode
+                Access access_ ; 
+              public data: AbstrSynTree.h : 74 - struct DeclarationNode
+                DeclType declType_ ; 
+              public data: AbstrSynTree.h : 75 - struct DeclarationNode
+                std :: string package_ ; 
+              public data: AbstrSynTree.h : 76 - struct DeclarationNode
+                size_t line_ ; 
+              public data: AbstrSynTree.h : 89 - struct ASTNode
+                Type type_ ; 
+              public data: AbstrSynTree.h : 90 - struct ASTNode
+                Name name_ ; 
+              public data: AbstrSynTree.h : 91 - struct ASTNode
+                Package package_ ; 
+              public data: AbstrSynTree.h : 92 - struct ASTNode
+                Path path_ ; 
+              public data: AbstrSynTree.h : 93 - struct ASTNode
+                size_t startLineCount_ ; 
+              public data: AbstrSynTree.h : 94 - struct ASTNode
+                size_t endLineCount_ ; 
+              public data: AbstrSynTree.h : 95 - struct ASTNode
+                size_t complexity_ ; 
+              public data: AbstrSynTree.h : 96 - struct ASTNode
+                std :: vector < ASTNode * > children_ ; 
+              public data: AbstrSynTree.h : 97 - struct ASTNode
+                std :: vector < DeclarationNode > decl_ ; 
+              public data: AbstrSynTree.h : 98 - struct ASTNode
+                std :: vector < Scanner :: ITokCollection * > statements_ ; 
+              public data: Program.cs : 11 - class Program
+                public int aPublicDataMember = 3 ; 
+              public data: ScopeStack.cpp : 26 - struct element
+                std :: string type ; 
+              public data: ScopeStack.cpp : 27 - struct element
+                std :: string name ; 
+              public data: ScopeStack.cpp : 28 - struct element
+                size_t startLineCount = 0 ; 
+              public data: ScopeStack.cpp : 29 - struct element
+                size_t endLineCount = 0 ; 
+              public data: ScopeStack.cpp : 30 - struct element
+                std :: string path_ ; 
+              public data: Tokenizer.cpp : 34 - struct Context
+                std :: string token ; 
+              public data: Tokenizer.cpp : 35 - struct Context
+                std :: istream * _pIn ; 
+              public data: Window.h : 102 - struct Settings
+                bool h ; 
+              public data: Window.h : 102 - struct Settings
+                bool cpp ; 
+              public data: Window.h : 102 - struct Settings
+                bool cs ; 
+              public data: Window.h : 103 - struct Settings
+                bool upatt ; 
+              public data: Window.h : 104 - struct Settings
+                bool cl ; 
+              public data: Window.h : 105 - struct Settings
+                bool metrics ; 
+              public data: Window.h : 106 - struct Settings
+                bool ast ; 
+              public data: Window.h : 107 - struct Settings
+                bool slocs ; 
+              public data: Window.h : 108 - struct Settings
+                bool logfile ; 
+              public data: Window.h : 109 - struct Settings
+                bool rslt ; 
+              public data: Window.h : 110 - struct Settings
+                bool demo ; 
+              public data: Window.h : 111 - struct Settings
+                bool dbug ; 
+
+
+    searched   104 dirs
+   processed    46 files
+
+  Code Analysis completed
+  starting type analysis:
+
+    -- C:\Users\James\Desktop\CodeAnalyzerEx\AbstractSyntaxTree\AbstrSynTree.h\AbstrSynTree.h
+    -- C:\Users\James\Desktop\CodeAnalyzerEx\AbstractSyntaxTree\AbstrSynTree.cpp\AbstrSynTree.cpp
+  ASTNode, function
+  ASTNode, function
+  ~ASTNode, function
+  show, function
+    -- C:\Users\James\Desktop\CodeAnalyzerEx\AbstractSyntaxTree\AbstrSynTree.h\AbstrSynTree.h
+    -- C:\Users\James\Desktop\CodeAnalyzerEx\AbstractSyntaxTree\AbstrSynTree.cpp\AbstrSynTree.cpp
+  AbstrSynTree, function
+  ~AbstrSynTree, function
+  root, function
+  typeMap, function
+  add, function
+  pop, function
+  find, function
+    -- C:\Users\James\Desktop\CodeAnalyzerEx\AbstractSyntaxTree\AbstrSynTree.h\AbstrSynTree.h
+  ASTWalk, function
+  ASTWalkNoIndent, function
+  complexityWalk, function
+  complexityEval, function
+    -- C:\Users\James\Desktop\CodeAnalyzerEx\Analyzer\DepAnal.h\DepAnal.h
+  TypeAnal, function
+  [], lambda
+  DFS, function
+  doTypeAnal, function
+    -- C:\Users\James\Desktop\CodeAnalyzerEx\Analyzer\Executive.h\Executive.h
+    -- C:\Users\James\Desktop\CodeAnalyzerEx\Analyzer\Executive.cpp\Executive.cpp
+  AnalFileMgr, function
+  file, function
+  dir, function
+  done, function
+  numFiles, function
+  numDirs, function
+    -- C:\Users\James\Desktop\CodeAnalyzerEx\Analyzer\Executive.h\Executive.h
+    -- C:\Users\James\Desktop\CodeAnalyzerEx\Analyzer\Executive.cpp\Executive.cpp
+  CodeAnalysisExecutive, function
+  ~CodeAnalysisExecutive, function
+  showCommandLineArguments, function
+  ProcessCommandLine, function
+  getAnalysisPath, function
+  getFileMap, function
+  getSourceFiles, function
+  cppHeaderFiles, function
+  cppImplemFiles, function
+  csharpFiles, function
+  fileSLOCs, function
+  numFiles, function
+  numDirs, function
+  showActivity, function
+  string, function
+  clearActivity, function
+  setLanguage, function
+  processSourceCode, function
+  complexityAnalysis, function
+  displayHeader, function
+  displayMetricsLine, function
+  string, function
+  showData, function
+  displayDataLines, function
+  displayMetrics, function
+  void, function
+  displayMetrics, function
+  displayAST, function
+  displayMetricSummary, function
+  void, function
+  displaySlocs, function
+  dispatchOptionalDisplays, function
+  setDisplayModes, function
+  startLogger, function
+  flushLogger, function
+  stopLogger, function
+  setLogFile, function
+  systemTime, function
+    -- C:\Users\James\Desktop\CodeAnalyzerEx\Cpp11-BlockingQueue\Cpp11-BlockingQueue.h\Cpp11-BlockingQueue.h
+  BlockingQueue, function
+  BlockingQueue, function
+  operator=, function
+  deQ, function
+  enQ, function
+  front, function
+  clear, function
+  size, function
+    -- C:\Users\James\Desktop\CodeAnalyzerEx\FileMgr\FileMgr.h\FileMgr.h
+  ~FileMgr, function
+  FileMgr, function
+  getInstance, function
+  addPattern, function
+  file, function
+  dir, function
+  done, function
+  search, function
+  find, function
+  regForFiles, function
+  regForDirs, function
+  regForDone, function
+  create, function
+    -- C:\Users\James\Desktop\CodeAnalyzerEx\FileMgr\IFileMgr.h\IFileMgr.h
+  ~IFileMgr, function
+    -- C:\Users\James\Desktop\CodeAnalyzerEx\FileMgr\FileMgr.cpp\FileMgr.cpp
+  getInstance, function
+    -- C:\Users\James\Desktop\CodeAnalyzerEx\FileMgr\IFileMgr.h\IFileMgr.h
+    -- C:\Users\James\Desktop\CodeAnalyzerEx\FileSystem\FileSystem.h\FileSystem.h
+  Block, function
+    -- C:\Users\James\Desktop\CodeAnalyzerEx\FileSystem\FileSystem.cpp\FileSystem.cpp
+  Block, function
+  push_back, function
+  operator[], function
+  operator[], function
+  operator==, function
+  operator!=, function
+  size, function
+    -- C:\Users\James\Desktop\CodeAnalyzerEx\FileSystem\FileSystem.h\FileSystem.h
+  name, function
+    -- C:\Users\James\Desktop\CodeAnalyzerEx\FileSystem\FileSystem.cpp\FileSystem.cpp
+  File, function
+  ~File, function
+  open, function
+  getLine, function
+  readAll, function
+  putLine, function
+  getBlock, function
+  putBlock, function
+  getBuffer, function
+  putBuffer, function
+  isGood, function
+  flush, function
+  clear, function
+  close, function
+  exists, function
+  copy, function
+  remove, function
+    -- C:\Users\James\Desktop\CodeAnalyzerEx\FileSystem\FileSystem.h\FileSystem.h
+    -- C:\Users\James\Desktop\CodeAnalyzerEx\FileSystem\FileSystem.cpp\FileSystem.cpp
+  FileInfo, function
+  good, function
+  name, function
+  intToString, function
+  date, function
+  size, function
+  isArchive, function
+  isCompressed, function
+  isDirectory, function
+  isEncrypted, function
+  isHidden, function
+  isNormal, function
+  isOffLine, function
+  isReadOnly, function
+  isSystem, function
+  isTemporary, function
+  operator<, function
+  operator==, function
+  operator>, function
+  earlier, function
+  later, function
+  smaller, function
+  larger, function
+    -- C:\Users\James\Desktop\CodeAnalyzerEx\FileSystem\FileSystem.h\FileSystem.h
+    -- C:\Users\James\Desktop\CodeAnalyzerEx\FileSystem\FileSystem.cpp\FileSystem.cpp
+  toLower, function
+  toUpper, function
+  getName, function
+  getExt, function
+  getPath, function
+  getFullFileSpec, function
+  fileSpec, function
+    -- C:\Users\James\Desktop\CodeAnalyzerEx\FileSystem\FileSystem.h\FileSystem.h
+    -- C:\Users\James\Desktop\CodeAnalyzerEx\FileSystem\FileSystem.cpp\FileSystem.cpp
+  getCurrentDirectory, function
+  setCurrentDirectory, function
+  getFiles, function
+  getDirectories, function
+  create, function
+  exists, function
+  remove, function
+    -- C:\Users\James\Desktop\CodeAnalyzerEx\FileSystem\TestFileSystem\CopyOfUnitTest.h\CopyOfUnitTest.h
+  Title, function
+  ~TestBase, function
+  doTest, function
+  checkResult, function
+  passed, function
+  failed, function
+    -- C:\Users\James\Desktop\CodeAnalyzerEx\FileSystem\TestFileSystem\UnitTest.h\UnitTest.h
+  Title, function
+  ~TestBase, function
+  doTest, function
+  checkResult, function
+  passed, function
+  failed, function
+    -- C:\Users\James\Desktop\CodeAnalyzerEx\GrammarHelpers\GrammarHelpers.h\GrammarHelpers.h
+    -- C:\Users\James\Desktop\CodeAnalyzerEx\GrammarHelpers\GrammarHelpers.cpp\GrammarHelpers.cpp
+  isControlKeyWord, function
+  hasControlKeyWord, function
+  isFunction, function
+  hasArgs, function
+  isFunctionDefinition, function
+  findLast, function
+  isQualifierKeyWord, function
+  removeQualifiers, function
+  removeCallingArgQualifiers, function
+  isFirstArgDeclaration, function
+  isFunctionDeclaration, function
+  isFunctionInvocation, function
+  hasFunctionInvocation, function
+  isDataDeclaration, function
+  isExecutable, function
+  removeCppInitializers, function
+  removeCSharpInitializers, function
+  removeComments, function
+  condenseTemplateTypes, function
+  removeFunctionArgs, function
+  showParse, function
+  showParseDemo, function
+    -- C:\Users\James\Desktop\CodeAnalyzerEx\GUI\Window.h\Window.h
+    -- C:\Users\James\Desktop\CodeAnalyzerEx\GUI\Window.cpp\Window.cpp
+  WPFCppCliDemo, function
+  ~WPFCppCliDemo, function
+  getUserSettings, function
+  saveUserSettings, function
+  setupTabSelected, function
+  executionTabSelected, function
+  procModeTabSelected, function
+  setUpStatusBar, function
+  setUpTabControl, function
+  setTextBlockProperties, function
+  setButtonsProperties, function
+  createExecutionView, function
+  setUpGrid, function
+  setUpBinding, function
+  setUpSearchButtons, function
+  setupFileList, function
+  setUpPathPanel, function
+  setupFileSearch, function
+  setUpPatternsStacks, function
+  setUpSearchPanel, function
+  setUpDisplaysPanel, function
+  createSetupView, function
+  createDisplayModeView, function
+  setCmdLineArgs, function
+  doExecute, function
+  execute, function
+  browseForFolder, function
+  browseForFolderEx, function
+  OnLoaded, function
+  Unloading, function
+  OnExecuteViewTextChanged, function
+  OnSetupViewTextChanged, function
+    -- C:\Users\James\Desktop\CodeAnalyzerEx\Logger\Logger.h\Logger.h
+  Logger, function
+    -- C:\Users\James\Desktop\CodeAnalyzerEx\Logger\Logger.cpp\Logger.cpp
+  write, function
+  title, function
+  attach, function
+  start, function
+  void, function
+  running, function
+  pause, function
+  paused, function
+  flush, function
+  stop, function
+  wait, function
+  ~Logger, function
+    -- C:\Users\James\Desktop\CodeAnalyzerEx\Logger\Logger.h\Logger.h
+  attach, function
+  start, function
+  running, function
+  pause, function
+  paused, function
+  flush, function
+  stop, function
+  wait, function
+  write, function
+  title, function
+  instance, function
+    -- C:\Users\James\Desktop\CodeAnalyzerEx\Parser\ActionsAndRules.h\ActionsAndRules.h
+  Repository, function
+  ~Repository, function
+  language, function
+  package, function
+  currentPath, function
+  currentAccess, function
+  getInstance, function
+  scopeStack, function
+  AST, function
+  getGlobalScope, function
+  Toker, function
+  lineCount, function
+  doTest, function
+  HandleBeginScope, function
+  doAction, function
+  doTest, function
+  HandleEndScope, function
+  doAction, function
+  doTest, function
+  HandleAccessSpecifier, function
+  doAction, function
+  doTest, function
+  HandlePreprocStatement, function
+  doAction, function
+  doTest, function
+  HandleNamespaceDefinition, function
+  doAction, function
+  doTest, function
+  HandleClassDefinition, function
+  doAction, function
+  doTest, function
+  HandleStructDefinition, function
+  doAction, function
+  doTest, function
+  HandleCppFunctionDefinition, function
+  doAction, function
+  doTest, function
+  HandleCSharpFunctionDefinition, function
+  doAction, function
+  doTest, function
+  HandleControlDefinition, function
+  doAction, function
+  PrintFunction, function
+  doAction, function
+  PrettyPrintFunction, function
+  doAction, function
+  doTest, function
+  HandleCppDeclaration, function
+  doAction, function
+  doTest, function
+  HandleCSharpDeclaration, function
+  doAction, function
+  doTest, function
+  HandleCppExecutable, function
+  doAction, function
+  doTest, function
+  HandleCSharpExecutable, function
+  doAction, function
+  doTest, function
+  HandleDefault, function
+  doAction, function
+    -- C:\Users\James\Desktop\CodeAnalyzerEx\Parser\ConfigureParser.h\ConfigureParser.h
+  ConfigParseForCodeAnal, function
+    -- C:\Users\James\Desktop\CodeAnalyzerEx\Parser\ConfigureParser.cpp\ConfigureParser.cpp
+  ~ConfigParseForCodeAnal, function
+  Attach, function
+  Build, function
+    -- C:\Users\James\Desktop\CodeAnalyzerEx\Parser\Parser.h\Parser.h
+  ~IBuilder, function
+  ~IAction, function
+  ~IRule, function
+    -- C:\Users\James\Desktop\CodeAnalyzerEx\Parser\Parser.cpp\Parser.cpp
+  addAction, function
+  doActions, function
+    -- C:\Users\James\Desktop\CodeAnalyzerEx\Parser\Parser.h\Parser.h
+  Parser, function
+  ~Parser, function
+    -- C:\Users\James\Desktop\CodeAnalyzerEx\Parser\Parser.cpp\Parser.cpp
+  addRule, function
+  next, function
+  parse, function
+    -- C:\Users\James\Desktop\CodeAnalyzerEx\ScopeStack\ScopeStack.h\ScopeStack.h
+  ScopeStack, function
+  size, function
+  begin, function
+  end, function
+  push, function
+  pop, function
+  top, function
+  predOfTop, function
+  showStack, function
+  showStack, function
+  TreeWalk, function
+    -- C:\Users\James\Desktop\CodeAnalyzerEx\SemiExp\itokcollection.h\itokcollection.h
+  ~ITokCollection, function
+    -- C:\Users\James\Desktop\CodeAnalyzerEx\SemiExp\SemiExp.h\SemiExp.h
+    -- C:\Users\James\Desktop\CodeAnalyzerEx\SemiExp\SemiExp.cpp\SemiExp.cpp
+  SemiExp, function
+  SemiExp, function
+  SemiExp, function
+  operator=, function
+  operator=, function
+  begin, function
+  end, function
+  find, function
+  push_back, function
+  remove, function
+  remove, function
+  trimFront, function
+  trim, function
+  toLower, function
+  clear, function
+  isComment, function
+  currentLineCount, function
+  isSemiColonBetweenParens, function
+  get, function
+  isTerminator, function
+  getHelper, function
+  clone, function
+  clone, function
+  operator[], function
+  operator[], function
+  length, function
+  show, function
+    -- C:\Users\James\Desktop\CodeAnalyzerEx\TestFiles\Test1.h\Test1.h
+  doThing1, function
+    -- C:\Users\James\Desktop\CodeAnalyzerEx\TestFiles\Test1.cpp\Test1.cpp
+  Test1, function
+  ~Test1, function
+    -- C:\Users\James\Desktop\CodeAnalyzerEx\Tokenizer\Tokenizer.h\Tokenizer.h
+    -- C:\Users\James\Desktop\CodeAnalyzerEx\Tokenizer\Tokenizer.cpp\Tokenizer.cpp
+  Toker, function
+  ~Toker, function
+  attach, function
+  getTok, function
+  canRead, function
+  returnComments, function
+  isComment, function
+  currentLineCount, function
+  setSpecialTokens, function
+    -- C:\Users\James\Desktop\CodeAnalyzerEx\Utilities\Utilities.h\Utilities.h
+    -- C:\Users\James\Desktop\CodeAnalyzerEx\Utilities\Utilities.cpp\Utilities.cpp
+  Title, function
+  Title, function
+  title, function
+  title, function
+  sTitle, function
+  sTitle, function
+  split, function
+    -- C:\Users\James\Desktop\CodeAnalyzerEx\Utilities\Utilities.h\Utilities.h
+  toString, function
+  toValue, function
+    -- C:\Users\James\Desktop\CodeAnalyzerEx\AbstractSyntaxTree\AbstrSynTree.cpp\AbstrSynTree.cpp
+  main, function
+  void, function
+    -- C:\Users\James\Desktop\CodeAnalyzerEx\Analyzer\DepAnal.cpp\DepAnal.cpp
+  main, function
+    -- C:\Users\James\Desktop\CodeAnalyzerEx\Analyzer\Executive.cpp\Executive.cpp
+  showUsage, function
+  contains, function
+  operator(), function
+  removeExt, function
+  operator(), function
+  TreeWalk, function
+  ChangeFirstCharOfExt, function
+  operator(), function
+  main, function
+    -- C:\Users\James\Desktop\CodeAnalyzerEx\Cpp11-BlockingQueue\Cpp11-BlockingQueue.cpp\Cpp11-BlockingQueue.cpp
+  test, function
+  main, function
+    -- C:\Users\James\Desktop\CodeAnalyzerEx\FileMgr\FileMgr.cpp\FileMgr.cpp
+  execute, function
+  execute, function
+  execute, function
+  main, function
+    -- C:\Users\James\Desktop\CodeAnalyzerEx\FileSystem\FileSystem.cpp\FileSystem.cpp
+  FileSystemSearch, function
+  ~FileSystemSearch, function
+  close, function
+  firstFile, function
+  nextFile, function
+  firstDirectory, function
+  nextDirectory, function
+  title, function
+  main, function
+    -- C:\Users\James\Desktop\CodeAnalyzerEx\FileSystem\TestFileSystem\FileSystemTest.cpp\FileSystemTest.cpp
+  TestFile, function
+  testName, function
+  testGetAndPutLine, function
+  testGetAndPutBlock, function
+  testExists, function
+  testCopyAndRemove, function
+  test, function
+  TestFileInfo, function
+  testConstruction, function
+  testName, function
+  testDate, function
+  testSize, function
+  testNameCompare, function
+  test, function
+  TestPath, function
+  TestGetFullFileSpec, function
+  TestGetPath, function
+  TestGetName, function
+  TestGetExt, function
+  TestFileSpec, function
+  test, function
+  TestDirectory, function
+  TestCreateRemoveExists, function
+  TestGetAndSetCurrentDirectory, function
+  TestGetFilesAndDirectories, function
+  test, function
+  test, function
+  main, function
+    -- C:\Users\James\Desktop\CodeAnalyzerEx\FileSystem\TestFileSystem\UnitTest.cpp\UnitTest.cpp
+  TestConstruction, function
+  TestCopy, function
+  TestWillThrowStdException, function
+  TestWillThrowStructuredException, function
+  test, function
+  main, function
+    -- C:\Users\James\Desktop\CodeAnalyzerEx\GrammarHelpers\GrammarHelpers.cpp\GrammarHelpers.cpp
+  isScopeConnector, function
+  load, function
+  showQualifiers, function
+  showPredicate, function
+  show, function
+  test, function
+  main, function
+    -- C:\Users\James\Desktop\CodeAnalyzerEx\GUI\Window.cpp\Window.cpp
+  stringToBool, function
+  boolToString, function
+  Convert, function
+  ConvertBack, function
+  main, function
+    -- C:\Users\James\Desktop\CodeAnalyzerEx\Logger\Logger.cpp\Logger.cpp
+  ~Cosmetic, function
+  main, function
+    -- C:\Users\James\Desktop\CodeAnalyzerEx\Parser\ActionsAndRules.cpp\ActionsAndRules.cpp
+  main, function
+    -- C:\Users\James\Desktop\CodeAnalyzerEx\Parser\ConfigureParser.cpp\ConfigureParser.cpp
+  main, function
+    -- C:\Users\James\Desktop\CodeAnalyzerEx\Parser\Parser.cpp\Parser.cpp
+  main, function
+    -- C:\Users\James\Desktop\CodeAnalyzerEx\ScopeStack\ScopeStack.cpp\ScopeStack.cpp
+  show, function
+  main, function
+    -- C:\Users\James\Desktop\CodeAnalyzerEx\SemiExp\SemiExp.cpp\SemiExp.cpp
+  main, function
+    -- C:\Users\James\Desktop\CodeAnalyzerEx\TestFiles\Test1.cpp\Test1.cpp
+  toString, function
+  main, function
+    -- C:\Users\James\Desktop\CodeAnalyzerEx\TestFiles\Test2.cpp\Test2.cpp
+  main, function
+    -- C:\Users\James\Desktop\CodeAnalyzerEx\Tokenizer\Tokenizer.cpp\Tokenizer.cpp
+  Context, function
+  ~Context, function
+  consumeChars, function
+  canRead, function
+  getTok, function
+  hasTok, function
+  setContext, function
+  attach, function
+  setSpecialTokens, function
+  currentLineCount, function
+  collectChar, function
+  returnComments, function
+  isOneCharToken, function
+  isTwoCharToken, function
+  makeString, function
+  nextState, function
+  ConsumeState, function
+  ~ConsumeState, function
+  EatWhitespace, function
+  eatChars, function
+  EatCppComment, function
+  eatChars, function
+  EatCComment, function
+  eatChars, function
+  EatPunctuator, function
+  eatChars, function
+  EatAlphanum, function
+  eatChars, function
+  EatSpecialCharacters, function
+  eatChars, function
+  isEscapted, function
+  EatDQString, function
+  eatChars, function
+  EatRawCppString, function
+  eatChars, function
+  EatRawCSharpString, function
+  eatChars, function
+  EatSQString, function
+  eatChars, function
+  testLog, function
+  main, function
+    -- C:\Users\James\Desktop\CodeAnalyzerEx\Utilities\Utilities.cpp\Utilities.cpp
+  putline, function
+  main, function
+    -- C:\Users\James\Desktop\CodeAnalyzerEx\TestFiles-CS\Program.cs\Program.cs
+  Main, function
+

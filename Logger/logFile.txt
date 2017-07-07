@@ -1,0 +1,59 @@
+
+                                             CodeAnalysis
+    ==============================================================================================
+     Sun Aug 21 09:03:57 2016
+     Path: C:\SU\Repository\CodeAnalyzer\Logger
+     Args: *.h, *.cpp, /m, /r, /f
+                                                                               
+           Code Metrics - Start Line, Size (lines/code), and Complexity (number of scopes)
+    ==============================================================================================
+
+                 file name        type                               name    line    size    cplx
+    -----------------------  ----------  ---------------------------------  ------  ------  ------
+                             namespace                   Global Namespace       1       1      37
+
+                 file name        type                               name    line    size    cplx
+    -----------------------  ----------  ---------------------------------  ------  ------  ------
+                  Logger.h   namespace                            Logging      62      55      33
+                  Logger.h       class                             Logger      64      24      20
+                  Logger.h    function                             Logger      65       2       1
+                  Logger.h       class                       StaticLogger      91      18      12
+                  Logger.h    function                             attach      92       2       1
+                  Logger.h    function                              start      93       2       1
+                  Logger.h    function                            running      94       2       1
+                  Logger.h    function                              pause      95       2       1
+                  Logger.h    function                             paused      96       2       1
+                  Logger.h    function                              flush      97       2       1
+                  Logger.h    function                               stop      98       2       1
+                  Logger.h    function                               wait      99       2       1
+                  Logger.h    function                              write     100       2       1
+                  Logger.h    function                              title     101       2       1
+                  Logger.h    function                           instance     102       2       1
+
+                 file name        type                               name    line    size    cplx
+    -----------------------  ----------  ---------------------------------  ------  ------  ------
+                Logger.cpp    function                              write      25       4       1
+                Logger.cpp    function                              title      30       4       1
+                Logger.cpp    function                             attach      36       5       1
+                Logger.cpp    function                              start      46      20       4
+                Logger.cpp      lambda                              [=]()      50      12       3
+                Logger.cpp    function                            running      69       3       1
+                Logger.cpp    function                              pause      75      12       3
+                Logger.cpp    function                             paused      90       3       1
+                Logger.cpp    function                              flush      96       7       2
+                Logger.cpp    function                               stop     106      15       2
+                Logger.cpp    function                               wait     124       4       1
+                Logger.cpp    function                            ~Logger     131       3       1
+                Logger.cpp      struct                           Cosmetic     136       3       2
+                Logger.cpp    function                          ~Cosmetic     136       2       1
+                Logger.cpp    function                               main     145      45       1
+
+                          Functions Exceeding Metric Limits and Public Data
+    ==============================================================================================
+                 file name        type                               name    line    size    cplx
+    -----------------------  ----------  ---------------------------------  ------  ------  ------
+
+
+
+    searched     9 dirs
+   processed     2 files

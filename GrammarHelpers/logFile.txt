@@ -1,0 +1,357 @@
+
+
+  opening file "GrammarHelpers.h"
+  Test begin scope                : # pragma once 
+  Test end scope                  : # pragma once 
+  Test preproc statement:         : # pragma once 
+  Handle preproc statement:       : # pragma once 
+  Test begin scope                : # include < string > 
+  Test end scope                  : # include < string > 
+  Test preproc statement:         : # include < string > 
+  Handle preproc statement:       : # include < string > 
+  Test begin scope                : # include "../SemiExp/itokcollection.h" 
+  Test end scope                  : # include "../SemiExp/itokcollection.h" 
+  Test preproc statement:         : # include "../SemiExp/itokcollection.h" 
+  Handle preproc statement:       : # include "../SemiExp/itokcollection.h" 
+  Test begin scope                : namespace CodeAnalysis { 
+  handle begin scope              : namespace CodeAnalysis { 
+  Test end scope                  : namespace CodeAnalysis { 
+  Test preproc statement:         : namespace CodeAnalysis { 
+  Test namespace definition:      : namespace CodeAnalysis { 
+  Handle namespace definition:    : namespace CodeAnalysis { 
+  Test begin scope                : class GrammarHelper { 
+  handle begin scope              : class GrammarHelper { 
+  Test end scope                  : class GrammarHelper { 
+  Test preproc statement:         : class GrammarHelper { 
+  Test namespace definition:      : class GrammarHelper { 
+  Test class definition:          : class GrammarHelper { 
+  Handle class definition:        : class GrammarHelper { 
+  Test begin scope                : public : 
+  Test end scope                  : public : 
+  Test preproc statement:         : public : 
+  Test namespace definition:      : public : 
+  Test class definition:          : public : 
+  Test struct definition:         : public : 
+  Test C++ function definition:   : public : 
+  Test control definition:        : public : 
+  Test C++ declaration:           : public : 
+  Test C++ executable:            : public : 
+  Test default:                   : public : 
+  Handle default:                 : public : 
+  Test begin scope                : static bool isControlKeyWord ( const std :: string & tok ) ; 
+  Test end scope                  : static bool isControlKeyWord ( const std :: string & tok ) ; 
+  Test preproc statement:         : static bool isControlKeyWord ( const std :: string & tok ) ; 
+  Test namespace definition:      : static bool isControlKeyWord ( const std :: string & tok ) ; 
+  Test class definition:          : static bool isControlKeyWord ( const std :: string & tok ) ; 
+  Test struct definition:         : static bool isControlKeyWord ( const std :: string & tok ) ; 
+  Test C++ function definition:   : static bool isControlKeyWord ( const std :: string & tok ) ; 
+  Test control definition:        : static bool isControlKeyWord ( const std :: string & tok ) ; 
+  Test C++ declaration:           : static bool isControlKeyWord ( const std :: string & tok ) ; 
+  Handle C++ declaration:         : static bool isControlKeyWord ( const std :: string & tok ) ; 
+  Test begin scope                : static bool hasControlKeyWord ( const Scanner :: ITokCollection & se ) ; 
+  Test end scope                  : static bool hasControlKeyWord ( const Scanner :: ITokCollection & se ) ; 
+  Test preproc statement:         : static bool hasControlKeyWord ( const Scanner :: ITokCollection & se ) ; 
+  Test namespace definition:      : static bool hasControlKeyWord ( const Scanner :: ITokCollection & se ) ; 
+  Test class definition:          : static bool hasControlKeyWord ( const Scanner :: ITokCollection & se ) ; 
+  Test struct definition:         : static bool hasControlKeyWord ( const Scanner :: ITokCollection & se ) ; 
+  Test C++ function definition:   : static bool hasControlKeyWord ( const Scanner :: ITokCollection & se ) ; 
+  Test control definition:        : static bool hasControlKeyWord ( const Scanner :: ITokCollection & se ) ; 
+  Test C++ declaration:           : static bool hasControlKeyWord ( const Scanner :: ITokCollection & se ) ; 
+  Handle C++ declaration:         : static bool hasControlKeyWord ( const Scanner :: ITokCollection & se ) ; 
+  Test begin scope                : static bool isFunction ( const Scanner :: ITokCollection & se ) ; 
+  Test end scope                  : static bool isFunction ( const Scanner :: ITokCollection & se ) ; 
+  Test preproc statement:         : static bool isFunction ( const Scanner :: ITokCollection & se ) ; 
+  Test namespace definition:      : static bool isFunction ( const Scanner :: ITokCollection & se ) ; 
+  Test class definition:          : static bool isFunction ( const Scanner :: ITokCollection & se ) ; 
+  Test struct definition:         : static bool isFunction ( const Scanner :: ITokCollection & se ) ; 
+  Test C++ function definition:   : static bool isFunction ( const Scanner :: ITokCollection & se ) ; 
+  Test control definition:        : static bool isFunction ( const Scanner :: ITokCollection & se ) ; 
+  Test C++ declaration:           : static bool isFunction ( const Scanner :: ITokCollection & se ) ; 
+  Handle C++ declaration:         : static bool isFunction ( const Scanner :: ITokCollection & se ) ; 
+  Test begin scope                : static bool hasArgs ( const Scanner :: ITokCollection & se ) ; 
+  Test end scope                  : static bool hasArgs ( const Scanner :: ITokCollection & se ) ; 
+  Test preproc statement:         : static bool hasArgs ( const Scanner :: ITokCollection & se ) ; 
+  Test namespace definition:      : static bool hasArgs ( const Scanner :: ITokCollection & se ) ; 
+  Test class definition:          : static bool hasArgs ( const Scanner :: ITokCollection & se ) ; 
+  Test struct definition:         : static bool hasArgs ( const Scanner :: ITokCollection & se ) ; 
+  Test C++ function definition:   : static bool hasArgs ( const Scanner :: ITokCollection & se ) ; 
+  Test control definition:        : static bool hasArgs ( const Scanner :: ITokCollection & se ) ; 
+  Test C++ declaration:           : static bool hasArgs ( const Scanner :: ITokCollection & se ) ; 
+  Handle C++ declaration:         : static bool hasArgs ( const Scanner :: ITokCollection & se ) ; 
+  Test begin scope                : static bool isFunctionDefinition ( const Scanner :: ITokCollection & se ) ; 
+  Test end scope                  : static bool isFunctionDefinition ( const Scanner :: ITokCollection & se ) ; 
+  Test preproc statement:         : static bool isFunctionDefinition ( const Scanner :: ITokCollection & se ) ; 
+  Test namespace definition:      : static bool isFunctionDefinition ( const Scanner :: ITokCollection & se ) ; 
+  Test class definition:          : static bool isFunctionDefinition ( const Scanner :: ITokCollection & se ) ; 
+  Test struct definition:         : static bool isFunctionDefinition ( const Scanner :: ITokCollection & se ) ; 
+  Test C++ function definition:   : static bool isFunctionDefinition ( const Scanner :: ITokCollection & se ) ; 
+  Test control definition:        : static bool isFunctionDefinition ( const Scanner :: ITokCollection & se ) ; 
+  Test C++ declaration:           : static bool isFunctionDefinition ( const Scanner :: ITokCollection & se ) ; 
+  Handle C++ declaration:         : static bool isFunctionDefinition ( const Scanner :: ITokCollection & se ) ; 
+  Test begin scope                : 
+    static bool isFunctionDeclaration ( const Scanner :: ITokCollection & se , const std :: string & parentType ) ; 
+  Test end scope                  : 
+    static bool isFunctionDeclaration ( const Scanner :: ITokCollection & se , const std :: string & parentType ) ; 
+  Test preproc statement:         : 
+    static bool isFunctionDeclaration ( const Scanner :: ITokCollection & se , const std :: string & parentType ) ; 
+  Test namespace definition:      : 
+    static bool isFunctionDeclaration ( const Scanner :: ITokCollection & se , const std :: string & parentType ) ; 
+  Test class definition:          : 
+    static bool isFunctionDeclaration ( const Scanner :: ITokCollection & se , const std :: string & parentType ) ; 
+  Test struct definition:         : 
+    static bool isFunctionDeclaration ( const Scanner :: ITokCollection & se , const std :: string & parentType ) ; 
+  Test C++ function definition:   : 
+    static bool isFunctionDeclaration ( const Scanner :: ITokCollection & se , const std :: string & parentType ) ; 
+  Test control definition:        : 
+    static bool isFunctionDeclaration ( const Scanner :: ITokCollection & se , const std :: string & parentType ) ; 
+  Test C++ declaration:           : 
+    static bool isFunctionDeclaration ( const Scanner :: ITokCollection & se , const std :: string & parentType ) ; 
+  Handle C++ declaration:         : 
+    static bool isFunctionDeclaration ( const Scanner :: ITokCollection & se , const std :: string & parentType ) ; 
+  Test begin scope                : 
+    static bool isFunctionInvocation ( const Scanner :: ITokCollection & se , const std :: string & parentType ) ; 
+  Test end scope                  : 
+    static bool isFunctionInvocation ( const Scanner :: ITokCollection & se , const std :: string & parentType ) ; 
+  Test preproc statement:         : 
+    static bool isFunctionInvocation ( const Scanner :: ITokCollection & se , const std :: string & parentType ) ; 
+  Test namespace definition:      : 
+    static bool isFunctionInvocation ( const Scanner :: ITokCollection & se , const std :: string & parentType ) ; 
+  Test class definition:          : 
+    static bool isFunctionInvocation ( const Scanner :: ITokCollection & se , const std :: string & parentType ) ; 
+  Test struct definition:         : 
+    static bool isFunctionInvocation ( const Scanner :: ITokCollection & se , const std :: string & parentType ) ; 
+  Test C++ function definition:   : 
+    static bool isFunctionInvocation ( const Scanner :: ITokCollection & se , const std :: string & parentType ) ; 
+  Test control definition:        : 
+    static bool isFunctionInvocation ( const Scanner :: ITokCollection & se , const std :: string & parentType ) ; 
+  Test C++ declaration:           : 
+    static bool isFunctionInvocation ( const Scanner :: ITokCollection & se , const std :: string & parentType ) ; 
+  Handle C++ declaration:         : 
+    static bool isFunctionInvocation ( const Scanner :: ITokCollection & se , const std :: string & parentType ) ; 
+  Test begin scope                : 
+    static bool hasFunctionInvocation ( const Scanner :: ITokCollection & se , const std :: string & parentType ) ; 
+  Test end scope                  : 
+    static bool hasFunctionInvocation ( const Scanner :: ITokCollection & se , const std :: string & parentType ) ; 
+  Test preproc statement:         : 
+    static bool hasFunctionInvocation ( const Scanner :: ITokCollection & se , const std :: string & parentType ) ; 
+  Test namespace definition:      : 
+    static bool hasFunctionInvocation ( const Scanner :: ITokCollection & se , const std :: string & parentType ) ; 
+  Test class definition:          : 
+    static bool hasFunctionInvocation ( const Scanner :: ITokCollection & se , const std :: string & parentType ) ; 
+  Test struct definition:         : 
+    static bool hasFunctionInvocation ( const Scanner :: ITokCollection & se , const std :: string & parentType ) ; 
+  Test C++ function definition:   : 
+    static bool hasFunctionInvocation ( const Scanner :: ITokCollection & se , const std :: string & parentType ) ; 
+  Test control definition:        : 
+    static bool hasFunctionInvocation ( const Scanner :: ITokCollection & se , const std :: string & parentType ) ; 
+  Test C++ declaration:           : 
+    static bool hasFunctionInvocation ( const Scanner :: ITokCollection & se , const std :: string & parentType ) ; 
+  Handle C++ declaration:         : 
+    static bool hasFunctionInvocation ( const Scanner :: ITokCollection & se , const std :: string & parentType ) ; 
+  Test begin scope                : static bool isDataDeclaration ( const Scanner :: ITokCollection & se ) ; 
+  Test end scope                  : static bool isDataDeclaration ( const Scanner :: ITokCollection & se ) ; 
+  Test preproc statement:         : static bool isDataDeclaration ( const Scanner :: ITokCollection & se ) ; 
+  Test namespace definition:      : static bool isDataDeclaration ( const Scanner :: ITokCollection & se ) ; 
+  Test class definition:          : static bool isDataDeclaration ( const Scanner :: ITokCollection & se ) ; 
+  Test struct definition:         : static bool isDataDeclaration ( const Scanner :: ITokCollection & se ) ; 
+  Test C++ function definition:   : static bool isDataDeclaration ( const Scanner :: ITokCollection & se ) ; 
+  Test control definition:        : static bool isDataDeclaration ( const Scanner :: ITokCollection & se ) ; 
+  Test C++ declaration:           : static bool isDataDeclaration ( const Scanner :: ITokCollection & se ) ; 
+  Handle C++ declaration:         : static bool isDataDeclaration ( const Scanner :: ITokCollection & se ) ; 
+  Test begin scope                : 
+    static bool isExecutable ( const Scanner :: ITokCollection & se , const std :: string & parentType ) ; 
+  Test end scope                  : 
+    static bool isExecutable ( const Scanner :: ITokCollection & se , const std :: string & parentType ) ; 
+  Test preproc statement:         : 
+    static bool isExecutable ( const Scanner :: ITokCollection & se , const std :: string & parentType ) ; 
+  Test namespace definition:      : 
+    static bool isExecutable ( const Scanner :: ITokCollection & se , const std :: string & parentType ) ; 
+  Test class definition:          : 
+    static bool isExecutable ( const Scanner :: ITokCollection & se , const std :: string & parentType ) ; 
+  Test struct definition:         : 
+    static bool isExecutable ( const Scanner :: ITokCollection & se , const std :: string & parentType ) ; 
+  Test C++ function definition:   : 
+    static bool isExecutable ( const Scanner :: ITokCollection & se , const std :: string & parentType ) ; 
+  Test control definition:        : 
+    static bool isExecutable ( const Scanner :: ITokCollection & se , const std :: string & parentType ) ; 
+  Test C++ declaration:           : 
+    static bool isExecutable ( const Scanner :: ITokCollection & se , const std :: string & parentType ) ; 
+  Handle C++ declaration:         : 
+    static bool isExecutable ( const Scanner :: ITokCollection & se , const std :: string & parentType ) ; 
+  Test begin scope                : 
+    static size_t findLast ( const Scanner :: ITokCollection & se , const std :: string & token ) ; 
+  Test end scope                  : 
+    static size_t findLast ( const Scanner :: ITokCollection & se , const std :: string & token ) ; 
+  Test preproc statement:         : 
+    static size_t findLast ( const Scanner :: ITokCollection & se , const std :: string & token ) ; 
+  Test namespace definition:      : 
+    static size_t findLast ( const Scanner :: ITokCollection & se , const std :: string & token ) ; 
+  Test class definition:          : 
+    static size_t findLast ( const Scanner :: ITokCollection & se , const std :: string & token ) ; 
+  Test struct definition:         : 
+    static size_t findLast ( const Scanner :: ITokCollection & se , const std :: string & token ) ; 
+  Test C++ function definition:   : 
+    static size_t findLast ( const Scanner :: ITokCollection & se , const std :: string & token ) ; 
+  Test control definition:        : 
+    static size_t findLast ( const Scanner :: ITokCollection & se , const std :: string & token ) ; 
+  Test C++ declaration:           : 
+    static size_t findLast ( const Scanner :: ITokCollection & se , const std :: string & token ) ; 
+  Handle C++ declaration:         : 
+    static size_t findLast ( const Scanner :: ITokCollection & se , const std :: string & token ) ; 
+  Test begin scope                : static bool isQualifierKeyWord ( const std :: string & tok ) ; 
+  Test end scope                  : static bool isQualifierKeyWord ( const std :: string & tok ) ; 
+  Test preproc statement:         : static bool isQualifierKeyWord ( const std :: string & tok ) ; 
+  Test namespace definition:      : static bool isQualifierKeyWord ( const std :: string & tok ) ; 
+  Test class definition:          : static bool isQualifierKeyWord ( const std :: string & tok ) ; 
+  Test struct definition:         : static bool isQualifierKeyWord ( const std :: string & tok ) ; 
+  Test C++ function definition:   : static bool isQualifierKeyWord ( const std :: string & tok ) ; 
+  Test control definition:        : static bool isQualifierKeyWord ( const std :: string & tok ) ; 
+  Test C++ declaration:           : static bool isQualifierKeyWord ( const std :: string & tok ) ; 
+  Handle C++ declaration:         : static bool isQualifierKeyWord ( const std :: string & tok ) ; 
+  Test begin scope                : static void removeQualifiers ( Scanner :: ITokCollection & tc ) ; 
+  Test end scope                  : static void removeQualifiers ( Scanner :: ITokCollection & tc ) ; 
+  Test preproc statement:         : static void removeQualifiers ( Scanner :: ITokCollection & tc ) ; 
+  Test namespace definition:      : static void removeQualifiers ( Scanner :: ITokCollection & tc ) ; 
+  Test class definition:          : static void removeQualifiers ( Scanner :: ITokCollection & tc ) ; 
+  Test struct definition:         : static void removeQualifiers ( Scanner :: ITokCollection & tc ) ; 
+  Test C++ function definition:   : static void removeQualifiers ( Scanner :: ITokCollection & tc ) ; 
+  Test control definition:        : static void removeQualifiers ( Scanner :: ITokCollection & tc ) ; 
+  Test C++ declaration:           : static void removeQualifiers ( Scanner :: ITokCollection & tc ) ; 
+  Handle C++ declaration:         : static void removeQualifiers ( Scanner :: ITokCollection & tc ) ; 
+  Test begin scope                : static void removeCallingArgQualifiers ( Scanner :: ITokCollection & tc ) ; 
+  Test end scope                  : static void removeCallingArgQualifiers ( Scanner :: ITokCollection & tc ) ; 
+  Test preproc statement:         : static void removeCallingArgQualifiers ( Scanner :: ITokCollection & tc ) ; 
+  Test namespace definition:      : static void removeCallingArgQualifiers ( Scanner :: ITokCollection & tc ) ; 
+  Test class definition:          : static void removeCallingArgQualifiers ( Scanner :: ITokCollection & tc ) ; 
+  Test struct definition:         : static void removeCallingArgQualifiers ( Scanner :: ITokCollection & tc ) ; 
+  Test C++ function definition:   : static void removeCallingArgQualifiers ( Scanner :: ITokCollection & tc ) ; 
+  Test control definition:        : static void removeCallingArgQualifiers ( Scanner :: ITokCollection & tc ) ; 
+  Test C++ declaration:           : static void removeCallingArgQualifiers ( Scanner :: ITokCollection & tc ) ; 
+  Handle C++ declaration:         : static void removeCallingArgQualifiers ( Scanner :: ITokCollection & tc ) ; 
+  Test begin scope                : 
+    static bool isFirstArgDeclaration ( const Scanner :: ITokCollection & tc , const std :: string & parentType ) ; 
+  Test end scope                  : 
+    static bool isFirstArgDeclaration ( const Scanner :: ITokCollection & tc , const std :: string & parentType ) ; 
+  Test preproc statement:         : 
+    static bool isFirstArgDeclaration ( const Scanner :: ITokCollection & tc , const std :: string & parentType ) ; 
+  Test namespace definition:      : 
+    static bool isFirstArgDeclaration ( const Scanner :: ITokCollection & tc , const std :: string & parentType ) ; 
+  Test class definition:          : 
+    static bool isFirstArgDeclaration ( const Scanner :: ITokCollection & tc , const std :: string & parentType ) ; 
+  Test struct definition:         : 
+    static bool isFirstArgDeclaration ( const Scanner :: ITokCollection & tc , const std :: string & parentType ) ; 
+  Test C++ function definition:   : 
+    static bool isFirstArgDeclaration ( const Scanner :: ITokCollection & tc , const std :: string & parentType ) ; 
+  Test control definition:        : 
+    static bool isFirstArgDeclaration ( const Scanner :: ITokCollection & tc , const std :: string & parentType ) ; 
+  Test C++ declaration:           : 
+    static bool isFirstArgDeclaration ( const Scanner :: ITokCollection & tc , const std :: string & parentType ) ; 
+  Handle C++ declaration:         : 
+    static bool isFirstArgDeclaration ( const Scanner :: ITokCollection & tc , const std :: string & parentType ) ; 
+  Test begin scope                : static bool hasReturnType ( const Scanner :: ITokCollection & tc ) ; 
+  Test end scope                  : static bool hasReturnType ( const Scanner :: ITokCollection & tc ) ; 
+  Test preproc statement:         : static bool hasReturnType ( const Scanner :: ITokCollection & tc ) ; 
+  Test namespace definition:      : static bool hasReturnType ( const Scanner :: ITokCollection & tc ) ; 
+  Test class definition:          : static bool hasReturnType ( const Scanner :: ITokCollection & tc ) ; 
+  Test struct definition:         : static bool hasReturnType ( const Scanner :: ITokCollection & tc ) ; 
+  Test C++ function definition:   : static bool hasReturnType ( const Scanner :: ITokCollection & tc ) ; 
+  Test control definition:        : static bool hasReturnType ( const Scanner :: ITokCollection & tc ) ; 
+  Test C++ declaration:           : static bool hasReturnType ( const Scanner :: ITokCollection & tc ) ; 
+  Handle C++ declaration:         : static bool hasReturnType ( const Scanner :: ITokCollection & tc ) ; 
+  Test begin scope                : static void removeCppInitializers ( Scanner :: ITokCollection & tc ) ; 
+  Test end scope                  : static void removeCppInitializers ( Scanner :: ITokCollection & tc ) ; 
+  Test preproc statement:         : static void removeCppInitializers ( Scanner :: ITokCollection & tc ) ; 
+  Test namespace definition:      : static void removeCppInitializers ( Scanner :: ITokCollection & tc ) ; 
+  Test class definition:          : static void removeCppInitializers ( Scanner :: ITokCollection & tc ) ; 
+  Test struct definition:         : static void removeCppInitializers ( Scanner :: ITokCollection & tc ) ; 
+  Test C++ function definition:   : static void removeCppInitializers ( Scanner :: ITokCollection & tc ) ; 
+  Test control definition:        : static void removeCppInitializers ( Scanner :: ITokCollection & tc ) ; 
+  Test C++ declaration:           : static void removeCppInitializers ( Scanner :: ITokCollection & tc ) ; 
+  Handle C++ declaration:         : static void removeCppInitializers ( Scanner :: ITokCollection & tc ) ; 
+  Test begin scope                : static void removeCSharpInitializers ( Scanner :: ITokCollection & tc ) ; 
+  Test end scope                  : static void removeCSharpInitializers ( Scanner :: ITokCollection & tc ) ; 
+  Test preproc statement:         : static void removeCSharpInitializers ( Scanner :: ITokCollection & tc ) ; 
+  Test namespace definition:      : static void removeCSharpInitializers ( Scanner :: ITokCollection & tc ) ; 
+  Test class definition:          : static void removeCSharpInitializers ( Scanner :: ITokCollection & tc ) ; 
+  Test struct definition:         : static void removeCSharpInitializers ( Scanner :: ITokCollection & tc ) ; 
+  Test C++ function definition:   : static void removeCSharpInitializers ( Scanner :: ITokCollection & tc ) ; 
+  Test control definition:        : static void removeCSharpInitializers ( Scanner :: ITokCollection & tc ) ; 
+  Test C++ declaration:           : static void removeCSharpInitializers ( Scanner :: ITokCollection & tc ) ; 
+  Handle C++ declaration:         : static void removeCSharpInitializers ( Scanner :: ITokCollection & tc ) ; 
+  Test begin scope                : static void removeComments ( Scanner :: ITokCollection & tc ) ; 
+  Test end scope                  : static void removeComments ( Scanner :: ITokCollection & tc ) ; 
+  Test preproc statement:         : static void removeComments ( Scanner :: ITokCollection & tc ) ; 
+  Test namespace definition:      : static void removeComments ( Scanner :: ITokCollection & tc ) ; 
+  Test class definition:          : static void removeComments ( Scanner :: ITokCollection & tc ) ; 
+  Test struct definition:         : static void removeComments ( Scanner :: ITokCollection & tc ) ; 
+  Test C++ function definition:   : static void removeComments ( Scanner :: ITokCollection & tc ) ; 
+  Test control definition:        : static void removeComments ( Scanner :: ITokCollection & tc ) ; 
+  Test C++ declaration:           : static void removeComments ( Scanner :: ITokCollection & tc ) ; 
+  Handle C++ declaration:         : static void removeComments ( Scanner :: ITokCollection & tc ) ; 
+  Test begin scope                : static void condenseTemplateTypes ( Scanner :: ITokCollection & tc ) ; 
+  Test end scope                  : static void condenseTemplateTypes ( Scanner :: ITokCollection & tc ) ; 
+  Test preproc statement:         : static void condenseTemplateTypes ( Scanner :: ITokCollection & tc ) ; 
+  Test namespace definition:      : static void condenseTemplateTypes ( Scanner :: ITokCollection & tc ) ; 
+  Test class definition:          : static void condenseTemplateTypes ( Scanner :: ITokCollection & tc ) ; 
+  Test struct definition:         : static void condenseTemplateTypes ( Scanner :: ITokCollection & tc ) ; 
+  Test C++ function definition:   : static void condenseTemplateTypes ( Scanner :: ITokCollection & tc ) ; 
+  Test control definition:        : static void condenseTemplateTypes ( Scanner :: ITokCollection & tc ) ; 
+  Test C++ declaration:           : static void condenseTemplateTypes ( Scanner :: ITokCollection & tc ) ; 
+  Handle C++ declaration:         : static void condenseTemplateTypes ( Scanner :: ITokCollection & tc ) ; 
+  Test begin scope                : static void removeFunctionArgs ( Scanner :: ITokCollection & tc ) ; 
+  Test end scope                  : static void removeFunctionArgs ( Scanner :: ITokCollection & tc ) ; 
+  Test preproc statement:         : static void removeFunctionArgs ( Scanner :: ITokCollection & tc ) ; 
+  Test namespace definition:      : static void removeFunctionArgs ( Scanner :: ITokCollection & tc ) ; 
+  Test class definition:          : static void removeFunctionArgs ( Scanner :: ITokCollection & tc ) ; 
+  Test struct definition:         : static void removeFunctionArgs ( Scanner :: ITokCollection & tc ) ; 
+  Test C++ function definition:   : static void removeFunctionArgs ( Scanner :: ITokCollection & tc ) ; 
+  Test control definition:        : static void removeFunctionArgs ( Scanner :: ITokCollection & tc ) ; 
+  Test C++ declaration:           : static void removeFunctionArgs ( Scanner :: ITokCollection & tc ) ; 
+  Handle C++ declaration:         : static void removeFunctionArgs ( Scanner :: ITokCollection & tc ) ; 
+  Test begin scope                : 
+    static void showParse ( const std :: string & msg , const Scanner :: ITokCollection & se ) ; 
+  Test end scope                  : 
+    static void showParse ( const std :: string & msg , const Scanner :: ITokCollection & se ) ; 
+  Test preproc statement:         : 
+    static void showParse ( const std :: string & msg , const Scanner :: ITokCollection & se ) ; 
+  Test namespace definition:      : 
+    static void showParse ( const std :: string & msg , const Scanner :: ITokCollection & se ) ; 
+  Test class definition:          : 
+    static void showParse ( const std :: string & msg , const Scanner :: ITokCollection & se ) ; 
+  Test struct definition:         : 
+    static void showParse ( const std :: string & msg , const Scanner :: ITokCollection & se ) ; 
+  Test C++ function definition:   : 
+    static void showParse ( const std :: string & msg , const Scanner :: ITokCollection & se ) ; 
+  Test control definition:        : 
+    static void showParse ( const std :: string & msg , const Scanner :: ITokCollection & se ) ; 
+  Test C++ declaration:           : 
+    static void showParse ( const std :: string & msg , const Scanner :: ITokCollection & se ) ; 
+  Handle C++ declaration:         : 
+    static void showParse ( const std :: string & msg , const Scanner :: ITokCollection & se ) ; 
+  Test begin scope                : 
+    static void showParseDemo ( const std :: string & msg , const Scanner :: ITokCollection & se ) ; 
+  Test end scope                  : 
+    static void showParseDemo ( const std :: string & msg , const Scanner :: ITokCollection & se ) ; 
+  Test preproc statement:         : 
+    static void showParseDemo ( const std :: string & msg , const Scanner :: ITokCollection & se ) ; 
+  Test namespace definition:      : 
+    static void showParseDemo ( const std :: string & msg , const Scanner :: ITokCollection & se ) ; 
+  Test class definition:          : 
+    static void showParseDemo ( const std :: string & msg , const Scanner :: ITokCollection & se ) ; 
+  Test struct definition:         : 
+    static void showParseDemo ( const std :: string & msg , const Scanner :: ITokCollection & se ) ; 
+  Test C++ function definition:   : 
+    static void showParseDemo ( const std :: string & msg , const Scanner :: ITokCollection & se ) ; 
+  Test control definition:        : 
+    static void showParseDemo ( const std :: string & msg , const Scanner :: ITokCollection & se ) ; 
+  Test C++ declaration:           : 
+    static void showParseDemo ( const std :: string & msg , const Scanner :: ITokCollection & se ) ; 
+  Handle C++ declaration:         : 
+    static void showParseDemo ( const std :: string & msg , const Scanner :: ITokCollection & se ) ; 
+  Test begin scope                : } 
+  Test end scope                  : } 
+  Handle end scope                : } 
+  Test begin scope                : ; 
+  Test begin scope                : } 
+  Test end scope                  : } 
+  Handle end scope                : } 

@@ -1,0 +1,168 @@
+<html>
+<head>
+   <link rel = "stylesheet" href ="..\stylesheet.css">
+   <script src="..\javascript.js"></script>
+</head>
+<body>
+<pre><hr /><div class="indent" >
+<h4>Dependencies:</h4>
+<a href=NoSqlDb.cpp.htm>NoSqlDb.cpp</a>
+</div>
+  <hr />
+ <pre>
+#pragma once
+/////////////////////////////////////////////////////////////////////
+// NoSqlDb.h - key/value pair in-memory database                   //
+//                                                                 //
+// Jim Fawcett, CSE687 - Object Oriented Design, Spring 2017       //
+/////////////////////////////////////////////////////////////////////
+/*
+ * If you elect to use this code, you will need to add
+ * - manual information
+ * - maintenance information
+ * - query mechanism
+ * - persistance mechanism
+ * - TestExecutive that demonstrates the requirements you meet
+ */
+/*
+ * - fixed bug in NoSqlDb::count() by replacing 
+ *   unordered_map&lt;key,Value&gt;::count() with 
+ *   unordered_map&lt;key,Value&gt;::size();
+ */
+
+#include &lt;unordered_map&gt;
+#include &lt;string&gt;
+#include &lt;sstream&gt;
+#include &lt;vector&gt;
+#include &lt;iomanip&gt;
+#include &lt;iostream&gt;
+#include "../CppProperties/CppProperties.h"
+
+using namespace std;
+
+/////////////////////////////////////////////////////////////////////
+// Element class represents a data record in our NoSql database
+// - in our NoSql database that is just the value in a key/value pair
+// - it needs to store child data, something for you to implement
+//
+template&lt;typename Data&gt;
+class Element
+{
+<input onclick="expand_collapse(simplediv848.id, this.id)" type="button" value=" ^ " id="myButton848" /><div id="simplediv848" style="display:block; ">
+public:
+  using Name = std::string;
+  using Category = std::string;
+  using TimeDate = std::string;
+  using Description = std::string;
+  using Children = std::vector&lt;string&gt;;
+  Property&lt;Name&gt; name;            // metadata
+  Property&lt;Category&gt; category;    // metadata
+  Property&lt;TimeDate&gt; timeDate;    // metadata
+  Property&lt;Description&gt; description; // metadata
+  Property&lt;Data&gt; data;               // data 
+ // Property&lt;Children&gt; children;       // child relationship containing keys
+  vector&lt;string&gt; children;
+  std::string show();
+}</div>;
+
+template&lt;typename Data&gt;
+std::string Element&lt;Data&gt;::show()
+{
+<input onclick="expand_collapse(simplediv849.id, this.id)" type="button" value=" ^ " id="myButton849" /><div id="simplediv849" style="display:block; ">
+  // show children when you've implemented them
+
+  std::ostringstream out;
+  out.setf(std::ios::adjustfield, std::ios::left);
+  out &lt;&lt; "\n    " &lt;&lt; std::setw(8) &lt;&lt; "name"     &lt;&lt; " : " &lt;&lt; name;
+  out &lt;&lt; "\n    " &lt;&lt; std::setw(8) &lt;&lt; "category" &lt;&lt; " : " &lt;&lt; category;
+  out &lt;&lt; "\n    " &lt;&lt; std::setw(8) &lt;&lt; "timeDate" &lt;&lt; " : " &lt;&lt; timeDate;
+  out &lt;&lt; "\n    " &lt;&lt; std::setw(8) &lt;&lt; "Description" &lt;&lt; " : " &lt;&lt; description;
+  out &lt;&lt; "\n    " &lt;&lt; std::setw(8) &lt;&lt; "data"     &lt;&lt; " : " &lt;&lt; data;
+  out &lt;&lt; "\n";
+  return out.str();
+}</div>
+
+/////////////////////////////////////////////////////////////////////
+// NoSqlDb class is a key/value pair in-memory database
+// - stores and retrieves elements
+// - you will need to add query capability
+//   That should probably be another class that uses NoSqlDb
+//
+template&lt;typename Data&gt;
+class NoSqlDb
+{
+<input onclick="expand_collapse(simplediv850.id, this.id)" type="button" value=" ^ " id="myButton850" /><div id="simplediv850" style="display:block; ">
+public:
+  using Key = std::string;
+  using Keys = std::vector&lt;Key&gt;;
+
+  Keys keys();
+  bool save(Key key, Element&lt;Data&gt; elem);
+  bool deleteKey(Element&lt;Data&gt; elem);
+  Element&lt;Data&gt; value(Key key);
+  size_t count();
+private:
+  using Item = std::pair&lt;Key, Element&lt;Data&gt;&gt;;
+
+  std::unordered_map&lt;Key,Element&lt;Data&gt;&gt; store; 
+}</div>;
+
+template &lt;typename Data&gt;
+bool NoSqlDb&lt;Data&gt;::deleteKey(Element&lt;Data&gt; elem)
+{
+<input onclick="expand_collapse(simplediv851.id, this.id)" type="button" value=" ^ " id="myButton851" /><div id="simplediv851" style="display:block; ">
+	if (store.find(elem.name) == store.end())
+	{
+<input onclick="expand_collapse(simplediv852.id, this.id)" type="button" value=" ^ " id="myButton852" /><div id="simplediv852" style="display:block; ">
+		cout &lt;&lt; "Failed to find the key " &lt;&lt; endl;
+		return false;
+    }</div>
+	store.erase(elem.name);
+	return true;
+}</div>
+
+template&lt;typename Data&gt;
+typename NoSqlDb&lt;Data&gt;::Keys NoSqlDb&lt;Data&gt;::keys()
+{
+<input onclick="expand_collapse(simplediv853.id, this.id)" type="button" value=" ^ " id="myButton853" /><div id="simplediv853" style="display:block; ">
+  Keys keys;
+  for (Item item : store)
+  {
+<input onclick="expand_collapse(simplediv854.id, this.id)" type="button" value=" ^ " id="myButton854" /><div id="simplediv854" style="display:block; ">
+    keys.push_back(item.first);
+  }</div>
+  return keys;
+}</div>
+
+template&lt;typename Data&gt;
+bool NoSqlDb&lt;Data&gt;::save(Key key, Element&lt;Data&gt; elem)
+{
+<input onclick="expand_collapse(simplediv855.id, this.id)" type="button" value=" ^ " id="myButton855" /><div id="simplediv855" style="display:block; ">
+  if(store.find(key) != store.end())
+    return false;
+  store[key] = elem;
+  return true;
+}</div>
+
+template&lt;typename Data&gt;
+Element&lt;Data&gt; NoSqlDb&lt;Data&gt;::value(Key key)
+{
+<input onclick="expand_collapse(simplediv856.id, this.id)" type="button" value=" ^ " id="myButton856" /><div id="simplediv856" style="display:block; ">
+  if (store.find(key) != store.end())
+    return store[key];
+  return Element&lt;Data&gt;();
+}</div>
+
+template&lt;typename Data&gt;
+size_t NoSqlDb&lt;Data&gt;::count()
+{
+<input onclick="expand_collapse(simplediv857.id, this.id)" type="button" value=" ^ " id="myButton857" /><div id="simplediv857" style="display:block; ">
+  return store.size();
+}</div>
+
+/////////////////////////////////////////////////////////////////////
+// Persistance class
+// - you will need to implement that using the XmlDocument class
+//   from Handouts/Repository</pre>
+</body>
+</html>

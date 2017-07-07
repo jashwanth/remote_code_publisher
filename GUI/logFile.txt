@@ -1,0 +1,111 @@
+
+                                             CodeAnalysis
+    ==============================================================================================
+     Tue Aug 23 11:43:21 2016
+     Path: C:\SU\Repository\CodeAnalyzer\GUI
+     Args: *.h, *.cpp, *.cs, /m, /r, /f
+                                                                               
+           Code Metrics - Start Line, Size (lines/code), and Complexity (number of scopes)
+    ==============================================================================================
+
+                 file name        type                               name    line    size    cplx
+    -----------------------  ----------  ---------------------------------  ------  ------  ------
+                             namespace                   Global Namespace       1       1      62
+
+                 file name        type                               name    line    size    cplx
+    -----------------------  ----------  ---------------------------------  ------  ------  ------
+                  Window.h      struct                           Settings      89      14       1
+              public data: bool h ; 
+              public data: bool cpp ; 
+              public data: bool cs ; 
+              public data: bool upatt ; 
+              public data: bool cl ; 
+              public data: bool metrics ; 
+              public data: bool ast ; 
+              public data: bool slocs ; 
+              public data: bool logfile ; 
+              public data: bool rslt ; 
+              public data: bool demo ; 
+              public data: bool dbug ; 
+                  Window.h   namespace                      CppCliWindows     105     113      54
+                  Window.h       class                      WPFCppCliDemo     107     110      53
+
+                 file name        type                               name    line    size    cplx
+    -----------------------  ----------  ---------------------------------  ------  ------  ------
+                Window.cpp    function                      WPFCppCliDemo      29      47       1
+                Window.cpp    function                     ~WPFCppCliDemo      78       3       1
+                Window.cpp    function                    getUserSettings      94      57       4
+                Window.cpp    function                   saveUserSettings     164      42       4
+                Window.cpp    function                   setupTabSelected     209       3       1
+                Window.cpp    function               executionTabSelected     214       3       1
+                Window.cpp    function                procModeTabSelected     219       3       1
+                Window.cpp    function                     setUpStatusBar     225       6       1
+                Window.cpp    function                    setUpTabControl     234       9       1
+                Window.cpp    function             setTextBlockProperties     248      18       1
+                Window.cpp    function               setButtonsProperties     271      21       1
+                Window.cpp    function                createExecutionView     295      11       1
+                Window.cpp    function                          setUpGrid     323      12       1
+                Window.cpp    function                       setUpBinding     338      12       1
+                Window.cpp    function                 setUpSearchButtons     353      21       1
+                Window.cpp    function                      setupFileList     377      14       1
+                Window.cpp    function                     setUpPathPanel     394       8       1
+                Window.cpp    function                    setupFileSearch     405      44       1
+                Window.cpp    function                setUpPatternsStacks     452      23       1
+                Window.cpp    function                   setUpSearchPanel     478       4       1
+                Window.cpp    function                 setUpDisplaysPanel     485      53       1
+                Window.cpp    function                    createSetupView     542       5       1
+                Window.cpp    function              createDisplayModeView     550      54       1
+                Window.cpp    function                     setCmdLineArgs     607      31       3
+                Window.cpp    function                          doExecute     641      30       4
+                Window.cpp    function                            execute     674       4       1
+                Window.cpp    function                    browseForFolder     685      52       5
+                Window.cpp    function                  browseForFolderEx     744      56       6
+                Window.cpp    function                           OnLoaded     803       4       1
+                Window.cpp    function                          Unloading     810       3       1
+                Window.cpp    function           OnExecuteViewTextChanged     816       4       1
+                Window.cpp    function             OnSetupViewTextChanged     823       4       1
+                Window.cpp    function                       stringToBool      84       5       1
+                Window.cpp    function                       boolToString     154       5       1
+                Window.cpp       class                    HeightConverter     309      11       3
+                Window.cpp    function                            Convert     312       3       1
+                Window.cpp    function                        ConvertBack     316       3       1
+                Window.cpp      lambda  [STAThread]intmain(array<System::     851      12       1
+
+                          Functions Exceeding Metric Limits and Public Data
+    ==============================================================================================
+                 file name        type                               name    line    size    cplx
+    -----------------------  ----------  ---------------------------------  ------  ------  ------
+                Window.cpp    function                    getUserSettings      94      57       4
+                Window.cpp    function                 setUpDisplaysPanel     485      53       1
+                Window.cpp    function              createDisplayModeView     550      54       1
+                Window.cpp    function                    browseForFolder     685      52       5
+                Window.cpp    function                  browseForFolderEx     744      56       6
+
+              public data: Window.h : 91 - struct Settings
+                bool h ; 
+              public data: Window.h : 91 - struct Settings
+                bool cpp ; 
+              public data: Window.h : 91 - struct Settings
+                bool cs ; 
+              public data: Window.h : 92 - struct Settings
+                bool upatt ; 
+              public data: Window.h : 93 - struct Settings
+                bool cl ; 
+              public data: Window.h : 94 - struct Settings
+                bool metrics ; 
+              public data: Window.h : 95 - struct Settings
+                bool ast ; 
+              public data: Window.h : 96 - struct Settings
+                bool slocs ; 
+              public data: Window.h : 97 - struct Settings
+                bool logfile ; 
+              public data: Window.h : 98 - struct Settings
+                bool rslt ; 
+              public data: Window.h : 99 - struct Settings
+                bool demo ; 
+              public data: Window.h : 100 - struct Settings
+                bool dbug ; 
+
+
+    searched     4 dirs
+   processed     2 files

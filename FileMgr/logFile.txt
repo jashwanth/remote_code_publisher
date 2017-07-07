@@ -1,0 +1,36 @@
+
+                                             CodeAnalysis
+    ==============================================================================================
+     Sat Aug 27 14:22:30 2016
+     Path: C:\SU\Repository\CodeAnalyzer\FileMgr
+     Args: IFileMgr.h, /f, /m, /r
+                                                                               
+           Code Metrics - Start Line, Size (lines/code), and Complexity (number of scopes)
+    ==============================================================================================
+
+                 file name        type                               name    line    size    cplx
+    -----------------------  ----------  ---------------------------------  ------  ------  ------
+                             namespace                   Global Namespace       1       1       8
+
+                 file name        type                               name    line    size    cplx
+    -----------------------  ----------  ---------------------------------  ------  ------  ------
+                IFileMgr.h   namespace                        FileManager      12      32       7
+                IFileMgr.h      struct                  IFileEventHandler      14       3       1
+                IFileMgr.h      struct                   IDirEventHandler      19       3       1
+                IFileMgr.h      struct                  IDoneEventHandler      24       3       1
+                IFileMgr.h      struct                           IFileMgr      29      10       2
+                IFileMgr.h    function                          ~IFileMgr      29       2       1
+                IFileMgr.h      struct                     FileMgrFactory      41       3       1
+              public data: static IFileMgr * create ( const std :: string & path ) ; 
+
+                          Functions Exceeding Metric Limits and Public Data
+    ==============================================================================================
+                 file name        type                               name    line    size    cplx
+    -----------------------  ----------  ---------------------------------  ------  ------  ------
+
+              public data: IFileMgr.h : 42 - struct FileMgrFactory
+                static IFileMgr * create ( const std :: string & path ) ; 
+
+
+    searched     6 dirs
+   processed     1 files

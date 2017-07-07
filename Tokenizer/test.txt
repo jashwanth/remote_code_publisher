@@ -1,0 +1,16 @@
+a bug test );
+this is a raw CSharp string @" one \ two \ three";
+this is a raw Cpp string R"rs( one \ two \ three)rs";
+a comment // comment here
+another comment /*
+  a comment
+  here
+*/
+here are some punctuators .,;""{}[]()::+= -= *= /= ++ -- 
+a bug test );
+some more stuff (abc{def}ghi[jkl]mno
+this is a "\"string test\" string";
+this is another "string test";
+Test
+a
+}

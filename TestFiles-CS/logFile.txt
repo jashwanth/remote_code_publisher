@@ -1,0 +1,32 @@
+
+                                             CodeAnalysis
+    ==============================================================================================
+     Fri Oct 28 13:39:01 2016
+     Path: C:\Users\jfawc\Desktop\CodeAnalyzer\TestFiles-CS
+     Args: Program.cs, /m, /r, /f
+                                                                               
+           Code Metrics - Start Line, Size (lines/code), and Complexity (number of scopes)
+    ==============================================================================================
+
+                 file name        type                               name    line    size    cplx
+    -----------------------  ----------  ---------------------------------  ------  ------  ------
+                             namespace                   Global Namespace       1       1       4
+
+                 file name        type                               name    line    size    cplx
+    -----------------------  ----------  ---------------------------------  ------  ------  ------
+                Program.cs   namespace                       TestFiles_CS       8      11       3
+                Program.cs       class                            Program      10       9       2
+              public data: public int aPublicDataMember = 3 ; 
+                Program.cs    function                               Main      13       4       1
+
+                          Functions Exceeding Metric Limits and Public Data
+    ==============================================================================================
+                 file name        type                               name    line    size    cplx
+    -----------------------  ----------  ---------------------------------  ------  ------  ------
+
+              public data: Program.cs : 11 - class Program
+                public int aPublicDataMember = 3 ; 
+
+
+    searched     8 dirs
+   processed     1 files

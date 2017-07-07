@@ -1,0 +1,137 @@
+<html>
+<head>
+   <link rel = "stylesheet" href ="..\stylesheet.css">
+   <script src="..\javascript.js"></script>
+</head>
+<body>
+<pre><hr /><div class="indent" >
+<h4>Dependencies:</h4>
+<a href=NoSqlDb.h.htm>NoSqlDb.h</a>
+</div>
+  <hr />
+ <pre>
+/////////////////////////////////////////////////////////////////////
+// NoSqlDb.cpp - key/value pair in-memory database                 //
+//                                                                 //
+// Jim Fawcett, CSE687 - Object Oriented Design, Spring 2017       //
+/////////////////////////////////////////////////////////////////////
+
+#include "NoSqlDb.h"
+#include &lt;iostream&gt;
+
+using StrData = std::string;
+using intData = int;
+using Key = NoSqlDb&lt;StrData&gt;::Key;
+using Keys = NoSqlDb&lt;StrData&gt;::Keys;
+
+int main()
+{
+<input onclick="expand_collapse(simplediv1570.id, this.id)" type="button" value=" ^ " id="myButton1570" /><div id="simplediv1570" style="display:block; ">
+  std::cout &lt;&lt; "\n  Demonstrating NoSql Helper Code";
+  std::cout &lt;&lt; "\n =================================\n";
+
+  std::cout &lt;&lt; "\n  Creating and saving NoSqlDb elements with string data";
+  std::cout &lt;&lt; "\n -------------------------------------------------------\n";
+
+  NoSqlDb&lt;StrData&gt; db;
+
+  Element&lt;StrData&gt; elem1;
+  elem1.name = "elem1";
+  elem1.category = "test";
+  elem1.description = "elem1 description data";
+  elem1.data = "elem1's StrData";
+  elem1.children.clear();
+  db.save(elem1.name, elem1);
+
+  Element&lt;StrData&gt; elem2;
+  elem2.name = "elem2";
+  elem2.category = "test";
+  elem2.description = "elem2 description data";
+  elem2.data = "elem2's StrData";
+  elem2.children.clear();
+
+
+  db.save(elem2.name, elem2);
+  db.deleteKey(elem2);
+  Element&lt;StrData&gt; elem3;
+  elem3.name = "elem3";
+  elem3.category = "test";
+  elem3.data = "elem3's StrData";
+  elem3.description = "elem3 description data";
+  elem3.children.clear();
+
+  db.save(elem3.name, elem3);
+
+  std::cout &lt;&lt; "\n  Retrieving elements from NoSqlDb&lt;string&gt;";
+  std::cout &lt;&lt; "\n ------------------------------------------\n";
+
+  std::cout &lt;&lt; "\n  size of db = " &lt;&lt; db.count() &lt;&lt; "\n";
+  Keys keys = db.keys();
+  for (Key key : keys)
+  {
+<input onclick="expand_collapse(simplediv1571.id, this.id)" type="button" value=" ^ " id="myButton1571" /><div id="simplediv1571" style="display:block; ">
+    std::cout &lt;&lt; "\n  " &lt;&lt; key &lt;&lt; ":";
+    std::cout &lt;&lt; db.value(key).show();
+  }</div>
+  std::cout &lt;&lt; "\n\n";
+  db.deleteKey(elem3);
+  std::cout &lt;&lt; "\n  Deleted element3 from NoSqlDb ";
+  std::cout &lt;&lt; "\n --------------------------------\n";
+
+  keys = db.keys();
+  for (Key key : keys)
+  {
+<input onclick="expand_collapse(simplediv1572.id, this.id)" type="button" value=" ^ " id="myButton1572" /><div id="simplediv1572" style="display:block; ">
+	  std::cout &lt;&lt; "\n  " &lt;&lt; key &lt;&lt; ":";
+	  std::cout &lt;&lt; db.value(key).show();
+  }</div>
+  std::cout &lt;&lt; "\n\n";
+
+  std::cout &lt;&lt; "\n  Creating and saving NoSqlDb elements with int data";
+  std::cout &lt;&lt; "\n ----------------------------------------------------\n";
+
+ /* NoSqlDb&lt;intData&gt; idb;
+
+  Element&lt;intData&gt; ielem1;
+  ielem1.name = "elem1";
+  ielem1.category = "test";
+  ielem1.data = 1;
+
+  idb.save(ielem1.name, ielem1);
+
+  Element&lt;intData&gt; ielem2;
+  ielem2.name = "elem2";
+  ielem2.category = "test";
+  ielem2.data = 2;
+
+  idb.save(ielem2.name, ielem2);
+
+  Element&lt;intData&gt; ielem3;
+  ielem3.name = "elem3";
+  ielem3.category = "test";
+  ielem3.data = 3;
+
+  idb.save(ielem3.name, ielem3);
+
+  Element&lt;intData&gt; ielem4;
+  ielem3.name = "elem4";
+  ielem3.category = "test";
+  ielem3.data = 4;
+
+  idb.save(ielem3.name, ielem3);
+
+  std::cout &lt;&lt; "\n  Retrieving elements from NoSqlDb&lt;int&gt;";
+  std::cout &lt;&lt; "\n ---------------------------------------\n";
+
+  std::cout &lt;&lt; "\n  size of idb = " &lt;&lt; idb.count() &lt;&lt; "\n";
+  Keys ikeys = idb.keys();
+  for (Key key : ikeys)
+  {
+<input onclick="expand_collapse(simplediv1573.id, this.id)" type="button" value=" ^ " id="myButton1573" /><div id="simplediv1573" style="display:block; ">
+    std::cout &lt;&lt; "\n  " &lt;&lt; key &lt;&lt; ":";
+    std::cout &lt;&lt; idb.value(key).show();
+  }</div>*/
+  std::cout &lt;&lt; "\n\n";
+}</div></pre>
+</body>
+</html>
