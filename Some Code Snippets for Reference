@@ -1,0 +1,209 @@
+Tokeniser class:
+* This package provides a public SemiExp class that collects and makes
+* available sequences of tokens.  SemiExp uses the services of a Toker
+* class to acquire tokens.  Each call to SemiExp::get() returns a 
+* sequence of tokens that ends in {, }, ;, and '\n' if the line begins
+* with #.  There are three additiona termination conditions: a sequence
+* of tokens that ends with : and the immediately preceding token is
+* public, protected, or private. Based on state design pattern
+
+
+
+SemiExpression Class:
+* This package provides a public SemiExp class that collects and makes
+* available sequences of tokens.  SemiExp uses the services of a Toker
+* class to acquire tokens.  Each call to SemiExp::get() returns a 
+* sequence of tokens that ends in {, }, ;, and '\n' if the line begins
+* with #.  There are three additiona termination conditions: a sequence
+* of tokens that ends with : and the immediately preceding token is
+* public, protected, or private.
+
+
+
+Parser Class:
+This module defines a Parser class.  Its instances collect 
+  semi-expressions from a file for analysis.  Analysis consists of
+  applying a set of rules to the semi-expression, and for each rule
+  that matches, invokes a set of one or more actions
+This is the heart of the Configuration Parser where the tokenism, semi expression, parser and Repository are configured. 
+Also check in this code where we configure independent rules and actions. Refer Strategy design pattern PPT for the diagram.
+
+Parser* ConfigParseForCodeAnal::Build()
+{
+  try
+  {
+    // add Parser's main parts
+
+    pToker = new Toker;
+    pToker->returnComments(false);
+    pSemi = new SemiExp(pToker);
+    pParser = new Parser(pSemi);
+    pRepo = new Repository(pToker);
+
+    // configure to manage scope
+    // these must come first - they return true on match
+    // so rule checking continues
+
+    pBeginScope = new BeginScope();
+    pHandleBeginScope = new HandleBeginScope(pRepo);
+    pBeginScope->addAction(pHandleBeginScope);
+    pParser->addRule(pBeginScope);
+
+    pEndScope = new EndScope();
+    pHandleEndScope = new HandleEndScope(pRepo);
+    pEndScope->addAction(pHandleEndScope);
+    pParser->addRule(pEndScope);
+
+    // configure to detect and act on function definitions
+    // these will stop further rule checking by returning false
+
+    pPreprocStatement = new PreprocStatement;
+    pHandlePreprocStatement = new HandlePreprocStatement(pRepo);
+    pPreprocStatement->addAction(pHandlePreprocStatement);
+    pParser->addRule(pPreprocStatement);
+
+    pNamespaceDefinition = new NamespaceDefinition;
+    pHandleNamespaceDefinition = new HandleNamespaceDefinition(pRepo);
+    pNamespaceDefinition->addAction(pHandleNamespaceDefinition);
+    pParser->addRule(pNamespaceDefinition);
+
+    pClassDefinition = new ClassDefinition;
+    pHandleClassDefinition = new HandleClassDefinition(pRepo);
+    pClassDefinition->addAction(pHandleClassDefinition);
+    pParser->addRule(pClassDefinition);
+
+    pStructDefinition = new StructDefinition;
+    pHandleStructDefinition = new HandleStructDefinition(pRepo);
+    pStructDefinition->addAction(pHandleStructDefinition);
+    pParser->addRule(pStructDefinition);
+
+    pCppFunctionDefinition = new CppFunctionDefinition;
+    pHandleCppFunctionDefinition = new HandleCppFunctionDefinition(pRepo);  // no action
+    pCppFunctionDefinition->addAction(pHandleCppFunctionDefinition);
+    pParser->addRule(pCppFunctionDefinition);
+
+    pCSharpFunctionDefinition = new CSharpFunctionDefinition;
+    pHandleCSharpFunctionDefinition = new HandleCSharpFunctionDefinition(pRepo);  // no action
+    pCSharpFunctionDefinition->addAction(pHandleCSharpFunctionDefinition);
+    pParser->addRule(pCSharpFunctionDefinition);
+
+    // configure to detect and act on declarations and Executables
+
+    pControlDefinition = new ControlDefinition;
+    pHandleControlDefinition = new HandleControlDefinition(pRepo);
+    pControlDefinition->addAction(pHandleControlDefinition);
+    pParser->addRule(pControlDefinition);
+
+    pCppDeclaration = new CppDeclaration;
+    pHandleCppDeclaration = new HandleCppDeclaration(pRepo);
+    pCppDeclaration->addAction(pHandleCppDeclaration);
+    pParser->addRule(pCppDeclaration);
+
+    pCSharpDeclaration = new CSharpDeclaration;
+    pHandleCSharpDeclaration = new HandleCSharpDeclaration(pRepo);
+    pCSharpDeclaration->addAction(pHandleCSharpDeclaration);
+    pParser->addRule(pCSharpDeclaration);
+
+    pCppExecutable = new CppExecutable;
+    pHandleCppExecutable = new HandleCppExecutable(pRepo);
+    pCppExecutable->addAction(pHandleCppExecutable);
+    pParser->addRule(pCppExecutable);
+
+    pCSharpExecutable = new CSharpExecutable;
+    pHandleCSharpExecutable = new HandleCSharpExecutable(pRepo);
+    pCSharpExecutable->addAction(pHandleCSharpExecutable);
+    pParser->addRule(pCSharpExecutable);
+
+    pDefault = new Default;
+    pHandleDefault = new HandleDefault(pRepo);
+    pDefault->addAction(pHandleDefault);
+    pParser->addRule(pDefault);
+
+    return pParser;
+  }
+  catch(std::exception& ex)
+  {
+    std::cout << "\n\n  " << ex.what() << "\n\n";
+    return 0;
+  }
+}
+
+
+
+
+//----< add ASTNode ptr to stack top element's children and push >---
+/*
+ * - Add new scope to ScopeStack after linking to its parent scope
+ * - If type is a class or struct, add to typeMap
+ */
+void AbstrSynTree::add(ASTNode* pNode)
+{
+  pNode->parentType_ = stack_.top()->type_;
+  stack_.top()->children_.push_back(pNode);  // add as child of stack top
+  stack_.push(pNode);                        // push onto stack
+  if (pNode->type_ == "class" || pNode->type_ == "struct" || pNode->type_ == "interface")
+    typeMap_[pNode->name_] = pNode;
+}
+
+//----< find a type node using typeMap >-----------------------------
+/*
+*  Retrieve ASTNode of class if it exists
+*/
+ASTNode* AbstrSynTree::find(const ClassName& className)
+{
+  auto iter = typeMap_.find(className);
+  if (iter != typeMap_.end())
+  {
+    return iter->second;
+  }
+  return nullptr;
+}
+
+Example of AST usage:
+
+ScopeStack<ASTNode*> stack;
+  AbstrSynTree ast(stack);
+  ASTNode* pX = new ASTNode("class", "X");
+  ast.add(pX);                                        // add X scope
+  ASTNode* pf1 = new ASTNode("function", "f1");
+  ast.add(pf1);                                       // add f1 scope
+  ASTNode* pc1 = new ASTNode("control", "if");
+  ast.add(pc1);                                       // add c1 scope
+  ast.pop();                                          // end c1 scope
+  ast.pop();                                          // end f1 scope
+  ASTNode* pf2 = new ASTNode("function", "f2");
+  ast.add(pf2);                                       // add f2 scope
+  ast.pop();                                          // end f2 scope
+  ast.pop();                                          // end X scope
+
+
+Type Analysis 
+inline void TypeAnal::DFS(ASTNode* pNode)
+	{
+		static std::string path = "";
+		if (pNode->path_ != path)
+		{
+			path = pNode->path_ + "\\" + pNode->package_;
+			//std::cout << "\n    -- " << pNode->path_ << "\\" << pNode->package_;
+			//path = pNode->path_;
+		}
+		//if (doDisplay(pNode))
+		//{
+		//	//std::cout << "\n  " << pNode->name_;
+		//	std::cout << ", " << pNode->type_;
+		//}
+
+		if ((pNode->type_ == "class") || (pNode->type_ == "struct") || (pNode->type_ == "interface") || (pNode->type_ == "enum") /*|| (pNode->type_ == "function")*/ )
+		{
+		//	typeTable_.InsertIntoTT(pNode->name_, pNode->package_);
+
+			StoreData s1;
+			s1.name = pNode->name_;
+			s1.type = pNode->type_;
+			s1.filename = pNode->path_;
+			typeTable_.InsertIntoTT(pNode->name_,s1);
+		}
+		for (auto pChild : pNode->children_)
+			DFS(pChild);
+	}
+
